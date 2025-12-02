@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nominalisierung - Mindful Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SHARED DESIGN SYSTEM --- */
+        :root {
+            --bg-body: #F5F2EB; 
+            --bg-surface: #FFFFFF;
+            
+            --text-main: #3E3630;
+            --text-muted: #8C8075;
+            
+            --accent-primary: #A67B5B;
+            --accent-light: #E3D4C5;
+            --accent-subtle: #FAF6F3;
+            
+            --style-verbal: #6B8C6E; /* Sage (Natural flow) */
+            --style-nominal: #C07766; /* Terracotta (Dense/Formal) */
+            
+            --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.06);
+            --shadow-float: 0 12px 40px rgba(62, 54, 48, 0.08);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .header-bar {
+            height: 70px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .back-link:hover { color: var(--text-main); }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--text-main);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        /* --- EXPLANATION CARD --- */
+        .concept-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            padding: 40px;
+            margin-bottom: 48px;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 32px;
+            position: relative;
+        }
+
+        /* Decorative Arrow in middle */
+        .comparison-arrow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 1px solid #EEE;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted);
+            box-shadow: var(--shadow-card);
+            z-index: 2;
+        }
+
+        .style-box {
+            background: var(--accent-subtle);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            position: relative;
+            border-top: 4px solid transparent;
+        }
+
+        .style-box.verbal { border-color: var(--style-verbal); }
+        .style-box.nominal { border-color: var(--style-nominal); }
+
+        .style-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .verbal .style-label { color: var(--style-verbal); }
+        .nominal .style-label { color: var(--style-nominal); }
+
+        .example-sentence {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .analysis {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px dashed rgba(0,0,0,0.1);
+            padding-top: 12px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+        .hl-v { color: var(--style-verbal); background: rgba(107, 140, 110, 0.1); }
+        .hl-n { color: var(--style-nominal); background: rgba(192, 119, 102, 0.1); }
+
+        /* --- TRANSFORMATION TABLE --- */
+        .table-section h2 { font-family: 'Merriweather', serif; font-size: 1.5rem; margin-bottom: 24px; }
+
+        .transform-table {
+            width: 100%;
+            background: var(--bg-surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            border-collapse: collapse;
+        }
+
+        .transform-table th {
+            text-align: left;
+            padding: 16px 24px;
+            background: var(--accent-subtle);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .transform-table td {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 1rem;
+        }
+        .transform-table tr:last-child td { border-bottom: none; }
+
+        .term-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #F0F0F0;
+            color: var(--text-muted);
+        }
+
+        /* --- INTERACTIVE TOGGLE EXERCISE --- */
+        .interactive-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .interactive-box {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            padding: 48px;
+            margin-top: 24px;
+            text-align: left;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-controls {
+            display: flex;
+            justify-content: center;
+            background: #EBE5DA;
+            padding: 4px;
+            border-radius: 50px;
+            display: inline-flex;
+            margin-bottom: 24px;
+        }
+
+        .toggle-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            background: transparent;
+            transition: 0.2s;
+        }
+
+        .toggle-btn.active {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .text-content {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            min-height: 120px;
+        }
+        
+        .text-content span {
+            transition: color 0.3s, background 0.3s;
+            padding: 2px 0;
+            border-radius: 4px;
+        }
+
+        /* Animation Helper */
+        .fade-enter { animation: fadeIn 0.4s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+            .comparison-arrow { transform: translate(-50%, -50%) rotate(90deg); top: auto; bottom: -20px; left: 50%; }
+            .transform-table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <a href="#" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Grammatik-Übersicht
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <span class="topic-badge">C1 • Wissenschaftssprache</span>
+        <h1>Nominalisierung & Verbalisierung</h1>
+        <p class="intro">
+            Der Schlüssel zu komplexen deutschen Texten. Verwandle Nebensätze in kompakte Nomen-Konstruktionen, um deinen Stil präziser und akademischer zu gestalten.
+        </p>
+
+        <!-- CONCEPT COMPARISON -->
+        <section class="concept-card">
+            <h2 style="font-family: 'Merriweather', serif; font-size: 1.5rem;">Das Prinzip</h2>
+            <p style="color: var(--text-muted); margin-bottom: 8px;">
+                In der Alltagssprache nutzen wir oft Verben (Verbalstil). In Zeitungen, Berichten und der Wissenschaft dominiert das Nomen (Nominalstil).
+            </p>
+
+            <div class="comparison-grid">
+                <div class="comparison-arrow">→</div>
+                
+                <!-- Verbal Box -->
+                <div class="style-box verbal">
+                    <span class="style-label">Verbalstil (B1/B2)</span>
+                    <p class="example-sentence">
+                        <span class="highlight hl-v">Weil</span> es heute stark <span class="highlight hl-v">regnet</span>, fällt das Fest aus.
+                    </p>
+                    <div class="analysis">
+                        Konnektor + Subjekt + <strong>Verb</strong>
+                    </div>
+                </div>
+
+                <!-- Nominal Box -->
+                <div class="style-box nominal">
+                    <span class="style-label">Nominalstil (C1)</span>
+                    <p class="example-sentence">
+                        <span class="highlight hl-n">Aufgrund</span> des starken <span class="highlight hl-n">Regens</span> fällt das Fest aus.
+                    </p>
+                    <div class="analysis">
+                        Präposition + <strong>Nomen</strong> (Genitiv)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSFORMATION TABLE -->
+        <section class="table-section">
+            <h2>Wichtige Transformationen</h2>
+            <table class="transform-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Logik</th>
+                        <th style="width: 35%;">Verbal (Konnektor)</th>
+                        <th style="width: 45%;">Nominal (Präposition + Genitiv)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="term-tag">Kausal</span></td>
+                        <td>weil, da</td>
+                        <td style="color: var(--text-main); font-weight: 500;">aufgrund, wegen, dank</td>
+                    </tr>
+                    <tr>
+                        <td><span class="term-tag">Konzessiv</span></td>
+                        <td>obwohl, obgleich</td>
+                        <td style="color: var(--text-main); font-weight: 500;">trotz, ungeachtet</td>
+                    </tr>
+                    <tr>
+                        <td><span class="term-tag">Temporal</span></td>
+                        <td>nachdem, bevor</td>
+                        <td style="color: var(--text-main); font-weight: 500;">nach, vor</td>
+                    </tr>
+                    <tr>
+                        <td><span class="term-tag">Final</span></td>
+                        <td>damit, um... zu</td>
+                        <td style="color: var(--text-main); font-weight: 500;">zu, zwecks, für</td>
+                    </tr>
+                    <tr>
+                        <td><span class="term-tag">Konditional</span></td>
+                        <td>wenn, falls</td>
+                        <td style="color: var(--text-main); font-weight: 500;">bei, im Falle</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- INTERACTIVE EXAMPLE -->
+        <section class="interactive-section">
+            <h2 style="font-family: 'Merriweather', serif; margin-bottom: 16px;">Stil-Vergleich</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Wechsle den Modus, um den Unterschied in der Informationsdichte zu sehen.</p>
+
+            <div class="toggle-controls">
+                <button class="toggle-btn active" onclick="setStyle('verbal')" id="btn-verbal">Verbalstil (Alltag)</button>
+                <button class="toggle-btn" onclick="setStyle('nominal')" id="btn-nominal">Nominalstil (Akademisch)</button>
+            </div>
+
+            <div class="interactive-box" id="textBox">
+                <div class="text-content" id="text-display">
+                    <!-- Content injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <div style="height: 80px;"></div>
+    </div>
+
+    <script>
+        // Sentences Data
+        const content = {
+            verbal: `
+                <span style="color: var(--style-verbal); font-weight:600;">Nachdem</span> der Wissenschaftler die Daten <span style="color: var(--style-verbal); font-weight:600;">analysiert hatte</span>, veröffentlichte er die Ergebnisse. 
+                <br><br>
+                <span style="color: var(--style-verbal); font-weight:600;">Weil</span> die Temperaturen weltweit <span style="color: var(--style-verbal); font-weight:600;">steigen</span>, schmilzt das Eis schneller als erwartet.
+            `,
+            nominal: `
+                <span style="color: var(--style-nominal); font-weight:600;">Nach der Analyse</span> der Daten veröffentlichte der Wissenschaftler die Ergebnisse.
+                <br><br>
+                <span style="color: var(--style-nominal); font-weight:600;">Aufgrund des weltweiten Temperaturanstiegs</span> schmilzt das Eis schneller als erwartet.
+            `
+        };
+
+        const display = document.getElementById('text-display');
+        const btnVerbal = document.getElementById('btn-verbal');
+        const btnNominal = document.getElementById('btn-nominal');
+        const box = document.getElementById('textBox');
+
+        // Initial Load
+        display.innerHTML = content.verbal;
+
+        function setStyle(style) {
+            // Animation Reset
+            display.classList.remove('fade-enter');
+            void display.offsetWidth; // Trigger reflow
+            display.classList.add('fade-enter');
+
+            // Update Content
+            display.innerHTML = content[style];
+
+            // Update Buttons
+            if (style === 'verbal') {
+                btnVerbal.classList.add('active');
+                btnNominal.classList.remove('active');
+                box.style.borderLeft = "4px solid var(--style-verbal)";
+            } else {
+                btnNominal.classList.add('active');
+                btnVerbal.classList.remove('active');
+                box.style.borderLeft = "4px solid var(--style-nominal)";
+            }
+        }
+        
+        // Set initial border
+        box.style.borderLeft = "4px solid var(--style-verbal)";
+
+    </script>
+
+</body>
+</html>

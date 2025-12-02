@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wortstellung (TeKaMoLo) - Mindful Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SHARED DESIGN SYSTEM --- */
+        :root {
+            --bg-body: #F5F2EB; 
+            --bg-surface: #FFFFFF;
+            
+            --text-main: #3E3630;
+            --text-muted: #8C8075;
+            
+            --accent-primary: #A67B5B;
+            --accent-hover: #8D6546;
+            --accent-light: #E3D4C5;
+            --accent-subtle: #FAF6F3;
+            
+            /* TeKaMoLo Colors */
+            --col-te: #6B8C6E; /* Sage (Time flows) */
+            --col-ka: #C07766; /* Terracotta (Reason is foundational) */
+            --col-mo: #D9A441; /* Mustard (Mode/Style) */
+            --col-lo: #A67B5B; /* Caramel (Location/Earth) */
+            
+            --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.06);
+            --shadow-float: 0 12px 40px rgba(62, 54, 48, 0.08);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .header-bar {
+            height: 70px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .back-link:hover { color: var(--text-main); }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--text-main);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        /* --- THE TRAIN VISUAL --- */
+        .train-section {
+            margin-bottom: 60px;
+            overflow-x: auto;
+            padding-bottom: 20px; /* Scrollbar space */
+        }
+
+        .train-container {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            min-width: 700px;
+        }
+
+        .train-car {
+            background: var(--bg-surface);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-bottom: 4px solid transparent;
+        }
+
+        /* Connectors between cars */
+        .train-car:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -16px;
+            top: 50%;
+            width: 16px;
+            height: 4px;
+            background: #D1D1D1;
+            z-index: -1;
+        }
+
+        .train-car.te { border-color: var(--col-te); }
+        .train-car.ka { border-color: var(--col-ka); }
+        .train-car.mo { border-color: var(--col-mo); }
+        .train-car.lo { border-color: var(--col-lo); }
+
+        .car-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .te .car-label { color: var(--col-te); }
+        .ka .car-label { color: var(--col-ka); }
+        .mo .car-label { color: var(--col-mo); }
+        .lo .car-label { color: var(--col-lo); }
+
+        .car-question {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .car-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- COMPARISON CARD --- */
+        .comparison-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            padding: 32px;
+            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .comp-column h3 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comp-sent {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .comp-hl {
+            font-weight: 700;
+            padding: 0 2px;
+            border-radius: 4px;
+        }
+
+        .divider { width: 1px; height: 100%; background: rgba(0,0,0,0.1); }
+
+        /* --- INTERACTIVE SORTER --- */
+        .sorter-section {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            padding: 48px;
+            text-align: center;
+        }
+
+        .sorter-header h2 { font-family: 'Merriweather', serif; font-size: 1.8rem; margin-bottom: 8px; }
+
+        /* Slots Area */
+        .slots-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .slot {
+            width: 140px;
+            height: 60px;
+            border: 2px dashed #CCC;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FAFAFA;
+            font-size: 0.8rem;
+            color: #AAA;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .slot.filled {
+            border-style: solid;
+            background: white;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-family: 'Merriweather', serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* Specific Colors for Filled Slots */
+        .slot[data-type="te"].filled { border-color: var(--col-te); color: var(--col-te); }
+        .slot[data-type="ka"].filled { border-color: var(--col-ka); color: var(--col-ka); }
+        .slot[data-type="mo"].filled { border-color: var(--col-mo); color: var(--col-mo); }
+        .slot[data-type="lo"].filled { border-color: var(--col-lo); color: var(--col-lo); }
+
+        /* Word Bank */
+        .word-bank {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .word-chip {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .word-chip:hover { transform: translateY(-3px); border-color: var(--accent-light); }
+        .word-chip.used { opacity: 0; pointer-events: none; transform: scale(0.8); }
+
+        /* Result Message */
+        .feedback-msg {
+            margin-top: 24px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            min-height: 24px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .feedback-msg.visible { opacity: 1; }
+
+        /* Sentence Context */
+        .sentence-frame {
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            font-family: 'Merriweather', serif;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 768px) {
+            .comparison-card { grid-template-columns: 1fr; gap: 24px; }
+            .divider { display: none; }
+            .slots-row { flex-direction: column; align-items: center; }
+            .slot { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <a href="#" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Grammatik-Übersicht
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <span class="topic-badge">B2 • Wortstellung</span>
+        <h1>TeKaMoLo</h1>
+        <p class="intro">
+            Die goldene Regel für das Mittelfeld im deutschen Satz. Wenn mehrere Angaben in einem Satz stehen, folgen sie meist dieser strengen Reihenfolge.
+        </p>
+
+        <!-- TRAIN VISUAL -->
+        <div class="train-section">
+            <div class="train-container">
+                
+                <!-- TE -->
+                <div class="train-car te">
+                    <div class="car-label">1. Te</div>
+                    <div class="car-question">Wann?</div>
+                    <div class="car-sub">Temporal</div>
+                    <div style="margin-top:12px; font-weight:600; color:var(--col-te);">heute</div>
+                </div>
+
+                <!-- KA -->
+                <div class="train-car ka">
+                    <div class="car-label">2. Ka</div>
+                    <div class="car-question">Warum?</div>
+                    <div class="car-sub">Kausal</div>
+                    <div style="margin-top:12px; font-weight:600; color:var(--col-ka);">wegen des Regens</div>
+                </div>
+
+                <!-- MO -->
+                <div class="train-car mo">
+                    <div class="car-label">3. Mo</div>
+                    <div class="car-question">Wie?</div>
+                    <div class="car-sub">Modal</div>
+                    <div style="margin-top:12px; font-weight:600; color:var(--col-mo);">mit dem Bus</div>
+                </div>
+
+                <!-- LO -->
+                <div class="train-car lo">
+                    <div class="car-label">4. Lo</div>
+                    <div class="car-question">Wo/Wohin?</div>
+                    <div class="car-sub">Lokal</div>
+                    <div style="margin-top:12px; font-weight:600; color:var(--col-lo);">nach Hause</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ENGLISH VS GERMAN -->
+        <div class="comparison-card">
+            <div class="comp-column">
+                <h3>Deutsch (Zeit vor Ort)</h3>
+                <div class="comp-sent">
+                    Ich fahre <span class="comp-hl" style="color:var(--col-te); background: rgba(107, 140, 110, 0.15);">heute</span> <span class="comp-hl" style="color:var(--col-lo); background: rgba(166, 123, 91, 0.15);">nach Berlin</span>.
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="comp-column">
+                <h3>Englisch (Ort vor Zeit)</h3>
+                <div class="comp-sent" style="color: var(--text-muted);">
+                    I am going <span class="comp-hl" style="text-decoration: underline;">to Berlin</span> <span class="comp-hl" style="text-decoration: underline;">today</span>.
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE SORTER -->
+        <section class="sorter-section">
+            <div class="sorter-header">
+                <h2>Der Satz-Baukasten</h2>
+                <p style="color: var(--text-muted);">Klicke die Bausteine in der richtigen Reihenfolge an.</p>
+            </div>
+
+            <div class="sentence-frame">
+                Ich fahre...
+            </div>
+
+            <!-- Slots -->
+            <div class="slots-row">
+                <div class="slot" data-index="0" data-type="te">Wann?</div>
+                <div class="slot" data-index="1" data-type="ka">Warum?</div>
+                <div class="slot" data-index="2" data-type="mo">Wie?</div>
+                <div class="slot" data-index="3" data-type="lo">Wohin?</div>
+            </div>
+
+            <!-- Word Bank -->
+            <div class="word-bank">
+                <button class="word-chip" onclick="placeWord(this, 'mo')">gern</button>
+                <button class="word-chip" onclick="placeWord(this, 'lo')">ins Büro</button>
+                <button class="word-chip" onclick="placeWord(this, 'te')">morgens</button>
+                <button class="word-chip" onclick="placeWord(this, 'ka')">wegen der Arbeit</button>
+            </div>
+
+            <div class="feedback-msg" id="feedback"></div>
+        </section>
+
+        <div style="height: 80px;"></div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        const slots = document.querySelectorAll('.slot');
+        const feedback = document.getElementById('feedback');
+        
+        // Correct Order: TE (morgens), KA (wegen..), MO (gern), LO (ins Büro)
+        // Array of expected types for index 0, 1, 2, 3
+        const expectedTypes = ['te', 'ka', 'mo', 'lo'];
+
+        function placeWord(btn, type) {
+            if (currentStep > 3) return; // Done
+
+            const expected = expectedTypes[currentStep];
+
+            if (type === expected) {
+                // Success
+                const targetSlot = slots[currentStep];
+                targetSlot.innerText = btn.innerText;
+                targetSlot.classList.add('filled');
+                
+                // Hide button
+                btn.classList.add('used');
+                
+                currentStep++;
+
+                if(currentStep === 4) {
+                    feedback.innerText = "Perfekt! Te - Ka - Mo - Lo.";
+                    feedback.classList.add('visible');
+                    feedback.style.color = "var(--text-main)";
+                } else {
+                    feedback.classList.remove('visible');
+                }
+            } else {
+                // Error Animation
+                btn.style.animation = 'none';
+                btn.offsetHeight; /* trigger reflow */
+                btn.style.animation = 'shake 0.4s';
+                btn.style.borderColor = 'var(--col-ka)'; // Red-ish
+                
+                feedback.innerText = "Falsche Reihenfolge! Denk an Te-Ka-Mo-Lo.";
+                feedback.classList.add('visible');
+                feedback.style.color = "var(--col-ka)";
+                
+                setTimeout(() => {
+                    btn.style.borderColor = 'rgba(0,0,0,0.1)';
+                }, 500);
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hörverstehen C1 - Mindful Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SHARED DESIGN SYSTEM --- */
+        :root {
+            --bg-body: #F5F2EB; 
+            --bg-surface: #FFFFFF;
+            
+            --text-main: #3E3630;
+            --text-muted: #8C8075;
+            
+            --accent-primary: #A67B5B;
+            --accent-hover: #8D6546;
+            --accent-light: #E3D4C5;
+            --accent-subtle: #FAF6F3;
+            
+            --signal-color: #D9A441; /* Mustard for Signals */
+            
+            --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.06);
+            --shadow-float: 0 12px 40px rgba(62, 54, 48, 0.08);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .header-bar {
+            height: 70px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .back-link:hover { color: var(--text-main); }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--text-main);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        /* --- AUDIO PLAYER VISUAL --- */
+        .player-card {
+            background: #3E3630;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            color: white;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-float);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .play-btn {
+            width: 80px; height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .play-btn:hover { transform: scale(1.05); }
+
+        .waveform-container {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 6px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        
+        /* Creating a random-looking wave pattern with CSS delays */
+        .bar:nth-child(odd) { height: 40%; animation-duration: 0.8s; }
+        .bar:nth-child(even) { height: 70%; animation-duration: 1.1s; }
+        .bar:nth-child(3n) { height: 100%; animation-duration: 1.3s; }
+        .bar:nth-child(4n) { height: 50%; animation-duration: 0.9s; }
+
+        .playing .bar { background: var(--accent-primary); }
+        .paused .bar { animation-play-state: paused; background: rgba(255,255,255,0.3); }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.3); }
+        }
+
+        /* --- SIGNAL WORD RADAR --- */
+        .radar-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .transcript-blur {
+            background: var(--bg-surface);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-muted);
+        }
+
+        /* Simulating "Selective Listening" by blurring filler text */
+        .blur-text {
+            color: transparent;
+            text-shadow: 0 0 8px rgba(0,0,0,0.2);
+            user-select: none;
+        }
+
+        .signal-highlight {
+            color: var(--text-main);
+            background-color: rgba(217, 164, 65, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            border-bottom: 2px solid var(--signal-color);
+        }
+
+        .signal-highlight:hover::after {
+            content: attr(data-role);
+            position: absolute;
+            bottom: 100%; left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-main);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            margin-bottom: 6px;
+        }
+
+        .radar-info h3 { margin-bottom: 16px; }
+        
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            border-left: 4px solid var(--accent-light);
+        }
+        .info-card strong { color: var(--text-main); display: block; margin-bottom: 4px; }
+        .info-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- SHORTHAND TRAINER --- */
+        .shorthand-section {
+            background: var(--accent-subtle);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            text-align: center;
+        }
+
+        .shorthand-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .short-card {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            width: 140px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .short-card:hover { transform: translateY(-4px); }
+
+        .full-word { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; display: block; }
+        .symbol { font-family: 'JetBrains Mono', monospace; font-size: 2rem; color: var(--accent-primary); font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .player-card { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+            .radar-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <a href="#" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zum Dashboard
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <span class="topic-badge">C1 • Hörverstehen</span>
+        <h1>Struktur & Notizen</h1>
+        <p class="intro">
+            In akademischen Vorlesungen (TestDaF HV3 / DSH) verliert man schnell den Faden. Das Geheimnis: Höre nicht auf jedes Wort, sondern auf die "Wegweiser" (Signalwörter).
+        </p>
+
+        <!-- AUDIO PLAYER -->
+        <div class="player-card paused" id="player">
+            <div class="play-btn" onclick="toggleAudio()">
+                <svg id="icon-play" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <svg id="icon-pause" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+            </div>
+            
+            <div>
+                <div style="font-weight: 600; margin-bottom: 8px; opacity: 0.8;">TRACK 04: Die Zukunft der Mobilität</div>
+                <div class="waveform-container">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIGNAL RADAR -->
+        <div class="radar-section">
+            
+            <!-- Simulated Hearing Experience -->
+            <div class="transcript-blur">
+                <span class="blur-text">Lorem ipsum dolor sit amet, consectetur</span>
+                <span class="signal-highlight" data-role="Start des Themas">Zunächst einmal</span>
+                <span class="blur-text">adipiscing elit sed do eiusmod tempor</span>
+                <span class="signal-highlight" data-role="Gegensatz / Problem">Allerdings</span>
+                <span class="blur-text">incididunt ut labore et dolore magna aliqua</span>
+                <span class="signal-highlight" data-role="Grund / Ursache">Dies liegt daran, dass</span>
+                <span class="blur-text">ut enim ad minim veniam quis nostrud</span>
+                <span class="signal-highlight" data-role="Beispiel">Veranschaulichen lässt sich dies am</span>
+                <span class="blur-text">exercitation ullamco laboris nisi ut aliquip</span>.
+            </div>
+
+            <div class="radar-info">
+                <h3 style="font-family: 'Merriweather', serif;">Gliederungssignale</h3>
+                <div class="info-card">
+                    <strong>Strukturierung</strong>
+                    <p>"Zunächst", "Als nächstes", "Abschließend". Diese Wörter sagen dir, wo im Fragenbogen du sein musst.</p>
+                </div>
+                <div class="info-card">
+                    <strong>Widerspruch</strong>
+                    <p>"Allerdings", "Jedoch", "Demgegenüber". Hier kommt oft die eigentliche Prüfungsantwort (die "Falle" wird aufgelöst).</p>
+                </div>
+                <div class="info-card">
+                    <strong>Begründung</strong>
+                    <p>"Dies ist darauf zurückzuführen", "Ursächlich hierfür". Achte auf Kausalitäten.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SHORTHAND TRAINER -->
+        <section class="shorthand-section">
+            <h2 style="font-family: 'Merriweather', serif; margin-bottom: 16px;">Mitschreib-Technik</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Schreibe nie ganze Sätze. Nutze Symbole für Prozesse.</p>
+
+            <div class="shorthand-grid">
+                <div class="short-card">
+                    <span class="full-word">steigen / wachsen</span>
+                    <span class="symbol">↑</span>
+                </div>
+                <div class="short-card">
+                    <span class="full-word">sinken / fallen</span>
+                    <span class="symbol">↓</span>
+                </div>
+                <div class="short-card">
+                    <span class="full-word">verursacht / führt zu</span>
+                    <span class="symbol">→</span>
+                </div>
+                <div class="short-card">
+                    <span class="full-word">Gegensatz</span>
+                    <span class="symbol">vs</span>
+                </div>
+                <div class="short-card">
+                    <span class="full-word">Durchschnitt</span>
+                    <span class="symbol">Ø</span>
+                </div>
+            </div>
+        </section>
+
+        <div style="height: 80px;"></div>
+    </div>
+
+    <script>
+        const player = document.getElementById('player');
+        const playIcon = document.getElementById('icon-play');
+        const pauseIcon = document.getElementById('icon-pause');
+        let isPlaying = false;
+
+        function toggleAudio() {
+            if(isPlaying) {
+                player.classList.remove('playing');
+                player.classList.add('paused');
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            } else {
+                player.classList.add('playing');
+                player.classList.remove('paused');
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+
+</body>
+</html>

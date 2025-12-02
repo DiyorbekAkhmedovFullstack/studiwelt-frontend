@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafikbeschreibung - Mindful Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SHARED DESIGN SYSTEM --- */
+        :root {
+            --bg-body: #F5F2EB; 
+            --bg-surface: #FFFFFF;
+            
+            --text-main: #3E3630;
+            --text-muted: #8C8075;
+            
+            --accent-primary: #A67B5B;
+            --accent-hover: #8D6546;
+            --accent-light: #E3D4C5;
+            --accent-subtle: #FAF6F3;
+            
+            /* Trend Colors */
+            --trend-up: #6B8C6E; /* Sage */
+            --trend-down: #C07766; /* Terracotta */
+            --trend-flat: #D9A441; /* Mustard */
+            
+            --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.06);
+            --shadow-float: 0 12px 40px rgba(62, 54, 48, 0.08);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .header-bar {
+            height: 70px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .back-link:hover { color: var(--text-main); }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--text-main);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        /* --- TREND MONITOR (Grid) --- */
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .trend-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+            border-top: 6px solid transparent;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .trend-card:hover { transform: translateY(-4px); }
+
+        .trend-card.up { border-color: var(--trend-up); }
+        .trend-card.down { border-color: var(--trend-down); }
+        .trend-card.flat { border-color: var(--trend-flat); }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .trend-icon {
+            font-size: 1.5rem;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .up .trend-icon { background: rgba(107, 140, 110, 0.15); color: var(--trend-up); }
+        .down .trend-icon { background: rgba(192, 119, 102, 0.15); color: var(--trend-down); }
+        .flat .trend-icon { background: rgba(217, 164, 65, 0.15); color: var(--trend-flat); }
+
+        .trend-title { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.1rem; }
+
+        .vocab-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vocab-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed rgba(0,0,0,0.05);
+        }
+        .vocab-item:last-child { border-bottom: none; }
+
+        .v-verb { display: block; font-weight: 600; color: var(--text-main); margin-bottom: 2px; }
+        .v-noun { display: block; font-size: 0.85rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+        /* --- PREPOSITION CALCULATOR --- */
+        .prep-section {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            padding: 48px;
+            margin-bottom: 60px;
+        }
+
+        .prep-header h2 { font-family: 'Merriweather', serif; font-size: 1.8rem; margin-bottom: 8px; }
+
+        .calculator-stage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: end;
+        }
+
+        /* The Bar Chart Visual */
+        .chart-container {
+            height: 300px;
+            background: var(--accent-subtle);
+            border-radius: var(--radius-md);
+            position: relative;
+            padding: 0 40px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .y-axis {
+            position: absolute;
+            left: 10px; top: 20px; bottom: 20px;
+            width: 1px; background: #CCC;
+            display: flex; flex-direction: column; justify-content: space-between;
+            font-size: 0.7rem; color: #999;
+        }
+
+        .bar-group {
+            width: 100px;
+            position: relative;
+            transition: height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Start State (Ghost) */
+        .bar-ghost {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 100px; /* Base 100 */
+            background: rgba(62, 54, 48, 0.1);
+            border-top: 2px dashed #999;
+            z-index: 1;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Dynamic Bar */
+        .bar-fill {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 100px; /* Initial */
+            background: var(--accent-primary);
+            border-radius: 8px 8px 0 0;
+            z-index: 2;
+            transition: height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 10px;
+            color: white;
+            font-weight: 700;
+            overflow: hidden;
+        }
+
+        /* Controls */
+        .controls-area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .scenario-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .btn-prep {
+            padding: 16px 24px;
+            border: 2px solid rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-prep:hover { transform: translateY(-2px); border-color: var(--accent-light); }
+        
+        .btn-prep.active {
+            border-color: var(--accent-primary);
+            background: var(--accent-subtle);
+        }
+
+        .prep-label { font-weight: 700; color: var(--text-main); display: block; margin-bottom: 4px; font-size: 1.1rem; }
+        .prep-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* --- REDEMITTEL (Phrasebook) --- */
+        .phrase-section {
+            margin-bottom: 60px;
+        }
+        .phrase-header { font-family: 'Merriweather', serif; font-size: 1.5rem; margin-bottom: 24px; }
+
+        .phrase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .phrase-box {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            border-left: 4px solid var(--accent-light);
+            cursor: pointer;
+            transition: 0.2s;
+            position: relative;
+        }
+        
+        .phrase-box:hover { border-color: var(--accent-primary); }
+        
+        .phrase-cat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .phrase-text { font-weight: 500; color: var(--text-main); }
+
+        .copy-hint {
+            position: absolute;
+            right: 16px; top: 50%; transform: translateY(-50%);
+            font-size: 0.7rem;
+            color: var(--accent-primary);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .phrase-box:hover .copy-hint { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .trend-grid { grid-template-columns: 1fr; }
+            .calculator-stage { grid-template-columns: 1fr; }
+            .phrase-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <a href="#" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Schreibwerkstatt
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <span class="topic-badge">C1 • Schreiben</span>
+        <h1>Grafikbeschreibung</h1>
+        <p class="intro">
+            In Prüfungen wie TestDaF und DSH müssen Grafiken präzise analysiert werden. Wichtig ist der Wechsel zwischen Verbalstil (B2) und Nominalstil (C1) sowie die korrekte Nutzung von Präpositionen.
+        </p>
+
+        <!-- TREND GRID -->
+        <div class="trend-grid">
+            
+            <!-- RISING -->
+            <div class="trend-card up">
+                <div class="card-header">
+                    <div class="trend-title">Steigend ↗</div>
+                    <div class="trend-icon">📈</div>
+                </div>
+                <ul class="vocab-list">
+                    <li class="vocab-item">
+                        <span class="v-verb">ansteigen / wachsen</span>
+                        <span class="v-noun">der Anstieg / das Wachstum</span>
+                    </li>
+                    <li class="vocab-item">
+                        <span class="v-verb">sich erhöhen / zunehmen</span>
+                        <span class="v-noun">die Erhöhung / die Zunahme</span>
+                    </li>
+                    <li class="vocab-item">
+                        <span class="v-verb">sich verdoppeln</span>
+                        <span class="v-noun">die Verdopplung</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- FALLING -->
+            <div class="trend-card down">
+                <div class="card-header">
+                    <div class="trend-title">Fallend ↘</div>
+                    <div class="trend-icon">📉</div>
+                </div>
+                <ul class="vocab-list">
+                    <li class="vocab-item">
+                        <span class="v-verb">sinken / fallen</span>
+                        <span class="v-noun">das Sinken / der Fall</span>
+                    </li>
+                    <li class="vocab-item">
+                        <span class="v-verb">abnehmen / schrumpfen</span>
+                        <span class="v-noun">die Abnahme / die Schrumpfung</span>
+                    </li>
+                    <li class="vocab-item">
+                        <span class="v-verb">sich halbieren</span>
+                        <span class="v-noun">die Halbierung</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CONSTANT -->
+            <div class="trend-card flat">
+                <div class="card-header">
+                    <div class="trend-title">Konstant →</div>
+                    <div class="trend-icon">⏸</div>
+                </div>
+                <ul class="vocab-list">
+                    <li class="vocab-item">
+                        <span class="v-verb">gleich bleiben</span>
+                        <span class="v-noun">die Konstanz</span>
+                    </li>
+                    <li class="vocab-item">
+                        <span class="v-verb">stagnieren</span>
+                        <span class="v-noun">die Stagnation</span>
+                    </li>
+                    <li class="vocab-item">
+                        <span class="v-verb">sich einpendeln bei</span>
+                        <span class="v-noun">das Einpendeln</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- PREPOSITION CALCULATOR -->
+        <section class="prep-section">
+            <div class="prep-header">
+                <h2>Die Mathematik der Präpositionen</h2>
+                <p style="color: var(--text-muted);">Der häufigste Fehler: "um" vs. "auf".</p>
+            </div>
+
+            <div class="calculator-stage">
+                <div class="chart-container">
+                    <div class="y-axis">
+                        <span>250</span>
+                        <span>200</span>
+                        <span>150</span>
+                        <span>100</span>
+                        <span>0</span>
+                    </div>
+                    <!-- Start Bar (Ghost) represents 100 -->
+                    <div class="bar-group">
+                        <div class="bar-ghost"></div>
+                        <div class="bar-fill" id="barFill">100</div>
+                    </div>
+                </div>
+
+                <div class="controls-area">
+                    <div class="scenario-text">
+                        Startwert: <strong>100</strong> Euro.
+                    </div>
+
+                    <div class="btn-prep active" onclick="updateChart(this, 'start')">
+                        <span class="prep-label">Ausgangslage</span>
+                        <span class="prep-desc">Der Preis liegt bei 100 Euro.</span>
+                    </div>
+
+                    <div class="btn-prep" onclick="updateChart(this, 'auf')">
+                        <span class="prep-label">steigen AUF (+ Akk)</span>
+                        <span class="prep-desc">Zielwert. Der Preis steigt <strong>auf</strong> 150 Euro.</span>
+                    </div>
+
+                    <div class="btn-prep" onclick="updateChart(this, 'um')">
+                        <span class="prep-label">steigen UM (+ Akk)</span>
+                        <span class="prep-desc">Differenz. Der Preis steigt <strong>um</strong> 50 Euro (auf 150).</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REDEMITTEL (Copy Paste) -->
+        <h2 class="phrase-header">Wichtige Redemittel (C1)</h2>
+        <div class="phrase-grid">
+            
+            <div class="phrase-box" onclick="copyText(this, 'Die Grafik liefert Informationen über...')">
+                <span class="phrase-cat">Einleitung</span>
+                <span class="phrase-text">"Die Grafik liefert Informationen über..."</span>
+                <span class="copy-hint">Kopieren</span>
+            </div>
+
+            <div class="phrase-box" onclick="copyText(this, 'Auffällig ist, dass...')">
+                <span class="phrase-cat">Auffälligkeiten</span>
+                <span class="phrase-text">"Auffällig ist, dass..."</span>
+                <span class="copy-hint">Kopieren</span>
+            </div>
+
+            <div class="phrase-box" onclick="copyText(this, 'Im Vergleich zum Vorjahr...')">
+                <span class="phrase-cat">Vergleich</span>
+                <span class="phrase-text">"Im Vergleich zum Vorjahr..."</span>
+                <span class="copy-hint">Kopieren</span>
+            </div>
+
+            <div class="phrase-box" onclick="copyText(this, 'Zusammenfassend lässt sich sagen, dass...')">
+                <span class="phrase-cat">Fazit</span>
+                <span class="phrase-text">"Zusammenfassend lässt sich sagen, dass..."</span>
+                <span class="copy-hint">Kopieren</span>
+            </div>
+
+        </div>
+
+        <div style="height: 80px;"></div>
+    </div>
+
+    <script>
+        // --- CHART LOGIC ---
+        const barFill = document.getElementById('barFill');
+        
+        function updateChart(btn, type) {
+            // Reset Buttons
+            document.querySelectorAll('.btn-prep').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Logic: Base Height is 100px (representing 100 value)
+            // The container is 300px.
+            // Start = 100px height
+            // Auf 150 = 150px height
+            // Um 50 = 100 + 50 = 150px height (Logic is same visual, meaning is diff)
+            
+            if (type === 'start') {
+                barFill.style.height = '100px';
+                barFill.style.backgroundColor = 'var(--text-muted)';
+                barFill.innerText = '100';
+            } else if (type === 'auf') {
+                barFill.style.height = '150px';
+                barFill.style.backgroundColor = 'var(--trend-up)';
+                barFill.innerText = '150';
+            } else if (type === 'um') {
+                barFill.style.height = '150px'; // 100 + 50
+                barFill.style.backgroundColor = 'var(--accent-primary)';
+                barFill.innerText = '100 + 50';
+            }
+        }
+
+        // --- COPY LOGIC ---
+        function copyText(element, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const hint = element.querySelector('.copy-hint');
+                const original = hint.innerText;
+                hint.innerText = "Kopiert!";
+                hint.style.color = "var(--trend-up)";
+                
+                setTimeout(() => {
+                    hint.innerText = original;
+                    hint.style.color = "var(--accent-primary)";
+                }, 1500);
+            });
+        }
+    </script>
+
+</body>
+</html>

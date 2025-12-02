@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theorie: Das Passiv - Mindful Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN SYSTEM --- */
+        :root {
+            --bg-body: #F5F2EB; 
+            --bg-surface: #FFFFFF;
+            
+            --text-main: #3E3630;
+            --text-muted: #8C8075;
+            
+            --accent-primary: #A67B5B;
+            --accent-light: #E3D4C5;
+            --accent-subtle: #FAF6F3;
+            
+            /* Semantic Colors */
+            --col-subject: #D9A441; /* The new subject (old object) */
+            --col-verb: #6B8C6E;    /* The verb structure */
+            --col-agent: #C07766;   /* The agent (Von/Durch) */
+            
+            --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.06);
+            --radius-lg: 24px;
+            --radius-md: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 { font-family: 'Merriweather', serif; color: var(--text-main); }
+        
+        h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        h2 { font-size: 1.5rem; margin-bottom: 24px; border-bottom: 2px solid var(--accent-light); padding-bottom: 8px; }
+
+        .intro { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 48px; }
+
+        /* --- CARDS --- */
+        .theory-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+        }
+
+        /* --- VISUAL TRANSFORMER --- */
+        .transform-box {
+            background: var(--accent-subtle);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+        }
+
+        .sentence-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tag.sub { background: rgba(217, 164, 65, 0.15); color: var(--col-subject); }
+        .tag.vrb { background: rgba(107, 140, 110, 0.15); color: var(--col-verb); }
+        .tag.agt { background: rgba(192, 119, 102, 0.15); color: var(--col-agent); }
+
+        .arrow-down {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            margin: 0 auto;
+            opacity: 0.5;
+        }
+
+        /* --- TABS FOR TENSES --- */
+        .tabs { display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; }
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--accent-light);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .tab-btn.active {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        .tense-content { display: none; animation: fadeIn 0.4s; }
+        .tense-content.active { display: block; }
+
+        .formula {
+            font-family: 'JetBrains Mono', monospace;
+            background: #F4F4F4;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid var(--col-verb);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* --- AGENT GRID --- */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .agent-box {
+            border: 1px solid var(--accent-light);
+            padding: 20px;
+            border-radius: var(--radius-md);
+        }
+        .agent-title { color: var(--col-agent); font-weight: 700; margin-bottom: 8px; display: block; }
+
+        /* --- ALERT BOX --- */
+        .alert-box {
+            background: #FFF5F5;
+            border-left: 4px solid #C07766;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-top: 24px;
+        }
+        .alert-title { font-weight: 700; color: #C07766; display: block; margin-bottom: 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 700px) {
+            .agent-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div style="display:inline-block; background:var(--accent-light); padding:6px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; color:var(--text-main); margin-bottom:16px;">B2 • Grammatik</div>
+    <h1>Das Passiv</h1>
+    <p class="intro">
+        Im Passiv wechselt der Fokus: Nicht der "Täter" (Agens) ist wichtig, sondern die Handlung und was mit dem Objekt passiert. Das ursprüngliche Akkusativobjekt wird zum Subjekt.
+    </p>
+
+    <!-- 1. THE BASIC TRANSFORMATION -->
+    <section class="theory-card">
+        <h2>Das Grundprinzip</h2>
+        <div class="transform-box">
+            <!-- Active -->
+            <div class="sentence-row">
+                <span class="tag" style="background:#EEE; color:#999;">AKTIV</span>
+                <span>Der Architekt</span>
+                <span style="text-decoration: underline; text-decoration-color: var(--col-verb); text-decoration-thickness: 2px;">plant</span>
+                <span style="font-weight:700; color: var(--col-subject);">das Haus</span>.
+            </div>
+            
+            <div class="arrow-down">↓</div>
+
+            <!-- Passive -->
+            <div class="sentence-row">
+                <span class="tag" style="background:#EEE; color:#999;">PASSIV</span>
+                <span style="font-weight:700; color: var(--col-subject);">Das Haus</span>
+                <span style="color: var(--col-verb); font-weight:700;">wird</span>
+                <span class="tag agt">von dem Architekten</span>
+                <span style="color: var(--col-verb); font-weight:700;">geplant</span>.
+            </div>
+        </div>
+        <p style="margin-top:24px; font-size:0.9rem; color:var(--text-muted);">
+            Hinweis: Nur <strong>transitive Verben</strong> (Verben mit Akkusativobjekt) können ein persönliches Passiv bilden. "Ich schlafe" oder "Wir fahren" (Intransitiv) bilden nur ein unpersönliches Passiv mit "Es".
+        </p>
+    </section>
+
+    <!-- 2. TENSES & FORMS -->
+    <section class="theory-card">
+        <h2>Zeitformen & Modalverben</h2>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'praesens')">Präsens</button>
+            <button class="tab-btn" onclick="openTab(event, 'praeteritum')">Präteritum</button>
+            <button class="tab-btn" onclick="openTab(event, 'perfekt')">Perfekt / Plusq.</button>
+            <button class="tab-btn" onclick="openTab(event, 'modal')">Mit Modalverben</button>
+        </div>
+
+        <!-- Präsens -->
+        <div id="praesens" class="tense-content active">
+            <span class="formula">werden + Partizip II</span>
+            <p>Die Standardform für aktuelle Prozesse.</p>
+            <p><em>"Die Daten <strong>werden</strong> gerade <strong>analysiert</strong>."</em></p>
+        </div>
+
+        <!-- Präteritum -->
+        <div id="praeteritum" class="tense-content">
+            <span class="formula">wurden + Partizip II</span>
+            <p>Häufig in Berichten, Nachrichten und Erzählungen.</p>
+            <p><em>"Die Brücke <strong>wurde</strong> 1990 <strong>gebaut</strong>."</em></p>
+        </div>
+
+        <!-- Perfekt -->
+        <div id="perfekt" class="tense-content">
+            <span class="formula">sein + Partizip II + worden</span>
+            <p>Achtung Falle! Das Partizip von "werden" ist hier <strong>worden</strong>, nicht <span style="text-decoration: line-through; opacity:0.5;">geworden</span>.</p>
+            <p><em>"Das Paket <strong>ist</strong> gestern <strong>geliefert worden</strong>."</em></p>
+            <hr style="border:0; border-top:1px dashed #EEE; margin:16px 0;">
+            <p style="font-size:0.9rem;"><strong>Plusquamperfekt:</strong> <em>"Als ich kam, <strong>war</strong> das Essen schon <strong>gekocht worden</strong>."</em></p>
+        </div>
+
+        <!-- Modalverben -->
+        <div id="modal" class="tense-content">
+            <span class="formula">Präsens: Modalverb + Partizip II + werden</span>
+            <p><em>"Der Müll <strong>muss getrennt werden</strong>."</em></p>
+            
+            <span class="formula" style="margin-top:16px;">Vergangenheit: Modalverb (Prät) + Partizip II + werden</span>
+            <p><em>"Die Rechnung <strong>musste bezahlt werden</strong>."</em> (Nicht: <span style="text-decoration: line-through; opacity:0.5;">hat bezahlt werden müssen</span>)</p>
+        </div>
+    </section>
+
+    <!-- 3. AGENTS (Von vs Durch) -->
+    <section class="theory-card">
+        <h2>Wer ist der Täter? (Agens)</h2>
+        <p class="intro" style="margin-bottom: 24px;">Wenn wir den Täter nennen wollen, nutzen wir Präpositionen.</p>
+        
+        <div class="agent-grid">
+            <div class="agent-box">
+                <span class="agent-title">VON + Dativ</span>
+                <p style="font-size:0.9rem; margin-bottom:8px;">Für <strong>Personen</strong>, Institutionen oder Naturgewalten, die aktiv handeln.</p>
+                <p style="font-family: 'Merriweather', serif;">"Der Patient wird <strong>vom Arzt</strong> behandelt."</p>
+            </div>
+
+            <div class="agent-box">
+                <span class="agent-title">DURCH + Akkusativ</span>
+                <p style="font-size:0.9rem; margin-bottom:8px;">Für <strong>Mittel</strong>, Werkzeuge oder abstrakte Ursachen.</p>
+                <p style="font-family: 'Merriweather', serif;">"Das Haus wurde <strong>durch ein Feuer</strong> zerstört."</p>
+            </div>
+        </div>
+
+        <div class="alert-box" style="background: #F4F9F4; border-color: #6B8C6E;">
+            <span class="alert-title" style="color: #2D4A30;">Wann weglassen?</span>
+            Der Täter wird oft weggelassen, wenn er <strong>unbekannt</strong> ist ("Mein Rad wurde gestohlen") oder <strong>selbstverständlich</strong> ist ("Der Verletzte wurde [vom Notarzt] operiert").
+        </div>
+    </section>
+
+    <!-- 4. SPECIAL CASES (Dative & "Es") -->
+    <section class="theory-card">
+        <h2>Besonderheiten</h2>
+        
+        <h3 style="font-size:1.1rem; margin-top:24px;">1. Dativ-Verben</h3>
+        <p style="margin-bottom:12px;">Verben, die den Dativ verlangen (helfen, danken, gratulieren), behalten den Dativ auch im Passiv. Sie haben <strong>kein Nominativ-Subjekt</strong>.</p>
+        <div style="background: var(--accent-subtle); padding:12px; border-radius:8px; font-family: 'Merriweather', serif;">
+            Aktiv: "Wir helfen <strong>dem Mann</strong>."<br>
+            Passiv: "<strong>Dem Mann</strong> wird geholfen."
+        </div>
+
+        <h3 style="font-size:1.1rem; margin-top:24px;">2. Das Subjektlose Passiv & "Es"</h3>
+        <p style="margin-bottom:12px;">Wenn kein Subjekt da ist (oder bei intransitiven Verben), nutzen wir "Es" als Platzhalter. Aber: <strong>"Es" darf nie in der Satzmitte stehen!</strong></p>
+        <div style="background: var(--accent-subtle); padding:12px; border-radius:8px; font-family: 'Merriweather', serif;">
+            Pos 1: "<strong>Es</strong> wird hier nicht geraucht." (Korrekt)<br>
+            Pos 3: "Hier wird <span style="text-decoration:line-through; opacity:0.5;">es</span> nicht geraucht." (Korrekt: Hier wird nicht geraucht.)
+        </div>
+    </section>
+
+    <!-- 5. PASSIVE ALTERNATIVES -->
+    <section class="theory-card">
+        <h2>Passiversatzformen (B2/C1)</h2>
+        <p class="intro" style="margin-bottom: 20px;">Oft stilistisch besser als das normale Passiv.</p>
+        
+        <ul style="list-style:none; padding:0;">
+            <li style="margin-bottom:16px; padding-bottom:16px; border-bottom:1px dashed #EEE;">
+                <strong>sein + zu + Infinitiv</strong> (= müssen/können)<br>
+                <em>"Die Aufgabe ist zu lösen."</em> (= muss gelöst werden)
+            </li>
+            <li style="margin-bottom:16px; padding-bottom:16px; border-bottom:1px dashed #EEE;">
+                <strong>sich lassen + Infinitiv</strong> (= können)<br>
+                <em>"Das Fenster lässt sich öffnen."</em> (= kann geöffnet werden)
+            </li>
+            <li style="margin-bottom:16px; padding-bottom:16px; border-bottom:1px dashed #EEE;">
+                <strong>Adjektive auf -bar / -lich</strong> (= können)<br>
+                <em>"Der Text ist lesbar."</em> (= kann gelesen werden)
+            </li>
+            <li>
+                <strong>gehören + Partizip II</strong> (Umgangssprachlich)<br>
+                <em>"Das gehört verboten!"</em> (= Das sollte verboten werden)
+            </li>
+        </ul>
+    </section>
+
+    <!-- 6. VORGANG VS ZUSTAND -->
+    <section class="theory-card">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2>Vorgang vs. Zustand</h2>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
+            <div style="background:#FFF9E5; padding:16px; border-radius:12px;">
+                <strong style="color:#B07D00; display:block; margin-bottom:8px;">Vorgang (Process)</strong>
+                <div class="formula" style="background:white;">werden + Partizip II</div>
+                <p style="font-size:0.9rem;">Jemand tut etwas. Fokus auf die Aktion.</p>
+                <em>"Die Tür <strong>wird</strong> geschlossen."</em>
+            </div>
+            <div style="background:#E6F4EA; padding:16px; border-radius:12px;">
+                <strong style="color:#137333; display:block; margin-bottom:8px;">Zustand (State)</strong>
+                <div class="formula" style="background:white;">sein + Partizip II</div>
+                <p style="font-size:0.9rem;">Es ist schon passiert. Fokus auf das Ergebnis.</p>
+                <em>"Die Tür <strong>ist</strong> geschlossen."</em>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tense-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        
+        // Small timeout for fade animation
+        setTimeout(() => {
+            document.getElementById(tabName).classList.add("active");
+        }, 10);
+        
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>

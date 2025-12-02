@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Passiv - Mindful Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SHARED DESIGN SYSTEM --- */
+        :root {
+            --bg-body: #F5F2EB; 
+            --bg-surface: #FFFFFF;
+            
+            --text-main: #3E3630;
+            --text-muted: #8C8075;
+            
+            --accent-primary: #A67B5B;
+            --accent-hover: #8D6546;
+            --accent-light: #E3D4C5;
+            --accent-subtle: #FAF6F3;
+            
+            /* Semantics */
+            --col-process: #D9A441; /* Mustard (Action/Work) */
+            --col-state: #6B8C6E;   /* Sage (Result/Rest) */
+            
+            --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.06);
+            --shadow-float: 0 12px 40px rgba(62, 54, 48, 0.08);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .header-bar {
+            height: 70px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .back-link:hover { color: var(--text-main); }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--text-main);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        /* --- CONCEPT TRANSFORMATION --- */
+        .concept-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            padding: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .transformation-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+        }
+
+        .sentence-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: var(--accent-subtle);
+            border-radius: var(--radius-md);
+        }
+
+        .sentence-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 700;
+            width: 80px;
+        }
+
+        .word-box {
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .subject { color: var(--accent-primary); font-weight: 700; }
+        .object { color: var(--text-main); text-decoration: underline; text-decoration-color: var(--accent-primary); text-decoration-thickness: 2px; }
+
+        /* Arrow Animation */
+        .transform-arrow {
+            align-self: center;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        /* --- VORGANG VS ZUSTAND --- */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .type-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+            border-top: 6px solid transparent;
+            position: relative;
+        }
+
+        .type-card.process { border-color: var(--col-process); }
+        .type-card.state { border-color: var(--col-state); }
+
+        .type-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .icon-circle {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+        }
+        .process .icon-circle { background: rgba(217, 164, 65, 0.15); color: var(--col-process); }
+        .state .icon-circle { background: rgba(107, 140, 110, 0.15); color: var(--col-state); }
+
+        .formula-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background: #F4F4F4;
+            padding: 6px 10px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .desc-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        /* --- AGENTS SECTION --- */
+        .agents-container {
+            margin-bottom: 60px;
+        }
+        .agents-header { font-family: 'Merriweather', serif; font-size: 1.5rem; margin-bottom: 24px; }
+
+        .agent-box {
+            background: var(--bg-surface);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--accent-primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .agent-prep {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            min-width: 80px;
+        }
+
+        .agent-case {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            background: var(--accent-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+            color: #3E3630;
+        }
+
+        /* --- INTERACTIVE SWITCH --- */
+        .interactive-lab {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            padding: 48px;
+            text-align: center;
+        }
+
+        .lab-title { font-family: 'Merriweather', serif; font-size: 1.5rem; margin-bottom: 8px; }
+        
+        .sentence-stage {
+            background: var(--bg-body);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            margin: 32px 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        /* Toggle Switch */
+        .toggle-container {
+            display: inline-flex;
+            background: #EBE5DA;
+            padding: 4px;
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-option {
+            padding: 10px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            z-index: 2;
+            transition: color 0.3s;
+            user-select: none;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 4px; left: 4px;
+            width: 50%; height: calc(100% - 8px);
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1;
+        }
+
+        /* State Logic classes */
+        .mode-state .toggle-slider { transform: translateX(96%); }
+        .mode-state .opt-2 { color: var(--text-main); }
+        .mode-process .opt-1 { color: var(--text-main); }
+
+        /* Animated Words */
+        .anim-word { display: inline-block; transition: all 0.4s ease; }
+        .aux-verb { font-weight: 700; border-bottom: 2px solid transparent; padding: 0 2px; }
+        
+        .mode-process .aux-verb { color: var(--col-process); border-color: var(--col-process); }
+        .mode-state .aux-verb { color: var(--col-state); border-color: var(--col-state); }
+
+        @media (max-width: 768px) {
+            .split-section { grid-template-columns: 1fr; }
+            .sentence-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .agent-box { flex-direction: column; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <a href="#" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Übersicht
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <span class="topic-badge">B2 • Perspektive</span>
+        <h1>Das Passiv</h1>
+        <p class="intro">
+            Im Passiv ist nicht wichtig, <em>wer</em> etwas macht (das Subjekt), sondern <em>was</em> mit einer Sache passiert (das Objekt).
+        </p>
+
+        <!-- CONCEPT TRANSFORMATION -->
+        <section class="concept-card">
+            <div class="transformation-flow">
+                <div class="sentence-row">
+                    <span class="sentence-label">Aktiv</span>
+                    <div>
+                        Der Koch <span style="color:#CCC;">(Subjekt)</span> kocht <span class="object">die Suppe</span> <span style="color:#CCC;">(Objekt)</span>.
+                    </div>
+                </div>
+                
+                <div class="transform-arrow">↓</div>
+
+                <div class="sentence-row" style="background: #FFF; border: 2px solid var(--accent-subtle);">
+                    <span class="sentence-label" style="color:var(--accent-primary)">Passiv</span>
+                    <div>
+                        <span class="object" style="text-decoration: none; font-weight:700;">Die Suppe</span> wird gekocht.
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.9rem; color: var(--text-muted); text-align: center;">
+                Das Objekt aus dem Aktiv-Satz wird zum "Star" des Passiv-Satzes.
+            </p>
+        </section>
+
+        <!-- VORGANG VS ZUSTAND -->
+        <h2 style="font-family: 'Merriweather', serif; font-size: 1.5rem; margin-bottom: 24px;">Die zwei Arten</h2>
+        
+        <div class="split-section">
+            
+            <!-- Vorgangspassiv -->
+            <div class="type-card process">
+                <div class="type-title">
+                    Vorgangspassiv
+                    <div class="icon-circle">⚙️</div>
+                </div>
+                <div class="formula-tag">werden + Partizip II</div>
+                <p class="desc-text">
+                    Betont die <strong>Aktion</strong> oder den Prozess. Jemand tut etwas.
+                </p>
+                <div style="background: #FFFDF5; padding: 12px; border-radius: 8px; color: var(--text-main); font-family: 'Merriweather', serif;">
+                    Die Tür <strong>wird</strong> geöffnet.
+                </div>
+            </div>
+
+            <!-- Zustandspassiv -->
+            <div class="type-card state">
+                <div class="type-title">
+                    Zustandspassiv
+                    <div class="icon-circle">🔒</div>
+                </div>
+                <div class="formula-tag">sein + Partizip II</div>
+                <p class="desc-text">
+                    Betont das <strong>Ergebnis</strong>. Die Aktion ist vorbei, der Zustand bleibt.
+                </p>
+                <div style="background: #F5F9F6; padding: 12px; border-radius: 8px; color: var(--text-main); font-family: 'Merriweather', serif;">
+                    Die Tür <strong>ist</strong> geöffnet.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- AGENTS -->
+        <div class="agents-container">
+            <div class="agents-header">Wer macht es? (Täter)</div>
+            
+            <div class="agent-box">
+                <div class="agent-prep">
+                    Von <span class="agent-case">Dat</span>
+                </div>
+                <div>
+                    <strong>Personen oder Institutionen (Direkter Täter)</strong><br>
+                    <span style="color: var(--text-muted);">"Das Auto wird <em>vom Mechaniker</em> repariert."</span>
+                </div>
+            </div>
+
+            <div class="agent-box">
+                <div class="agent-prep">
+                    Durch <span class="agent-case">Akk</span>
+                </div>
+                <div>
+                    <strong>Mittel, Ursache oder Vermittler</strong><br>
+                    <span style="color: var(--text-muted);">"Die Stadt wurde <em>durch das Erdbeben</em> zerstört."</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE LAB -->
+        <section class="interactive-lab mode-process" id="lab-section">
+            <h2 class="lab-title">Der Passiv-Regler</h2>
+            <p style="color: var(--text-muted); margin-bottom: 32px;">Wechsle zwischen Handlung (Vorgang) und Ergebnis (Zustand).</p>
+
+            <div class="toggle-container" onclick="toggleMode()">
+                <div class="toggle-slider"></div>
+                <div class="toggle-option opt-1">Vorgang (Action)</div>
+                <div class="toggle-option opt-2">Zustand (Result)</div>
+            </div>
+
+            <div class="sentence-stage">
+                <span class="anim-word">Das Fenster</span>&nbsp;
+                <span class="anim-word aux-verb" id="aux-verb">wird</span>&nbsp;
+                <span class="anim-word">geputzt.</span>
+            </div>
+
+            <p id="context-hint" style="font-size: 0.9rem; color: var(--text-muted); min-height: 24px;">
+                Jemand putzt das Fenster gerade jetzt.
+            </p>
+        </section>
+
+        <div style="height: 80px;"></div>
+    </div>
+
+    <script>
+        const labSection = document.getElementById('lab-section');
+        const auxVerb = document.getElementById('aux-verb');
+        const contextHint = document.getElementById('context-hint');
+        let isProcess = true;
+
+        function toggleMode() {
+            // Fade out text slightly
+            auxVerb.style.opacity = 0;
+            contextHint.style.opacity = 0;
+
+            setTimeout(() => {
+                if (isProcess) {
+                    // Switch to State
+                    labSection.classList.remove('mode-process');
+                    labSection.classList.add('mode-state');
+                    auxVerb.innerText = "ist";
+                    contextHint.innerText = "Das Fenster ist sauber. Die Arbeit ist fertig.";
+                    isProcess = false;
+                } else {
+                    // Switch to Process
+                    labSection.classList.remove('mode-state');
+                    labSection.classList.add('mode-process');
+                    auxVerb.innerText = "wird";
+                    contextHint.innerText = "Jemand putzt das Fenster gerade jetzt.";
+                    isProcess = true;
+                }
+                
+                // Fade in
+                auxVerb.style.opacity = 1;
+                contextHint.style.opacity = 1;
+            }, 250);
+        }
+    </script>
+
+</body>
+</html>

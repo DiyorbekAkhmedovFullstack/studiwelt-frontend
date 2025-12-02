@@ -1,0 +1,380 @@
+@import "tailwindcss";
+
+@theme {
+  /* New Design System - Warm, Minimal Aesthetic */
+
+  /* Backgrounds */
+  --color-page: #F5F2EB; /* Oatmeal */
+  --color-surface: #FFFFFF;
+  --color-highlight: #EBE5DA;
+
+  /* Text Colors */
+  --color-text-main: #3E3630; /* Espresso */
+  --color-text-muted: #8C8075;
+  --color-text-on-dark: #FFFFFF;
+
+  /* Accent Colors */
+  --color-primary: #A67B5B; /* Caramel */
+  --color-primary-hover: #8D6546;
+  --color-primary-light: #F0E6DD;
+
+  /* Status Colors */
+  --color-success: #6B8C6E;
+  --color-danger: #B34747;
+
+  /* Borders */
+  --color-border: #E0E0E0;
+  --color-border-soft: rgba(0, 0, 0, 0.05);
+
+  /* Shadows */
+  --shadow-soft: 0 20px 40px rgba(62, 54, 48, 0.06);
+  --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.04);
+  --shadow-lg: 0 10px 40px rgba(62, 54, 48, 0.12);
+
+  /* Border Radius */
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-full: 9999px;
+
+  /* Spacing - Fluid scale */
+  --spacing-xs: clamp(0.5rem, 2vw, 0.75rem);
+  --spacing-sm: clamp(0.75rem, 3vw, 1rem);
+  --spacing-md: clamp(1rem, 4vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 5vw, 2rem);
+  --spacing-xl: clamp(2rem, 6vw, 3rem);
+  --spacing-2xl: clamp(3rem, 8vw, 5rem);
+
+  /* Typography Scale - Fluid responsive */
+  --font-size-xs: clamp(0.75rem, 1.5vw + 0.5rem, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 1.5vw + 0.5rem, 1rem);
+  --font-size-base: clamp(1rem, 2vw + 0.5rem, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 2vw + 0.5rem, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 3vw + 0.5rem, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 4vw + 0.5rem, 2rem);
+  --font-size-3xl: clamp(2rem, 5vw + 1rem, 3rem);
+  --font-size-4xl: clamp(2.5rem, 6vw + 1rem, 4rem);
+
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Merriweather', ui-serif, Georgia, serif;
+
+  /* Touch Targets - WCAG 2.2 Compliance */
+  --min-touch-target: 44px;
+  --min-touch-target-aa: 24px;
+}
+
+@layer base {
+  /* Root font size - MUST be percentage for accessibility */
+  html {
+    font-size: 100%; /* 16px in most browsers, respects user settings */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-page text-text-main;
+    font-family: var(--font-sans);
+    font-size: 1rem; /* Mobile-first base */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  /* Responsive typography - scales up on larger screens */
+  @media (min-width: 768px) {
+    body {
+      font-size: 1.0625rem; /* 17px */
+    }
+  }
+
+  @media (min-width: 1280px) {
+    body {
+      font-size: 1.125rem; /* 18px */
+    }
+  }
+
+  /* Heading scale with fluid typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h3 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h4 {
+    font-size: var(--font-size-xl);
+  }
+
+  h5 {
+    font-size: var(--font-size-lg);
+  }
+
+  h6 {
+    font-size: var(--font-size-base);
+  }
+
+  /* Optimal reading line length */
+  p {
+    max-width: 65ch; /* 65 characters for readability */
+  }
+
+  /* Touch target minimum - WCAG 2.2 Level AA */
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"],
+  [role="link"] {
+    min-height: var(--min-touch-target);
+    min-width: var(--min-touch-target);
+  }
+
+  /* Exception for inline text links */
+  p a,
+  li a {
+    min-height: auto;
+    min-width: auto;
+    padding: 0.25rem 0.125rem;
+  }
+
+  /* Prevent iOS zoom on input focus */
+  @media (max-width: 767px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px; /* Minimum to prevent auto-zoom */
+    }
+  }
+
+  /* Focus visible for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Images responsive by default */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Toast Notifications - Responsive */
+  .toast-item {
+    background: var(--color-surface);
+    width: min(90vw, 300px); /* Responsive width */
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+    border-left: 3px solid transparent;
+  }
+
+  @media (min-width: 640px) {
+    .toast-item {
+      width: 340px; /* Fixed width on larger screens */
+      padding: 1rem 1.25rem;
+      gap: 1rem;
+      border-left: 4px solid transparent;
+    }
+  }
+
+  @keyframes toastSlideIn {
+    from { opacity: 0; transform: translateX(100%) scale(0.9); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+  }
+
+  @keyframes toastSlideOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(20%); }
+  }
+
+  .toast-enter {
+    animation: toastSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .toast-exit {
+    animation: toastSlideOut 0.3s ease forwards;
+  }
+
+  .toast-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  @media (min-width: 640px) {
+    .toast-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .toast-content {
+    flex: 1;
+  }
+
+  .toast-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+    color: var(--color-text-main);
+  }
+
+  @media (min-width: 640px) {
+    .toast-title {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+  }
+
+  .toast-msg {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  @media (min-width: 640px) {
+    .toast-msg {
+      font-size: 0.85rem;
+    }
+  }
+
+  .toast-close {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 0;
+    align-self: flex-start;
+    opacity: 0.6;
+    transition: 0.2s;
+  }
+
+  .toast-close:hover {
+    opacity: 1;
+    color: var(--color-text-main);
+  }
+
+  .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .toast-progress-bar {
+    height: 100%;
+    width: 100%;
+    animation-name: toastShrink;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes toastShrink {
+    from { width: 100%; }
+    to { width: 0%; }
+  }
+
+  /* Toast Variants */
+  .toast-success {
+    border-left-color: var(--color-success);
+  }
+
+  .toast-success .toast-icon {
+    color: var(--color-success);
+  }
+
+  .toast-success .toast-progress-bar {
+    background: var(--color-success);
+  }
+
+  .toast-error {
+    border-left-color: #C07766;
+  }
+
+  .toast-error .toast-icon {
+    color: #C07766;
+  }
+
+  .toast-error .toast-progress-bar {
+    background: #C07766;
+  }
+
+  .toast-info {
+    border-left-color: var(--color-primary);
+  }
+
+  .toast-info .toast-icon {
+    color: var(--color-primary);
+  }
+
+  .toast-info .toast-progress-bar {
+    background: var(--color-primary);
+  }
+
+  .toast-warning {
+    border-left-color: #D9A441;
+  }
+
+  .toast-warning .toast-icon {
+    color: #D9A441;
+  }
+
+  .toast-warning .toast-progress-bar {
+    background: #D9A441;
+  }
+
+  /* Hide scrollbar for horizontal scroll containers */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passiversatzformen - Mindful Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SHARED DESIGN SYSTEM --- */
+        :root {
+            --bg-body: #F5F2EB; 
+            --bg-surface: #FFFFFF;
+            
+            --text-main: #3E3630;
+            --text-muted: #8C8075;
+            
+            --accent-primary: #A67B5B;
+            --accent-hover: #8D6546;
+            --accent-light: #E3D4C5;
+            --accent-subtle: #FAF6F3;
+            
+            /* Semantics for Modality */
+            --mode-can: #6B8C6E; /* Sage (Possibility) */
+            --mode-must: #C07766; /* Terracotta (Necessity) */
+            
+            --shadow-card: 0 4px 12px rgba(62, 54, 48, 0.06);
+            --shadow-float: 0 12px 40px rgba(62, 54, 48, 0.08);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .header-bar {
+            height: 70px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .back-link:hover { color: var(--text-main); }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--text-main);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        /* --- THEORY CARDS --- */
+        .theory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .strategy-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+            border-top: 6px solid transparent;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .strategy-card:hover { transform: translateY(-4px); }
+
+        .strategy-card.can { border-color: var(--mode-can); }
+        .strategy-card.must { border-color: var(--mode-must); }
+        
+        /* For 'sein+zu' which is both */
+        .strategy-card.hybrid { 
+            border-image: linear-gradient(to right, var(--mode-must) 50%, var(--mode-can) 50%) 1 0 0 0;
+            border-top-width: 6px;
+            border-style: solid; 
+        }
+
+        .card-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .meaning-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .meaning-tag.can { color: var(--mode-can); }
+        .meaning-tag.must { color: var(--mode-must); }
+        .meaning-tag.hybrid { 
+            background: linear-gradient(to right, var(--mode-must), var(--mode-can));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .formula-box {
+            background: var(--accent-subtle);
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .example-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .highlight { color: var(--text-main); font-weight: 600; }
+
+        /* --- INTERACTIVE LAB --- */
+        .lab-section {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            padding: 48px;
+            text-align: center;
+        }
+
+        .lab-header { margin-bottom: 32px; }
+        .lab-header h2 { font-family: 'Merriweather', serif; font-size: 1.8rem; margin-bottom: 8px; }
+
+        .source-box {
+            background: #F2F0EB;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            display: inline-block;
+            border: 1px dashed #CCC;
+        }
+
+        .lab-controls {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .lab-btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: white;
+            color: var(--text-main);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .lab-btn.active {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        /* Output Display */
+        .result-display {
+            min-height: 80px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        /* Analysis Note */
+        .analysis-note {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            height: 24px; /* Prevent layout jump */
+        }
+
+        .fade-in { animation: fadeIn 0.4s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .lab-controls { flex-direction: column; }
+            .lab-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <a href="#" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Grammatik Übersicht
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <span class="topic-badge">C1 • Stilmittel</span>
+        <h1>Passiversatzformen</h1>
+        <p class="intro">
+            Wiederholungen von "werden" klingen oft eintönig. Im C1-Niveau nutzen wir Alternativen, um Möglichkeiten oder Notwendigkeiten eleganter auszudrücken.
+        </p>
+
+        <!-- THEORY GRID -->
+        <div class="theory-grid">
+            
+            <!-- Card 1: Adjective -->
+            <div class="strategy-card can">
+                <h3 class="card-title">Adjektivendung</h3>
+                <span class="meaning-tag can">Können + Passiv</span>
+                
+                <div class="formula-box">
+                    sein + Adj (-bar / -lich)
+                </div>
+                
+                <p class="example-text">
+                    Das Wasser <span class="highlight">kann</span> getrunken werden.<br>
+                    ↓<br>
+                    Das Wasser ist <span class="highlight">trinkbar</span>.
+                </p>
+            </div>
+
+            <!-- Card 2: Reflexive -->
+            <div class="strategy-card can">
+                <h3 class="card-title">Reflexiv</h3>
+                <span class="meaning-tag can">Können + Passiv</span>
+                
+                <div class="formula-box">
+                    sich lassen + Infinitiv
+                </div>
+                
+                <p class="example-text">
+                    Das Problem <span class="highlight">kann</span> gelöst werden.<br>
+                    ↓<br>
+                    Das Problem <span class="highlight">lässt sich lösen</span>.
+                </div>
+
+            <!-- Card 3: Sein + Zu -->
+            <div class="strategy-card hybrid">
+                <h3 class="card-title">Die "Zu"-Form</h3>
+                <span class="meaning-tag hybrid">Müssen / Können + Passiv</span>
+                
+                <div class="formula-box">
+                    sein + zu + Infinitiv
+                </div>
+                
+                <p class="example-text">
+                    Die Rechnung <span class="highlight">muss</span> bezahlt werden.<br>
+                    ↓<br>
+                    Die Rechnung <span class="highlight">ist zu bezahlen</span>.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- INTERACTIVE LAB -->
+        <section class="lab-section">
+            <div class="lab-header">
+                <h2>Der Transformations-Labor</h2>
+                <p style="color: var(--text-muted);">Wähle eine Form, um den Satz umzuwandeln.</p>
+            </div>
+
+            <div class="source-box">
+                "Die Handschrift <span style="text-decoration: underline;">kann nicht gelesen</span> werden."
+            </div>
+
+            <div class="lab-controls">
+                <button class="lab-btn" onclick="transform(this, 'adj')">
+                    <span style="color: var(--mode-can);">●</span> Adjektivisch
+                </button>
+                <button class="lab-btn" onclick="transform(this, 'reflex')">
+                    <span style="color: var(--mode-can);">●</span> Reflexiv
+                </button>
+                <button class="lab-btn" onclick="transform(this, 'noun')">
+                    <span style="color: var(--accent-primary);">●</span> Nomen-Verb (Extra)
+                </button>
+            </div>
+
+            <div class="result-display" id="result-area">
+                <!-- Result appears here -->
+                <span style="color:#CCC; font-size:1rem; font-family: 'Inter', sans-serif;">Wähle eine Option</span>
+            </div>
+            <div class="analysis-note" id="analysis-area"></div>
+
+        </section>
+
+        <div style="height: 80px;"></div>
+    </div>
+
+    <script>
+        const resultArea = document.getElementById('result-area');
+        const analysisArea = document.getElementById('analysis-area');
+        const buttons = document.querySelectorAll('.lab-btn');
+
+        const transformations = {
+            'adj': {
+                text: "Die Handschrift ist <strong>unleserlich</strong>.",
+                note: "Suffix '-lich' drückt hier die Unmöglichkeit aus."
+            },
+            'reflex': {
+                text: "Die Handschrift <strong>lässt sich nicht lesen</strong>.",
+                note: "'Sich lassen' ist eine sehr elegante Alternative für 'können'."
+            },
+            'noun': {
+                text: "Die Handschrift ist <strong>nicht zu entziffern</strong>.",
+                note: "'Sein + zu' drückt hier Unmöglichkeit aus (ähnlich wie 'müssen/können')."
+            }
+        };
+
+        function transform(btn, type) {
+            // Reset Buttons
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Animation Reset
+            resultArea.classList.remove('fade-in');
+            void resultArea.offsetWidth; // Trigger Reflow
+            resultArea.classList.add('fade-in');
+
+            // Update Content
+            const data = transformations[type];
+            resultArea.innerHTML = data.text;
+            analysisArea.innerText = data.note;
+        }
+    </script>
+
+</body>
+</html>

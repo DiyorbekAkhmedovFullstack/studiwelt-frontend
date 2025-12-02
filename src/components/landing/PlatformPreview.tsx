@@ -1,0 +1,171 @@
+export function PlatformPreview() {
+  return (
+    <div className="mt-12 md:mt-16 bg-surface rounded-[20px] shadow-soft w-full max-w-[900px] mx-auto p-2 sm:p-3 border border-[rgba(0,0,0,0.05)] relative transition-all duration-500 hover:[transform:perspective(1000px)_rotateX(0deg)] [transform:perspective(1000px)_rotateX(2deg)]">
+      {/* Browser Dots */}
+      <div className="flex gap-1.5 mb-3 pl-2">
+        <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57] border border-[#E0443E]"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E] border border-[#D89E24]"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-[#28C840] border border-[#1AAB29]"></div>
+      </div>
+
+      {/* App Mockup Inner */}
+      <div className="bg-page h-[480px] sm:h-[520px] md:h-[550px] rounded-xl overflow-hidden text-left relative flex flex-col">
+        {/* Main Content Area */}
+        <div className="flex-1 p-4 sm:p-6 overflow-hidden relative">
+          <div className="max-w-[800px] mx-auto">
+            {/* Header */}
+            <header className="mb-6 sm:mb-10">
+              <h1 className="text-xl sm:text-2xl md:text-[32px] font-bold mb-1 sm:mb-2 text-text-main">Your Journey</h1>
+              <p className="text-text-muted text-xs sm:text-sm">
+                You are currently on <strong>Day 15</strong> of 30. Keep the rhythm going.
+              </p>
+            </header>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-12">
+              {/* Completion */}
+              <div className="bg-surface rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-card border border-[rgba(0,0,0,0.02)]">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-[#E8F5E9] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#6B8C6E" strokeWidth="2.5" className="w-4 h-4 sm:w-5 sm:h-5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">48%</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Completion</div>
+              </div>
+
+              {/* Lessons Done */}
+              <div className="bg-surface rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-card border border-[rgba(0,0,0,0.02)]">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-[#E6F0FF] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="2.5" className="w-4 h-4 sm:w-5 sm:h-5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">14/30</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Lessons Done</div>
+              </div>
+
+              {/* Current Day */}
+              <div className="bg-surface rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-card border border-[rgba(0,0,0,0.02)]">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-[#FFF4E6] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#FF9F43" strokeWidth="2.5" className="w-4 h-4 sm:w-5 sm:h-5">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                  </svg>
+                </div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">Day 15</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Current Day</div>
+              </div>
+            </div>
+
+            {/* Week 3 Section */}
+            <div className="mb-6">
+              <div className="flex items-center mb-3 sm:mb-4 md:mb-6">
+                <div className="text-2xl sm:text-3xl md:text-[48px] font-serif font-black leading-none mr-2 sm:mr-3 md:mr-4 text-primary/40">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base md:text-xl font-bold text-text-main">Week 3</h3>
+                  <span className="text-[10px] sm:text-xs md:text-[15px] text-primary font-medium">
+                    Days 13-18 • In Progress
+                  </span>
+                </div>
+              </div>
+
+              {/* Lesson Grid - Horizontal scroll on mobile, grid on desktop */}
+              <div className="flex gap-3 overflow-x-auto pb-4 -mx-2 px-2 snap-x snap-mandatory scrollbar-hide sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-3 md:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0">
+                {/* Day 13 - Completed */}
+                <div className="bg-[#FCFCFC] rounded-xl p-4 sm:p-5 shadow-card border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
+                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 13</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#E6F0E7] text-success flex items-center justify-center flex-shrink-0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">Complex Grammar</h4>
+                </div>
+
+                {/* Day 14 - Completed */}
+                <div className="bg-[#FCFCFC] rounded-xl p-4 sm:p-5 shadow-card border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
+                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 14</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#E6F0E7] text-success flex items-center justify-center flex-shrink-0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">Listening Skills</h4>
+                </div>
+
+                {/* Day 15 - Active */}
+                <div className="bg-[#FFFCFA] border-primary rounded-xl p-4 sm:p-5 shadow-card border transition-all duration-300 cursor-pointer hover:-translate-y-1 min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
+                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 15</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0">
+                      <svg viewBox="0 0 24 24" fill="white" stroke="none" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-primary mb-2 leading-snug">Advanced Grammar</h4>
+                  <div className="mt-auto font-semibold text-xs text-primary">Resume Lesson</div>
+                </div>
+
+                {/* Day 16 */}
+                <div className="opacity-60 bg-[#F5F5F5] rounded-xl p-4 sm:p-5 shadow-none border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
+                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 16</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">Reading Practice</h4>
+                  <div className="text-xs text-text-muted">Locked</div>
+                </div>
+
+                {/* Day 17 */}
+                <div className="opacity-60 bg-[#F5F5F5] rounded-xl p-4 sm:p-5 shadow-none border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
+                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 17</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">Vocabulary Quiz</h4>
+                  <div className="text-xs text-text-muted">Locked</div>
+                </div>
+
+                {/* Day 18 */}
+                <div className="opacity-60 bg-[#F5F5F5] rounded-xl p-4 sm:p-5 shadow-none border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
+                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 18</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">Writing Exercise</h4>
+                  <div className="text-xs text-text-muted">Locked</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating Gradient Blur */}
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+  );
+}
