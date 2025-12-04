@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { OptimizedImage } from '../common/OptimizedImage';
 
 type Course = {
   name: string;
@@ -200,6 +201,28 @@ export function StudienkollegCarousel() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Preload images for next/prev cards for instant navigation
+  useEffect(() => {
+    const preloadImages = () => {
+      const nextCards = studienkollegs.slice(
+        currentIndex + cardsToShow,
+        currentIndex + cardsToShow + 3
+      );
+      const prevCards = studienkollegs.slice(
+        Math.max(0, currentIndex - 3),
+        currentIndex
+      );
+
+      [...nextCards, ...prevCards].forEach((stk) => {
+        const webpSrc = stk.imageUrl.replace(/\.png$/, '.webp');
+        const img = new Image();
+        img.src = webpSrc;
+      });
+    };
+
+    preloadImages();
+  }, [currentIndex, cardsToShow]);
+
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < studienkollegs.length - cardsToShow;
 
@@ -301,10 +324,11 @@ export function StudienkollegCarousel() {
                   className="bg-surface rounded-[20px] md:rounded-[24px] shadow-[0_12px_40px_-8px_rgba(166,123,91,0.15)] transition-all duration-300 hover:shadow-[0_20px_50px_-10px_rgba(166,123,91,0.25)] hover:-translate-y-3 cursor-pointer h-[420px] md:h-[480px] flex flex-col relative border border-[rgba(0,0,0,0.02)] overflow-hidden w-full"
                 >
                   {/* Image */}
-                  <div className="h-[160px] md:h-[200px] w-full relative bg-primary-light">
-                    <img
+                  <div className="h-[160px] md:h-[200px] w-full relative bg-primary-light overflow-hidden">
+                    <OptimizedImage
                       src={stk.imageUrl}
                       alt={stk.name}
+                      priority={index === 0} // Prioritize first visible card
                       onError={handleImageError}
                       className="w-full h-full object-cover object-center transition-transform duration-[600ms] hover:scale-105 block"
                     />
