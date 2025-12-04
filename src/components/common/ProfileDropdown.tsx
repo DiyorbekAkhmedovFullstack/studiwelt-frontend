@@ -1,12 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useTransition } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useProgress } from '../../contexts/ProgressContext';
 
 export function ProfileDropdown() {
   const { user, logout } = useAuth();
-  const { courseProgress } = useProgress();
+  const { courseProgress, isPending: isProgressPending } = useProgress();
   const navigate = useNavigate();
+  const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -23,8 +24,13 @@ export function ProfileDropdown() {
   }, []);
 
   const handleLogout = async () => {
-    await logout();
-    navigate('/login');
+    setIsOpen(false);
+    // Use transition for smooth logout
+    startTransition(() => {
+      void logout().then(() => {
+        navigate('/login');
+      });
+    });
   };
 
   const avatarUrl =
@@ -35,7 +41,7 @@ export function ProfileDropdown() {
   const completionPercentage = courseProgress?.overallPercentage || 0;
 
   return (
-    <div ref={menuRef} className={`relative z-[100] ${isOpen ? 'active' : ''}`}>
+    <div ref={menuRef} className={`relative z-[100] ${isOpen ? 'active' : ''}`} style={{ opacity: isPending || isProgressPending ? 0.7 : 1, transition: 'opacity 0.2s' }}>
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}

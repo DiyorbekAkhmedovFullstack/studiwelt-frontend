@@ -13,6 +13,7 @@ import type { User } from '../types/api';
 type AuthContextValue = {
   user: User | null;
   loading: boolean;
+  isHydrated: boolean;
   error: string | null;
   login: (email: string, password: string) => Promise<{
     success: boolean;
@@ -38,23 +39,28 @@ type AuthProviderProps = {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
 
     const hydrate = async () => {
+      // Immediately mark as loading complete to unblock UI
+      // UI will render with null user state (showing login buttons)
+      if (active) {
+        setLoading(false);
+      }
+
       try {
         const data = await authService.getProfile();
         if (!active) return;
         setUser(data.user);
+        setIsHydrated(true);
       } catch {
         if (!active) return;
         setUser(null);
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
+        setIsHydrated(true);
       }
     };
 
@@ -133,13 +139,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
     () => ({
       user,
       loading,
+      isHydrated,
       error,
       login,
       completeMfa,
       logout,
       setUser,
     }),
-    [user, loading, error],
+    [user, loading, isHydrated, error],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

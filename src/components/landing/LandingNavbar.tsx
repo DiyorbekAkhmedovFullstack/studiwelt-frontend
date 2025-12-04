@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from './Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { useProgress } from '../../contexts/ProgressContext';
 import { ProfileDropdown } from '../common/ProfileDropdown';
+import { SkeletonProfile } from '../common/SkeletonProfile';
 
 export function LandingNavbar() {
-  const { user, logout } = useAuth();
+  const { user, isHydrated, logout } = useAuth();
   const { courseProgress } = useProgress();
   const navigate = useNavigate();
+  const [isPending, startTransition] = useTransition();
   const isAuthenticated = !!user;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,8 +24,12 @@ export function LandingNavbar() {
 
   const handleLogout = async () => {
     closeMobileMenu();
-    await logout();
-    navigate('/login');
+    // Use transition for smooth logout without blocking UI
+    startTransition(() => {
+      void logout().then(() => {
+        navigate('/login');
+      });
+    });
   };
 
   const completionPercentage = courseProgress?.overallPercentage || 0;
@@ -38,9 +44,11 @@ export function LandingNavbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {/* Conditional buttons based on authentication */}
-          {isAuthenticated ? (
+        <div className="hidden md:flex items-center gap-8" style={{ opacity: isPending ? 0.7 : 1, transition: 'opacity 0.2s' }}>
+          {/* Show skeleton while hydrating, then show auth state */}
+          {!isHydrated ? (
+            <SkeletonProfile />
+          ) : isAuthenticated ? (
             <ProfileDropdown />
           ) : (
             <>
@@ -63,7 +71,9 @@ export function LandingNavbar() {
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
-          {isAuthenticated && user?.imageUrl ? (
+          {!isHydrated ? (
+            <div className="animate-pulse w-9 h-9 rounded-full bg-gray-200"></div>
+          ) : isAuthenticated && user?.imageUrl ? (
             <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/20">
               <img
                 src={user.imageUrl}

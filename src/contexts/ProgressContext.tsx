@@ -5,6 +5,7 @@ import {
   useMemo,
   useState,
   useCallback,
+  useTransition,
   type ReactNode,
 } from 'react';
 import { progressService } from '../services/progressService';
@@ -19,6 +20,7 @@ type ProgressContextValue = {
   courseProgress: CourseProgressDto | null;
   lessonProgress: Map<number, LessonProgressDto>; // Keyed by lessonId
   loading: boolean;
+  isPending: boolean;
   error: string | null;
   refreshProgress: () => Promise<void>;
   getLessonProgress: (lessonId: number) => LessonProgressDto | null;
@@ -41,6 +43,7 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
     Map<number, LessonProgressDto>
   >(new Map());
   const [loading, setLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
   const refreshProgress = useCallback(async () => {
@@ -54,24 +57,28 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
     setLoading(true);
     setError(null);
 
-    try {
-      const data = await progressService.getCourseProgress();
-      setCourseProgress(data);
+    // Use transition to make progress loading non-blocking
+    startTransition(() => {
+      void progressService.getCourseProgress()
+        .then((data) => {
+          setCourseProgress(data);
 
-      // Build lesson progress map for O(1) lookups
-      const progressMap = new Map<number, LessonProgressDto>();
-      data.lessonProgress.forEach((lesson) => {
-        progressMap.set(lesson.lessonId, lesson);
-      });
-      setLessonProgress(progressMap);
-    } catch (err) {
-      const message =
-        err instanceof Error ? err.message : 'Failed to load progress.';
-      setError(message);
-      console.error('Progress fetch error:', err);
-    } finally {
-      setLoading(false);
-    }
+          // Build lesson progress map for O(1) lookups
+          const progressMap = new Map<number, LessonProgressDto>();
+          data.lessonProgress.forEach((lesson) => {
+            progressMap.set(lesson.lessonId, lesson);
+          });
+          setLessonProgress(progressMap);
+          setLoading(false);
+        })
+        .catch((err) => {
+          const message =
+            err instanceof Error ? err.message : 'Failed to load progress.';
+          setError(message);
+          console.error('Progress fetch error:', err);
+          setLoading(false);
+        });
+    });
   }, [user]);
 
   // Auto-fetch progress when user logs in
@@ -161,6 +168,7 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
       courseProgress,
       lessonProgress,
       loading,
+      isPending,
       error,
       refreshProgress,
       getLessonProgress,
@@ -172,6 +180,7 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
       courseProgress,
       lessonProgress,
       loading,
+      isPending,
       error,
       refreshProgress,
       getLessonProgress,
