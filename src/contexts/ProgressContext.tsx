@@ -101,6 +101,9 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
 
   const isSectionLocked = useCallback(
     (lessonId: number, sectionType: string): boolean => {
+      // Admins can access all sections regardless of lock status
+      if (user?.role === 'ADMIN') return false;
+
       const lesson = lessonProgress.get(lessonId);
       if (!lesson) return false;
 
@@ -117,7 +120,7 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
 
       return section?.isLocked ?? false;
     },
-    [lessonProgress],
+    [lessonProgress, user],
   );
 
   const isSectionCompleted = useCallback(

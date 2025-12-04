@@ -3,9 +3,11 @@ import { lessonService, type LessonsResponse } from '../services/lessonService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { useProgress } from '../contexts/ProgressContext';
+import { useAuth } from '../contexts/AuthContext';
 import { DashboardLayout, StatCard, LessonCard } from '../components/dashboard';
 
 export function CoursePage() {
+  const { user } = useAuth();
   const { courseProgress, lessonProgress, loading: progressLoading } = useProgress();
   const [lessons, setLessons] = useState<LessonsResponse['lessons']>([]);
   const [loading, setLoading] = useState(true);
@@ -205,7 +207,9 @@ export function CoursePage() {
                 }
 
                 // Determine lesson state: locked, completed, or active
-                const isAccessible = progress?.isAccessible ?? true; // Default to accessible if no progress
+                // Admins can access all lessons regardless of progress
+                const isAdmin = user?.role === 'ADMIN';
+                const isAccessible = isAdmin || (progress?.isAccessible ?? true); // Default to accessible if no progress
                 const isCompleted = progress?.isLessonCompleted ?? false;
                 const state = !isAccessible ? 'locked' : isCompleted ? 'completed' : 'active';
 
