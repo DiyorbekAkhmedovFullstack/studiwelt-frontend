@@ -28,13 +28,13 @@ function LogicButton({ logicType, emoji, label, isActive, onClick }: LogicButton
     <button
       type="button"
       onClick={onClick}
-      className={`px-6 py-3 rounded-[50px] border-2 bg-white font-semibold transition-all shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex items-center gap-2 ${
+      className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] border-2 bg-white font-semibold transition-all shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base ${
         isActive
           ? activeClasses[logicType]
           : 'border-transparent text-text-muted hover:-translate-y-0.5'
       }`}
     >
-      <span className="text-xs sm:text-sm md:text-[1.2rem]">{emoji}</span> {label}
+      <span className="text-base sm:text-lg md:text-xl">{emoji}</span> {label}
     </button>
   );
 }
@@ -113,19 +113,19 @@ export function LogicSwitcher() {
   };
 
   return (
-    <section className="text-center bg-surface rounded-[24px] shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-12">
+    <section className="text-center bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-[0_8px_24px_rgba(62,54,48,0.06)] sm:shadow-[0_10px_32px_rgba(62,54,48,0.07)] md:shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-5 sm:p-8 md:p-10 lg:p-12">
       {/* Header */}
-      <div className="mb-10">
-        <h2 className="text-base sm:text-xs md:text-[1.3rem] font-serif mb-2">Der Logik-Wandler</h2>
-        <p className="text-text-muted">
+      <div className="mb-6 sm:mb-8 md:mb-10">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[1.3rem] font-serif mb-2">Der Logik-Wandler</h2>
+        <p className="text-text-muted text-xs sm:text-sm md:text-base">
           Szenario: <strong>"Es regnet"</strong> + <strong>"Ich gehe spazieren"</strong>.
         </p>
       </div>
 
       {/* Sentence Stage */}
-      <div className="my-10 min-h-[120px] bg-[#F5F2EB] rounded-[16px] p-8 flex items-center justify-center">
+      <div className="my-6 sm:my-8 md:my-10 min-h-[100px] sm:min-h-[110px] md:min-h-[120px] bg-[#F5F2EB] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 flex items-center justify-center">
         <div
-          className="text-xs sm:text-sm md:text-[1.3rem] font-serif transition-opacity duration-200"
+          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-[1.3rem] font-serif transition-opacity duration-200"
           style={{ opacity: isTransitioning ? 0 : 1 }}
         >
           {logicData[currentLogic].sentence}
@@ -133,7 +133,7 @@ export function LogicSwitcher() {
       </div>
 
       {/* Logic Controls */}
-      <div className="flex justify-center gap-4 flex-wrap mb-6">
+      <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-4 sm:mb-5 md:mb-6">
         <LogicButton
           logicType="causal"
           emoji="🤔"
@@ -159,7 +159,7 @@ export function LogicSwitcher() {
 
       {/* Explanation */}
       <div
-        className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] mt-6 transition-opacity duration-300"
+        className="text-xs sm:text-sm md:text-base mt-4 sm:mt-5 md:mt-6 transition-opacity duration-300"
         style={{ opacity: isTransitioning ? 0 : 1 }}
       >
         {logicData[currentLogic].explanation}

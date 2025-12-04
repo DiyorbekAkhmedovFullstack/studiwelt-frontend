@@ -44,17 +44,22 @@ export function TextReconstruction() {
   };
 
   return (
-    <section className="text-center bg-[#FAF6F3] rounded-[24px] p-12">
+    <section className="text-center bg-[#FAF6F3] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12">
       {/* Header */}
-      <div className="mb-8">
-        <h2 className="text-base sm:text-xs md:text-[1.3rem] font-serif mb-2">Text-Rekonstruktion</h2>
-        <p className="text-text-muted">
+      <div className="mb-6 sm:mb-7 md:mb-8">
+        <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.3rem] font-serif mb-2">Text-Rekonstruktion</h2>
+        <p className="text-text-muted text-xs sm:text-sm md:text-base mb-3 sm:mb-4">
           Welcher logische Konnektor passt in die Lücke? Achte auf den Kontext.
         </p>
+        <div className="bg-[#FFF9E5] border border-[#D9A441] p-3 sm:p-4 rounded-[12px] sm:rounded-[14px] max-w-[700px] sm:max-w-[800px] mx-auto">
+          <p className="text-xs sm:text-sm text-text-main">
+            <strong>So geht's:</strong> Wähle zuerst ein Wort unten aus, dann klicke auf eine Lücke im Text.
+          </p>
+        </div>
       </div>
 
       {/* Cloze Text */}
-      <div className="text-xs sm:text-sm md:text-[1.2rem] bg-white p-10 rounded-[16px] shadow-card font-serif leading-loose max-w-[800px] mx-auto mb-8">
+      <div className="text-sm sm:text-base md:text-lg lg:text-xl bg-white p-5 sm:p-6 md:p-8 lg:p-10 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] shadow-card font-serif leading-loose max-w-[700px] sm:max-w-[800px] mx-auto mb-6 sm:mb-7 md:mb-8">
         Viele Städte leiden unter Verkehrsinfarkten.{' '}
         <span
           onClick={() => handleGapClick(0)}
@@ -98,13 +103,13 @@ export function TextReconstruction() {
       </div>
 
       {/* Word Bank */}
-      <div className="flex justify-center gap-3 flex-wrap">
+      <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
         {words.map((word, index) => (
           <button
             key={index}
             onClick={() => handleWordSelect(word)}
             disabled={usedWords.includes(word)}
-            className={`bg-white border px-5 py-2.5 rounded-full font-semibold transition-all shadow-sm ${
+            className={`bg-white text-xs sm:text-sm md:text-base border px-4 sm:px-5 py-2 sm:py-2.5 rounded-[30px] sm:rounded-[35px] md:rounded-[40px] font-semibold transition-all shadow-sm ${
               usedWords.includes(word)
                 ? 'opacity-50 pointer-events-none scale-90'
                 : selectedWord === word

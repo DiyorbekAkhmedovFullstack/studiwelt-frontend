@@ -18,15 +18,15 @@ function LogicCard({ type, title, badge, description, example }: LogicCardProps)
       : 'bg-[rgba(192,119,102,0.1)] text-[#C07766]';
 
   return (
-    <div className={`bg-surface p-8 rounded-[24px] shadow-card border-t-[6px] ${borderColor}`}>
-      <h3 className="text-xs sm:text-sm md:text-[1.2rem] font-serif font-bold mb-2">{title}</h3>
+    <div className={`bg-surface p-5 sm:p-6 md:p-7 lg:p-8 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-card border-t-[4px] sm:border-t-[5px] md:border-t-[6px] ${borderColor}`}>
+      <h3 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif font-bold mb-2">{title}</h3>
       <span
-        className={`inline-block text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] md:text-[0.75rem] px-2 py-1 rounded font-semibold uppercase mb-4 ${badgeColor}`}
+        className={`inline-block text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] px-2 py-1 rounded font-semibold uppercase mb-3 sm:mb-4 ${badgeColor}`}
       >
         {badge}
       </span>
-      <p className="text-text-muted sm:text-[0.5rem] md:text-[0.6rem] mb-4">{description}</p>
-      <div className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] bg-[#FAF6F3] p-4 rounded-lg leading-relaxed">
+      <p className="text-text-muted text-xs sm:text-sm md:text-base mb-3 sm:mb-4">{description}</p>
+      <div className="text-xs sm:text-sm md:text-base bg-[#FAF6F3] p-3 sm:p-4 rounded-lg leading-relaxed">
         {example}
       </div>
     </div>
@@ -35,7 +35,7 @@ function LogicCard({ type, title, badge, description, example }: LogicCardProps)
 
 export function ParticipleLogic() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
       <LogicCard
         type="p1"
         title="Partizip I (Active)"

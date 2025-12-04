@@ -48,17 +48,17 @@ export function StyleToggle() {
 
   return (
     <section className="text-center">
-      <h2 className="text-sm sm:text-xs md:text-[1.2rem] font-serif mb-4">Stil-Vergleich</h2>
-      <p className="text-text-muted mb-6">
+      <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif mb-3 sm:mb-4">Stil-Vergleich</h2>
+      <p className="text-text-muted text-xs sm:text-sm md:text-base mb-5 sm:mb-6">
         Wechsle den Modus, um den Unterschied in der Informationsdichte zu sehen.
       </p>
 
       {/* Toggle Controls */}
-      <div className="inline-flex bg-[#EBE5DA] p-1 rounded-[50px] mb-6">
+      <div className="inline-flex bg-[#EBE5DA] p-0.5 sm:p-1 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] mb-5 sm:mb-6 flex-wrap sm:flex-nowrap gap-1 sm:gap-0">
         <button
           type="button"
           onClick={() => handleToggle('verbal')}
-          className={`px-6 py-2.5 rounded-[50px] border-none font-semibold text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] sm:text-[0.5rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] md:text-[0.75rem] md:text-[0.95rem] transition-all ${
+          className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] border-none font-semibold text-[0.7rem] sm:text-xs md:text-sm lg:text-base transition-all ${
             currentStyle === 'verbal'
               ? 'bg-surface text-text-main shadow-[0_2px_8px_rgba(0,0,0,0.1)]'
               : 'bg-transparent text-text-muted'
@@ -69,7 +69,7 @@ export function StyleToggle() {
         <button
           type="button"
           onClick={() => handleToggle('nominal')}
-          className={`px-6 py-2.5 rounded-[50px] border-none font-semibold text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] sm:text-[0.5rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] md:text-[0.75rem] md:text-[0.95rem] transition-all ${
+          className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] border-none font-semibold text-[0.7rem] sm:text-xs md:text-sm lg:text-base transition-all ${
             currentStyle === 'nominal'
               ? 'bg-surface text-text-main shadow-[0_2px_8px_rgba(0,0,0,0.1)]'
               : 'bg-transparent text-text-muted'
@@ -81,10 +81,10 @@ export function StyleToggle() {
 
       {/* Text Display Box */}
       <div
-        className={`bg-surface rounded-[24px] shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-12 text-left border-l-4 ${borderColor} transition-all`}
+        className={`bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-[0_8px_24px_rgba(62,54,48,0.06)] sm:shadow-[0_10px_32px_rgba(62,54,48,0.07)] md:shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-5 sm:p-8 md:p-10 lg:p-12 text-left border-l-[3px] sm:border-l-4 ${borderColor} transition-all`}
       >
         <div
-          className="text-xs sm:text-sm md:text-[1.2rem] font-serif leading-relaxed min-h-[120px] transition-opacity duration-200"
+          className="text-sm sm:text-base md:text-lg lg:text-xl font-serif leading-relaxed min-h-[100px] sm:min-h-[110px] md:min-h-[120px] transition-opacity duration-200"
           style={{ opacity: isTransitioning ? 0 : 1 }}
         >
           {content[currentStyle]}

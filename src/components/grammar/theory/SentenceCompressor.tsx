@@ -32,17 +32,17 @@ export function SentenceCompressor() {
   };
 
   return (
-    <section className="text-center bg-surface rounded-[24px] shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-12 overflow-hidden">
+    <section className="text-center bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-card p-5 sm:p-6 md:p-8 lg:p-10 overflow-hidden">
       {/* Header */}
-      <div className="mb-8">
-        <h2 className="text-base sm:text-xs md:text-[1.3rem] font-serif mb-2">Die Satz-Presse</h2>
-        <p className="text-text-muted">Komprimiere den Relativsatz in ein Attribut.</p>
+      <div className="mb-3 sm:mb-4">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[1.3rem] font-serif mb-2">Die Satz-Presse</h2>
+        <p className="text-text-muted text-xs sm:text-sm md:text-base">Komprimiere den Relativsatz in ein Attribut.</p>
       </div>
 
       {/* Text Stage */}
-      <div className="min-h-[120px] flex items-center justify-center my-8">
+      <div className="min-h-[80px] sm:min-h-[90px] md:min-h-[100px] flex items-center justify-center my-3 sm:my-4">
         <div
-          className="text-xs sm:text-sm md:text-[1.3rem] font-serif transition-all duration-500"
+          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-[1.3rem] font-serif transition-all duration-500"
           style={{
             opacity: isTransitioning ? 0 : 1,
             transform: isTransitioning ? 'scale(0.95)' : 'scale(1)',
@@ -56,16 +56,16 @@ export function SentenceCompressor() {
       <button
         type="button"
         onClick={handleToggle}
-        className="text-white sm:text-sm md:text-[1rem] bg-text-main border-none px-9 py-3.5 rounded-[50px] font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(62,54,48,0.2)] inline-flex items-center gap-2.5 hover:bg-primary hover:-translate-y-0.5"
+        className="text-white text-xs sm:text-sm md:text-base bg-text-main border-none px-6 sm:px-7 md:px-8 lg:px-9 py-2.5 sm:py-3 md:py-3.5 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(62,54,48,0.2)] inline-flex items-center gap-2 sm:gap-2.5 hover:bg-primary hover:-translate-y-0.5"
       >
         <svg
-          width="20"
-          height="20"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          className="transition-transform duration-300"
+          className="transition-transform duration-300 sm:w-5 sm:h-5"
           style={{ transform: isCompressed ? 'rotate(180deg)' : 'rotate(0deg)' }}
         >
           <path d="M4 14h6v6" />

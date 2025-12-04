@@ -67,34 +67,34 @@ export function TrendMonitor() {
   };
 
   return (
-    <section className="mb-16">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section className="mb-8 sm:mb-12 md:mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
         {trends.map((trend, index) => {
           const classes = getTypeClasses(trend.type);
           return (
             <div
               key={index}
-              className={`bg-surface rounded-[24px] p-8 shadow-card border-t-[6px] ${classes.border} transition-transform hover:-translate-y-1`}
+              className={`bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-5 sm:p-6 md:p-7 lg:p-8 shadow-card border-t-[4px] sm:border-t-[5px] md:border-t-[6px] ${classes.border} transition-transform hover:-translate-y-1`}
             >
               {/* Card Header */}
-              <div className="flex justify-between items-center mb-5">
-                <div className="text-xs sm:text-sm md:text-[1.1rem] font-serif font-bold">{trend.title}</div>
+              <div className="flex justify-between items-center mb-4 sm:mb-5">
+                <div className="text-sm sm:text-base md:text-lg lg:text-[1.1rem] font-serif font-bold">{trend.title}</div>
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center text-sm sm:text-xs sm:text-sm md:text-[1.2rem] ${classes.iconBg}`}
+                  className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center text-base sm:text-lg md:text-xl ${classes.iconBg}`}
                 >
                   {trend.icon}
                 </div>
               </div>
 
               {/* Vocab List */}
-              <ul className="space-y-3">
+              <ul className="space-y-2.5 sm:space-y-3">
                 {trend.vocab.map((item, idx) => (
                   <li
                     key={idx}
-                    className="pb-3 border-b border-dashed border-[rgba(0,0,0,0.05)] last:border-b-0"
+                    className="pb-2.5 sm:pb-3 border-b border-dashed border-[rgba(0,0,0,0.05)] last:border-b-0"
                   >
-                    <span className="text-text-main block font-semibold mb-0.5">{item.verb}</span>
-                    <span className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] block font-mono">
+                    <span className="text-text-main text-xs sm:text-sm md:text-base block font-semibold mb-0.5">{item.verb}</span>
+                    <span className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] block font-mono">
                       {item.noun}
                     </span>
                   </li>

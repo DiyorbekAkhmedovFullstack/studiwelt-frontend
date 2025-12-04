@@ -42,37 +42,37 @@ export function AdjectiveMachine({
   };
 
   return (
-    <section className="bg-surface rounded-[24px] shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-12">
+    <section className="bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-[0_8px_24px_rgba(62,54,48,0.06)] sm:shadow-[0_10px_32px_rgba(62,54,48,0.07)] md:shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-5 sm:p-8 md:p-10 lg:p-12">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-base sm:text-xs md:text-[1.3rem] font-serif mb-2">{title}</h2>
-        <p className="text-text-muted sm:text-[0.5rem] md:text-[0.6rem]">{subtitle}</p>
+      <div className="text-center mb-6 sm:mb-7 md:mb-8">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[1.3rem] font-serif mb-2">{title}</h2>
+        <p className="text-text-muted text-xs sm:text-sm md:text-base">{subtitle}</p>
       </div>
 
       {/* Machine Container */}
-      <div className="bg-[#FAF6F3] rounded-3xl p-8 mb-8 border-2 border-[rgba(0,0,0,0.05)]">
+      <div className="bg-[#FAF6F3] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-7 md:mb-8 border sm:border-2 border-[rgba(0,0,0,0.05)]">
         {/* Input */}
-        <div className="mb-6">
-          <div className="text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] uppercase tracking-wide mb-2 font-semibold">
+        <div className="mb-4 sm:mb-5 md:mb-6">
+          <div className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] uppercase tracking-wide mb-2 font-semibold">
             Eingabe:
           </div>
-          <div className="bg-white rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-[rgba(0,0,0,0.06)]">
-            <span className="text-xs sm:text-sm md:text-[1.1rem] font-serif">
+          <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-[rgba(0,0,0,0.06)]">
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-serif">
               {inputSentence}
             </span>
           </div>
         </div>
 
         {/* Processing Arrow */}
-        <div className="flex justify-center my-6">
+        <div className="flex justify-center my-4 sm:my-5 md:my-6">
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="#8C8075"
             strokeWidth="2"
-            className="transform rotate-90"
+            className="transform rotate-90 sm:w-6 sm:h-6"
           >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
@@ -80,17 +80,17 @@ export function AdjectiveMachine({
 
         {/* Output */}
         <div>
-          <div className="text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] uppercase tracking-wide mb-2 font-semibold">
+          <div className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] uppercase tracking-wide mb-2 font-semibold">
             Ausgabe:
           </div>
           <div
-            className={`bg-white rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border-2 transition-all ${
+            className={`bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border-2 transition-all ${
               selectedAnswer
                 ? 'border-primary'
                 : 'border-[rgba(0,0,0,0.06)] border-dashed'
             }`}
           >
-            <span className="text-xs sm:text-sm md:text-[1.1rem] font-serif">
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-serif">
               {selectedAnswer || '???'}
             </span>
           </div>
@@ -98,7 +98,7 @@ export function AdjectiveMachine({
       </div>
 
       {/* Options */}
-      <div className="flex justify-center gap-3 flex-wrap">
+      <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
         {options.map((option, index) => {
           const isWrong = wrongAttempts.has(option.text);
           const isSelected = selectedAnswer === option.text;
@@ -109,7 +109,7 @@ export function AdjectiveMachine({
               type="button"
               onClick={() => handleOptionClick(option)}
               disabled={isCorrect}
-              className={`bg-white border px-6 py-3 rounded-[50px] cursor-pointer font-semibold transition-all ${
+              className={`bg-white border px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] cursor-pointer font-semibold transition-all text-xs sm:text-sm md:text-base ${
                 isSelected
                   ? 'bg-[#6B8C6E] text-white border-[#6B8C6E]'
                   : isWrong

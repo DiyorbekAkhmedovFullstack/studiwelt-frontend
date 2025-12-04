@@ -65,7 +65,7 @@ export function Lesson05RelativeClausesTheory() {
           {
             type: 'genitive',
             title: 'Der Besitzer (Genitiv)',
-            leftBlock: 'Der Mann',
+            leftBlock: 'Der Autor',
             rightBlock: 'dessen',
             description: (
               <>

@@ -22,30 +22,30 @@ function ParticipleCard({
 
   return (
     <div
-      className={`bg-surface rounded-[24px] p-8 shadow-card border-t-[6px] ${borderColor}`}
+      className={`bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-4 sm:p-5 md:p-6 lg:p-8 shadow-card border-t-[4px] sm:border-t-[5px] md:border-t-[6px] ${borderColor}`}
     >
       {/* Tag */}
       <div
-        className={`inline-block ${tagColor} text-white text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] md:text-[0.75rem] uppercase tracking-wide font-semibold px-3 py-1 rounded-full mb-6`}
+        className={`inline-block ${tagColor} text-white text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] uppercase tracking-wide font-semibold px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 rounded-full mb-4 sm:mb-5 md:mb-6`}
       >
         {tag}
       </div>
 
       {/* Example */}
-      <div className="mb-6">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-text-muted sm:text-[0.5rem] md:text-[0.6rem]">{verbSource}</span>
-          <span className="text-text-muted sm:text-sm md:text-[1.2rem]">{arrow}</span>
+      <div className="mb-4 sm:mb-5 md:mb-6">
+        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+          <span className="text-text-muted text-xs sm:text-sm md:text-base">{verbSource}</span>
+          <span className="text-text-muted text-sm sm:text-base md:text-lg">{arrow}</span>
         </div>
-        <div className="text-xs sm:text-sm md:text-[1.3rem] font-serif">{result}</div>
+        <div className="text-sm sm:text-base md:text-lg lg:text-xl font-serif">{result}</div>
       </div>
 
       {/* Formula */}
-      <div className="bg-[#FAF6F3] rounded-xl p-5 border border-[rgba(0,0,0,0.05)]">
-        <div className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] mb-2 uppercase tracking-wide">
+      <div className="bg-[#FAF6F3] rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-[rgba(0,0,0,0.05)]">
+        <div className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] mb-1 sm:mb-2 uppercase tracking-wide">
           Formel:
         </div>
-        <div className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] font-mono font-semibold">
+        <div className="text-[0.7rem] sm:text-[0.75rem] md:text-[0.8rem] font-mono font-semibold">
           {formula}
         </div>
       </div>
@@ -55,7 +55,7 @@ function ParticipleCard({
 
 export function ParticiplesComparison() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
       <ParticipleCard
         type="partizip1"
         tag="Aktiv / Gleichzeitig"

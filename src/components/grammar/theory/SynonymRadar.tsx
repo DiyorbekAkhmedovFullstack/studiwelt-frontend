@@ -32,15 +32,22 @@ export function SynonymRadar() {
   ];
 
   return (
-    <section className="mb-20">
-      <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10">
+    <section className="mb-12 sm:mb-16 md:mb-20">
+      {/* Instruction Tip */}
+      <div className="bg-[#FFF9E5] border-l-[3px] sm:border-l-4 border-[#D9A441] p-4 sm:p-5 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] mb-4 sm:mb-5 md:mb-6">
+        <p className="text-xs sm:text-sm md:text-base text-text-main">
+          <strong>Tipp:</strong> <span className="lg:hidden">Tippe auf die Fragen, um die entsprechenden Textstellen hervorzuheben.</span><span className="hidden lg:inline">Bewege die Maus über die Fragen rechts, um die entsprechenden Textstellen links hervorzuheben.</span>
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 sm:gap-8 md:gap-10">
         {/* Left: Text Panel */}
-        <div className="bg-surface p-10 rounded-[24px] shadow-card relative before:absolute before:top-0 before:left-0 before:w-full before:h-[6px] before:bg-primary before:opacity-80 before:rounded-t-[24px]">
-          <h3 className="text-xs sm:text-sm md:text-[1.3rem] font-serif mb-6">
+        <div className="bg-surface p-5 sm:p-6 md:p-8 lg:p-10 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-card relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] sm:before:h-[5px] md:before:h-[6px] before:bg-primary before:opacity-80 before:rounded-t-[16px] sm:before:rounded-t-[20px] md:before:rounded-t-[24px]">
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-[1.3rem] font-serif mb-4 sm:mb-5 md:mb-6">
             Smart Cities: Zukunft oder Überwachung?
           </h3>
 
-          <div className="text-xs sm:text-sm md:text-[1.1rem] font-serif leading-relaxed space-y-6">
+          <div className="text-sm sm:text-base md:text-lg lg:text-[1.1rem] font-serif leading-relaxed space-y-4 sm:space-y-5 md:space-y-6">
             <p>
               Die Digitalisierung städtischer Infrastrukturen verspricht effizientere Abläufe.{' '}
               <span
@@ -85,19 +92,20 @@ export function SynonymRadar() {
         </div>
 
         {/* Right: Questions Panel */}
-        <div className="flex flex-col gap-5 lg:sticky lg:top-[100px] lg:h-fit">
+        <div className="flex flex-col gap-4 sm:gap-5 lg:sticky lg:top-[100px] lg:h-fit">
           {questions.map((q, index) => (
             <div
               key={index}
               onMouseEnter={() => setActiveMatch(q.matchId)}
               onMouseLeave={() => setActiveMatch(null)}
-              className="bg-white p-6 rounded-[16px] border-l-4 border-[#E3D4C5] shadow-card transition-all hover:-translate-x-1 hover:border-[#D9A441] cursor-default group"
+              onClick={() => setActiveMatch(activeMatch === q.matchId ? null : q.matchId)}
+              className="bg-white p-4 sm:p-5 md:p-6 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border-l-[3px] sm:border-l-4 border-[#E3D4C5] shadow-card transition-all hover:-translate-x-1 hover:border-[#D9A441] cursor-pointer group"
             >
-              <span className="text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] block uppercase tracking-wider mb-2">
+              <span className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] block uppercase tracking-wider mb-1.5 sm:mb-2">
                 {q.label}
               </span>
-              <div className="text-text-main font-semibold">{q.question}</div>
-              <div className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="text-text-main text-xs sm:text-sm md:text-base font-semibold">{q.question}</div>
+              <div className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] mt-1.5 sm:mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">
                 {q.hint}
               </div>
             </div>

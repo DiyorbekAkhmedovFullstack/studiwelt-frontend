@@ -59,34 +59,34 @@ export function ProbabilityScale() {
   };
 
   return (
-    <section className="mb-16">
-      <h2 className="text-sm sm:text-xs md:text-[1.2rem] font-serif mb-6">Die Skala der Gewissheit</h2>
+    <section className="mb-8 sm:mb-12 md:mb-16">
+      <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif mb-4 sm:mb-5 md:mb-6">Die Skala der Gewissheit</h2>
 
-      <div className="flex flex-col gap-4 relative">
+      <div className="flex flex-col gap-3 sm:gap-4 relative">
         {/* Vertical gradient line */}
-        <div className="absolute left-6 top-5 bottom-5 w-[2px] bg-gradient-to-b from-text-main via-primary to-[#C7BFB5] z-0" />
+        <div className="absolute left-5 sm:left-6 top-4 sm:top-5 bottom-4 sm:bottom-5 w-[2px] bg-gradient-to-b from-text-main via-primary to-[#C7BFB5] z-0" />
 
         {items.map((item, index) => {
           const colors = getColorClasses(item.color);
           return (
             <div
               key={index}
-              className="bg-surface rounded-[16px] p-5 shadow-card grid grid-cols-[60px_120px_1fr] items-center gap-4 relative z-10 transition-transform hover:translate-x-2"
+              className="bg-surface rounded-[12px] sm:rounded-[14px] md:rounded-[16px] p-4 sm:p-5 shadow-card grid grid-cols-[50px_90px_1fr] sm:grid-cols-[60px_110px_1fr] md:grid-cols-[70px_130px_1fr] items-center gap-3 sm:gap-4 relative z-10 transition-transform hover:translate-x-2"
             >
               {/* Percent Badge */}
               <div
-                className={`font-mono font-bold text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] sm:text-[0.5rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] md:text-[0.8rem] px-2 py-1 rounded text-center ${colors.badge}`}
+                className={`font-mono font-bold text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] px-1.5 sm:px-2 py-1 rounded text-center ${colors.badge}`}
               >
                 {item.percent}
               </div>
 
               {/* Verb Label */}
-              <div className={`font-serif font-bold text-xs sm:text-sm md:text-[1.2rem] ${colors.verb}`}>
+              <div className={`font-serif font-bold text-sm sm:text-base md:text-lg lg:text-xl ${colors.verb}`}>
                 {item.verb}
               </div>
 
               {/* Context & Example */}
-              <div className="text-text-muted sm:text-[0.5rem] md:text-[0.6rem] border-l border-[#EEE] pl-4">
+              <div className="text-text-muted text-xs sm:text-sm md:text-base border-l border-[#EEE] pl-3 sm:pl-4">
                 {item.context}
                 <br />
                 <em

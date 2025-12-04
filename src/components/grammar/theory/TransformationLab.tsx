@@ -20,7 +20,7 @@ function LabButton({ label, color, isActive, onClick }: LabButtonProps) {
     <button
       type="button"
       onClick={onClick}
-      className={`px-6 py-3 rounded-[50px] border font-semibold cursor-pointer transition-all flex items-center gap-2 ${
+      className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] border font-semibold cursor-pointer transition-all flex items-center gap-2 text-xs sm:text-sm md:text-base ${
         isActive
           ? 'bg-primary text-white border-primary'
           : 'bg-white text-text-main border-[rgba(0,0,0,0.1)] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]'
@@ -59,21 +59,21 @@ export function TransformationLab() {
   };
 
   return (
-    <section className="text-center bg-surface rounded-[24px] shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-12">
+    <section className="text-center bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-[0_8px_24px_rgba(62,54,48,0.06)] sm:shadow-[0_10px_32px_rgba(62,54,48,0.07)] md:shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-5 sm:p-8 md:p-10 lg:p-12">
       {/* Header */}
-      <div className="mb-8">
-        <h2 className="text-base sm:text-xs md:text-[1.3rem] font-serif mb-2">Der Transformations-Labor</h2>
-        <p className="text-text-muted">Wähle eine Form, um den Satz umzuwandeln.</p>
+      <div className="mb-6 sm:mb-7 md:mb-8">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[1.3rem] font-serif mb-2">Der Transformations-Labor</h2>
+        <p className="text-text-muted text-xs sm:text-sm md:text-base">Wähle eine Form, um den Satz umzuwandeln.</p>
       </div>
 
       {/* Source Sentence */}
-      <div className="text-xs sm:text-sm md:text-[1.2rem] bg-[#F2F0EB] px-5 py-5 rounded-[16px] font-serif mb-8 inline-block border border-dashed border-[#CCC]">
+      <div className="text-sm sm:text-base md:text-lg lg:text-xl bg-[#F2F0EB] px-4 sm:px-5 py-4 sm:py-5 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] font-serif mb-6 sm:mb-7 md:mb-8 inline-block border border-dashed border-[#CCC]">
         "Die Handschrift{' '}
         <span className="underline">kann nicht gelesen</span> werden."
       </div>
 
       {/* Controls */}
-      <div className="flex justify-center gap-4 flex-wrap mb-8">
+      <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-6 sm:mb-7 md:mb-8">
         <LabButton
           type="adj"
           label="Adjektivisch"
@@ -98,19 +98,19 @@ export function TransformationLab() {
       </div>
 
       {/* Result Display */}
-      <div className="min-h-[80px] flex items-center justify-center transition-opacity duration-300" style={{ opacity: isTransitioning ? 0 : 1 }}>
+      <div className="min-h-[70px] sm:min-h-[75px] md:min-h-[80px] flex items-center justify-center transition-opacity duration-300" style={{ opacity: isTransitioning ? 0 : 1 }}>
         {selectedType ? (
           <div
-            className="text-xs sm:text-base md:text-[1.4rem] font-serif"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-[1.4rem] font-serif"
             dangerouslySetInnerHTML={{ __html: transformations[selectedType].text }}
           />
         ) : (
-          <span className="text-[#CCC] sm:text-sm md:text-[1rem] font-sans">Wähle eine Option</span>
+          <span className="text-[#CCC] text-sm sm:text-base md:text-lg font-sans">Wähle eine Option</span>
         )}
       </div>
 
       {/* Analysis Note */}
-      <div className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] mt-4 h-6">
+      <div className="text-xs sm:text-sm md:text-base mt-3 sm:mt-4 min-h-[24px] sm:min-h-[28px]">
         {selectedType && transformations[selectedType].note}
       </div>
     </section>

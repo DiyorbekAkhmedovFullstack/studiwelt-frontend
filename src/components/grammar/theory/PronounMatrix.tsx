@@ -29,79 +29,81 @@ function getCaseColor(caseType: CaseType): string {
 
 export function PronounMatrix({ title, rows }: PronounMatrixProps) {
   return (
-    <div className="bg-surface rounded-[24px] shadow-card p-8 mb-16 overflow-x-auto">
-      <h3 className="text-xs sm:text-sm md:text-[1.2rem] font-serif mb-5">{title}</h3>
+    <div className="bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-card p-4 sm:p-6 md:p-7 lg:p-8 mb-8 sm:mb-12 md:mb-16 overflow-x-auto">
+      <h3 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif mb-4 sm:mb-5">{title}</h3>
 
-      <table className="w-full border-collapse min-w-[600px]">
-        <thead>
-          <tr>
-            <th className="text-left sm:text-[0.5rem] md:text-[0.6rem] p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
-              Kasus
-            </th>
-            <th className="text-left sm:text-[0.5rem] md:text-[0.6rem] p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
-              Maskulin
-            </th>
-            <th className="text-left sm:text-[0.5rem] md:text-[0.6rem] p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
-              Neutral
-            </th>
-            <th className="text-left sm:text-[0.5rem] md:text-[0.6rem] p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
-              Feminin
-            </th>
-            <th className="text-left sm:text-[0.5rem] md:text-[0.6rem] p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
-              Plural
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={index}>
-              <td className="p-4 border-b border-[rgba(0,0,0,0.05)]">
-                <span
-                  className={`inline-block w-[45px] text-center font-sans text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] px-1.5 py-0.5 rounded font-bold ${getCaseColor(row.case)}`}
-                >
-                  {row.case}
-                </span>
-              </td>
-              <td
-                className={`p-4 font-mono text-base border-b border-[rgba(0,0,0,0.05)] ${
-                  row.highlightCells?.includes('maskulin')
-                    ? 'font-bold text-primary'
-                    : 'text-text-main'
-                }`}
-              >
-                {row.maskulin}
-              </td>
-              <td
-                className={`p-4 font-mono text-base border-b border-[rgba(0,0,0,0.05)] ${
-                  row.highlightCells?.includes('neutral')
-                    ? 'font-bold text-primary'
-                    : 'text-text-main'
-                }`}
-              >
-                {row.neutral}
-              </td>
-              <td
-                className={`p-4 font-mono text-base border-b border-[rgba(0,0,0,0.05)] ${
-                  row.highlightCells?.includes('feminin')
-                    ? 'font-bold text-primary'
-                    : 'text-text-main'
-                }`}
-              >
-                {row.feminin}
-              </td>
-              <td
-                className={`p-4 font-mono text-base border-b border-[rgba(0,0,0,0.05)] ${
-                  row.highlightCells?.includes('plural')
-                    ? 'font-bold text-primary'
-                    : 'text-text-main'
-                }`}
-              >
-                {row.plural}
-              </td>
+      <div className="overflow-x-auto -mx-4 sm:mx-0">
+        <table className="w-full border-collapse min-w-[500px] sm:min-w-0">
+          <thead>
+            <tr>
+              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] p-2 sm:p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
+                Kasus
+              </th>
+              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] p-2 sm:p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
+                Maskulin
+              </th>
+              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] p-2 sm:p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
+                Neutral
+              </th>
+              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] p-2 sm:p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
+                Feminin
+              </th>
+              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] p-2 sm:p-3 uppercase tracking-wider border-b-2 border-[rgba(0,0,0,0.05)]">
+                Plural
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map((row, index) => (
+              <tr key={index}>
+                <td className="p-2 sm:p-3 md:p-4 border-b border-[rgba(0,0,0,0.05)]">
+                  <span
+                    className={`inline-block w-[38px] sm:w-[42px] md:w-[45px] text-center font-sans text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] px-1 sm:px-1.5 py-0.5 rounded font-bold ${getCaseColor(row.case)}`}
+                  >
+                    {row.case}
+                  </span>
+                </td>
+                <td
+                  className={`p-2 sm:p-3 md:p-4 font-mono text-sm sm:text-base md:text-lg border-b border-[rgba(0,0,0,0.05)] ${
+                    row.highlightCells?.includes('maskulin')
+                      ? 'font-bold text-primary'
+                      : 'text-text-main'
+                  }`}
+                >
+                  {row.maskulin}
+                </td>
+                <td
+                  className={`p-2 sm:p-3 md:p-4 font-mono text-sm sm:text-base md:text-lg border-b border-[rgba(0,0,0,0.05)] ${
+                    row.highlightCells?.includes('neutral')
+                      ? 'font-bold text-primary'
+                      : 'text-text-main'
+                  }`}
+                >
+                  {row.neutral}
+                </td>
+                <td
+                  className={`p-2 sm:p-3 md:p-4 font-mono text-sm sm:text-base md:text-lg border-b border-[rgba(0,0,0,0.05)] ${
+                    row.highlightCells?.includes('feminin')
+                      ? 'font-bold text-primary'
+                      : 'text-text-main'
+                  }`}
+                >
+                  {row.feminin}
+                </td>
+                <td
+                  className={`p-2 sm:p-3 md:p-4 font-mono text-sm sm:text-base md:text-lg border-b border-[rgba(0,0,0,0.05)] ${
+                    row.highlightCells?.includes('plural')
+                      ? 'font-bold text-primary'
+                      : 'text-text-main'
+                  }`}
+                >
+                  {row.plural}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

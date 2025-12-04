@@ -23,37 +23,32 @@ function StrategyCard({ type, title, meaningTag, formula, example }: StrategyCar
     hybrid: 'bg-gradient-to-r from-[#C07766] to-[#6B8C6E] bg-clip-text text-transparent',
   };
 
-  // Special handling for hybrid border
-  const borderStyle = type === 'hybrid'
-    ? 'border-t-[6px] border-solid'
-    : `border-t-[6px] ${borderColors[type]}`;
-
   const gradientBorderStyle = type === 'hybrid'
     ? { borderImage: 'linear-gradient(to right, #C07766 50%, #6B8C6E 50%) 1 0 0 0' }
     : {};
 
   return (
     <div
-      className={`bg-surface rounded-[24px] p-8 shadow-card ${borderStyle} transition-transform hover:-translate-y-1`}
+      className={`bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-5 sm:p-6 md:p-7 lg:p-8 shadow-card border-t-[4px] sm:border-t-[5px] md:border-t-[6px] ${type === 'hybrid' ? 'border-solid' : borderColors[type]} transition-transform hover:-translate-y-1`}
       style={gradientBorderStyle}
     >
-      <h3 className="text-xs sm:text-sm md:text-[1.2rem] font-serif font-bold mb-2">{title}</h3>
-      <span className={`text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] sm:text-[0.55rem] sm:text-[0.55rem] md:text-[0.6rem] md:text-[0.75rem] uppercase tracking-wider font-semibold block mb-5 ${tagColors[type]}`}>
+      <h3 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif font-bold mb-2">{title}</h3>
+      <span className={`text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] uppercase tracking-wider font-semibold block mb-4 sm:mb-5 ${tagColors[type]}`}>
         {meaningTag}
       </span>
 
-      <div className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] bg-[#FAF6F3] px-3 py-3 rounded-lg font-mono mb-4 border border-[rgba(0,0,0,0.05)]">
+      <div className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] bg-[#FAF6F3] px-3 py-2.5 sm:py-3 rounded-lg font-mono mb-3 sm:mb-4 border border-[rgba(0,0,0,0.05)]">
         {formula}
       </div>
 
-      <div className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] leading-relaxed">{example}</div>
+      <div className="text-xs sm:text-sm md:text-base leading-relaxed">{example}</div>
     </div>
   );
 }
 
 export function PassiveAlternatives() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-12 md:mb-16">
       <StrategyCard
         type="can"
         title="Adjektivendung"

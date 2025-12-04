@@ -28,32 +28,32 @@ function LogicCard({ logicType, title, icon, questionTag, structures }: LogicCar
 
   return (
     <div
-      className={`bg-surface rounded-[24px] p-8 shadow-card border-t-[6px] ${borderColors[logicType]} transition-transform hover:-translate-y-1`}
+      className={`bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-5 sm:p-6 md:p-7 lg:p-8 shadow-card border-t-[4px] sm:border-t-[5px] md:border-t-[6px] ${borderColors[logicType]} transition-transform hover:-translate-y-1`}
     >
       {/* Header */}
-      <div className="flex justify-between items-center mb-5">
-        <h3 className="text-xs sm:text-sm md:text-[1.2rem] font-serif font-bold">{title}</h3>
+      <div className="flex justify-between items-center mb-4 sm:mb-5">
+        <h3 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif font-bold">{title}</h3>
         <div
-          className={`w-8 h-8 rounded-full flex items-center justify-center text-xs sm:text-sm md:text-[1rem] ${iconColors[logicType]}`}
+          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg ${iconColors[logicType]}`}
         >
           {icon}
         </div>
       </div>
 
       {/* Question Tag */}
-      <span className="text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] italic block mb-4">
+      <span className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] italic block mb-3 sm:mb-4">
         {questionTag}
       </span>
 
       {/* Structure List */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2 sm:gap-3">
         {structures.map((struct, index) => (
           <div
             key={index}
-            className="text-[0.55rem] sm:text-[0.5rem] md:text-[0.6rem] bg-[#FAF6F3] px-3.5 py-2.5 rounded-lg flex justify-between items-center"
+            className="text-xs sm:text-sm md:text-base bg-[#FAF6F3] px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg flex justify-between items-center"
           >
             <span className="text-text-main font-bold">{struct.word}</span>
-            <span className="text-[0.5rem] sm:text-[0.55rem] md:text-[0.6rem] font-mono bg-white px-1.5 py-0.5 rounded border border-[rgba(0,0,0,0.05)]">
+            <span className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] font-mono bg-white px-1.5 py-0.5 rounded border border-[rgba(0,0,0,0.05)]">
               {struct.type}
             </span>
           </div>
@@ -65,7 +65,7 @@ function LogicCard({ logicType, title, icon, questionTag, structures }: LogicCar
 
 export function LogicTriadGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-12 md:mb-16">
       <LogicCard
         logicType="causal"
         title="Kausal (Grund)"
