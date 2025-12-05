@@ -19,6 +19,12 @@ import { Lesson17GraphDescription } from './theory/Lesson17GraphDescription';
 import { Lesson18SpeakingExpression } from './theory/Lesson18SpeakingExpression';
 import { Lesson19ReadingComprehension } from './theory/Lesson19ReadingComprehension';
 import { Lesson20ListeningComprehension } from './theory/Lesson20ListeningComprehension';
+import { Lesson21AdversativeConnectors } from './theory/Lesson21AdversativeConnectors';
+import { Lesson22TemporalClauses } from './theory/Lesson22TemporalClauses';
+import { Lesson23ConditionalClauses } from './theory/Lesson23ConditionalClauses';
+import { Lesson24CausalRelations } from './theory/Lesson24CausalRelations';
+import { Lesson25ModalParticles } from './theory/Lesson25ModalParticles';
+import { Lesson26AdjectivesComposita } from './theory/Lesson26AdjectivesComposita';
 
 type LessonGrammarTheoryProps = {
   lessonNumber: number;
@@ -135,34 +141,34 @@ const THEORY_BY_LESSON: Record<number, LessonTheoryConfig> = {
       'Verwendung von Partizip I und II zur Verdichtung von Informationen.',
   },
   21: {
-    title: 'Vergleichssätze und Steigerung',
+    title: 'Adversative Konnektoren',
     description:
-      'Komparativ und Superlativ sowie typische Strukturen mit „als“ und „wie“.',
+      'Nuancen zwischen aber, sondern, hingegen, vielmehr und dagegen. Register und Positionsregeln für B2-C1.',
   },
   22: {
-    title: 'Wortstellung mit Fokus',
+    title: 'Temporale Nebensätze',
     description:
-      'Vorfeldbesetzung und Hervorhebung wichtiger Informationsteile im Satz.',
+      'Zeitenfolge mit während, bevor, nachdem, sobald, seit und bis. Tense Sequence für B2-C1.',
   },
   23: {
-    title: 'Zeitformen im Bericht',
+    title: 'Bedingungssätze (Konditionalsätze)',
     description:
-      'Wechsel von Perfekt, Präteritum und Plusquamperfekt in Erzählungen und Berichten.',
+      'Realis, Irrealis Gegenwart/Vergangenheit, gemischte Konditionale. Wenn-Weglassung für C1.',
   },
   24: {
-    title: 'Infinitivkonstruktionen mit „zu“',
+    title: 'Kausale Nuancen',
     description:
-      'Verwendung von Infinitivgruppen nach bestimmten Verben und Adjektiven.',
+      'Unterschiede zwischen weil, da, denn, nämlich, zumal und insofern. Register und Position für B2-C1.',
   },
   25: {
-    title: 'Spezielle Verben mit Präposition',
+    title: 'Modalpartikeln',
     description:
-      'Typische Verb-Präposition-Kombinationen, die im Prüfungskontext wichtig sind.',
+      'Kleine Wörter (ja, doch, mal, eben, wohl) die Haltung und Emotion ausdrücken. Typisch für gesprochenes Deutsch.',
   },
   26: {
-    title: 'Strukturierung von Argumentationen',
+    title: 'Adjektivdeklination & Komposita',
     description:
-      'Grammatikalische Mittel zur Gliederung von Pro- und Contra-Argumenten.',
+      'Korrekte Adjektivendungen nach verschiedenen Artikeltypen. Zusammengesetzte Wörter verstehen und bilden.',
   },
   27: {
     title: 'Redemittel für Meinung und Bewertung',
@@ -270,6 +276,30 @@ export function LessonGrammarTheory({
 
   if (lessonNumber === 20) {
     return <Lesson20ListeningComprehension />;
+  }
+
+  if (lessonNumber === 21) {
+    return <Lesson21AdversativeConnectors />;
+  }
+
+  if (lessonNumber === 22) {
+    return <Lesson22TemporalClauses />;
+  }
+
+  if (lessonNumber === 23) {
+    return <Lesson23ConditionalClauses />;
+  }
+
+  if (lessonNumber === 24) {
+    return <Lesson24CausalRelations />;
+  }
+
+  if (lessonNumber === 25) {
+    return <Lesson25ModalParticles />;
+  }
+
+  if (lessonNumber === 26) {
+    return <Lesson26AdjectivesComposita />;
   }
 
   if (!theory) {
