@@ -25,6 +25,10 @@ import { Lesson23ConditionalClauses } from './theory/Lesson23ConditionalClauses'
 import { Lesson24CausalRelations } from './theory/Lesson24CausalRelations';
 import { Lesson25ModalParticles } from './theory/Lesson25ModalParticles';
 import { Lesson26AdjectivesComposita } from './theory/Lesson26AdjectivesComposita';
+import { Lesson27RestrictiveExpressions } from './theory/Lesson27RestrictiveExpressions';
+import { Lesson28PerspectiveMarkers } from './theory/Lesson28PerspectiveMarkers';
+import { Lesson29ComplexSentences } from './theory/Lesson29ComplexSentences';
+import { Lesson30ExamPreparation } from './theory/Lesson30ExamPreparation';
 
 type LessonGrammarTheoryProps = {
   lessonNumber: number;
@@ -171,19 +175,19 @@ const THEORY_BY_LESSON: Record<number, LessonTheoryConfig> = {
       'Korrekte Adjektivendungen nach verschiedenen Artikeltypen. Zusammengesetzte Wörter verstehen und bilden.',
   },
   27: {
-    title: 'Redemittel für Meinung und Bewertung',
+    title: 'Restriktive Ausdrücke',
     description:
-      'Formulierungen für schriftliche Stellungnahmen und mündliche Prüfungen.',
+      'Nuancen zwischen nur, lediglich, bloß, allein, ausschließlich, einzig. Register-angemessene Verwendung.',
   },
   28: {
-    title: 'Konditionalsätze mit „wenn“ und „falls“',
+    title: 'Perspektiv- & Stellungnahme-Marker',
     description:
-      'Ausdrücken von Bedingungen in Prüfungsaufgaben und Textproduktion.',
+      'Meinung ausdrücken, argumentieren (Pro/Contra), register-angemessene Redemittel für TestDaF/DSH.',
   },
   29: {
-    title: 'Konzessive Strukturen',
+    title: 'Komplexe Satzarchitektur & Kohärenz',
     description:
-      'Gebrauch von „obwohl“, „trotzdem“ und verwandten Ausdrücken.',
+      'Parataxe vs. Hypotaxe, Kohäsionsmittel (Konnektoren, Referenz), Textzusammenhang für C1-Niveau.',
   },
   30: {
     title: 'Wiederholung und Integration',
@@ -300,6 +304,22 @@ export function LessonGrammarTheory({
 
   if (lessonNumber === 26) {
     return <Lesson26AdjectivesComposita />;
+  }
+
+  if (lessonNumber === 27) {
+    return <Lesson27RestrictiveExpressions />;
+  }
+
+  if (lessonNumber === 28) {
+    return <Lesson28PerspectiveMarkers />;
+  }
+
+  if (lessonNumber === 29) {
+    return <Lesson29ComplexSentences />;
+  }
+
+  if (lessonNumber === 30) {
+    return <Lesson30ExamPreparation />;
   }
 
   if (!theory) {
