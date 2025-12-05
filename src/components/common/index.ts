@@ -6,3 +6,4 @@ export { Button } from './Button';
 export { CustomToaster } from './CustomToast';
 export { ProfileDropdown } from './ProfileDropdown';
 export { ResponsiveImage, Picture } from './ResponsiveImage';
+export { GermanKeyboard } from './GermanKeyboard';

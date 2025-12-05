@@ -7,6 +7,7 @@ import { toastService } from '../services/toastService';
 import type { CTest } from '../types/api';
 import { useProgress } from '../contexts/ProgressContext';
 import { SectionCompletedState } from '../components/common/SectionCompletedState';
+import { GermanKeyboard } from '../components/common/GermanKeyboard';
 
 type Params = {
   lessonNumber?: string;
@@ -68,6 +69,7 @@ export function LessonCtestPage() {
   const [answers, setAnswers] = useState<AnswersMap>({});
   const [submitting, setSubmitting] = useState(false);
   const [isLocked, setIsLocked] = useState(false);
+  const [focusedGapIndex, setFocusedGapIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (!lessonNumber) {
@@ -163,6 +165,36 @@ export function LessonCtestPage() {
       ...prev,
       [String(index)]: value,
     }));
+  };
+
+  const handleGermanCharacter = (char: string) => {
+    if (focusedGapIndex === null) return;
+
+    // Get the currently focused input
+    const input = document.querySelector<HTMLInputElement>(
+      `input[data-gap-index="${focusedGapIndex}"]`,
+    );
+
+    if (!input) return;
+
+    // Get cursor position
+    const cursorPosition = input.selectionStart ?? input.value.length;
+
+    // Insert character at cursor position
+    const currentValue = answers[String(focusedGapIndex)] ?? '';
+    const newValue =
+      currentValue.substring(0, cursorPosition) +
+      char +
+      currentValue.substring(cursorPosition);
+
+    handleAnswerChange(focusedGapIndex, newValue);
+
+    // Restore focus and move cursor after inserted character
+    setTimeout(() => {
+      input.focus();
+      const newCursorPosition = cursorPosition + char.length;
+      input.setSelectionRange(newCursorPosition, newCursorPosition);
+    }, 0);
   };
 
   const handleKeyDown = (
@@ -425,6 +457,8 @@ export function LessonCtestPage() {
                     value={value}
                     onChange={(e) => handleAnswerChange(index, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(e, index)}
+                    onFocus={() => setFocusedGapIndex(index)}
+                    onBlur={() => setFocusedGapIndex(null)}
                     style={{ width: `${width}ch`, padding: '0', margin: '0' }}
                     className="font-serif text-base sm:text-[20px] text-primary bg-transparent border-none border-b-2 border-[#D1D1D1] outline-none transition-all text-left rounded-none font-semibold tracking-normal focus:border-primary focus:bg-[rgba(166,123,91,0.1)]"
                   />
@@ -437,9 +471,13 @@ export function LessonCtestPage() {
 
       {/* Bottom Action Bar */}
       <footer className="bg-white border-t border-[#EEE] py-4 sm:py-5 px-4 sm:px-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 flex-shrink-0">
-        <div className="flex flex-col gap-2 items-center w-full sm:w-auto">
+        <div className="flex flex-col gap-3 items-center w-full sm:w-auto">
           <div className="text-xs sm:text-[14px] text-text-muted hidden sm:block">
             <span>{parsed.totalGaps} Gaps</span>
+          </div>
+          {/* German Keyboard Helper */}
+          <div className="w-full sm:w-auto">
+            <GermanKeyboard onCharacterClick={handleGermanCharacter} />
           </div>
           {/* Keyboard Shortcuts - Hide on mobile */}
           <div className="text-[12px] text-text-muted hidden sm:block">
