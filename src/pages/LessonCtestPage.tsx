@@ -470,47 +470,53 @@ export function LessonCtestPage() {
       </main>
 
       {/* Bottom Action Bar */}
-      <footer className="bg-white border-t border-[#EEE] py-4 sm:py-5 px-4 sm:px-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 flex-shrink-0">
-        <div className="flex flex-col gap-3 items-center w-full sm:w-auto">
-          <div className="text-xs sm:text-[14px] text-text-muted hidden sm:block">
-            <span>{parsed.totalGaps} Gaps</span>
-          </div>
-          {/* German Keyboard Helper */}
-          <div className="w-full sm:w-auto">
-            <GermanKeyboard onCharacterClick={handleGermanCharacter} />
-          </div>
-          {/* Keyboard Shortcuts - Hide on mobile */}
-          <div className="text-[12px] text-text-muted hidden sm:block">
-            <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)] mx-0.5">
-              ←
-            </span>
-            <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)] mx-0.5">
-              →
-            </span>
-            Navigate
-            <span className="mx-1.5">•</span>
-            <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)] mx-0.5">
-              ↑
-            </span>
-            <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)] mx-0.5">
-              ↓
-            </span>
-            Jump
-            <span className="mx-1.5">•</span>
-            <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)] mx-0.5">
-              Tab
-            </span>
-            Next
-          </div>
+      <footer className="bg-white border-t border-[#EEE] flex-shrink-0">
+        {/* German Keyboard Section */}
+        <div className="border-b border-[#F5F5F5] py-3 px-4 sm:px-10">
+          <GermanKeyboard onCharacterClick={handleGermanCharacter} />
         </div>
-        <button
-          type="button"
-          onClick={handleSubmit}
-          disabled={!allGapsAnswered || submitting}
-          className="w-full sm:w-auto bg-primary text-white border-none py-3 sm:py-3.5 px-8 sm:px-12 rounded-xl sm:rounded-[50px] text-sm sm:text-base font-semibold cursor-pointer shadow-[0_4px_12px_rgba(166,123,91,0.3)] transition-all hover:bg-primary-hover hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-        >
-          {submitting ? 'Submitting...' : 'Check My Answers'}
-        </button>
+
+        {/* Main Footer Controls */}
+        <div className="py-4 sm:py-5 px-4 sm:px-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          {/* Left: Stats and Keyboard Shortcuts */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            <div className="text-xs sm:text-[14px] text-text-muted">
+              <span className="font-semibold text-text-main">{filledCount}</span> / {parsed.totalGaps} Gaps Filled
+            </div>
+
+            {/* Keyboard Shortcuts - Hide on mobile */}
+            <div className="text-[12px] text-text-muted hidden lg:flex items-center gap-1">
+              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+                ←
+              </span>
+              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+                →
+              </span>
+              <span className="mr-2">Navigate</span>
+              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+                ↑
+              </span>
+              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+                ↓
+              </span>
+              <span className="mr-2">Jump</span>
+              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+                Tab
+              </span>
+              <span>Next</span>
+            </div>
+          </div>
+
+          {/* Right: Submit Button */}
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!allGapsAnswered || submitting}
+            className="w-full sm:w-auto bg-primary text-white border-none py-3 sm:py-3.5 px-8 sm:px-12 rounded-xl sm:rounded-[50px] text-sm sm:text-base font-semibold cursor-pointer shadow-[0_4px_12px_rgba(166,123,91,0.3)] transition-all hover:bg-primary-hover hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+          >
+            {submitting ? 'Submitting...' : 'Check My Answers'}
+          </button>
+        </div>
       </footer>
     </div>
   );
