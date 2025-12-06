@@ -448,8 +448,8 @@ export function LessonCtestPage() {
               }
 
               return (
-                <span key={`gap-${index}-${idx}`} className="inline-block whitespace-nowrap">
-                  <span className="tracking-normal">{wordPrefix}</span>
+                <span key={`gap-${index}-${idx}`} className="inline whitespace-nowrap align-baseline">
+                  <span className="tracking-normal align-baseline">{wordPrefix}</span>
                   <input
                     type="text"
                     aria-label={`Gap ${index}`}
@@ -460,7 +460,7 @@ export function LessonCtestPage() {
                     onFocus={() => setFocusedGapIndex(index)}
                     onBlur={() => setFocusedGapIndex(null)}
                     style={{ width: `${width}ch`, padding: '0', margin: '0' }}
-                    className="font-serif text-base sm:text-[20px] text-primary bg-transparent border-none border-b-2 border-[#D1D1D1] outline-none transition-all text-left rounded-none font-semibold tracking-normal focus:border-primary focus:bg-[rgba(166,123,91,0.1)]"
+                    className="font-serif text-base sm:text-[20px] text-primary bg-transparent border-none border-b-2 border-[#D1D1D1] outline-none transition-all text-left rounded-none font-semibold tracking-normal focus:border-primary focus:bg-[rgba(166,123,91,0.1)] align-baseline"
                   />
                 </span>
               );

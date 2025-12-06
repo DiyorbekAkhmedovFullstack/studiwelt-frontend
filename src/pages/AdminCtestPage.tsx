@@ -53,6 +53,104 @@ function getCtestDiagnostic(
   return { type: 'ok' };
 }
 
+/**
+ * Generates C-test gap text from original text following the "Rule of Two":
+ * - First sentence: left intact
+ * - Starting from word 2 of sentence 2: delete second half of every second word
+ * - Last sentence: left intact
+ * - Proper nouns: not deleted
+ *
+ * Deletion rules:
+ * - Even number of letters: delete larger half (e.g., "word" → "wo**")
+ * - Odd number of letters: delete more than half (e.g., "the" → "t**")
+ */
+function generateCtestGapText(originalText: string): string {
+  if (!originalText.trim()) return '';
+
+  // Split into sentences (basic split by . ! ?)
+  const sentenceRegex = /[.!?]+/g;
+  const sentences: string[] = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = sentenceRegex.exec(originalText)) !== null) {
+    const sentence = originalText.slice(lastIndex, match.index + match[0].length);
+    sentences.push(sentence);
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text if any
+  if (lastIndex < originalText.length) {
+    sentences.push(originalText.slice(lastIndex));
+  }
+
+  if (sentences.length === 0) {
+    // No sentence delimiters found, treat whole text as one sentence
+    sentences.push(originalText);
+  }
+
+  let result = '';
+
+  for (let sentIdx = 0; sentIdx < sentences.length; sentIdx++) {
+    const sentence = sentences[sentIdx]!;
+
+    // First and last sentences remain intact
+    if (sentIdx === 0 || sentIdx === sentences.length - 1) {
+      result += sentence;
+      continue;
+    }
+
+    // For middle sentences, apply the "Rule of Two"
+    const words = sentence.split(/(\s+)/); // Split but keep whitespace
+    let processedSentence = '';
+    let wordCount = 0; // Count actual words (not whitespace)
+
+    for (const token of words) {
+      // Skip whitespace tokens
+      if (/^\s+$/.test(token)) {
+        processedSentence += token;
+        continue;
+      }
+
+      wordCount++;
+
+      // Starting from word 2, process every second word
+      if (wordCount >= 2 && wordCount % 2 === 0) {
+        // Check if it's a proper noun (starts with uppercase and not at sentence start)
+        const isProperNoun = /^[A-ZÄÖÜ]/.test(token) && wordCount > 1;
+
+        if (isProperNoun) {
+          processedSentence += token;
+        } else {
+          // Apply gap generation
+          const wordLength = token.length;
+
+          if (wordLength === 1) {
+            // Single character words remain intact
+            processedSentence += token;
+          } else if (wordLength % 2 === 0) {
+            // Even number of letters: delete larger half
+            const keepLength = Math.floor(wordLength / 2);
+            const deleteLength = wordLength - keepLength;
+            processedSentence += token.slice(0, keepLength) + '*'.repeat(deleteLength);
+          } else {
+            // Odd number of letters: delete more than half
+            const keepLength = Math.floor(wordLength / 2);
+            const deleteLength = wordLength - keepLength;
+            processedSentence += token.slice(0, keepLength) + '*'.repeat(deleteLength);
+          }
+        }
+      } else {
+        processedSentence += token;
+      }
+    }
+
+    result += processedSentence;
+  }
+
+  return result;
+}
+
 export function AdminCtestPage() {
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
@@ -74,6 +172,18 @@ export function AdminCtestPage() {
     () => getCtestDiagnostic(originalText, gapText),
     [originalText, gapText],
   );
+
+  // Auto-generate gap text when original text changes
+  const handleOriginalTextChange = (newText: string) => {
+    setOriginalText(newText);
+    // Only auto-generate if there's text and gap text is empty or was auto-generated
+    if (newText.trim()) {
+      const generated = generateCtestGapText(newText);
+      setGapText(generated);
+    } else {
+      setGapText('');
+    }
+  };
 
   useEffect(() => {
     if (!lessonNumber) {
@@ -409,20 +519,41 @@ export function AdminCtestPage() {
                 <textarea
                   required
                   value={originalText}
-                  onChange={(e) => setOriginalText(e.target.value)}
+                  onChange={(e) => handleOriginalTextChange(e.target.value)}
                   className="min-h-[300px] w-full rounded-lg border border-border-soft px-4 py-3 text-[15px] outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors font-mono resize-y"
+                  placeholder="Paste your German text here. The gap text will be generated automatically..."
                 />
+                <p className="mt-2 text-[13px] text-text-muted">
+                  ✨ Gap text is auto-generated following C-test rules. You can modify it below if needed.
+                </p>
               </div>
               <div>
-                <label className="mb-2 block text-[14px] font-medium text-text-main">
-                  Gap text (use <span className="font-mono">*</span> for missing
-                  characters)
-                </label>
+                <div className="mb-2 flex items-center justify-between">
+                  <label className="text-[14px] font-medium text-text-main">
+                    Gap text (use <span className="font-mono">*</span> for missing
+                    characters)
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (originalText.trim()) {
+                        const generated = generateCtestGapText(originalText);
+                        setGapText(generated);
+                        toastService.success('Gap text regenerated.');
+                      }
+                    }}
+                    disabled={!originalText.trim()}
+                    className="rounded-lg border border-border-soft bg-surface px-3 py-1.5 text-[13px] font-medium text-text-main hover:bg-highlight disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    🔄 Regenerate
+                  </button>
+                </div>
                 <textarea
                   required
                   value={gapText}
                   onChange={(e) => setGapText(e.target.value)}
                   className="min-h-[300px] w-full rounded-lg border border-border-soft px-4 py-3 text-[15px] outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors font-mono resize-y"
+                  placeholder="Gap text will appear here automatically. You can edit it manually if needed."
                 />
                 <p className="mt-2 text-[13px] text-text-muted">
                   Length: original {originalText.length} characters, gap{' '}

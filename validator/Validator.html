@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Test Validator (Strict)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 { color: #333; }
+        
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace; /* Monospace is crucial */
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #0056b3; }
+
+        .status {
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+            margin-bottom: 20px;
+        }
+        .success { background-color: #d4edda; color: #155724; display: block; }
+        .error { background-color: #f8d7da; color: #721c24; display: block; }
+
+        /* Visual Diff Styles */
+        .diff-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            white-space: pre-wrap; /* Preserve spaces and line breaks */
+            word-break: break-all;
+            font-size: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .char { display: inline-block; }
+        
+        /* Coloring Logic */
+        .char-match { color: #28a745; } /* Green: Original letter matches Gapped letter */
+        .char-star { color: #007bff; font-weight: bold; background-color: #e7f1ff; } /* Blue: Valid Star replacement */
+        .char-error { 
+            color: white; 
+            background-color: #dc3545; 
+            font-weight: bold;
+            outline: 2px solid #dc3545;
+        } /* Red: Mismatch */
+        
+        .char-missing {
+            background-color: #ffc107;
+            color: black;
+            border: 1px dashed #333;
+        } /* Yellow: Length mismatch area */
+
+        .legend {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .legend span { margin-right: 15px; display: inline-block; padding: 2px 5px; border-radius: 3px;}
+    </style>
+</head>
+<body>
+
+    <h1>C-Test Validator</h1>
+    
+    <div class="controls">
+        <button onclick="validate()">Compare Texts</button>
+        <button onclick="clearText()" style="background-color: #6c757d;">Clear</button>
+        <div id="counts" style="margin-left: auto; color: #555;">
+            Waiting for input...
+        </div>
+    </div>
+
+    <div id="statusMessage" class="status" style="display:none;"></div>
+
+    <div class="container">
+        <div class="input-group">
+            <label>Original Text <span id="len-orig">(0 chars)</span></label>
+            <textarea id="original" placeholder="Paste full original text here..."></textarea>
+        </div>
+        <div class="input-group">
+            <label>Gapped Text (with *) <span id="len-gap">(0 chars)</span></label>
+            <textarea id="gapped" placeholder="Paste text with stars here..."></textarea>
+        </div>
+    </div>
+
+    <h3>Visual Analysis</h3>
+    <div class="legend">
+        <span style="color: #28a745">Text Match</span>
+        <span style="background-color: #e7f1ff; color: #007bff">Valid Star (*)</span>
+        <span style="background-color: #dc3545; color: white">MISMATCH / ERROR</span>
+    </div>
+    <div id="diffOutput" class="diff-container">No analysis yet.</div>
+
+    <script>
+        function validate() {
+            const orig = document.getElementById('original').value;
+            const gap = document.getElementById('gapped').value;
+            const output = document.getElementById('diffOutput');
+            const statusBox = document.getElementById('statusMessage');
+            
+            // Update counts
+            document.getElementById('len-orig').textContent = `(${orig.length} chars)`;
+            document.getElementById('len-gap').textContent = `(${gap.length} chars)`;
+
+            let html = "";
+            let errors = 0;
+            let lengthError = false;
+
+            // Use the longer length to catch trailing characters
+            const maxLength = Math.max(orig.length, gap.length);
+
+            for (let i = 0; i < maxLength; i++) {
+                const o = orig[i] || ""; // undefined becomes empty string
+                const g = gap[i] || "";
+
+                // Case 1: Length mismatch (one string ended)
+                if (!o || !g) {
+                    html += `<span class="char char-missing" title="Length mismatch! Expected '${o}', found nothing (or vice versa).">?</span>`;
+                    lengthError = true;
+                    errors++;
+                    continue;
+                }
+
+                // Case 2: Perfect Match
+                if (o === g) {
+                    html += `<span class="char char-match">${g}</span>`;
+                } 
+                // Case 3: Valid Gap (Original has letter, Gap has *)
+                else if (g === '*') {
+                    html += `<span class="char char-star">*</span>`;
+                } 
+                // Case 4: Mismatch (Error)
+                else {
+                    // Handle newlines visibly for debugging
+                    let displayG = g === '\n' ? '↵\n' : g;
+                    let displayO = o === '\n' ? '↵' : o;
+                    
+                    html += `<span class="char char-error" title="Index ${i}: Original was '${displayO}', Gapped was '${displayG}'">${displayG}</span>`;
+                    errors++;
+                }
+            }
+
+            output.innerHTML = html;
+
+            // Status Logic
+            statusBox.style.display = 'block';
+            if (orig.length !== gap.length) {
+                statusBox.className = 'status error';
+                statusBox.textContent = `❌ LENGTH MISMATCH! Original: ${orig.length}, Gapped: ${gap.length}. Difference: ${Math.abs(orig.length - gap.length)} chars.`;
+            } else if (errors > 0) {
+                statusBox.className = 'status error';
+                statusBox.textContent = `❌ FOUND ${errors} CHARACTERS THAT DO NOT MATCH. See red highlights below.`;
+            } else {
+                statusBox.className = 'status success';
+                statusBox.textContent = `✅ SUCCESS! Texts match perfectly. Length: ${orig.length}. Structure is valid.`;
+            }
+        }
+
+        function clearText() {
+            document.getElementById('original').value = '';
+            document.getElementById('gapped').value = '';
+            document.getElementById('diffOutput').innerHTML = 'No analysis yet.';
+            document.getElementById('statusMessage').style.display = 'none';
+            document.getElementById('len-orig').textContent = '(0 chars)';
+            document.getElementById('len-gap').textContent = '(0 chars)';
+        }
+    </script>
+</body>
+</html>
