@@ -2,7 +2,7 @@ import GermanyMap from './GermanyMap';
 
 export function GermanyMapSection() {
     return (
-        <section className="py-24 bg-surface overflow-hidden">
+        <section className="py-24 bg-page overflow-hidden">
             <div className="max-w-[1100px] mx-auto px-6 text-center">
                 <h2 className="text-[40px] font-bold mb-6">Your Future in Germany</h2>
                 <p className="text-text-muted text-lg mb-12 max-w-[700px] mx-auto">

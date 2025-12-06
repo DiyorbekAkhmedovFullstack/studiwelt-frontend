@@ -117,7 +117,7 @@ export function LandingNavbar() {
               <Link
                 to="/course"
                 onClick={closeMobileMenu}
-                className="flex items-center gap-3 px-4 py-3 mx-2 rounded-xl transition-colors hover:bg-[#FAF6F3]"
+                className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg transition-colors hover:bg-[#FAF6F3]"
               >
                 <div className="w-9 h-9 rounded-lg bg-white border border-[rgba(0,0,0,0.05)] flex items-center justify-center text-primary">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -186,7 +186,7 @@ export function LandingNavbar() {
               {/* Logout - same style as ProfileDropdown */}
               <button
                 onClick={() => void handleLogout()}
-                className="w-full flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-danger font-medium text-[15px] transition-colors hover:bg-[#FFF5F5]"
+                className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-danger font-medium text-[15px] transition-colors hover:bg-[#FFF5F5] w-[calc(100%-16px)]"
               >
                 <svg className="text-danger opacity-70 w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -197,21 +197,18 @@ export function LandingNavbar() {
               </button>
             </>
           ) : (
-            <div className="flex flex-col py-2">
-              <Link
-                to="/login"
-                onClick={closeMobileMenu}
-                className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
-              >
-                Log in
+            <div className="flex flex-col p-4 gap-3">
+              <Link to="/login" onClick={closeMobileMenu} className="block">
+                <button className="w-full bg-transparent text-text-main font-medium py-3 px-6 rounded-xl text-sm border border-[rgba(0,0,0,0.1)] transition-all hover:bg-[#F7F7F7] active:scale-[0.98]">
+                  Log In
+                </button>
               </Link>
-              <div className="px-4 py-3 mx-2">
-                <Link to="/register" onClick={closeMobileMenu} className="block">
-                  <Button variant="primary" className="w-full">
-                    Get Started
-                  </Button>
-                </Link>
-              </div>
+
+              <Link to="/register" onClick={closeMobileMenu} className="block">
+                <button className="w-full bg-primary text-white font-semibold py-3.5 px-6 rounded-xl text-sm transition-all hover:bg-primary-hover hover:shadow-lg active:scale-[0.98]">
+                  Get Started
+                </button>
+              </Link>
             </div>
           )}
         </div>

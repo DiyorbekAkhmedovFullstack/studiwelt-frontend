@@ -366,158 +366,140 @@ export function LessonCtestPage() {
   const filledCount = Object.values(answers).filter((value) => value.trim().length > 0).length;
 
   return (
-
-    <div className="h-screen overflow-hidden bg-page flex flex-col">
-      {/* Header Bar */}
-      <header className="h-14 sm:h-16 bg-surface border-b border-[rgba(0,0,0,0.05)] flex items-center justify-between px-4 sm:px-8 flex-shrink-0">
-        <button
-          type="button"
-          onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
-          className="flex items-center gap-2 text-text-muted hover:text-text-main transition-colors font-medium text-sm sm:text-base"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          <span className="hidden sm:inline">Back to Lesson</span>
-          <span className="sm:hidden">Exit</span>
-        </button>
-        <div className="font-semibold text-text-main text-sm sm:text-base truncate max-w-[200px] sm:max-w-none">{ctest.title}</div>
-        <div className="w-[60px] sm:w-[80px]"></div> {/* Spacer for centering */}
-      </header>
+    <div className="min-h-screen bg-page flex justify-center items-start py-6 sm:py-10 px-3 sm:px-5">
+      {/* Back Button - Fixed top-left */}
+      <button
+        type="button"
+        onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
+        className="fixed top-4 left-4 z-50 flex items-center gap-2 bg-surface hover:bg-surface-hover text-text-muted hover:text-text-main transition-colors font-medium text-sm sm:text-base px-3 py-2 rounded-lg shadow-md border border-border-soft"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        <span className="hidden sm:inline">Back to Lesson</span>
+      </button>
 
       {/* Main Content - Paper Sheet */}
-      <main className="flex-1 flex justify-center overflow-y-auto py-6 sm:py-10 px-3 sm:px-5">
-        <div className="bg-surface w-full max-w-[800px] px-5 py-8 sm:px-20 sm:py-20 shadow-[0_10px_40px_rgba(62,54,48,0.1)] rounded-sm h-fit paper-sheet">
-          {/* Exercise Meta */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 border-b-2 border-[#F0F0F0] pb-6 gap-4 sm:gap-0">
-            <div>
-              <h1 className="font-serif text-2xl sm:text-[28px] mb-2 leading-tight">{ctest.title}</h1>
-              <p className="text-text-muted text-sm sm:text-[15px]">
-                {ctest.description || 'Restore the missing parts of the words (Rule of 2).'}
-              </p>
-            </div>
-            <div className="bg-page px-4 py-2 rounded-[20px] font-semibold text-xs sm:text-[14px] text-text-muted self-start sm:self-auto">
-              <span>{filledCount}</span> / {parsed.totalGaps} Gaps Filled
-            </div>
+      <div className="bg-surface w-full max-w-[800px] px-5 py-8 sm:px-20 sm:py-20 shadow-[0_10px_40px_rgba(62,54,48,0.1)] rounded-sm">
+        {/* Exercise Meta */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 border-b-2 border-[#F0F0F0] pb-6 gap-4 sm:gap-0">
+          <div>
+            <h1 className="font-serif text-2xl sm:text-[28px] leading-tight">{ctest.title}</h1>
           </div>
-
-          {/* C-Test Content */}
-          <div className="font-serif text-base sm:text-[20px] leading-[2.2] text-[#4A423D]">
-            {parsed.parts.map((part, idx) => {
-              if (part.type === 'text') {
-                // Get the next part to check if it's a gap
-                const nextPart = parsed.parts[idx + 1];
-                const nextIsGap = nextPart?.type === 'gap';
-
-                // If next part is a gap, we need to wrap the last word with the gap together
-                if (nextIsGap) {
-                  const lastSpaceIndex = part.value.lastIndexOf(' ');
-
-                  if (lastSpaceIndex === -1) {
-                    // Entire text is one word - it will be wrapped with gap below
-                    // Skip rendering here, will be rendered together with gap
-                    return null;
-                  } else {
-                    // Only render the part before the last word
-                    const beforeLastWord = part.value.substring(0, lastSpaceIndex + 1);
-                    return <span key={idx}>{beforeLastWord}</span>;
-                  }
-                }
-
-                return <span key={idx}>{part.value}</span>;
-              }
-
-              // Gap input
-              const index = part.index;
-              const value = answers[String(index)] ?? '';
-              const width = Math.max(2, value.length || 2);
-
-              // Check if previous part has a word that should be wrapped with this input
-              const prevPart = parsed.parts[idx - 1];
-              let wordPrefix = '';
-
-              if (prevPart?.type === 'text') {
-                const lastSpaceIndex = prevPart.value.lastIndexOf(' ');
-                if (lastSpaceIndex === -1) {
-                  // Entire previous text is the word
-                  wordPrefix = prevPart.value;
-                } else {
-                  // Get the last word
-                  wordPrefix = prevPart.value.substring(lastSpaceIndex + 1);
-                }
-              }
-
-              return (
-                <span key={`gap-${index}-${idx}`} className="inline whitespace-nowrap align-baseline">
-                  <span className="tracking-normal align-baseline">{wordPrefix}</span>
-                  <input
-                    type="text"
-                    aria-label={`Gap ${index}`}
-                    data-gap-index={index}
-                    value={value}
-                    onChange={(e) => handleAnswerChange(index, e.target.value)}
-                    onKeyDown={(e) => handleKeyDown(e, index)}
-                    onFocus={() => setFocusedGapIndex(index)}
-                    onBlur={() => setFocusedGapIndex(null)}
-                    style={{ width: `${width}ch`, padding: '0', margin: '0' }}
-                    className="font-serif text-base sm:text-[20px] text-primary bg-transparent border-none border-b-2 border-[#D1D1D1] outline-none transition-all text-left rounded-none font-semibold tracking-normal focus:border-primary focus:bg-[rgba(166,123,91,0.1)] align-baseline"
-                  />
-                </span>
-              );
-            })}
+          <div className="bg-page px-4 py-2 rounded-[20px] font-semibold text-xs sm:text-[14px] text-text-muted self-start sm:self-auto">
+            <span>{filledCount}</span> / {parsed.totalGaps} Gaps Filled
           </div>
         </div>
-      </main>
 
-      {/* Bottom Action Bar */}
-      <footer className="bg-white border-t border-[#EEE] flex-shrink-0">
-        {/* German Keyboard Section */}
-        <div className="border-b border-[#F5F5F5] py-3 px-4 sm:px-10">
+        {/* C-Test Content */}
+        <div className="font-serif text-base sm:text-[20px] leading-[2.2] text-[#4A423D] mb-8">
+          {parsed.parts.map((part, idx) => {
+            if (part.type === 'text') {
+              // Get the next part to check if it's a gap
+              const nextPart = parsed.parts[idx + 1];
+              const nextIsGap = nextPart?.type === 'gap';
+
+              // If next part is a gap, we need to wrap the last word with the gap together
+              if (nextIsGap) {
+                const lastSpaceIndex = part.value.lastIndexOf(' ');
+
+                if (lastSpaceIndex === -1) {
+                  // Entire text is one word - it will be wrapped with gap below
+                  // Skip rendering here, will be rendered together with gap
+                  return null;
+                } else {
+                  // Only render the part before the last word
+                  const beforeLastWord = part.value.substring(0, lastSpaceIndex + 1);
+                  return <span key={idx}>{beforeLastWord}</span>;
+                }
+              }
+
+              return <span key={idx}>{part.value}</span>;
+            }
+
+            // Gap input
+            const index = part.index;
+            const value = answers[String(index)] ?? '';
+            const width = Math.max(2, value.length || 2);
+
+            // Check if previous part has a word that should be wrapped with this input
+            const prevPart = parsed.parts[idx - 1];
+            let wordPrefix = '';
+
+            if (prevPart?.type === 'text') {
+              const lastSpaceIndex = prevPart.value.lastIndexOf(' ');
+              if (lastSpaceIndex === -1) {
+                // Entire previous text is the word
+                wordPrefix = prevPart.value;
+              } else {
+                // Get the last word
+                wordPrefix = prevPart.value.substring(lastSpaceIndex + 1);
+              }
+            }
+
+            return (
+              <span key={`gap-${index}-${idx}`} className="inline whitespace-nowrap align-baseline">
+                <span className="tracking-normal align-baseline">{wordPrefix}</span>
+                <input
+                  type="text"
+                  aria-label={`Gap ${index}`}
+                  data-gap-index={index}
+                  value={value}
+                  onChange={(e) => handleAnswerChange(index, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(e, index)}
+                  onFocus={() => setFocusedGapIndex(index)}
+                  onBlur={() => setFocusedGapIndex(null)}
+                  style={{ width: `${width}ch`, padding: '0', margin: '0' }}
+                  className="font-serif text-base sm:text-[20px] text-primary bg-transparent border-none border-b-2 border-[#D1D1D1] outline-none transition-all text-left rounded-none font-semibold tracking-normal focus:border-primary focus:bg-[rgba(166,123,91,0.1)] align-baseline"
+                />
+              </span>
+            );
+          })}
+        </div>
+
+        {/* German Keyboard */}
+        <div className="border-t border-[#F0F0F0] pt-6 mb-6">
           <GermanKeyboard onCharacterClick={handleGermanCharacter} />
         </div>
 
-        {/* Main Footer Controls */}
-        <div className="py-4 sm:py-5 px-4 sm:px-10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          {/* Left: Stats and Keyboard Shortcuts */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-            <div className="text-xs sm:text-[14px] text-text-muted">
-              <span className="font-semibold text-text-main">{filledCount}</span> / {parsed.totalGaps} Gaps Filled
-            </div>
-
-            {/* Keyboard Shortcuts - Hide on mobile */}
-            <div className="text-[12px] text-text-muted hidden lg:flex items-center gap-1">
-              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
-                ←
-              </span>
-              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
-                →
-              </span>
-              <span className="mr-2">Navigate</span>
-              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
-                ↑
-              </span>
-              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
-                ↓
-              </span>
-              <span className="mr-2">Jump</span>
-              <span className="inline-flex items-center bg-surface px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
-                Tab
-              </span>
-              <span>Next</span>
-            </div>
+        {/* Navigation Instructions - Hide on smartphones */}
+        <div className="hidden md:flex items-center justify-center gap-4 mb-6 text-[12px] text-text-muted">
+          <div className="flex items-center gap-1">
+            <span className="inline-flex items-center bg-page px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+              ←
+            </span>
+            <span className="inline-flex items-center bg-page px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+              →
+            </span>
+            <span className="ml-1">Navigate</span>
           </div>
-
-          {/* Right: Submit Button */}
-          <button
-            type="button"
-            onClick={handleSubmit}
-            disabled={!allGapsAnswered || submitting}
-            className="w-full sm:w-auto bg-primary text-white border-none py-3 sm:py-3.5 px-8 sm:px-12 rounded-xl sm:rounded-[50px] text-sm sm:text-base font-semibold cursor-pointer shadow-[0_4px_12px_rgba(166,123,91,0.3)] transition-all hover:bg-primary-hover hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-          >
-            {submitting ? 'Submitting...' : 'Check My Answers'}
-          </button>
+          <div className="flex items-center gap-1">
+            <span className="inline-flex items-center bg-page px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+              ↑
+            </span>
+            <span className="inline-flex items-center bg-page px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+              ↓
+            </span>
+            <span className="ml-1">Jump</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="inline-flex items-center bg-page px-1.5 py-0.5 rounded border border-[#ccc] font-mono text-[11px] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+              Tab
+            </span>
+            <span className="ml-1">Next</span>
+          </div>
         </div>
-      </footer>
+
+        {/* Submit Button */}
+        <button
+          type="button"
+          onClick={handleSubmit}
+          disabled={!allGapsAnswered || submitting}
+          className="w-full bg-primary text-white border-none py-3 sm:py-3.5 px-8 rounded-xl text-sm sm:text-base font-semibold cursor-pointer shadow-[0_4px_12px_rgba(166,123,91,0.3)] transition-all hover:bg-primary-hover hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+        >
+          {submitting ? 'Submitting...' : 'Check My Answers'}
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { CTestResult } from '../types/api';
 import { DashboardLayout } from '../components/dashboard';
+import { MIN_PASSING_SCORE } from '../constants/progress';
 
 type Params = {
   lessonNumber?: string;
@@ -52,7 +53,7 @@ export function CtestResultsPage() {
     );
   }
 
-  const passed = result.percentage >= 70;
+  const passed = result.percentage >= MIN_PASSING_SCORE;
 
   return (
     <DashboardLayout>

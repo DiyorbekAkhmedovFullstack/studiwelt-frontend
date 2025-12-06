@@ -13,7 +13,6 @@ export function LandingPage() {
   const isAuthenticated = !!user;
   const [heroRef, heroVisible] = useScrollAnimation();
   const [featuresRef, featuresVisible] = useScrollAnimation();
-  const [curriculumRef, curriculumVisible] = useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
@@ -113,116 +112,6 @@ export function LandingPage() {
 
       {/* Studienkolleg Carousel */}
       <StudienkollegCarousel />
-
-      {/* Curriculum Preview */}
-      <section id="curriculum" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-surface">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
-          <div
-            ref={curriculumRef}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start transition-all duration-700 ${curriculumVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-          >
-            {/* Left Column - Text Content */}
-            <div>
-              <h2 className="text-3xl sm:text-4xl md:text-[40px] font-bold mb-4 sm:mb-6">
-                What you'll achieve
-              </h2>
-              <p className="text-text-muted text-sm sm:text-base md:text-lg mb-6 sm:mb-8">
-                The journey is designed to take you from beginner to Studienkolleg-ready in exactly five weeks.
-              </p>
-              <ul className="space-y-3 sm:space-y-4">
-                <li className="flex gap-3 items-center text-text-main text-sm sm:text-base">
-                  <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-success/10 flex items-center justify-center">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-success">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <span className="font-medium">Foundation & Core Grammar</span>
-                </li>
-                <li className="flex gap-3 items-center text-text-main text-sm sm:text-base">
-                  <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-success/10 flex items-center justify-center">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-success">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <span className="font-medium">Advanced Reading & C-Tests</span>
-                </li>
-                <li className="flex gap-3 items-center text-text-main text-sm sm:text-base">
-                  <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-success/10 flex items-center justify-center">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-success">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <span className="font-medium">Exam-Ready Confidence</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Right Column - Lesson Cards */}
-            <div className="space-y-3">
-              {/* Lesson 01 */}
-              <div className="flex items-center bg-page rounded-xl p-3 sm:p-4 gap-3 shadow-sm">
-                <div className="flex-shrink-0 min-w-[60px] sm:min-w-[70px]">
-                  <div className="font-serif font-bold text-primary text-xs sm:text-sm">
-                    Lesson 01
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-text-main text-xs sm:text-sm">
-                    Basic Grammar Foundations
-                  </div>
-                </div>
-              </div>
-
-              {/* Lesson 05 */}
-              <div className="flex items-center bg-page rounded-xl p-3 sm:p-4 gap-3 shadow-sm">
-                <div className="flex-shrink-0 min-w-[60px] sm:min-w-[70px]">
-                  <div className="font-serif font-bold text-primary text-xs sm:text-sm">
-                    Lesson 05
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-text-main text-xs sm:text-sm">
-                    Reading Comprehension Basics
-                  </div>
-                </div>
-              </div>
-
-              {/* Lesson 12 - Highlighted */}
-              <div className="flex items-center bg-white rounded-xl p-3 sm:p-4 gap-3 border-2 border-primary shadow-md">
-                <div className="flex-shrink-0 min-w-[60px] sm:min-w-[70px]">
-                  <div className="font-serif font-bold text-primary text-xs sm:text-sm">
-                    Lesson 12
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-text-main text-xs sm:text-sm">
-                    C-Test Strategies
-                  </div>
-                </div>
-                <div className="flex-shrink-0">
-                  <span className="inline-block px-2 py-0.5 bg-primary-light text-primary text-[9px] sm:text-[10px] font-bold rounded-full whitespace-nowrap">
-                    PREVIEW
-                  </span>
-                </div>
-              </div>
-
-              {/* Lesson 30 */}
-              <div className="flex items-center bg-page rounded-xl p-3 sm:p-4 gap-3 shadow-sm">
-                <div className="flex-shrink-0 min-w-[60px] sm:min-w-[70px]">
-                  <div className="font-serif font-bold text-primary text-xs sm:text-sm">
-                    Lesson 30
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-text-main text-xs sm:text-sm">
-                    Final Assessment & Review
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Germany Map Section */}
       <GermanyMapSection />

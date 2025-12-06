@@ -1,4 +1,5 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { MIN_PASSING_SCORE } from '../constants/progress';
 
 type Params = {
   lessonNumber?: string;
@@ -43,7 +44,7 @@ export function DeckResultsPage() {
     );
   }
 
-  const passed = result.percentage >= 60;
+  const passed = result.percentage >= MIN_PASSING_SCORE;
 
   return (
     <div className="min-h-screen bg-page">
