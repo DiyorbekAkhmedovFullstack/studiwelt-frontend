@@ -112,36 +112,56 @@ function generateCtestGapText(originalText: string): string {
         continue;
       }
 
+      // Separate word from trailing punctuation (comma, semicolon, colon, etc.)
+      // Match: word part (only letters) + optional punctuation at the end
+      const wordMatch = token.match(/^([a-zA-ZäöüÄÖÜß]+)(.*?)$/);
+
+      if (!wordMatch) {
+        // Token doesn't match expected pattern (contains numbers, just punctuation, or other chars)
+        // Keep as is without gapping (e.g., "2,5", "123", "2023", etc.)
+        processedSentence += token;
+        continue;
+      }
+
+      const [, word, trailingPunctuation] = wordMatch;
+
+      // Check if trailing part contains any digits - if so, this is likely a number with letters
+      // (e.g., "2nd", "3rd") - don't count it as a word to gap
+      if (/\d/.test(trailingPunctuation)) {
+        processedSentence += token;
+        continue;
+      }
+
       wordCount++;
 
       // Starting from word 2, process every second word
       if (wordCount >= 2 && wordCount % 2 === 0) {
         // Check if it's a proper noun (starts with uppercase and not at sentence start)
-        const isProperNoun = /^[A-ZÄÖÜ]/.test(token) && wordCount > 1;
+        const isProperNoun = /^[A-ZÄÖÜ]/.test(word) && wordCount > 1;
 
         if (isProperNoun) {
-          processedSentence += token;
+          processedSentence += word + trailingPunctuation;
         } else {
           // Apply gap generation
-          const wordLength = token.length;
+          const wordLength = word.length;
 
           if (wordLength === 1) {
             // Single character words remain intact
-            processedSentence += token;
+            processedSentence += word + trailingPunctuation;
           } else if (wordLength % 2 === 0) {
             // Even number of letters: delete larger half
             const keepLength = Math.floor(wordLength / 2);
             const deleteLength = wordLength - keepLength;
-            processedSentence += token.slice(0, keepLength) + '*'.repeat(deleteLength);
+            processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
           } else {
             // Odd number of letters: delete more than half
             const keepLength = Math.floor(wordLength / 2);
             const deleteLength = wordLength - keepLength;
-            processedSentence += token.slice(0, keepLength) + '*'.repeat(deleteLength);
+            processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
           }
         }
       } else {
-        processedSentence += token;
+        processedSentence += word + trailingPunctuation;
       }
     }
 
