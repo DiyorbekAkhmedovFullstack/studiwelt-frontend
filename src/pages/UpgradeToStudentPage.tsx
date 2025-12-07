@@ -33,22 +33,6 @@ export function UpgradeToStudentPage() {
   return (
     <DashboardLayout>
       <div className="max-w-5xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#FFF4E6] text-[#FF9F43] px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-            </svg>
-            Limited Time Offer
-          </div>
-          <h1 className="text-[48px] font-serif font-bold text-text-main mb-4">
-            Continue Your Learning Journey
-          </h1>
-          <p className="text-[18px] text-text-muted max-w-2xl mx-auto leading-relaxed">
-            You've started strong with your first week. Now unlock all 30 lessons and complete your Studienkolleg preparation.
-          </p>
-        </div>
-
         {/* Main Pricing Card */}
         <div className="bg-surface rounded-[24px] shadow-[0_8px_30px_rgba(62,54,48,0.12)] overflow-hidden mb-8">
           {/* Top Banner */}

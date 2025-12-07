@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { lessonService, type LessonsResponse } from '../services/lessonService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
@@ -9,6 +9,7 @@ import { DashboardLayout, StatCard, LessonCard } from '../components/dashboard';
 
 export function CoursePage() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const { courseProgress, lessonProgress, loading: progressLoading } = useProgress();
   const [lessons, setLessons] = useState<LessonsResponse['lessons']>([]);
   const [loading, setLoading] = useState(true);
@@ -165,46 +166,9 @@ export function CoursePage() {
       {/* Weeks / Modules */}
       {weeks.map((week) => {
         const opacity = !week.isCompleted && !week.isActive ? 0.6 : 1;
-        const isUser = user?.role === 'USER';
-        const showUpgradeBanner = isUser && week.weekNumber === 2;
 
         return (
           <div key={week.weekNumber}>
-            {/* Upgrade Banner for USER role before Week 2 */}
-            {showUpgradeBanner && (
-              <div className="mb-12 bg-gradient-to-r from-[#4A90E2] to-[#5FA3E8] rounded-2xl p-8 shadow-lg">
-                <div className="flex items-center justify-between gap-6">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                      </svg>
-                      <h3 className="text-2xl font-bold text-white">Unlock Your Full Potential</h3>
-                    </div>
-                    <p className="text-white/90 text-[15px] mb-4">
-                      You've completed Week 1! Upgrade to Student to unlock all 30 lessons and continue your German learning journey.
-                    </p>
-                    <Link
-                      to="/upgrade"
-                      className="inline-flex items-center gap-2 bg-white text-[#4A90E2] px-6 py-3 rounded-lg font-semibold hover:bg-white/95 transition-colors"
-                    >
-                      Upgrade to Student
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </Link>
-                  </div>
-                  <div className="hidden md:block">
-                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" opacity="0.3">
-                      <circle cx="12" cy="8" r="7"></circle>
-                      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            )}
-
             <div className="mb-16" style={{ opacity }}>
             {/* Module Header */}
             <div className="flex items-center mb-6 sticky top-0 bg-page z-10 py-2">
@@ -250,19 +214,20 @@ export function CoursePage() {
                 const isAdmin = user?.role === 'ADMIN';
                 const isUser = user?.role === 'USER';
 
-                // USER role can only access lessons 1-6
+                // USER role can access lessons 1-6, but needs upgrade for 7-30
                 const isRoleRestricted = isUser && lessonNum > 6;
                 const isAccessible = isAdmin || (progress?.isAccessible ?? true); // Default to accessible if no progress
                 const isCompleted = progress?.isLessonCompleted ?? false;
-                const state = !isAccessible || isRoleRestricted ? 'locked' : isCompleted ? 'completed' : 'active';
 
-                // Handle locked lesson clicks
-                const handleLockedClick = () => {
+                // For USER role, show all lessons as accessible (not locked) visually
+                // But handle click differently for lessons 7-30
+                const state = !isAccessible && !isUser ? 'locked' : isCompleted ? 'completed' : 'active';
+
+                // Handle lesson clicks
+                const handleLessonClick = () => {
                   if (isRoleRestricted) {
-                    toastService.info(
-                      `Lesson ${lessonNum} requires a Student upgrade. Upgrade to access all 30 lessons!`,
-                      { duration: 6000 }
-                    );
+                    // Redirect USER to upgrade page for lessons 7-30
+                    navigate('/upgrade');
                   } else if (!isAccessible) {
                     toastService.warning(
                       `Lesson ${lessonNum} is locked. Please complete Lesson ${lessonNum - 1} first to unlock this lesson.`,
@@ -272,7 +237,7 @@ export function CoursePage() {
                 };
 
                 return (
-                  <div key={lesson.id} onClick={!isAccessible || isRoleRestricted ? handleLockedClick : undefined}>
+                  <div key={lesson.id} onClick={!isAccessible && !isRoleRestricted ? handleLessonClick : isRoleRestricted ? handleLessonClick : undefined}>
                     <LessonCard
                       lessonNumber={lessonNum}
                       title={lesson.title}
