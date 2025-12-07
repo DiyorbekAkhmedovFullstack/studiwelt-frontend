@@ -214,21 +214,23 @@ export function CoursePage() {
                 const isAdmin = user?.role === 'ADMIN';
                 const isUser = user?.role === 'USER';
 
-                // USER role can access lessons 1-6, but needs upgrade for 7-30
+                // Check if this is a role-restricted lesson (USER trying to access 7-30)
                 const isRoleRestricted = isUser && lessonNum > 6;
-                const isAccessible = isAdmin || (progress?.isAccessible ?? true); // Default to accessible if no progress
+
+                // Original accessibility logic: lesson 1 or previous lesson completed
+                const isAccessible = isAdmin || (progress?.isAccessible ?? false);
                 const isCompleted = progress?.isLessonCompleted ?? false;
 
-                // For USER role, show all lessons as accessible (not locked) visually
-                // But handle click differently for lessons 7-30
-                const state = !isAccessible && !isUser ? 'locked' : isCompleted ? 'completed' : 'active';
+                // State: locked if not accessible, completed if done, otherwise active
+                const state = !isAccessible ? 'locked' : isCompleted ? 'completed' : 'active';
 
-                // Handle lesson clicks
-                const handleLessonClick = () => {
+                // Handle locked lesson clicks
+                const handleLockedClick = () => {
                   if (isRoleRestricted) {
-                    // Redirect USER to upgrade page for lessons 7-30
+                    // USER clicking lessons 7-30: redirect to upgrade
                     navigate('/upgrade');
                   } else if (!isAccessible) {
+                    // Lesson is locked due to previous lesson not completed
                     toastService.warning(
                       `Lesson ${lessonNum} is locked. Please complete Lesson ${lessonNum - 1} first to unlock this lesson.`,
                       { duration: 5000 }
@@ -237,7 +239,7 @@ export function CoursePage() {
                 };
 
                 return (
-                  <div key={lesson.id} onClick={!isAccessible && !isRoleRestricted ? handleLessonClick : isRoleRestricted ? handleLessonClick : undefined}>
+                  <div key={lesson.id} onClick={!isAccessible || isRoleRestricted ? handleLockedClick : undefined}>
                     <LessonCard
                       lessonNumber={lessonNum}
                       title={lesson.title}
