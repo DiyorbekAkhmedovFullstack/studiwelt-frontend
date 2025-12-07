@@ -226,15 +226,17 @@ export function CoursePage() {
 
                 // Handle locked lesson clicks
                 const handleLockedClick = () => {
-                  if (isRoleRestricted) {
-                    // USER clicking lessons 7-30: redirect to upgrade
-                    navigate('/upgrade');
-                  } else if (!isAccessible) {
-                    // Lesson is locked due to previous lesson not completed
+                  // Priority 1: Sequential lock (must complete previous lesson first)
+                  if (!isAccessible) {
                     toastService.warning(
                       `Lesson ${lessonNum} is locked. Please complete Lesson ${lessonNum - 1} first to unlock this lesson.`,
                       { duration: 5000 }
                     );
+                  }
+                  // Priority 2: Role restriction (USER trying to access unlocked lesson 7-30)
+                  else if (isRoleRestricted) {
+                    // USER clicking accessible lessons 7-30: redirect to upgrade
+                    navigate('/upgrade');
                   }
                 };
 

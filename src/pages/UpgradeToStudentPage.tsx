@@ -33,6 +33,25 @@ export function UpgradeToStudentPage() {
   return (
     <DashboardLayout>
       <div className="max-w-5xl mx-auto">
+        {/* Info Banner */}
+        <div className="bg-[#EBF5EC] border border-[#C5E0C8] rounded-2xl p-6 mb-8">
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-xl bg-[#6B8C6E]/10 flex items-center justify-center flex-shrink-0 text-[#6B8C6E]">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-[17px] text-[#6B8C6E] mb-2">Free Access to First 6 Lessons</h3>
+              <p className="text-[15px] text-text-main leading-relaxed">
+                You currently have free access to <strong>lessons 1-6</strong> (Week 1). To unlock the remaining <strong>24 lessons (7-30)</strong> and complete your Studienkolleg preparation, upgrade to Student for a one-time payment of <strong>$5</strong> with lifetime access.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Main Pricing Card */}
         <div className="bg-surface rounded-[24px] shadow-[0_8px_30px_rgba(62,54,48,0.12)] overflow-hidden mb-8">
           {/* Top Banner */}
