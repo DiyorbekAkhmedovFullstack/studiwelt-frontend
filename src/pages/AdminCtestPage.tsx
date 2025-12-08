@@ -53,117 +53,188 @@ function getCtestDiagnostic(
   return { type: 'ok' };
 }
 
+// COMPREHENSIVE DSH DICTIONARY (Singular & Plural)
+// Covers: Environment, Tech, Society, Economy, Health, History, Culture
+const COMPOUND_NOUNS = [
+  // 1. BASIC ELEMENTS (Environment & Resources)
+  'wetter', 'klima', 'wandel', 'schutz', 'erwärmung', 'hitze', 'kälte',
+  'luft', 'wind', 'winde', 'sturm', 'stürme', 'wolke', 'wolken',
+  'wasser', 'gewässer', 'meer', 'meere', 'see', 'seen', 'ozean', 'ozeane',
+  'fluss', 'flüsse', 'quelle', 'quellen', 'pegel', 'spiegel', 'hochwasser',
+  'erde', 'boden', 'böden', 'land', 'länder', 'ebene', 'ebenen', 'fläche', 'flächen',
+  'wald', 'wälder', 'holz', 'baum', 'bäume', 'blatt', 'blätter', 'wiese', 'wiesen',
+  'natur', 'bio', 'art', 'arten', 'vielfalt', 'tier', 'tiere', 'pflanze', 'pflanzen',
+  'energie', 'energien', 'strom', 'kraft', 'kräfte', 'werk', 'werke', 'träger',
+  'gas', 'gase', 'öl', 'öle', 'kohle', 'atom', 'kern', 'sonne', 'licht',
+  'stoff', 'stoffe', 'material', 'materialien', 'ressource', 'ressourcen',
+  'müll', 'abfall', 'abfälle', 'rest', 'reste', 'plastik', 'kunststoff',
+
+  // 2. TECHNOLOGY & INFRASTRUCTURE
+  'technik', 'techniken', 'technologie', 'technologien', 'digitalisierung', 'elektronik',
+  'computer', 'rechner', 'roboter', 'bot', 'bots', 'intelligenz', 'daten', 'datei', 'dateien',
+  'netz', 'netze', 'web', 'internet', 'software', 'hardware', 'programm', 'programme',
+  'system', 'systeme', 'plattform', 'plattformen', 'medium', 'medien', 'kanal', 'kanäle',
+  'gerät', 'geräte', 'maschine', 'maschinen', 'motor', 'motoren', 'automat', 'automaten',
+  'auto', 'autos', 'wagen', 'fahrzeug', 'fahrzeuge', 'rad', 'räder', 'antrieb', 'antriebe',
+  'verkehr', 'transport', 'mobilität', 'straße', 'straßen', 'weg', 'wege', 'bahn', 'bahnen',
+  'flug', 'flüge', 'hafen', 'häfen', 'brücke', 'brücken', 'tunnel', 'stau', 'staus',
+  'bau', 'bauten', 'gebäude', 'haus', 'häuser', 'wand', 'wände', 'dach', 'dächer',
+  'raum', 'räume', 'zimmer', 'ort', 'orte', 'stelle', 'stellen', 'platz', 'plätze',
+  'zentrum', 'zentren', 'stadt', 'städte', 'dorf', 'dörfer', 'zone', 'zonen',
+
+  // 3. SOCIETY, WORK & EDUCATION
+  'gesellschaft', 'gesellschaften', 'bevölkerung', 'gemeinschaft', 'leute', 'menschen',
+  'gruppe', 'gruppen', 'team', 'teams', 'mitglied', 'mitglieder', 'nachbar', 'nachbarn',
+  'familie', 'familien', 'eltern', 'kind', 'kinder', 'frau', 'frauen', 'mann', 'männer',
+  'person', 'personen', 'bürger', 'einwohner', 'freund', 'freunde', 'feind', 'feinde',
+  'alter', 'jugend', 'senior', 'senioren', 'generation', 'generationen',
+  'arbeit', 'arbeiten', 'job', 'jobs', 'beruf', 'berufe', 'karriere',
+  'geber', 'nehmer', 'kraft', 'kräfte', 'markt', 'märkte', 'zeit', 'zeiten', 'stunde', 'stunden',
+  'freizeit', 'urlaub', 'reise', 'reisen', 'tourismus', 'ziel', 'ziele',
+  'bildung', 'ausbildung', 'schule', 'schulen', 'klasse', 'klassen', 'unterricht',
+  'studium', 'studien', 'universität', 'universitäten', 'hochschule', 'hochschulen',
+  'forschung', 'forschungen', 'wissenschaft', 'wissenschaften', 'labor', 'labore',
+  'wissen', 'kompetenz', 'kompetenzen', 'lernen', 'lehre',
+  'sprache', 'sprachen', 'wort', 'wörter', 'worte', 'text', 'texte', 'satz', 'sätze',
+  'kommunikation', 'gespräch', 'gespräche', 'diskussion', 'diskussionen', 'info', 'infos',
+
+  // 4. HEALTH, BODY & PSYCHOLOGY
+  'gesundheit', 'krankheit', 'krankheiten', 'medizin', 'therapie', 'therapien',
+  'behandlung', 'behandlungen', 'pflege', 'klinik', 'kliniken', 'praxis', 'praxen',
+  'arzt', 'ärzte', 'patient', 'patienten', 'opfer', 'täter',
+  'virus', 'viren', 'bakterie', 'bakterien', 'infektion', 'infektionen', 'pandemie',
+  'schutz', 'maske', 'masken', 'impfung', 'impfungen', 'hygiene',
+  'körper', 'organ', 'organe', 'herz', 'kopf', 'hirn', 'gehirn', 'hand', 'hände', 'fuß', 'füße',
+  'ernährung', 'nahrung', 'essen', 'trinken', 'lebensmittel', 'fleisch', 'gemüse', 'obst',
+  'schlaf', 'traum', 'träume', 'mangel', 'störung', 'störungen',
+  'psyche', 'seele', 'geist', 'stress', 'druck', 'angst', 'ängste', 'furcht',
+  'sport', 'bewegung', 'spiel', 'spiele', 'leistung', 'leistungen',
+
+  // 5. ECONOMY, POLITICS & HISTORY
+  'wirtschaft', 'ökonomie', 'industrie', 'industrien', 'handel', 'export', 'import', 'globalisierung',
+  'firma', 'firmen', 'unternehmen', 'betrieb', 'betriebe', 'konzern', 'konzerne',
+  'produkt', 'produkte', 'ware', 'waren', 'gut', 'güter', 'konsum', 'verbrauch',
+  'geld', 'finanz', 'finanzen', 'währung', 'kapital', 'bank', 'banken', 'konto', 'konten',
+  'preis', 'preise', 'kosten', 'steuer', 'steuern', 'zins', 'zinsen', 'wert', 'werte',
+  'gewinn', 'gewinne', 'verlust', 'verluste', 'umsatz', 'ausgabe', 'ausgaben',
+  'politik', 'politiker', 'regierung', 'regierungen', 'staat', 'staaten', 'bund', 'union',
+  'partei', 'parteien', 'wahl', 'wahlen', 'stimme', 'stimmen', 'macht', 'mächte',
+  'gesetz', 'gesetze', 'recht', 'rechte', 'regelung', 'regelungen', 'vorschrift', 'vorschriften',
+  'amt', 'ämter', 'behörde', 'behörden', 'verwaltung',
+  'geschichte', 'historie', 'vergangenheit', 'zukunft', 'krieg', 'kriege', 'frieden',
+  'krise', 'krisen', 'konflikt', 'konflikte', 'problem', 'probleme',
+  'kultur', 'kulturen', 'religion', 'religionen', 'geschichte', 'geschichten',
+
+  // 6. ABSTRACT COMPOUND HEADS (Examples: "Stadt-entwicklung", "Energie-versorgung")
+  // These are crucial for B2/C level nouns that end in -ung, -heit, -keit.
+  'entwicklung', 'entwicklungen', 'versorgung', 'entsorgung', 'bewegung', 'bewegungen',
+  'wirkung', 'wirkungen', 'veränderung', 'veränderungen', 'erfahrung', 'erfahrungen',
+  'lösung', 'lösungen', 'meinung', 'meinungen', 'bedeutung', 'bedeutungen',
+  'nutzung', 'nutzungen', 'anwendung', 'anwendungen', 'verbindung', 'verbindungen',
+  'forschung', 'forschungen', 'untersuchung', 'untersuchungen', 'beobachtung', 'beobachtungen',
+  'forderung', 'forderungen', 'förderung', 'förderungen', 'herausforderung',
+  'sicherheit', 'unsicherheit', 'freiheit', 'freiheiten', 'krankheit', 'krankheiten',
+  'geschwindigkeit', 'geschwindigkeiten', 'fähigkeit', 'fähigkeiten', 'möglichkeit', 'möglichkeiten',
+  'teil', 'teile', 'anteil', 'anteile', 'vorteil', 'vorteile', 'nachteil', 'nachteile',
+  'fall', 'fälle', 'beispiel', 'beispiele', 'form', 'formen', 'art', 'arten', 'weise',
+  'grund', 'gründe', 'ursache', 'ursachen', 'folge', 'folgen', 'ergebnis', 'ergebnisse',
+  'situation', 'situationen', 'lage', 'lagen', 'zustand', 'zustände',
+  'bedingung', 'bedingungen', 'voraussetzung', 'voraussetzungen',
+  'maßnahme', 'maßnahmen', 'prozess', 'prozesse', 'projekt', 'projekte',
+  'ebene', 'ebenen', 'niveau', 'niveaus', 'grad', 'grade',
+  'seite', 'seiten', 'sicht', 'ansicht', 'perspektive', 'perspektiven',
+  'frage', 'fragen', 'antwort', 'antworten', 'thema', 'themen',
+  'zahl', 'zahlen', 'anzahl', 'menge', 'mengen', 'liste', 'listen',
+  'anfang', 'anfänge', 'beginn', 'ende', 'enden', 'schluss',
+];
+
 /**
- * Generates C-test gap text from original text following the "Rule of Two":
- * - First sentence: left intact
- * - Starting from word 2 of sentence 2: delete second half of every second word
- * - Last sentence: left intact
+ * Generates C-test gap text with intelligent German compound noun detection.
+ * - First sentence: left intact (lead-in)
+ * - Remaining text: gaps every 2nd word
+ * - Keeps first half of target word/compound part (rounded up)
+ * - Auto-detects German compound nouns for proper splitting
  * - Numbers and punctuation: preserved
- * - German nouns (capitalized): treated as regular words (gapped normally)
- *
- * Deletion rules:
- * - Even number of letters: delete larger half (e.g., "word" → "wo**")
- * - Odd number of letters: delete more than half (e.g., "the" → "t**")
- * - Only pure letter words are gapped (numbers like "2,5" are skipped)
  */
 function generateCtestGapText(originalText: string): string {
   if (!originalText.trim()) return '';
 
-  // Split into sentences (basic split by . ! ?)
-  const sentenceRegex = /[.!?]+/g;
-  const sentences: string[] = [];
-  let lastIndex = 0;
-  let match;
-
-  while ((match = sentenceRegex.exec(originalText)) !== null) {
-    const sentence = originalText.slice(lastIndex, match.index + match[0].length);
-    sentences.push(sentence);
-    lastIndex = match.index + match[0].length;
+  // 1. Find end of first sentence (lead-in)
+  const sentenceEndRegex = /([.!?])(\s+|$)/;
+  const match = originalText.match(sentenceEndRegex);
+  let leadInIndex = originalText.length;
+  if (match) {
+    leadInIndex = (match.index ?? 0) + 1;
   }
 
-  // Add remaining text if any
-  if (lastIndex < originalText.length) {
-    sentences.push(originalText.slice(lastIndex));
-  }
+  const leadIn = originalText.substring(0, leadInIndex);
+  const rest = originalText.substring(leadInIndex);
 
-  if (sentences.length === 0) {
-    // No sentence delimiters found, treat whole text as one sentence
-    sentences.push(originalText);
-  }
+  // 2. Tokenize remaining text
+  const parts = rest.split(/(\s+)/);
 
-  let result = '';
+  let output = leadIn;
+  let wordCount = 0;
 
-  for (let sentIdx = 0; sentIdx < sentences.length; sentIdx++) {
-    const sentence = sentences[sentIdx]!;
-
-    // First and last sentences remain intact
-    if (sentIdx === 0 || sentIdx === sentences.length - 1) {
-      result += sentence;
-      continue;
-    }
-
-    // For middle sentences, apply the "Rule of Two"
-    const words = sentence.split(/(\s+)/); // Split but keep whitespace
-    let processedSentence = '';
-    let wordCount = 0; // Count actual words (not whitespace)
-
-    for (const token of words) {
-      // Skip whitespace tokens
-      if (/^\s+$/.test(token)) {
-        processedSentence += token;
-        continue;
-      }
-
-      // Separate word from trailing punctuation (comma, semicolon, colon, etc.)
-      // Match: word part (only letters) + optional punctuation at the end
-      const wordMatch = token.match(/^([a-zA-ZäöüÄÖÜß]+)(.*?)$/);
-
-      if (!wordMatch) {
-        // Token doesn't match expected pattern (contains numbers, just punctuation, or other chars)
-        // Keep as is without gapping (e.g., "2,5", "123", "2023", etc.)
-        processedSentence += token;
-        continue;
-      }
-
-      const [, word, trailingPunctuation] = wordMatch;
-
-      // Check if trailing part contains any digits - if so, this is likely a number with letters
-      // (e.g., "2nd", "3rd") - don't count it as a word to gap
-      if (/\d/.test(trailingPunctuation)) {
-        processedSentence += token;
-        continue;
-      }
-
+  for (const part of parts) {
+    // Check if token contains letters
+    if (/[a-zA-ZäöüÄÖÜß]/.test(part)) {
       wordCount++;
-
-      // Starting from word 2, process every second word
-      if (wordCount >= 2 && wordCount % 2 === 0) {
-        // Apply gap generation to all words (including German nouns which are capitalized)
-        const wordLength = word.length;
-
-        if (wordLength === 1) {
-          // Single character words remain intact
-          processedSentence += word + trailingPunctuation;
-        } else if (wordLength % 2 === 0) {
-          // Even number of letters: delete larger half
-          const keepLength = Math.floor(wordLength / 2);
-          const deleteLength = wordLength - keepLength;
-          processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
-        } else {
-          // Odd number of letters: delete more than half
-          const keepLength = Math.floor(wordLength / 2);
-          const deleteLength = wordLength - keepLength;
-          processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
-        }
+      if (wordCount % 2 === 0) {
+        // Gap this word
+        output += getGappedWord(part);
       } else {
-        processedSentence += word + trailingPunctuation;
+        // Keep as is
+        output += part;
       }
+    } else {
+      // Whitespace or punctuation only
+      output += part;
     }
-
-    result += processedSentence;
   }
 
-  return result;
+  return output;
+}
+
+/**
+ * Processes a single word for C-test gapping with compound noun detection.
+ */
+function getGappedWord(word: string): string {
+  // 1. Separate punctuation
+  const matchResult = word.match(/^([^a-zA-ZäöüÄÖÜß]*)([a-zA-ZäöüÄÖÜß]+)([^a-zA-ZäöüÄÖÜß]*)$/);
+  if (!matchResult) return word;
+
+  const punctuationBefore = matchResult[1] ?? '';
+  let coreWord = matchResult[2] ?? '';
+  const punctuationAfter = matchResult[3] ?? '';
+
+  // 2. Identify the part to gap (target)
+  let prefix = '';
+  let target = coreWord;
+
+  // Auto-detect compound nouns
+  // Sort by length (longest first) to prevent partial matching
+  const sortedNouns = [...COMPOUND_NOUNS].sort((a, b) => b.length - a.length);
+
+  for (const noun of sortedNouns) {
+    // Word must end with this noun and be longer than the noun itself
+    if (coreWord.length > noun.length && coreWord.toLowerCase().endsWith(noun)) {
+      const splitIndex = coreWord.length - noun.length;
+      prefix = coreWord.substring(0, splitIndex);
+      target = coreWord.substring(splitIndex);
+      break;
+    }
+  }
+
+  // 3. Apply the 50% rule (keep first half, rounded up)
+  const len = target.length;
+  const keepCount = len <= 1 ? 1 : Math.ceil(len / 2);
+
+  const visiblePart = target.substring(0, keepCount);
+  const missingPartLength = len - keepCount;
+  const stars = '*'.repeat(missingPartLength);
+
+  return punctuationBefore + prefix + visiblePart + stars + punctuationAfter;
 }
 
 export function AdminCtestPage() {
