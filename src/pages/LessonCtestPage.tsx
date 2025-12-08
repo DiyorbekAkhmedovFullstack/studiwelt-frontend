@@ -366,21 +366,25 @@ export function LessonCtestPage() {
   const filledCount = Object.values(answers).filter((value) => value.trim().length > 0).length;
 
   return (
-    <div className="min-h-screen bg-page flex justify-center items-start py-6 sm:py-10 px-3 sm:px-5">
-      {/* Back Button - Fixed top-left */}
-      <button
-        type="button"
-        onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
-        className="fixed top-4 left-4 z-50 flex items-center gap-2 bg-surface hover:bg-surface-hover text-text-muted hover:text-text-main transition-colors font-medium text-sm sm:text-base px-3 py-2 rounded-lg shadow-md border border-border-soft"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M19 12H5M12 19l-7-7 7-7" />
-        </svg>
-        <span className="hidden sm:inline">Back to Lesson</span>
-      </button>
+    <div className="min-h-screen bg-page">
+      <main className="pt-10 px-6 pb-10">
+        <div className="max-w-[800px] mx-auto">
+          {/* Header with Back Button */}
+          <header className="mb-8">
+            <button
+              type="button"
+              onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
+              className="text-[14px] text-primary font-semibold mb-3 hover:underline inline-flex items-center gap-1"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Back to Lesson
+            </button>
+          </header>
 
-      {/* Main Content - Paper Sheet */}
-      <div className="bg-surface w-full max-w-[800px] px-5 py-8 sm:px-20 sm:py-20 shadow-[0_10px_40px_rgba(62,54,48,0.1)] rounded-sm">
+          {/* Main Content - Paper Sheet */}
+          <div className="bg-surface w-full px-5 py-8 sm:px-20 sm:py-20 shadow-[0_10px_40px_rgba(62,54,48,0.1)] rounded-sm">
         {/* Exercise Meta */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 border-b-2 border-[#F0F0F0] pb-6 gap-4 sm:gap-0">
           <div>
@@ -449,6 +453,10 @@ export function LessonCtestPage() {
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   onFocus={() => setFocusedGapIndex(index)}
                   onBlur={() => setFocusedGapIndex(null)}
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck="false"
                   style={{ width: `${width}ch`, padding: '0', margin: '0' }}
                   className="font-serif text-base sm:text-[20px] text-primary bg-transparent border-none border-b-2 border-[#D1D1D1] outline-none transition-all text-left rounded-none font-semibold tracking-normal focus:border-primary focus:bg-[rgba(166,123,91,0.1)] align-baseline"
                 />
@@ -499,7 +507,9 @@ export function LessonCtestPage() {
         >
           {submitting ? 'Submitting...' : 'Check My Answers'}
         </button>
-      </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

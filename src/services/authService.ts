@@ -33,8 +33,24 @@ export const authService = {
   register: (payload: RegisterPayload) =>
     api.post<unknown>('/user/register', payload),
 
-  verifyAccount: (key: string) =>
-    api.get<{ user: User }>('/user/verify/account?key=' + encodeURIComponent(key)),
+  verifyAccount: async (key: string) => {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8085'}/user/verify/account?key=${encodeURIComponent(key)}`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Verification failed');
+    }
+
+    const envelope = await response.json();
+    return {
+      user: envelope.data.user,
+      message: envelope.message
+    };
+  },
 
   login: (payload: LoginPayload) =>
     api.post<{ user: User; requiresMfa?: boolean }>(

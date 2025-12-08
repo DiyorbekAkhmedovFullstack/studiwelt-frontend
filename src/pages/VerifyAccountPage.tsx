@@ -24,8 +24,12 @@ export function VerifyAccountPage() {
       try {
         const data = await authService.verifyAccount(key);
         setUser(data.user);
-        // Navigate to success page on successful verification
-        navigate('/verification-success');
+        // Navigate to appropriate page based on verification status
+        if (data.message === 'Account already verified.') {
+          navigate('/already-verified');
+        } else {
+          navigate('/verification-success');
+        }
       } catch (err) {
         const msg =
           err instanceof Error ? err.message : 'Verification failed. Try again.';

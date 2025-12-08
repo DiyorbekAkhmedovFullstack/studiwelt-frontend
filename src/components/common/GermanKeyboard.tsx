@@ -23,7 +23,6 @@ export function GermanKeyboard({ onCharacterClick }: GermanKeyboardProps) {
 
   return (
     <div className="flex items-center gap-2 flex-wrap justify-center">
-      <span className="text-xs sm:text-sm text-text-muted mr-1">German:</span>
       {GERMAN_CHARACTERS.map((char, index) => (
         <button
           key={char}

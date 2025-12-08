@@ -21,6 +21,7 @@ const PageLoader = () => (
 const RegistrationSuccessPage = lazy(() => import('../pages/RegistrationSuccessPage').then(m => ({ default: m.RegistrationSuccessPage })));
 const VerifyAccountPage = lazy(() => import('../pages/VerifyAccountPage').then(m => ({ default: m.VerifyAccountPage })));
 const VerificationSuccessPage = lazy(() => import('../pages/VerificationSuccessPage').then(m => ({ default: m.VerificationSuccessPage })));
+const AlreadyVerifiedPage = lazy(() => import('../pages/AlreadyVerifiedPage').then(m => ({ default: m.AlreadyVerifiedPage })));
 const MfaVerifyPage = lazy(() => import('../pages/MfaVerifyPage').then(m => ({ default: m.MfaVerifyPage })));
 const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage').then(m => ({ default: m.ForgotPasswordPage })));
 const ResetPasswordPage = lazy(() => import('../pages/ResetPasswordPage').then(m => ({ default: m.ResetPasswordPage })));
@@ -61,6 +62,7 @@ export function AppRoutes() {
       <Route path="/verify/account" element={<VerifyAccountPage />} />
       <Route path="/verify-account" element={<VerifyAccountPage />} />
       <Route path="/verification-success" element={<VerificationSuccessPage />} />
+      <Route path="/already-verified" element={<AlreadyVerifiedPage />} />
       <Route path="/mfa" element={<MfaVerifyPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       {/* Password reset links: support both /verify/password (email) and /reset-password (internal) */}

@@ -58,11 +58,13 @@ function getCtestDiagnostic(
  * - First sentence: left intact
  * - Starting from word 2 of sentence 2: delete second half of every second word
  * - Last sentence: left intact
- * - Proper nouns: not deleted
+ * - Numbers and punctuation: preserved
+ * - German nouns (capitalized): treated as regular words (gapped normally)
  *
  * Deletion rules:
  * - Even number of letters: delete larger half (e.g., "word" → "wo**")
  * - Odd number of letters: delete more than half (e.g., "the" → "t**")
+ * - Only pure letter words are gapped (numbers like "2,5" are skipped)
  */
 function generateCtestGapText(originalText: string): string {
   if (!originalText.trim()) return '';
@@ -136,29 +138,22 @@ function generateCtestGapText(originalText: string): string {
 
       // Starting from word 2, process every second word
       if (wordCount >= 2 && wordCount % 2 === 0) {
-        // Check if it's a proper noun (starts with uppercase and not at sentence start)
-        const isProperNoun = /^[A-ZÄÖÜ]/.test(word) && wordCount > 1;
+        // Apply gap generation to all words (including German nouns which are capitalized)
+        const wordLength = word.length;
 
-        if (isProperNoun) {
+        if (wordLength === 1) {
+          // Single character words remain intact
           processedSentence += word + trailingPunctuation;
+        } else if (wordLength % 2 === 0) {
+          // Even number of letters: delete larger half
+          const keepLength = Math.floor(wordLength / 2);
+          const deleteLength = wordLength - keepLength;
+          processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
         } else {
-          // Apply gap generation
-          const wordLength = word.length;
-
-          if (wordLength === 1) {
-            // Single character words remain intact
-            processedSentence += word + trailingPunctuation;
-          } else if (wordLength % 2 === 0) {
-            // Even number of letters: delete larger half
-            const keepLength = Math.floor(wordLength / 2);
-            const deleteLength = wordLength - keepLength;
-            processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
-          } else {
-            // Odd number of letters: delete more than half
-            const keepLength = Math.floor(wordLength / 2);
-            const deleteLength = wordLength - keepLength;
-            processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
-          }
+          // Odd number of letters: delete more than half
+          const keepLength = Math.floor(wordLength / 2);
+          const deleteLength = wordLength - keepLength;
+          processedSentence += word.slice(0, keepLength) + '*'.repeat(deleteLength) + trailingPunctuation;
         }
       } else {
         processedSentence += word + trailingPunctuation;
