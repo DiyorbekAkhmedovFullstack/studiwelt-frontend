@@ -66,12 +66,11 @@ export function ResetPasswordPage() {
     event.preventDefault();
     if (!userId || !key) return;
     if (!newPassword || newPassword !== confirmNewPassword) {
-      setError('Passwords must match and not be empty.');
+      toastService.error('Passwords must match and not be empty.');
       return;
     }
 
     setSubmitting(true);
-    setError(null);
     try {
       await authService.resetPassword({
         userId,
@@ -82,8 +81,7 @@ export function ResetPasswordPage() {
     } catch (err) {
       const msg =
         err instanceof Error ? err.message : 'Failed to reset password.';
-      setError(msg);
-      toastService.error('Password reset failed.');
+      toastService.error(msg);
     } finally {
       setSubmitting(false);
     }
@@ -144,14 +142,6 @@ export function ResetPasswordPage() {
           'Avoid common words or patterns',
         ]}
       >
-        {error && (
-          <div className="mb-5 p-4 bg-[#FFF5F5] border border-[#C07766] rounded-lg">
-            <p className="text-sm text-[#C07766]" role="alert">
-              {error}
-            </p>
-          </div>
-        )}
-
         <form onSubmit={handleSubmit}>
           <PasswordInput
             label="New Password"
@@ -159,6 +149,7 @@ export function ResetPasswordPage() {
             placeholder="••••••••"
             autoComplete="new-password"
             required
+            minLength={8}
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
@@ -169,6 +160,7 @@ export function ResetPasswordPage() {
             placeholder="••••••••"
             autoComplete="new-password"
             required
+            minLength={8}
             value={confirmNewPassword}
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />

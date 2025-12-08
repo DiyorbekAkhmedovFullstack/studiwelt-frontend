@@ -11,11 +11,9 @@ export function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setError(null);
     setSubmitting(true);
     try {
       await authService.register({ firstName, lastName, email, password });
@@ -23,8 +21,7 @@ export function RegisterPage() {
     } catch (err) {
       const msg =
         err instanceof Error ? err.message : 'Registration failed. Please try again.';
-      setError(msg);
-      toastService.error('Registration failed.');
+      toastService.error(msg);
     } finally {
       setSubmitting(false);
     }
@@ -38,14 +35,6 @@ export function RegisterPage() {
       testimonialAuthor="Sarah Jenkins"
       testimonialRole="Student • Passed Studienkolleg 2024"
     >
-      {error && (
-        <div className="mb-5 p-3 bg-danger/10 border border-danger/20 rounded-lg">
-          <p className="text-sm text-danger" role="alert">
-            {error}
-          </p>
-        </div>
-      )}
-
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-4 mb-5">
           <div>
@@ -95,6 +84,7 @@ export function RegisterPage() {
           placeholder="••••••••"
           autoComplete="new-password"
           required
+          minLength={8}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

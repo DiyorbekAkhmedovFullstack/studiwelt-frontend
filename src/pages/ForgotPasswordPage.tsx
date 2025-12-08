@@ -7,11 +7,9 @@ import { AuthLayout, FormInput } from '../components/auth';
 export function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setMessage(null);
     setSubmitting(true);
 
     try {
@@ -21,8 +19,7 @@ export function ForgotPasswordPage() {
       // Log the error for debugging but always show a generic message to the user.
       console.error('Password reset request failed', err);
     } finally {
-      toastService.success('Reset email sent if account exists.');
-      setMessage('If an account exists, a reset email has been sent.');
+      toastService.success('If an account exists, a reset email has been sent.');
       setSubmitting(false);
     }
   };
@@ -38,14 +35,6 @@ export function ForgotPasswordPage() {
         'Check your email inbox and spam folder',
       ]}
     >
-      {message && (
-        <div className="mb-5 p-4 bg-[#EBF5EC] border border-[#6B8C6E] rounded-lg">
-          <p className="text-sm text-[#6B8C6E]" role="status">
-            {message}
-          </p>
-        </div>
-      )}
-
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Email Address"

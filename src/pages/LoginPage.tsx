@@ -6,7 +6,7 @@ import { toastService } from '../services/toastService';
 import { AuthLayout, FormInput, PasswordInput } from '../components/auth';
 
 export function LoginPage() {
-  const { login, error, user, loading } = useAuth();
+  const { login, user, loading } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -59,14 +59,6 @@ export function LoginPage() {
         'Track your improvement in real-time',
       ]}
     >
-      {error && (
-        <div className="mb-4 p-3 bg-danger/10 border border-danger/20 rounded-lg">
-          <p className="text-sm text-danger" role="alert">
-            {error}
-          </p>
-        </div>
-      )}
-
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Email"
