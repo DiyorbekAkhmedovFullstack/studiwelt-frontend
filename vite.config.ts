@@ -41,9 +41,7 @@ export default defineConfig({
           if (id.includes('/pages/Lesson') || id.includes('/pages/Reading') || id.includes('/pages/Grammar') || id.includes('/pages/Ctest') || id.includes('/pages/Deck')) {
             return 'lesson-pages';
           }
-
-          // Landing and auth pages stay in main chunk for fast initial load
-        },
+          },
       },
     },
   },
