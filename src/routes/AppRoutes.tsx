@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 
 // Critical pages - load immediately (above the fold)
@@ -26,7 +26,6 @@ const MfaVerifyPage = lazy(() => import('../pages/MfaVerifyPage').then(m => ({ d
 const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage').then(m => ({ default: m.ForgotPasswordPage })));
 const ResetPasswordPage = lazy(() => import('../pages/ResetPasswordPage').then(m => ({ default: m.ResetPasswordPage })));
 const UnauthorizedPage = lazy(() => import('../pages/UnauthorizedPage').then(m => ({ default: m.UnauthorizedPage })));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 const CoursePage = lazy(() => import('../pages/CoursePage').then(m => ({ default: m.CoursePage })));
 const LessonPage = lazy(() => import('../pages/LessonPage').then(m => ({ default: m.LessonPage })));
 const LessonDeckPage = lazy(() => import('../pages/LessonDeckPage').then(m => ({ default: m.LessonDeckPage })));
@@ -226,7 +225,7 @@ export function AppRoutes() {
 
       <Route path="/" element={<LandingPage />} />
       <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>
   );
