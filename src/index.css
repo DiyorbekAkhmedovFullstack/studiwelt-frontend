@@ -10,7 +10,7 @@
 
   /* Text Colors */
   --color-text-main: #3E3630; /* Espresso */
-  --color-text-muted: #8C8075;
+  --color-text-muted: #6B6058; /* WCAG AA compliant (4.5:1 contrast ratio) */
   --color-text-on-dark: #FFFFFF;
 
   /* Accent Colors */

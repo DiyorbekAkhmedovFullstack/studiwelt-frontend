@@ -1,51 +1,28 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { lessonService, type LessonsResponse } from '../services/lessonService';
+import { useLessons } from '../hooks/queries/useLessons';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
-import { toastService } from '../services/toastService';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
+import { toastService } from '../services/toastService';
 import { DashboardLayout, StatCard, LessonCard } from '../components/dashboard';
 
 export function CoursePage() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { courseProgress, lessonProgress, loading: progressLoading } = useProgress();
-  const [lessons, setLessons] = useState<LessonsResponse['lessons']>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    let active = true;
+  // Use React Query for lessons
+  const {
+    data: lessons = [],
+    isLoading: loading,
+    error: queryError,
+  } = useLessons();
 
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const data = await lessonService.getAllLessons();
-        if (!active) return;
-        setLessons(data.lessons);
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-        toastService.error('Load failed.');
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, []);
+  const error = queryError
+    ? queryError instanceof Error
+      ? queryError.message
+      : 'Load failed.'
+    : null;
 
   if (loading || progressLoading) {
     return (

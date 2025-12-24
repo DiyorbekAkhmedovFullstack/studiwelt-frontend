@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, type DependencyList } from 'react';
+import { useEffect, useState, useCallback, useRef, type DependencyList } from 'react';
 
 interface UseAsyncLoadResult<T> {
   data: T | null;
@@ -35,37 +35,40 @@ export function useAsyncLoad<T>(
   const [data, setData] = useState<T | null>(options.initialData ?? null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const activeRef = useRef(true);
+  const optionsRef = useRef(options);
+  optionsRef.current = options;
 
   const loadData = useCallback(async () => {
-    let active = true;
     setLoading(true);
     setError(null);
 
     try {
       const result = await fetchFn();
-      if (active) {
+      if (activeRef.current) {
         setData(result);
         setLoading(false);
-        options.onSuccess?.(result);
+        optionsRef.current.onSuccess?.(result);
       }
     } catch (err) {
-      if (active) {
+      if (activeRef.current) {
         const errorMessage =
           err instanceof Error ? err.message : 'Failed to load data';
         setError(errorMessage);
         setLoading(false);
-        options.onError?.(errorMessage);
+        optionsRef.current.onError?.(errorMessage);
       }
     }
-
-    return () => {
-      active = false;
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchFn, ...deps]);
 
   useEffect(() => {
+    activeRef.current = true;
     void loadData();
+
+    return () => {
+      activeRef.current = false;
+    };
   }, [loadData]);
 
   const refetch = useCallback(async () => {

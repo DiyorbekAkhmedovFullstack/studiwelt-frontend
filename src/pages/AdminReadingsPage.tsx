@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { readingService } from '../services/readingService';
-import { lessonService } from '../services/lessonService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
-import type { Reading, LessonSummary } from '../types/api';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
+import { useLessonByNumber } from '../hooks/queries/useLessons';
+import { useReadings, useDeleteReading } from '../hooks/queries/useReadings';
 
 type Params = {
   lessonNumber?: string;
@@ -15,58 +14,34 @@ export function AdminReadingsPage() {
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
 
-  const [lesson, setLesson] = useState<LessonSummary | null>(null);
-  const [readings, setReadings] = useState<Reading[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [deleting, setDeleting] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!lessonNumber) {
-      setError('Lesson number is missing.');
-      setLoading(false);
-      return;
-    }
+  // Fetch lesson data using React Query
+  const {
+    data: lesson,
+    isLoading: lessonLoading,
+    error: lessonError,
+  } = useLessonByNumber(lessonNumber ? Number(lessonNumber) : 0);
 
-    let active = true;
+  const lessonId = lesson?.id;
 
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const lessonData = await lessonService.getLessonByNumber(lessonNumber);
-        if (!active) return;
+  // Fetch readings (depends on lesson.id)
+  const {
+    data: readings = [],
+    isLoading: readingsLoading,
+  } = useReadings(lessonId);
 
-        const readingsData = await readingService.getAllReadings(
-          lessonData.lesson.id,
-        );
-        if (!active) return;
+  // Delete mutation
+  const deleteMutation = useDeleteReading(lessonId ?? 0);
 
-        setLesson(lessonData.lesson);
-        setReadings(readingsData.readings ?? []);
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-        toastService.error('Load failed.');
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
+  const loading = lessonLoading || readingsLoading;
+  const error = lessonError
+    ? lessonError instanceof Error
+      ? lessonError.message
+      : 'Load failed.'
+    : null;
 
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, [lessonNumber]);
-
-  const handleDelete = async (readingId: string, readingTitle: string) => {
+  const handleDelete = (readingId: string, readingTitle: string) => {
     if (
       !window.confirm(
         `Are you sure you want to delete the reading "${readingTitle}"? This action cannot be undone.`,
@@ -75,20 +50,21 @@ export function AdminReadingsPage() {
       return;
     }
 
-    setDeleting(readingId);
-    try {
-      await readingService.deleteReading(readingId);
-      setReadings((prev) => prev.filter((r) => r.id !== readingId));
-      toastService.success('Reading deleted successfully!');
-    } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Failed to delete reading. Please try again.';
-      toastService.error(message);
-    } finally {
-      setDeleting(null);
-    }
+    setDeletingId(readingId);
+    deleteMutation.mutate(readingId, {
+      onSuccess: () => {
+        toastService.success('Reading deleted successfully!');
+        setDeletingId(null);
+      },
+      onError: (err) => {
+        const message =
+          err instanceof Error
+            ? err.message
+            : 'Failed to delete reading. Please try again.';
+        toastService.error(message);
+        setDeletingId(null);
+      },
+    });
   };
 
   if (loading) {
@@ -198,10 +174,10 @@ export function AdminReadingsPage() {
                     <button
                       type="button"
                       onClick={() => handleDelete(reading.id, reading.title)}
-                      disabled={deleting === reading.id}
+                      disabled={deletingId === reading.id}
                       className="rounded-lg bg-danger px-4 py-2 text-[14px] font-medium text-white hover:bg-[#B93939] disabled:cursor-not-allowed disabled:opacity-50 transition-colors"
                     >
-                      {deleting === reading.id ? 'Deleting...' : 'Delete'}
+                      {deletingId === reading.id ? 'Deleting...' : 'Delete'}
                     </button>
                   </div>
                 </div>

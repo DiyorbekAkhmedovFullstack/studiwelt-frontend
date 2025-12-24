@@ -42,7 +42,7 @@ export function PaymentSuccessPage() {
             navigate('/course');
           }, 3000);
         }
-      } catch (error) {
+      } catch {
         toastService.error('Failed to verify payment status');
         navigate('/course');
       } finally {

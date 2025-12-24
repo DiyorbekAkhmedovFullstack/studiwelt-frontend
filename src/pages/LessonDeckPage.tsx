@@ -1,11 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { lessonService, type LessonResponse } from '../services/lessonService';
-import { deckService } from '../services/deckService';
-import type { Deck } from '../types/api';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
-import { toastService } from '../services/toastService';
 import { LessonDeckPractice } from '../components/lesson/LessonDeckPractice';
+import { useLessonByNumber } from '../hooks/queries/useLessons';
+import { useDecksByLesson } from '../hooks/queries/useDecks';
 
 type Params = {
   lessonNumber?: string;
@@ -15,53 +12,29 @@ export function LessonDeckPage() {
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
 
-  const [lesson, setLesson] = useState<LessonResponse['lesson'] | null>(null);
-  const [deck, setDeck] = useState<Deck | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // Fetch lesson data using React Query
+  const {
+    data: lesson,
+    isLoading: lessonLoading,
+    error: lessonError,
+  } = useLessonByNumber(lessonNumber ? Number(lessonNumber) : 0);
 
-  useEffect(() => {
-    if (!lessonNumber) {
-      setError('Lesson number is missing.');
-      setLoading(false);
-      return;
-    }
+  const lessonId = lesson?.id;
 
-    let active = true;
+  // Fetch decks (depends on lesson.id)
+  const {
+    data: decks = [],
+    isLoading: decksLoading,
+  } = useDecksByLesson(lessonId ?? 0);
 
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const lessonData = await lessonService.getLessonByNumber(lessonNumber);
-        if (!active) return;
+  const deck = decks[0] ?? null;
 
-        const decksData = await deckService.getDecksByLessonId(lessonData.lesson.id);
-        if (!active) return;
-
-        setLesson(lessonData.lesson);
-        setDeck(decksData.decks[0] ?? null);
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-        toastService.error('Load failed.');
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, [lessonNumber]);
+  const loading = lessonLoading || decksLoading;
+  const error = lessonError
+    ? lessonError instanceof Error
+      ? lessonError.message
+      : 'Load failed.'
+    : null;
 
   if (loading) {
     return (

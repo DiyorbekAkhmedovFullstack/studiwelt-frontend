@@ -1,39 +1,35 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { lessonService, type LessonsResponse } from '../services/lessonService';
+import { type LessonsResponse } from '../services/lessonService';
 import { LoadingScreen, ErrorState } from '../components/common';
 import { toastService } from '../services/toastService';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
-import { useAsyncLoad } from '../hooks';
+import { useAdminLessons, useUpdateLesson, usePublishLesson, useUnpublishLesson } from '../hooks/queries/useLessons';
 
 type EditableLesson = LessonsResponse['lessons'][number];
 
 export function AdminLessonsPage() {
-  const fetchLessons = useCallback(async () => {
-    const response = await lessonService.getAllLessonsForAdmin();
-    return response.lessons;
-  }, []);
+  // Fetch lessons using React Query
+  const {
+    data: lessons = [],
+    isLoading: loading,
+    error: queryError,
+  } = useAdminLessons();
 
-  const { data, loading, error } = useAsyncLoad(
-    fetchLessons,
-    [],
-    {
-      onError: () => toastService.error('Load failed.')
-    }
-  );
-
-  const [lessons, setLessons] = useState<EditableLesson[]>([]);
   const [editingLessonNumber, setEditingLessonNumber] = useState<number | null>(null);
   const [editTitle, setEditTitle] = useState('');
   const [editDescription, setEditDescription] = useState('');
-  const [saving, setSaving] = useState(false);
 
-  // Update lessons when data loads
-  useEffect(() => {
-    if (data) {
-      setLessons(data);
-    }
-  }, [data]);
+  // Mutations
+  const updateMutation = useUpdateLesson();
+  const publishMutation = usePublishLesson();
+  const unpublishMutation = useUnpublishLesson();
+
+  const error = queryError
+    ? queryError instanceof Error
+      ? queryError.message
+      : 'Load failed.'
+    : null;
 
   const beginEdit = (lesson: EditableLesson) => {
     setEditingLessonNumber(lesson.lessonNumber);
@@ -47,55 +43,52 @@ export function AdminLessonsPage() {
     setEditDescription('');
   };
 
-  const saveEdit = async (lesson: EditableLesson) => {
+  const saveEdit = (lesson: EditableLesson) => {
     if (!editTitle.trim()) {
       toastService.error('Title cannot be empty.');
       return;
     }
 
-    setSaving(true);
-    try {
-      const { lesson: updated } = await lessonService.updateLesson(
-        lesson.lessonNumber,
-        {
+    updateMutation.mutate(
+      {
+        lessonNumber: lesson.lessonNumber,
+        data: {
           title: editTitle.trim(),
           description: editDescription.trim(),
           isPublished: lesson.published,
         },
-      );
-
-      setLessons((prev) =>
-        prev.map((l) =>
-          l.lessonNumber === updated.lessonNumber ? { ...l, ...updated } : l,
-        ),
-      );
-      toastService.success('Lesson updated.');
-      cancelEdit();
-    } catch (err) {
-      toastService.error('Failed to update lesson. Please try again.');
-    } finally {
-      setSaving(false);
-    }
+      },
+      {
+        onSuccess: () => {
+          toastService.success('Lesson updated.');
+          cancelEdit();
+        },
+        onError: () => {
+          toastService.error('Failed to update lesson. Please try again.');
+        },
+      }
+    );
   };
 
-  const togglePublish = async (lesson: EditableLesson) => {
-    const action = lesson.published ? 'unpublish' : 'publish';
-    try {
-      const { lesson: updated } =
-        action === 'publish'
-          ? await lessonService.publishLesson(lesson.lessonNumber)
-          : await lessonService.unpublishLesson(lesson.lessonNumber);
-
-      setLessons((prev) =>
-        prev.map((l) =>
-          l.lessonNumber === updated.lessonNumber ? { ...l, ...updated } : l,
-        ),
-      );
-      toastService.success(
-        updated.published ? 'Lesson published.' : 'Lesson unpublished.',
-      );
-    } catch (err) {
-      toastService.error('Failed to update publish state. Please try again.');
+  const togglePublish = (lesson: EditableLesson) => {
+    if (lesson.published) {
+      unpublishMutation.mutate(lesson.lessonNumber, {
+        onSuccess: () => {
+          toastService.success('Lesson unpublished.');
+        },
+        onError: () => {
+          toastService.error('Failed to update publish state. Please try again.');
+        },
+      });
+    } else {
+      publishMutation.mutate(lesson.lessonNumber, {
+        onSuccess: () => {
+          toastService.success('Lesson published.');
+        },
+        onError: () => {
+          toastService.error('Failed to update publish state. Please try again.');
+        },
+      });
     }
   };
 
@@ -184,10 +177,10 @@ export function AdminLessonsPage() {
                         onClick={() => {
                           void saveEdit(lesson);
                         }}
-                        disabled={saving}
+                        disabled={updateMutation.isPending}
                         className="flex-1 min-w-[100px] rounded-lg bg-primary px-3 py-2 text-[13px] font-semibold text-white hover:bg-primary-hover disabled:opacity-60 transition-colors"
                       >
-                        {saving ? 'Saving…' : 'Save'}
+                        {updateMutation.isPending ? 'Saving…' : 'Save'}
                       </button>
                       <button
                         type="button"
@@ -297,10 +290,10 @@ export function AdminLessonsPage() {
                               onClick={() => {
                                 void saveEdit(lesson);
                               }}
-                              disabled={saving}
+                              disabled={updateMutation.isPending}
                               className="rounded-lg bg-primary px-4 py-2 text-[13px] font-semibold text-white hover:bg-primary-hover disabled:opacity-60 transition-colors"
                             >
-                              {saving ? 'Saving…' : 'Save'}
+                              {updateMutation.isPending ? 'Saving…' : 'Save'}
                             </button>
                             <button
                               type="button"

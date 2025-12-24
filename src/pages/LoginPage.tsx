@@ -1,16 +1,26 @@
-import { useState, type FormEvent } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useAuth } from '../contexts/AuthContext';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { AuthLayout, FormInput, PasswordInput } from '../components/auth';
+import { loginSchema, type LoginFormData } from '../lib/validations';
 
 export function LoginPage() {
   const { login, user, loading } = useAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+    mode: 'onBlur',
+  });
 
   if (loading) {
     return (
@@ -24,11 +34,9 @@ export function LoginPage() {
     return <Navigate to="/course" replace />;
   }
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!email || !password) return;
+  const onSubmit = async (data: LoginFormData) => {
     setSubmitting(true);
-    const result = await login(email, password);
+    const result = await login(data.email, data.password);
     setSubmitting(false);
 
     if (!result.success) {
@@ -59,16 +67,15 @@ export function LoginPage() {
         'Track your improvement in real-time',
       ]}
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <FormInput
           label="Email"
           type="email"
           id="email"
           placeholder="alex@example.com"
           autoComplete="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          error={errors.email?.message}
+          {...register('email')}
         />
 
         <PasswordInput
@@ -76,9 +83,8 @@ export function LoginPage() {
           id="password"
           placeholder="••••••••"
           autoComplete="current-password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          error={errors.password?.message}
+          {...register('password')}
         />
 
         <div className="flex justify-end mb-6 text-[14px]">

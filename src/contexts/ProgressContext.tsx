@@ -1,14 +1,13 @@
 import {
   createContext,
   useContext,
-  useEffect,
   useMemo,
-  useState,
   useCallback,
-  useTransition,
   type ReactNode,
 } from 'react';
-import { progressService } from '../services/progressService';
+import { useQueryClient } from '@tanstack/react-query';
+import { useCourseProgress } from '../hooks/queries/useProgress';
+import { queryKeys } from '../lib/queryKeys';
 import type { CourseProgressDto, LessonProgressDto } from '../types/api';
 import { useAuth } from './AuthContext';
 import {
@@ -18,7 +17,7 @@ import {
 
 type ProgressContextValue = {
   courseProgress: CourseProgressDto | null;
-  lessonProgress: Map<number, LessonProgressDto>; // Keyed by lessonId
+  lessonProgress: Map<number, LessonProgressDto>;
   loading: boolean;
   isPending: boolean;
   error: string | null;
@@ -37,60 +36,38 @@ type ProgressProviderProps = {
 
 export function ProgressProvider({ children }: ProgressProviderProps) {
   const { user } = useAuth();
-  const [courseProgress, setCourseProgress] =
-    useState<CourseProgressDto | null>(null);
-  const [lessonProgress, setLessonProgress] = useState<
-    Map<number, LessonProgressDto>
-  >(new Map());
-  const [loading, setLoading] = useState(false);
-  const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState<string | null>(null);
+  const queryClient = useQueryClient();
 
+  // Use React Query for data fetching
+  const {
+    data: courseProgress,
+    isLoading: loading,
+    isFetching: isPending,
+    error: queryError,
+  } = useCourseProgress();
+
+  // Build lesson progress map for O(1) lookups
+  const lessonProgress = useMemo(() => {
+    const progressMap = new Map<number, LessonProgressDto>();
+    if (courseProgress?.lessonProgress) {
+      courseProgress.lessonProgress.forEach((lesson) => {
+        progressMap.set(lesson.lessonId, lesson);
+      });
+    }
+    return progressMap;
+  }, [courseProgress]);
+
+  // Error message
+  const error = queryError
+    ? queryError instanceof Error
+      ? queryError.message
+      : 'Failed to load progress.'
+    : null;
+
+  // Refresh progress by invalidating the query
   const refreshProgress = useCallback(async () => {
-    if (!user) {
-      // Clear progress if no user
-      setCourseProgress(null);
-      setLessonProgress(new Map());
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    // Use transition to make progress loading non-blocking
-    startTransition(() => {
-      void progressService.getCourseProgress()
-        .then((data) => {
-          setCourseProgress(data);
-
-          // Build lesson progress map for O(1) lookups
-          const progressMap = new Map<number, LessonProgressDto>();
-          data.lessonProgress.forEach((lesson) => {
-            progressMap.set(lesson.lessonId, lesson);
-          });
-          setLessonProgress(progressMap);
-          setLoading(false);
-        })
-        .catch((err) => {
-          const message =
-            err instanceof Error ? err.message : 'Failed to load progress.';
-          setError(message);
-          console.error('Progress fetch error:', err);
-          setLoading(false);
-        });
-    });
-  }, [user]);
-
-  // Auto-fetch progress when user logs in
-  useEffect(() => {
-    if (user) {
-      void refreshProgress();
-    } else {
-      // Clear progress when user logs out
-      setCourseProgress(null);
-      setLessonProgress(new Map());
-    }
-  }, [user, refreshProgress]);
+    await queryClient.invalidateQueries({ queryKey: queryKeys.progress.all });
+  }, [queryClient]);
 
   const getLessonProgress = useCallback(
     (lessonId: number): LessonProgressDto | null => {
@@ -168,7 +145,7 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
 
   const value = useMemo<ProgressContextValue>(
     () => ({
-      courseProgress,
+      courseProgress: courseProgress ?? null,
       lessonProgress,
       loading,
       isPending,

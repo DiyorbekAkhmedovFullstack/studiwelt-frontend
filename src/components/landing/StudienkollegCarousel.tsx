@@ -19,22 +19,13 @@ type Studienkolleg = {
   applicationMethod: 'assist' | 'direct';
 };
 
-export function StudienkollegCarousel() {
-  const [sectionRef, sectionVisible] = useScrollAnimation();
-  const navigate = useNavigate();
+// Helper function to get image path with fallback
+const getImagePath = (cityName: string): string => {
+  return `/studienkollegs/${cityName}.png`;
+};
 
-  // Helper function to get image path with fallback
-  const getImagePath = (cityName: string): string => {
-    // Try to load from /studienkollegs/ directory, fallback to placeholder
-    return `/studienkollegs/${cityName}.png`;
-  };
-
-  // Handle card click navigation
-  const handleCardClick = (slug: string) => {
-    navigate(`/studienkolleg/${slug}`);
-  };
-
-  const studienkollegs: Studienkolleg[] = [
+// Static data moved outside component to avoid recreating on each render
+const studienkollegs: Studienkolleg[] = [
     {
       id: '1',
       slug: 'munich',
@@ -174,7 +165,16 @@ export function StudienkollegCarousel() {
       ],
       applicationMethod: 'assist',
     },
-  ];
+];
+
+export function StudienkollegCarousel() {
+  const [sectionRef, sectionVisible] = useScrollAnimation();
+  const navigate = useNavigate();
+
+  // Handle card click navigation
+  const handleCardClick = (slug: string) => {
+    navigate(`/studienkolleg/${slug}`);
+  };
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);

@@ -1,11 +1,10 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { lessonService, type LessonResponse } from '../services/lessonService';
+import { useLessonByNumber } from '../hooks/queries/useLessons';
+import { useDecksByLesson } from '../hooks/queries/useDecks';
+import { useReadings } from '../hooks/queries/useReadings';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
-import { deckService } from '../services/deckService';
-import { readingService } from '../services/readingService';
-import type { Deck, Reading } from '../types/api';
 import { useProgress } from '../contexts/ProgressContext';
 import { DashboardLayout } from '../components/dashboard';
 
@@ -18,11 +17,26 @@ export function LessonPage() {
   const navigate = useNavigate();
   const { isSectionCompleted, getLessonProgress, loading: progressLoading } = useProgress();
 
-  const [lesson, setLesson] = useState<LessonResponse['lesson'] | null>(null);
-  const [deck, setDeck] = useState<Deck | null>(null);
-  const [readings, setReadings] = useState<Reading[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // Fetch lesson data using React Query
+  const {
+    data: lesson,
+    isLoading: lessonLoading,
+    error: lessonError,
+  } = useLessonByNumber(lessonNumber ? Number(lessonNumber) : 0);
+
+  // Fetch decks and readings (depends on lesson.id)
+  const lessonId = lesson?.id;
+  const {
+    data: decks = [],
+    isLoading: decksLoading,
+  } = useDecksByLesson(lessonId ?? 0);
+
+  const {
+    data: readings = [],
+    isLoading: readingsLoading,
+  } = useReadings(lessonId);
+
+  const deck = decks[0] ?? null;
 
   // Get lesson progress to calculate completion percentage
   const lessonProgressData = lesson ? getLessonProgress(lesson.id) : null;
@@ -50,62 +64,22 @@ export function LessonPage() {
     return count;
   }, [lessonProgressData]);
 
-  useEffect(() => {
-    if (!lessonNumber) {
-      setError('Lesson number is missing.');
-      setLoading(false);
-      return;
-    }
+  // Handle error cases
+  const error = lessonError
+    ? lessonError instanceof Error
+      ? lessonError.message
+      : 'Load failed.'
+    : null;
 
-    let active = true;
+  // Show error toast for locked lessons
+  if (error && (error.includes('locked') || error.includes('complete'))) {
+    toastService.warning(error, { duration: 6000 });
+    setTimeout(() => navigate('/course'), 2000);
+  }
 
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const lessonData = await lessonService.getLessonByNumber(lessonNumber);
-        if (!active) return;
+  const isLoading = lessonLoading || decksLoading || readingsLoading || progressLoading;
 
-        const decksData = await deckService.getDecksByLessonId(lessonData.lesson.id);
-        if (!active) return;
-
-        const readingsData = await readingService.getAllReadings(lessonData.lesson.id);
-        if (!active) return;
-
-        setLesson(lessonData.lesson);
-        setDeck(decksData.decks[0] ?? null);
-        setReadings(readingsData.readings ?? []);
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-
-        // Check if it's a lesson locked error (HTTP 423)
-        if (message.includes('locked') || message.includes('complete')) {
-          toastService.warning(message, { duration: 6000 });
-          // Redirect to course page after showing error
-          setTimeout(() => navigate('/course'), 2000);
-        } else {
-          toastService.error('Load failed.');
-        }
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, [lessonNumber]);
-
-  if (loading || progressLoading) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-page p-4">
         <LoadingSpinner />

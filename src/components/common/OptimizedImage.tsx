@@ -30,9 +30,8 @@ export function OptimizedImage({
   const webpSrc = src.replace(/\.png$/, '.webp');
 
   useEffect(() => {
-    // Skip IntersectionObserver for priority images
+    // Skip IntersectionObserver for priority images (isInView already initialized with priority)
     if (priority) {
-      setIsInView(true);
       return;
     }
 

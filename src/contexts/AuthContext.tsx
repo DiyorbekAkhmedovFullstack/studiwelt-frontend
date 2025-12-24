@@ -5,23 +5,29 @@ import {
   useMemo,
   useState,
   type ReactNode,
-} from 'react';
-import { authService } from '../services/authService';
-import { toastService } from '../services/toastService';
-import type { User } from '../types/api';
+} from "react";
+import { authService } from "../services/authService";
+import { toastService } from "../services/toastService";
+import type { User } from "../types/api";
 
 type AuthContextValue = {
   user: User | null;
   loading: boolean;
   isHydrated: boolean;
   error: string | null;
-  login: (email: string, password: string) => Promise<{
+  login: (
+    email: string,
+    password: string,
+  ) => Promise<{
     success: boolean;
     requiresMfa: boolean;
     user: User | null;
     error?: string;
   }>;
-  completeMfa: (userId: string, qrCode: string) => Promise<{
+  completeMfa: (
+    userId: string,
+    qrCode: string,
+  ) => Promise<{
     success: boolean;
     user: User | null;
     error?: string;
@@ -71,7 +77,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     };
   }, []);
 
-  const login: AuthContextValue['login'] = async (email, password) => {
+  const login: AuthContextValue["login"] = async (email, password) => {
     setError(null);
     try {
       const data = await authService.login({ email, password });
@@ -89,7 +95,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       };
     } catch (err) {
       const message =
-        err instanceof Error ? err.message : 'Login failed. Please try again.';
+        err instanceof Error ? err.message : "Login failed. Please try again.";
       setError(message);
       return {
         success: false,
@@ -100,7 +106,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
-  const completeMfa: AuthContextValue['completeMfa'] = async (
+  const completeMfa: AuthContextValue["completeMfa"] = async (
     userId,
     qrCode,
   ) => {
@@ -115,7 +121,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       };
     } catch (err) {
       const message =
-        err instanceof Error ? err.message : 'MFA verification failed.';
+        err instanceof Error ? err.message : "MFA verification failed.";
       setError(message);
       return {
         success: false,
@@ -125,10 +131,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
-  const logout: AuthContextValue['logout'] = async () => {
+  const logout: AuthContextValue["logout"] = async () => {
     try {
       await authService.logout();
-      toastService.success('Successfully logged out.');
+      toastService.success("Successfully logged out.");
     } finally {
       // Always clear local state; cookies are removed by backend.
       setUser(null);
@@ -156,7 +162,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 export function useAuth(): AuthContextValue {
   const ctx = useContext(AuthContext);
   if (!ctx) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return ctx;
 }

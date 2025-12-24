@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { readingService } from '../services/readingService';
 import { LoadingScreen, ErrorState, SectionCompletedState } from '../components/common';
 import { toastService } from '../services/toastService';
-import type { Reading } from '../types/api';
 import { useProgress } from '../contexts/ProgressContext';
+import { useReadingForTaking, useSubmitReadingAnswers } from '../hooks/queries/useReadings';
 
 type Params = {
   lessonNumber?: string;
@@ -16,71 +15,42 @@ export function ReadingExercisePage() {
   const navigate = useNavigate();
   const { isSectionLocked, refreshProgress } = useProgress();
 
-  const [reading, setReading] = useState<Reading | null>(null);
   const [answers, setAnswers] = useState<Record<string, 'A' | 'B' | 'C' | 'D' | null>>(
     {},
   );
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [isLocked, setIsLocked] = useState(false);
-
   const [activeTab, setActiveTab] = useState<'passage' | 'questions'>('passage');
 
+  // Fetch reading data using React Query
+  const {
+    data: reading,
+    isLoading,
+    error: readingError,
+  } = useReadingForTaking(readingId ?? '');
+
+  // Check if section is locked
+  const isLocked = reading ? isSectionLocked(reading.lessonId, 'reading') : false;
+
+  // Submit mutation
+  const submitMutation = useSubmitReadingAnswers();
+
+  // Initialize answers when reading changes
   useEffect(() => {
-    if (!readingId) {
-      setError('Reading ID is missing.');
-      setLoading(false);
-      return;
+    if (reading && reading.questions && Object.keys(answers).length === 0) {
+      const initialAnswers: Record<string, 'A' | 'B' | 'C' | 'D' | null> = {};
+      reading.questions.forEach((q) => {
+        initialAnswers[q.id] = null;
+      });
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional initialization from fetched data
+      setAnswers(initialAnswers);
     }
+  }, [reading]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    let active = true;
-
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const data = await readingService.getReadingForTaking(readingId);
-        if (!active) return;
-
-        setReading(data.reading);
-
-        // Check if section is locked
-        const locked = isSectionLocked(data.reading.lessonId, 'reading');
-        setIsLocked(locked);
-
-        if (locked) {
-          setLoading(false);
-          return;
-        }
-
-        // Initialize answers object with all question IDs set to null
-        const initialAnswers: Record<string, 'A' | 'B' | 'C' | 'D' | null> = {};
-        data.reading.questions.forEach((q) => {
-          initialAnswers[q.id] = null;
-        });
-        setAnswers(initialAnswers);
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-        toastService.error('Load failed.');
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, [readingId, isSectionLocked]);
+  const loading = isLoading;
+  const error = readingError
+    ? readingError instanceof Error
+      ? readingError.message
+      : 'Load failed.'
+    : null;
 
   const handleAnswerChange = (
     questionId: string,
@@ -97,7 +67,7 @@ export function ReadingExercisePage() {
     return reading.questions.every((q) => answers[q.id] !== null && answers[q.id] !== undefined);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (!reading || !readingId) return;
 
     // Filter out null/undefined answers
@@ -111,53 +81,49 @@ export function ReadingExercisePage() {
       {} as Record<string, 'A' | 'B' | 'C' | 'D'>,
     );
 
-    setSubmitting(true);
-    try {
-      const data = await readingService.submitAnswers({
-        readingId,
-        answers: validAnswers,
-      });
+    submitMutation.mutate(
+      { readingId, answers: validAnswers },
+      {
+        onSuccess: async (data) => {
+          // Refresh progress after successful submission
+          await refreshProgress();
 
-      // Refresh progress after successful submission
-      await refreshProgress();
+          // Check if section just became completed (finished 3 successful attempts)
+          if (reading) {
+            const nowCompleted = isSectionLocked(reading.lessonId, 'reading');
+            if (nowCompleted) {
+              toastService.success(
+                'Reading section completed!',
+                { duration: 6000 }
+              );
+            } else {
+              toastService.success('Quiz submitted.');
+            }
+          } else {
+            toastService.success('Quiz submitted.');
+          }
 
-      // Check if section just became completed (finished 3 successful attempts)
-      if (reading) {
-        const nowCompleted = isSectionLocked(reading.lessonId, 'reading');
-        if (nowCompleted) {
-          toastService.success(
-            'Reading section completed!',
-            { duration: 6000 }
-          );
-        } else {
-          toastService.success('Quiz submitted.');
-        }
-      } else {
-        toastService.success('Quiz submitted.');
+          // Navigate to results page, passing result via state
+          navigate(`/course/${lessonNumber}/reading/${readingId}/results`, {
+            state: { result: data.result },
+            replace: true,
+          });
+        },
+        onError: (err) => {
+          const message =
+            err instanceof Error
+              ? err.message
+              : 'Submit failed.';
+
+          // Check if section was completed (403 Forbidden)
+          if (message.includes('locked') || message.includes('403')) {
+            toastService.info('Section already completed.');
+          } else {
+            toastService.error(message);
+          }
+        },
       }
-
-      // Navigate to results page, passing result via state
-      // Backend now includes complete option data in results
-      navigate(`/course/${lessonNumber}/reading/${readingId}/results`, {
-        state: { result: data.result },
-        replace: true,
-      });
-    } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Submit failed.';
-
-      // Check if section was completed (403 Forbidden)
-      if (message.includes('locked') || message.includes('403')) {
-        toastService.info('Section already completed.');
-        setIsLocked(true);
-      } else {
-        toastService.error(message);
-      }
-    } finally {
-      setSubmitting(false);
-    }
+    );
   };
 
   if (loading) {
@@ -321,10 +287,10 @@ export function ReadingExercisePage() {
             <button
               type="button"
               onClick={handleSubmit}
-              disabled={!allQuestionsAnswered() || submitting}
+              disabled={!allQuestionsAnswered() || submitMutation.isPending}
               className="w-full bg-primary text-white border-none py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base cursor-pointer transition-all hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {submitting ? 'Submitting...' : 'Check Answers'}
+              {submitMutation.isPending ? 'Submitting...' : 'Check Answers'}
             </button>
           </div>
         </aside>

@@ -1,6 +1,7 @@
 export { LoadingSpinner } from './LoadingSpinner';
 export { LoadingScreen } from './LoadingScreen';
 export { ErrorState } from './ErrorState';
+export { ErrorBoundary } from './ErrorBoundary';
 export { SectionCompletedState } from './SectionCompletedState';
 export { Button } from './Button';
 export { CustomToaster } from './CustomToast';

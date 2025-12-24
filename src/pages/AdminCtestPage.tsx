@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { lessonService, type LessonResponse } from '../services/lessonService';
-import { ctestService } from '../services/ctestService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
-import type { CTest } from '../types/api';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
+import { useLessonByNumber } from '../hooks/queries/useLessons';
+import { useCTestsByLesson, useCreateCTest, useUpdateCTest, useDeleteCTest } from '../hooks/queries/useCTests';
 
 type Params = {
   lessonNumber?: string;
@@ -205,7 +204,7 @@ function getGappedWord(word: string): string {
   if (!matchResult) return word;
 
   const punctuationBefore = matchResult[1] ?? '';
-  let coreWord = matchResult[2] ?? '';
+  const coreWord = matchResult[2] ?? '';
   const punctuationAfter = matchResult[3] ?? '';
 
   // 2. Identify the part to gap (target)
@@ -241,18 +240,54 @@ export function AdminCtestPage() {
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
 
-  const [lesson, setLesson] = useState<LessonResponse['lesson'] | null>(null);
-  const [ctest, setCtest] = useState<CTest | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [originalText, setOriginalText] = useState('');
   const [gapText, setGapText] = useState('');
-  const [saving, setSaving] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const [initialized, setInitialized] = useState(false);
+
+  // Fetch lesson data using React Query
+  const {
+    data: lesson,
+    isLoading: lessonLoading,
+    error: lessonError,
+  } = useLessonByNumber(lessonNumber ? Number(lessonNumber) : 0);
+
+  const lessonId = lesson?.id;
+
+  // Fetch C-tests (depends on lesson.id)
+  const {
+    data: ctests = [],
+    isLoading: ctestsLoading,
+  } = useCTestsByLesson(lessonId ?? 0);
+
+  const ctest = ctests[0] ?? null;
+
+  // Mutations
+  const createMutation = useCreateCTest();
+  const updateMutation = useUpdateCTest();
+  const deleteMutation = useDeleteCTest(lessonId ?? 0);
+
+  const loading = lessonLoading || ctestsLoading;
+  const error = lessonError
+    ? lessonError instanceof Error
+      ? lessonError.message
+      : 'Load failed.'
+    : null;
+
+  // Initialize form when ctest data loads
+  /* eslint-disable react-hooks/set-state-in-effect -- intentional initialization from fetched data */
+  useEffect(() => {
+    if (!initialized && !loading && ctest) {
+      setTitle(ctest.title);
+      setDescription(ctest.description ?? '');
+      setOriginalText(ctest.originalText);
+      setGapText(ctest.gapText);
+      setInitialized(true);
+    }
+  }, [ctest, loading, initialized]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const diagnostic = useMemo(
     () => getCtestDiagnostic(originalText, gapText),
@@ -270,65 +305,6 @@ export function AdminCtestPage() {
       setGapText('');
     }
   };
-
-  useEffect(() => {
-    if (!lessonNumber) {
-      setError('Lesson number is missing.');
-      setLoading(false);
-      return;
-    }
-
-    let active = true;
-
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const lessonData = await lessonService.getLessonByNumber(lessonNumber);
-        if (!active) return;
-
-        setLesson(lessonData.lesson);
-
-        const tests = await ctestService.getTestsByLesson(lessonData.lesson.id);
-        if (!active) return;
-
-        const existing = tests.tests[0] ?? null;
-        setCtest(existing ?? null);
-
-        if (existing) {
-          setTitle(existing.title);
-          setDescription(existing.description ?? '');
-          setOriginalText(existing.originalText);
-          setGapText(existing.gapText);
-        } else {
-          setTitle('');
-          setDescription('');
-          setOriginalText('');
-          setGapText('');
-        }
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-        toastService.error(
-          'Load failed.',
-        );
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, [lessonNumber]);
 
   const beginEdit = () => {
     setEditing(true);
@@ -349,7 +325,7 @@ export function AdminCtestPage() {
     setEditing(false);
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!lesson) return;
 
@@ -373,64 +349,74 @@ export function AdminCtestPage() {
       return;
     }
 
-    setSaving(true);
-    try {
-      const payload = {
-        title: title.trim(),
-        description: description.trim() || undefined,
-        originalText: originalText,
-        gapText: gapText,
-        lessonId: lesson.id,
-      };
+    const payload = {
+      title: title.trim(),
+      description: description.trim() || undefined,
+      originalText: originalText,
+      gapText: gapText,
+      lessonId: lesson.id,
+    };
 
-      if (ctest) {
-        const updated = await ctestService.update(ctest.id, payload);
-        setCtest(updated.test);
-        toastService.success('C‑Test updated successfully.');
-      } else {
-        const created = await ctestService.create(payload);
-        setCtest(created.test);
-        toastService.success('C‑Test created successfully.');
-      }
-
-      setEditing(false);
-    } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Failed to save C‑Test. Please try again.';
-      setError(message);
-      toastService.error(message);
-    } finally {
-      setSaving(false);
+    if (ctest) {
+      updateMutation.mutate(
+        { testId: ctest.id, payload },
+        {
+          onSuccess: () => {
+            toastService.success('C‑Test updated successfully.');
+            setEditing(false);
+          },
+          onError: (err) => {
+            const message =
+              err instanceof Error
+                ? err.message
+                : 'Failed to save C‑Test. Please try again.';
+            toastService.error(message);
+          },
+        }
+      );
+    } else {
+      createMutation.mutate(payload, {
+        onSuccess: () => {
+          toastService.success('C‑Test created successfully.');
+          setEditing(false);
+        },
+        onError: (err) => {
+          const message =
+            err instanceof Error
+              ? err.message
+              : 'Failed to save C‑Test. Please try again.';
+          toastService.error(message);
+        },
+      });
     }
   };
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     if (!ctest || !window.confirm('Delete this C‑Test? This cannot be undone.')) {
       return;
     }
 
-    setDeleting(true);
-    try {
-      await ctestService.delete(ctest.id);
-      setCtest(null);
-      setTitle('');
-      setDescription('');
-      setOriginalText('');
-      setGapText('');
-      toastService.success('C‑Test deleted.');
-    } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Failed to delete C‑Test. Please try again.';
-      setError(message);
-      toastService.error(message);
-    } finally {
-      setDeleting(false);
-    }
+    deleteMutation.mutate(ctest.id, {
+      onSuccess: () => {
+        setTitle('');
+        setDescription('');
+        setOriginalText('');
+        setGapText('');
+        setInitialized(false);
+        toastService.success('C‑Test deleted.');
+      },
+      onError: (err) => {
+        const message =
+          err instanceof Error
+            ? err.message
+            : 'Failed to delete C‑Test. Please try again.';
+        toastService.error(message);
+      },
+    });
   };
+
+  const saving = createMutation.isPending || updateMutation.isPending;
+  const deleting = deleteMutation.isPending;
 
   if (loading) {
     return (

@@ -1,16 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { lessonService, type LessonResponse } from '../services/lessonService';
-import {
-  grammarService,
-  type GrammarQuizQuestionsResponse,
-} from '../services/grammarService';
-import type { GrammarQuizQuestion, GrammarTopic } from '../types/api';
 import { LoadingScreen, ErrorState, SectionCompletedState } from '../components/common';
 import { toastService } from '../services/toastService';
 import { LessonGrammarTheory } from '../components/grammar/LessonGrammarTheory';
 import { useProgress } from '../contexts/ProgressContext';
 import { getGrammarTopicByLessonNumber } from '../data/grammarTopics';
+import { useLessonByNumber } from '../hooks/queries/useLessons';
+import { useGrammarTopics, useGrammarQuiz, useSubmitGrammarAnswers } from '../hooks/queries/useGrammar';
 
 type Params = {
   lessonNumber?: string;
@@ -23,99 +19,60 @@ export function LessonGrammarPage() {
   const navigate = useNavigate();
   const { isSectionLocked, refreshProgress } = useProgress();
 
-  const [lesson, setLesson] = useState<LessonResponse['lesson'] | null>(null);
-  const [questions, setQuestions] = useState<GrammarQuizQuestion[]>([]);
   const [answers, setAnswers] = useState<AnswerMap>({});
-  const [backendTopic, setBackendTopic] = useState<GrammarTopic | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [isLocked, setIsLocked] = useState(false);
 
   // Get hardcoded topic data based on lesson number
   const hardcodedTopic = lessonNumber ? getGrammarTopicByLessonNumber(parseInt(lessonNumber)) : null;
 
+  // Fetch lesson data using React Query
+  const {
+    data: lessonData,
+    isLoading: lessonLoading,
+    error: lessonError,
+  } = useLessonByNumber(lessonNumber ? Number(lessonNumber) : 0);
+
+  const lesson = lessonData ?? null;
+  const lessonId = lesson?.id;
+
+  // Check if section is locked
+  const isLocked = lesson ? isSectionLocked(lesson.id, 'grammar') : false;
+
+  // Fetch grammar topics (only if lesson exists and not locked)
+  const {
+    data: topics = [],
+    isLoading: topicsLoading,
+  } = useGrammarTopics(lessonId ?? 0);
+
+  const backendTopic = topics[0] ?? null;
+  const topicKey = backendTopic?.topicKey ?? (lessonNumber ? `lesson-${lessonNumber}` : '');
+
+  // Fetch quiz questions (only if not locked and we have a topic key)
+  const {
+    data: questions = [],
+    isLoading: questionsLoading,
+  } = useGrammarQuiz(isLocked ? '' : topicKey);
+
+  // Initialize answers when questions change
   useEffect(() => {
-    if (!lessonNumber) {
-      setError('Lesson number is missing.');
-      setLoading(false);
-      return;
+    if (questions.length > 0 && Object.keys(answers).length === 0) {
+      const initialAnswers: AnswerMap = {};
+      questions.forEach((q) => {
+        initialAnswers[q.questionId] = null;
+      });
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional initialization from fetched data
+      setAnswers(initialAnswers);
     }
+  }, [questions.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    let active = true;
+  // Submit mutation
+  const submitMutation = useSubmitGrammarAnswers();
 
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const lessonData = await lessonService.getLessonByNumber(lessonNumber);
-        if (!active) return;
-
-        setLesson(lessonData.lesson);
-
-        // Check if section is locked
-        const locked = isSectionLocked(lessonData.lesson.id, 'grammar');
-        setIsLocked(locked);
-
-        if (locked) {
-          // If locked, don't fetch questions
-          setLoading(false);
-          return;
-        }
-
-        // Fetch topics to get the correct key
-        let topicKey = `lesson-${lessonNumber}`;
-        try {
-          const topics = await grammarService.getTopicsByLesson(lessonData.lesson.id);
-          if (active && topics && topics.length > 0) {
-            setBackendTopic(topics[0]);
-            topicKey = topics[0].topicKey;
-          }
-        } catch (topicError) {
-          console.warn('Failed to fetch grammar topics, using default key', topicError);
-        }
-
-        // Fetch quiz questions using the correct topicKey
-        try {
-          const quizQuestions: GrammarQuizQuestionsResponse =
-            await grammarService.getQuizQuestions(topicKey);
-          if (!active) return;
-
-          setQuestions(quizQuestions);
-
-          const initialAnswers: AnswerMap = {};
-          quizQuestions.forEach((q) => {
-            initialAnswers[q.questionId] = null;
-          });
-          setAnswers(initialAnswers);
-        } catch (quizError) {
-          // If no questions available, just continue without them
-          if (!active) return;
-          setQuestions([]);
-        }
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-        toastService.error(
-          'Load failed.',
-        );
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, [lessonNumber, isSectionLocked]);
+  const loading = lessonLoading || (!isLocked && (topicsLoading || questionsLoading));
+  const error = lessonError
+    ? lessonError instanceof Error
+      ? lessonError.message
+      : 'Load failed.'
+    : null;
 
   const handleAnswerChange = (
     questionId: string,
@@ -147,51 +104,51 @@ export function LessonGrammarPage() {
       {} as Record<string, 'A' | 'B' | 'C' | 'D'>,
     );
 
-    setSubmitting(true);
-    try {
-      const result = await grammarService.submitAnswers({
+    submitMutation.mutate(
+      {
         topicKey: backendTopic?.topicKey ?? `lesson-${lessonNumber}`,
         answers: validAnswers,
-      });
+      },
+      {
+        onSuccess: async (result) => {
+          // Refresh progress after successful submission
+          await refreshProgress();
 
-      // Refresh progress after successful submission
-      await refreshProgress();
+          // Check if section just became completed (finished 3 successful attempts)
+          if (lesson) {
+            const nowCompleted = isSectionLocked(lesson.id, 'grammar');
+            if (nowCompleted) {
+              toastService.success(
+                '✓ Grammar section successfully completed! You\'ve finished all 3 attempts with great scores.',
+                { duration: 6000 }
+              );
+            } else {
+              toastService.success('Grammar quiz submitted successfully!');
+            }
+          } else {
+            toastService.success('Grammar quiz submitted successfully!');
+          }
 
-      // Check if section just became completed (finished 3 successful attempts)
-      if (lesson) {
-        const nowCompleted = isSectionLocked(lesson.id, 'grammar');
-        if (nowCompleted) {
-          toastService.success(
-            '✓ Grammar section successfully completed! You\'ve finished all 3 attempts with great scores.',
-            { duration: 6000 }
-          );
-        } else {
-          toastService.success('Grammar quiz submitted successfully!');
-        }
-      } else {
-        toastService.success('Grammar quiz submitted successfully!');
+          navigate(`/course/${lessonNumber}/grammar/results`, {
+            state: { result },
+            replace: true,
+          });
+        },
+        onError: (err) => {
+          const message =
+            err instanceof Error
+              ? err.message
+              : 'Failed to submit grammar answers. Please try again.';
+
+          // Check if section was completed (403 Forbidden)
+          if (message.includes('locked') || message.includes('403')) {
+            toastService.info('This section is already completed. You\'ve used all 3 attempts successfully!');
+          } else {
+            toastService.error(message);
+          }
+        },
       }
-
-      navigate(`/course/${lessonNumber}/grammar/results`, {
-        state: { result },
-        replace: true,
-      });
-    } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Failed to submit grammar answers. Please try again.';
-
-      // Check if section was completed (403 Forbidden)
-      if (message.includes('locked') || message.includes('403')) {
-        toastService.info('This section is already completed. You\'ve used all 3 attempts successfully!');
-        setIsLocked(true);
-      } else {
-        toastService.error(message);
-      }
-    } finally {
-      setSubmitting(false);
-    }
+    );
   };
 
   if (loading) {
@@ -324,10 +281,10 @@ export function LessonGrammarPage() {
             <button
               type="button"
               onClick={handleSubmit}
-              disabled={!allQuestionsAnswered() || submitting}
+              disabled={!allQuestionsAnswered() || submitMutation.isPending}
               className="bg-text-main text-white px-8 py-4 rounded-[50px] font-semibold shadow-[0_12px_40px_rgba(62,54,48,0.08)] transition-all hover:-translate-y-1 hover:bg-primary disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {submitting ? 'Submitting...' : 'Submit Grammar Quiz'}
+              {submitMutation.isPending ? 'Submitting...' : 'Submit Grammar Quiz'}
             </button>
           </div>
         )}

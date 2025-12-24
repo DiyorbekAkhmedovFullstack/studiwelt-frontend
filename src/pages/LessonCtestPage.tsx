@@ -1,13 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { lessonService, type LessonResponse } from '../services/lessonService';
-import { ctestService } from '../services/ctestService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
-import type { CTest } from '../types/api';
 import { useProgress } from '../contexts/ProgressContext';
 import { SectionCompletedState } from '../components/common/SectionCompletedState';
 import { GermanKeyboard } from '../components/common/GermanKeyboard';
+import { useLessonByNumber } from '../hooks/queries/useLessons';
+import { useCTestsByLesson, useSubmitCTestAnswers } from '../hooks/queries/useCTests';
 
 type Params = {
   lessonNumber?: string;
@@ -62,79 +61,51 @@ export function LessonCtestPage() {
   const navigate = useNavigate();
   const { isSectionLocked, refreshProgress } = useProgress();
 
-  const [lesson, setLesson] = useState<LessonResponse['lesson'] | null>(null);
-  const [ctest, setCtest] = useState<CTest | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<AnswersMap>({});
-  const [submitting, setSubmitting] = useState(false);
-  const [isLocked, setIsLocked] = useState(false);
   const [focusedGapIndex, setFocusedGapIndex] = useState<number | null>(null);
 
+  // Fetch lesson data using React Query
+  const {
+    data: lesson,
+    isLoading: lessonLoading,
+    error: lessonError,
+  } = useLessonByNumber(lessonNumber ? Number(lessonNumber) : 0);
+
+  const lessonId = lesson?.id;
+
+  // Check if section is locked
+  const isLocked = lesson ? isSectionLocked(lesson.id, 'ctest') : false;
+
+  // Fetch C-tests (only if lesson exists and not locked)
+  const {
+    data: ctestsData,
+    isLoading: ctestsLoading,
+  } = useCTestsByLesson(lessonId ?? 0);
+
+  const ctest = ctestsData?.[0] ?? null;
+
+  // Submit mutation
+  const submitMutation = useSubmitCTestAnswers();
+
+  // Initialize answers when ctest changes
   useEffect(() => {
-    if (!lessonNumber) {
-      setError('Lesson number is missing.');
-      setLoading(false);
-      return;
-    }
-
-    let active = true;
-
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const lessonData = await lessonService.getLessonByNumber(lessonNumber);
-        if (!active) return;
-
-        setLesson(lessonData.lesson);
-
-        // Check if section is locked
-        const locked = isSectionLocked(lessonData.lesson.id, 'ctest');
-        setIsLocked(locked);
-
-        if (locked) {
-          setLoading(false);
-          return;
-        }
-
-        const tests = await ctestService.getTestsByLesson(lessonData.lesson.id);
-        if (!active) return;
-
-        const test = tests.tests[0] ?? null;
-        setCtest(test ?? null);
-
-        if (!test) {
-          return;
-        }
-
-        const parsed = parseGapText(test.gapText);
-        const initialAnswers: AnswersMap = {};
-        for (let i = 1; i <= parsed.totalGaps; i++) {
-          initialAnswers[String(i)] = '';
-        }
-        setAnswers(initialAnswers);
-      } catch (err) {
-        if (!active) return;
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Load failed.';
-        setError(message);
-        toastService.error('Load failed.');
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
+    if (ctest && Object.keys(answers).length === 0) {
+      const parsed = parseGapText(ctest.gapText);
+      const initialAnswers: AnswersMap = {};
+      for (let i = 1; i <= parsed.totalGaps; i++) {
+        initialAnswers[String(i)] = '';
       }
-    };
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional initialization from fetched data
+      setAnswers(initialAnswers);
+    }
+  }, [ctest]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    void load();
-
-    return () => {
-      active = false;
-    };
-  }, [lessonNumber, isSectionLocked]);
+  const loading = lessonLoading || (!isLocked && ctestsLoading);
+  const error = lessonError
+    ? lessonError instanceof Error
+      ? lessonError.message
+      : 'Load failed.'
+    : null;
 
   const parsed = useMemo(
     () => (ctest ? parseGapText(ctest.gapText) : { parts: [], totalGaps: 0 }),
@@ -263,46 +234,44 @@ export function LessonCtestPage() {
   };
 
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (!ctest || !lessonNumber) return;
 
-    setSubmitting(true);
-    try {
-      const { result } = await ctestService.submitAnswers(ctest.id, {
-        answers,
-      });
+    submitMutation.mutate(
+      { testId: ctest.id, payload: { answers } },
+      {
+        onSuccess: async ({ result }) => {
+          // Refresh progress after successful submission
+          await refreshProgress();
 
-      // Refresh progress after successful submission
-      await refreshProgress();
+          // Check if section just became completed (finished 3 successful attempts)
+          const nowCompleted = isSectionLocked(ctest.lessonId, 'ctest');
+          if (nowCompleted) {
+            toastService.success('C-Test section completed!', { duration: 6000 });
+          } else {
+            toastService.success('C-Test submitted.');
+          }
 
-      // Check if section just became completed (finished 3 successful attempts)
-      const nowCompleted = isSectionLocked(ctest.lessonId, 'ctest');
-      if (nowCompleted) {
-        toastService.success('C-Test section completed!', { duration: 6000 });
-      } else {
-        toastService.success('C-Test submitted.');
+          navigate(`/course/${lessonNumber}/ctest/results`, {
+            state: { result },
+            replace: true,
+          });
+        },
+        onError: (err) => {
+          const message =
+            err instanceof Error
+              ? err.message
+              : 'Submit failed.';
+
+          // Check if section was completed (403 Forbidden)
+          if (message.includes('locked') || message.includes('403')) {
+            toastService.info('Section already completed.');
+          } else {
+            toastService.error(message);
+          }
+        },
       }
-
-      navigate(`/course/${lessonNumber}/ctest/results`, {
-        state: { result },
-        replace: true,
-      });
-    } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Submit failed.';
-
-      // Check if section was completed (403 Forbidden)
-      if (message.includes('locked') || message.includes('403')) {
-        toastService.info('Section already completed.');
-        setIsLocked(true);
-      } else {
-        toastService.error(message);
-      }
-    } finally {
-      setSubmitting(false);
-    }
+    );
   };
 
   if (loading) {
@@ -502,10 +471,10 @@ export function LessonCtestPage() {
         <button
           type="button"
           onClick={handleSubmit}
-          disabled={!allGapsAnswered || submitting}
+          disabled={!allGapsAnswered || submitMutation.isPending}
           className="w-full bg-primary text-white border-none py-3 sm:py-3.5 px-8 rounded-xl text-sm sm:text-base font-semibold cursor-pointer shadow-[0_4px_12px_rgba(166,123,91,0.3)] transition-all hover:bg-primary-hover hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
         >
-          {submitting ? 'Submitting...' : 'Check My Answers'}
+          {submitMutation.isPending ? 'Submitting...' : 'Check My Answers'}
         </button>
           </div>
         </div>
