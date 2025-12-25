@@ -1,18 +1,25 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { LoadingScreen, ErrorState, SectionCompletedState } from '../components/common';
-import { toastService } from '../services/toastService';
-import { LessonGrammarTheory } from '../components/grammar/LessonGrammarTheory';
-import { useProgress } from '../contexts/ProgressContext';
-import { getGrammarTopicByLessonNumber } from '../data/grammarTopics';
-import { useLessonByNumber } from '../hooks/queries/useLessons';
-import { useGrammarTopics, useGrammarQuiz, useSubmitGrammarAnswers } from '../hooks/queries/useGrammar';
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  ErrorState,
+  LoadingScreen,
+  SectionCompletedState,
+} from "../components/common";
+import { LessonGrammarTheory } from "../components/grammar/LessonGrammarTheory";
+import { useProgress } from "../contexts/ProgressContext";
+import { getGrammarTopicByLessonNumber } from "../data/grammarTopics";
+import {
+  useGrammarData,
+  useSubmitGrammarAnswers,
+} from "../hooks/queries/useGrammar";
+import { useLessonByNumber } from "../hooks/queries/useLessons";
+import { toastService } from "../services/toastService";
 
 type Params = {
   lessonNumber?: string;
 };
 
-type AnswerMap = Record<string, 'A' | 'B' | 'C' | 'D' | null>;
+type AnswerMap = Record<string, "A" | "B" | "C" | "D" | null>;
 
 export function LessonGrammarPage() {
   const { lessonNumber } = useParams<Params>();
@@ -22,7 +29,9 @@ export function LessonGrammarPage() {
   const [answers, setAnswers] = useState<AnswerMap>({});
 
   // Get hardcoded topic data based on lesson number
-  const hardcodedTopic = lessonNumber ? getGrammarTopicByLessonNumber(parseInt(lessonNumber)) : null;
+  const hardcodedTopic = lessonNumber
+    ? getGrammarTopicByLessonNumber(parseInt(lessonNumber))
+    : null;
 
   // Fetch lesson data using React Query
   const {
@@ -32,25 +41,25 @@ export function LessonGrammarPage() {
   } = useLessonByNumber(lessonNumber ? Number(lessonNumber) : 0);
 
   const lesson = lessonData ?? null;
-  const lessonId = lesson?.id;
+  const lessonId = lesson?.id ?? 0;
 
   // Check if section is locked
-  const isLocked = lesson ? isSectionLocked(lesson.id, 'grammar') : false;
+  const isLocked = lesson ? isSectionLocked(lesson.id, "grammar") : false;
 
-  // Fetch grammar topics (only if lesson exists and not locked)
+  // Use predictable topic key pattern to start fetching immediately
+  // This eliminates the waterfall: we don't need to wait for topics to load
+  const predictedTopicKey = lessonNumber ? `topic-${lessonNumber}` : "";
+
+  // Fetch grammar topics AND quiz questions in parallel
   const {
-    data: topics = [],
-    isLoading: topicsLoading,
-  } = useGrammarTopics(lessonId ?? 0);
+    topics,
+    questions,
+    isLoading: grammarDataLoading,
+  } = useGrammarData(lessonId, predictedTopicKey, isLocked);
 
   const backendTopic = topics[0] ?? null;
-  const topicKey = backendTopic?.topicKey ?? (lessonNumber ? `lesson-${lessonNumber}` : '');
-
-  // Fetch quiz questions (only if not locked and we have a topic key)
-  const {
-    data: questions = [],
-    isLoading: questionsLoading,
-  } = useGrammarQuiz(isLocked ? '' : topicKey);
+  // Use backend topic key if available, otherwise use predicted key
+  const actualTopicKey = backendTopic?.topicKey ?? predictedTopicKey;
 
   // Initialize answers when questions change
   useEffect(() => {
@@ -67,16 +76,16 @@ export function LessonGrammarPage() {
   // Submit mutation
   const submitMutation = useSubmitGrammarAnswers();
 
-  const loading = lessonLoading || (!isLocked && (topicsLoading || questionsLoading));
+  const loading = lessonLoading || (!isLocked && grammarDataLoading);
   const error = lessonError
     ? lessonError instanceof Error
       ? lessonError.message
-      : 'Load failed.'
+      : "Load failed."
     : null;
 
   const handleAnswerChange = (
     questionId: string,
-    letter: 'A' | 'B' | 'C' | 'D',
+    letter: "A" | "B" | "C" | "D",
   ) => {
     setAnswers((prev) => ({
       ...prev,
@@ -87,7 +96,8 @@ export function LessonGrammarPage() {
   const allQuestionsAnswered = () => {
     if (!questions.length) return false;
     return questions.every(
-      (q) => answers[q.questionId] !== null && answers[q.questionId] !== undefined,
+      (q) =>
+        answers[q.questionId] !== null && answers[q.questionId] !== undefined,
     );
   };
 
@@ -101,12 +111,12 @@ export function LessonGrammarPage() {
         }
         return acc;
       },
-      {} as Record<string, 'A' | 'B' | 'C' | 'D'>,
+      {} as Record<string, "A" | "B" | "C" | "D">,
     );
 
     submitMutation.mutate(
       {
-        topicKey: backendTopic?.topicKey ?? `lesson-${lessonNumber}`,
+        topicKey: actualTopicKey,
         answers: validAnswers,
       },
       {
@@ -116,17 +126,17 @@ export function LessonGrammarPage() {
 
           // Check if section just became completed (finished 3 successful attempts)
           if (lesson) {
-            const nowCompleted = isSectionLocked(lesson.id, 'grammar');
+            const nowCompleted = isSectionLocked(lesson.id, "grammar");
             if (nowCompleted) {
               toastService.success(
-                '✓ Grammar section successfully completed! You\'ve finished all 3 attempts with great scores.',
-                { duration: 6000 }
+                "✓ Grammar section successfully completed! You've finished all 3 attempts with great scores.",
+                { duration: 6000 },
               );
             } else {
-              toastService.success('Grammar quiz submitted successfully!');
+              toastService.success("Grammar quiz submitted successfully!");
             }
           } else {
-            toastService.success('Grammar quiz submitted successfully!');
+            toastService.success("Grammar quiz submitted successfully!");
           }
 
           navigate(`/course/${lessonNumber}/grammar/results`, {
@@ -138,16 +148,18 @@ export function LessonGrammarPage() {
           const message =
             err instanceof Error
               ? err.message
-              : 'Failed to submit grammar answers. Please try again.';
+              : "Failed to submit grammar answers. Please try again.";
 
           // Check if section was completed (403 Forbidden)
-          if (message.includes('locked') || message.includes('403')) {
-            toastService.info('This section is already completed. You\'ve used all 3 attempts successfully!');
+          if (message.includes("locked") || message.includes("403")) {
+            toastService.info(
+              "This section is already completed. You've used all 3 attempts successfully!",
+            );
           } else {
             toastService.error(message);
           }
         },
-      }
+      },
     );
   };
 
@@ -158,7 +170,7 @@ export function LessonGrammarPage() {
   if (error || !lesson) {
     return (
       <ErrorState
-        error={error ?? 'Lesson not found.'}
+        error={error ?? "Lesson not found."}
         backPath="/course"
         backLabel="Back to course"
       />
@@ -200,13 +212,20 @@ export function LessonGrammarPage() {
   return (
     <div className="min-h-screen bg-page flex flex-col">
       {/* Fixed Header */}
-      <header className="h-16 bg-surface border-b border-[rgba(0,0,0,0.05)] flex items-center px-8 sticky top-0 z-[100]">
+      <header className="h-16 bg-surface border-b border-border-soft flex items-center px-8 sticky top-0 z-100">
         <button
           type="button"
           onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
           className="flex items-center gap-2 text-text-muted text-[0.9rem] font-medium transition-colors hover:text-text-main"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
           Back to Lesson {lesson.lessonNumber}
@@ -215,7 +234,6 @@ export function LessonGrammarPage() {
 
       {/* Content Wrapper */}
       <div className="max-w-[800px] mx-auto my-10 px-6 w-full">
-
         <span className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] uppercase tracking-wider font-bold text-primary mb-3 sm:mb-4 block">
           Grammar Theory
         </span>
@@ -235,7 +253,9 @@ export function LessonGrammarPage() {
         <span className="text-[0.75rem] uppercase tracking-wider font-bold text-primary mb-4 block mt-12">
           Practice
         </span>
-        <h2 className="font-serif mb-6 text-[1.5rem]">Test your understanding</h2>
+        <h2 className="font-serif mb-6 text-[1.5rem]">
+          Test your understanding
+        </h2>
 
         <section className="space-y-6">
           {questions.length === 0 && (
@@ -261,11 +281,17 @@ export function LessonGrammarPage() {
                     <button
                       key={option.optionLetter}
                       type="button"
-                      onClick={() => handleAnswerChange(question.questionId, option.optionLetter)}
-                      className={`text-left bg-white border-2 rounded-xl p-4 text-[1rem] text-text-main cursor-pointer transition-all ${isSelected
-                        ? 'border-primary bg-[#FFFCFA]'
-                        : 'border-[#F0F0F0] hover:border-[#E3D4C5] hover:bg-[#FFFCFA]'
-                        }`}
+                      onClick={() =>
+                        handleAnswerChange(
+                          question.questionId,
+                          option.optionLetter,
+                        )
+                      }
+                      className={`text-left bg-white border-2 rounded-xl p-4 text-[1rem] text-text-main cursor-pointer transition-all ${
+                        isSelected
+                          ? "border-primary bg-[#FFFCFA]"
+                          : "border-[#F0F0F0] hover:border-[#E3D4C5] hover:bg-[#FFFCFA]"
+                      }`}
                     >
                       {option.optionText}
                     </button>
@@ -284,7 +310,9 @@ export function LessonGrammarPage() {
               disabled={!allQuestionsAnswered() || submitMutation.isPending}
               className="bg-text-main text-white px-8 py-4 rounded-[50px] font-semibold shadow-[0_12px_40px_rgba(62,54,48,0.08)] transition-all hover:-translate-y-1 hover:bg-primary disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {submitMutation.isPending ? 'Submitting...' : 'Submit Grammar Quiz'}
+              {submitMutation.isPending
+                ? "Submitting..."
+                : "Submit Grammar Quiz"}
             </button>
           </div>
         )}
@@ -296,7 +324,7 @@ export function LessonGrammarPage() {
               Object.values(answers).filter(
                 (answer) => answer !== null && answer !== undefined,
               ).length
-            }{' '}
+            }{" "}
             of {questions.length} answered)
           </p>
         )}

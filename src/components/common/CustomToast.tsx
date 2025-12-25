@@ -48,6 +48,8 @@ interface CustomToastProps {
 function CustomToastComponent({ t, type, message }: CustomToastProps) {
   return (
     <div
+      role="alert"
+      aria-live={type === 'error' ? 'assertive' : 'polite'}
       className={`toast-item toast-${type} ${t.visible ? 'toast-enter' : 'toast-exit'}`}
       style={{
         opacity: t.visible ? 1 : 0,

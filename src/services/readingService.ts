@@ -4,6 +4,12 @@ import type {
   ReadingAttemptResult,
   ReadingAttempt,
 } from '../types/api';
+import {
+  ReadingsResponseSchema,
+  ReadingResponseSchema,
+  ReadingSubmitResponseSchema,
+  ReadingAttemptsResponseSchema,
+} from '../lib/schemas';
 
 export type ReadingsResponse = {
   readings: Reading[];
@@ -57,62 +63,29 @@ export type UpdateReadingPayload = {
 };
 
 export const readingService = {
-  /**
-   * Get all readings, optionally filtered by lesson ID
-   * @param lessonId - Optional lesson ID to filter readings
-   */
   getAllReadings: (lessonId?: number | string) => {
     const query = lessonId ? `?lessonId=${lessonId}` : '';
-    return api.get<ReadingsResponse>(`/readings${query}`);
+    return api.get<ReadingsResponse>(`/readings${query}`, ReadingsResponseSchema);
   },
 
-  /**
-   * Get reading by ID (for taking quiz - no correct answers included)
-   * @param readingId - Reading ID
-   */
   getReadingForTaking: (readingId: string) =>
-    api.get<ReadingResponse>(`/readings/${readingId}/take`),
+    api.get<ReadingResponse>(`/readings/${readingId}/take`, ReadingResponseSchema),
 
-  /**
-   * Get reading by ID (with answers - admin only)
-   * @param readingId - Reading ID
-   */
   getReadingById: (readingId: string) =>
-    api.get<ReadingResponse>(`/readings/${readingId}`),
+    api.get<ReadingResponse>(`/readings/${readingId}`, ReadingResponseSchema),
 
-  /**
-   * Submit answers for a reading quiz
-   * @param payload - Reading ID and answers object
-   */
   submitAnswers: (payload: SubmitReadingAnswersPayload) =>
-    api.post<SubmitReadingAnswersResponse>('/readings/submit', payload),
+    api.post<SubmitReadingAnswersResponse>('/readings/submit', payload, ReadingSubmitResponseSchema),
 
-  /**
-   * Get user's attempts for a specific reading
-   * @param readingId - Reading ID
-   */
   getAttempts: (readingId: string) =>
-    api.get<ReadingAttemptsResponse>(`/readings/${readingId}/attempts`),
+    api.get<ReadingAttemptsResponse>(`/readings/${readingId}/attempts`, ReadingAttemptsResponseSchema),
 
-  /**
-   * Create a new reading (admin only)
-   * @param payload - Reading data with questions
-   */
   createReading: (payload: CreateReadingPayload) =>
-    api.post<ReadingResponse>('/readings', payload),
+    api.post<ReadingResponse>('/readings', payload, ReadingResponseSchema),
 
-  /**
-   * Update an existing reading (admin only)
-   * @param readingId - Reading ID
-   * @param payload - Updated reading data
-   */
   updateReading: (readingId: string, payload: UpdateReadingPayload) =>
-    api.put<ReadingResponse>(`/readings/${readingId}`, payload),
+    api.put<ReadingResponse>(`/readings/${readingId}`, payload, ReadingResponseSchema),
 
-  /**
-   * Delete a reading (admin only)
-   * @param readingId - Reading ID
-   */
   deleteReading: (readingId: string) =>
     api.delete<unknown>(`/readings/${readingId}`),
 };

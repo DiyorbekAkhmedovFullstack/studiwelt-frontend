@@ -1,14 +1,21 @@
-import { useState, useTransition } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-import { useProgress } from '../../contexts/ProgressContext';
-import { ProfileDropdown } from '../common/ProfileDropdown';
-import { SkeletonProfile } from '../common/SkeletonProfile';
-import { LearnMoreDropdown } from './LearnMoreDropdown';
-import { GetStartedDropdown } from './GetStartedDropdown';
+import { useState, useTransition } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+import { useProgress } from "../../contexts/ProgressContext";
+import { ProfileDropdown } from "../common/ProfileDropdown";
+import { SkeletonProfile } from "../common/SkeletonProfile";
+import { GetStartedDropdown } from "./GetStartedDropdown";
+import { LearnMoreDropdown } from "./LearnMoreDropdown";
 
 const MenuIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <line x1="3" y1="12" x2="21" y2="12"></line>
     <line x1="3" y1="6" x2="21" y2="6"></line>
     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -16,28 +23,54 @@ const MenuIcon = () => (
 );
 
 const CloseIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <line x1="18" y1="6" x2="6" y2="18"></line>
     <line x1="6" y1="6" x2="18" y2="18"></line>
   </svg>
 );
 
 const BookIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
   </svg>
 );
 
 const ProfileIcon = () => (
-  <svg className="text-text-muted w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    className="text-text-muted w-[18px] h-[18px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
     <circle cx="12" cy="7" r="4"></circle>
   </svg>
 );
 
 const UpgradeIcon = () => (
-  <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    className="w-[18px] h-[18px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
     <polyline points="2 17 12 22 22 17"></polyline>
     <polyline points="2 12 12 17 22 12"></polyline>
@@ -45,7 +78,13 @@ const UpgradeIcon = () => (
 );
 
 const LogoutIcon = () => (
-  <svg className="text-danger opacity-70 w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    className="text-danger opacity-70 w-[18px] h-[18px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
     <polyline points="16 17 21 12 16 7"></polyline>
     <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -53,7 +92,14 @@ const LogoutIcon = () => (
 );
 
 const SignUpIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
     <circle cx="8.5" cy="7" r="4"></circle>
     <line x1="20" y1="8" x2="20" y2="14"></line>
@@ -62,7 +108,13 @@ const SignUpIcon = () => (
 );
 
 const LoginIcon = () => (
-  <svg className="text-text-muted w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    className="text-text-muted w-[18px] h-[18px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
     <polyline points="10 17 15 12 10 7"></polyline>
     <line x1="15" y1="12" x2="3" y2="12"></line>
@@ -83,7 +135,7 @@ export function LandingNavbar() {
     closeMobileMenu();
     startTransition(() => {
       void logout().then(() => {
-        navigate('/login');
+        navigate("/login");
       });
     });
   };
@@ -91,16 +143,26 @@ export function LandingNavbar() {
   const completionPercentage = courseProgress?.overallPercentage || 0;
 
   return (
-    <nav className="fixed top-0 w-full z-[100] py-5 px-6">
+    <nav className="fixed top-0 w-full z-100 py-5 px-6">
       <div className="max-w-[1100px] mx-auto px-6 py-4 flex justify-between items-center bg-surface/90 backdrop-blur-xl rounded-full border border-[rgba(0,0,0,0.06)] shadow-[0_4px_20px_rgba(62,54,48,0.06)]">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 font-serif font-black text-xl">
-          <img src="/logo-circle-512.png" alt="Studiwelt" className="w-7 h-7 rounded-md" />
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-serif font-black text-xl"
+        >
+          <img
+            src="/logo-circle-512.png"
+            alt="Studiwelt"
+            className="w-7 h-7 rounded-md"
+          />
           STUDIWELT
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8" style={{ opacity: isPending ? 0.7 : 1, transition: 'opacity 0.2s' }}>
+        <div
+          className="hidden md:flex items-center gap-8"
+          style={{ opacity: isPending ? 0.7 : 1, transition: "opacity 0.2s" }}
+        >
           {!isHydrated ? (
             <SkeletonProfile />
           ) : isAuthenticated ? (
@@ -119,7 +181,7 @@ export function LandingNavbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="md:hidden min-h-11 min-w-11 flex items-center justify-center"
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
@@ -161,13 +223,18 @@ export function LandingNavbar() {
 }
 
 interface AuthenticatedMobileMenuProps {
-  user: NonNullable<ReturnType<typeof useAuth>['user']>;
+  user: NonNullable<ReturnType<typeof useAuth>["user"]>;
   completionPercentage: number;
   onClose: () => void;
   onLogout: () => void;
 }
 
-function AuthenticatedMobileMenu({ user, completionPercentage, onClose, onLogout }: AuthenticatedMobileMenuProps) {
+function AuthenticatedMobileMenu({
+  user,
+  completionPercentage,
+  onClose,
+  onLogout,
+}: AuthenticatedMobileMenuProps) {
   return (
     <>
       {/* Header Section */}
@@ -188,12 +255,14 @@ function AuthenticatedMobileMenu({ user, completionPercentage, onClose, onLogout
         onClick={onClose}
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg transition-colors hover:bg-[#FAF6F3]"
       >
-        <div className="w-9 h-9 rounded-lg bg-white border border-[rgba(0,0,0,0.05)] flex items-center justify-center text-primary">
+        <div className="w-9 h-9 rounded-lg bg-white border border-border-soft flex items-center justify-center text-primary">
           <BookIcon />
         </div>
         <div className="flex-1">
-          <span className="block font-semibold text-[14px] mb-1">German Language</span>
-          <div className="h-1 bg-[rgba(0,0,0,0.05)] rounded-full overflow-hidden">
+          <span className="block font-semibold text-[14px] mb-1">
+            German Language
+          </span>
+          <div className="h-1 bg-border-soft rounded-full overflow-hidden">
             <div
               className="h-full bg-primary rounded-full"
               style={{ width: `${completionPercentage}%` }}
@@ -202,7 +271,7 @@ function AuthenticatedMobileMenu({ user, completionPercentage, onClose, onLogout
         </div>
       </Link>
 
-      <div className="h-px bg-[rgba(0,0,0,0.05)] mx-4 my-2"></div>
+      <div className="h-px bg-border-soft mx-4 my-2"></div>
 
       {/* Navigation Links */}
       <Link
@@ -214,7 +283,7 @@ function AuthenticatedMobileMenu({ user, completionPercentage, onClose, onLogout
         Profile & Account
       </Link>
 
-      {user.role === 'USER' && (
+      {user.role === "USER" && (
         <Link
           to="/upgrade"
           onClick={onClose}
@@ -225,7 +294,7 @@ function AuthenticatedMobileMenu({ user, completionPercentage, onClose, onLogout
         </Link>
       )}
 
-      {user.role === 'ADMIN' && (
+      {user.role === "ADMIN" && (
         <Link
           to="/admin/lessons"
           onClick={onClose}
@@ -236,7 +305,7 @@ function AuthenticatedMobileMenu({ user, completionPercentage, onClose, onLogout
         </Link>
       )}
 
-      <div className="h-px bg-[rgba(0,0,0,0.05)] mx-4 my-2"></div>
+      <div className="h-px bg-border-soft mx-4 my-2"></div>
 
       {/* Logout */}
       <button
@@ -299,7 +368,7 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
         Already have an account? Log in
       </Link>
 
-      <div className="h-px bg-[rgba(0,0,0,0.05)] mx-4 my-2"></div>
+      <div className="h-px bg-border-soft mx-4 my-2"></div>
 
       {/* Additional Info Section */}
       <div className="text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type KeyboardEvent } from 'react';
 
 type InteractiveToggleProps = {
   title?: string;
@@ -36,6 +36,13 @@ export function InteractiveToggle({
     }, 250);
   };
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleToggle();
+    }
+  };
+
   const currentVerb = isProcess ? sentence.processVerb : sentence.stateVerb;
   const currentHint = isProcess ? contextHints.process : contextHints.state;
   const verbColor = isProcess ? 'text-[#D9A441]' : 'text-[#6B8C6E]';
@@ -47,7 +54,15 @@ export function InteractiveToggle({
       <p className="text-text-muted mb-8">{subtitle}</p>
 
       {/* Toggle Switch */}
-      <div className="inline-flex bg-[#EBE5DA] p-1 rounded-[50px] relative cursor-pointer mb-8" onClick={handleToggle}>
+      <div
+        role="switch"
+        aria-checked={!isProcess}
+        aria-label={`Toggle between ${processOption} and ${stateOption}`}
+        tabIndex={0}
+        className="inline-flex bg-[#EBE5DA] p-1 rounded-[50px] relative cursor-pointer mb-8"
+        onClick={handleToggle}
+        onKeyDown={handleKeyDown}
+      >
         <div
           className={`absolute top-1 left-1 w-[calc(50%-4px)] h-[calc(100%-8px)] bg-white rounded-[50px] shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out ${
             isProcess ? 'translate-x-0' : 'translate-x-[calc(100%+8px)]'

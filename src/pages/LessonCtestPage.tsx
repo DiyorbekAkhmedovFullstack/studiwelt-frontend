@@ -336,7 +336,7 @@ export function LessonCtestPage() {
 
   return (
     <div className="min-h-screen bg-page">
-      <main className="pt-10 px-6 pb-10">
+      <main id="main-content" className="pt-10 px-6 pb-10">
         <div className="max-w-[800px] mx-auto">
           {/* Header with Back Button */}
           <header className="mb-8">

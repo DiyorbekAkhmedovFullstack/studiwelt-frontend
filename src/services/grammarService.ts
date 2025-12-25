@@ -1,71 +1,18 @@
-import { API_BASE_URL } from './api';
 import type {
   GrammarAttempt,
   GrammarQuizOption,
   GrammarQuizQuestion,
   GrammarSubmitResult,
   GrammarTopic,
-} from '../types/api';
+} from "../types/api";
+import { api } from "./api";
 
-type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
-
-type GrammarApiOptions = {
-  method?: HttpMethod;
-  body?: unknown;
-};
-
-async function grammarApiCall<TData>(
-  endpoint: string,
-  options: GrammarApiOptions = {},
-): Promise<TData> {
-  const url = `${API_BASE_URL}${endpoint}`;
-
-  const response = await fetch(url, {
-    method: options.method ?? 'GET',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body:
-      options.body === undefined
-        ? undefined
-        : typeof options.body === 'string'
-          ? options.body
-          : JSON.stringify(options.body),
-  });
-
-  let payload: unknown = null;
-
-  try {
-    payload = await response.json();
-  } catch {
-    if (!response.ok) {
-      throw new Error('Grammar API request failed');
-    }
-  }
-
-  if (!response.ok) {
-    const message =
-      payload &&
-      typeof payload === 'object' &&
-      'message' in payload &&
-      typeof (payload as { message?: unknown }).message === 'string'
-        ? (payload as { message: string }).message
-        : `Request failed with status ${response.status}`;
-    throw new Error(message);
-  }
-
-  // Support both wrapped responses (`{ data: ... }`) and bare JSON bodies.
-  const data =
-    payload &&
-    typeof payload === 'object' &&
-    payload !== null &&
-    'data' in payload
-      ? (payload as { data: unknown }).data
-      : payload;
-
-  return (data as TData) ?? ({} as TData);
-}
+// Wrappers for the new API response structure
+type TopicsWrapper = { topics: GrammarTopic[] };
+type TopicWrapper = { topic: GrammarTopic };
+type QuestionsWrapper = { questions: GrammarQuizQuestion[] };
+type QuestionWrapper = { question: GrammarQuizQuestion };
+type AttemptsWrapper = { attempts: GrammarAttempt[] };
 
 export type GrammarTopicsResponse = GrammarTopic[];
 
@@ -73,68 +20,90 @@ export type GrammarQuizQuestionsResponse = GrammarQuizQuestion[];
 
 export type SubmitGrammarAnswersPayload = {
   topicKey: string;
-  answers: Record<string, 'A' | 'B' | 'C' | 'D'>;
+  answers: Record<string, "A" | "B" | "C" | "D">;
 };
 
 export type GrammarQuestionPayload = {
   questionText: string;
   explanation?: string;
   options: Array<
-    Pick<GrammarQuizOption, 'optionLetter' | 'optionText'> & {
+    Pick<GrammarQuizOption, "optionLetter" | "optionText"> & {
       isCorrect: boolean;
     }
   >;
 };
 
 export const grammarService = {
-  getTopicsByLesson: (lessonId: number | string) =>
-    grammarApiCall<GrammarTopicsResponse>(`/grammar/lessons/${lessonId}/topics`),
+  getTopicsByLesson: async (lessonId: number | string) => {
+    const response = await api.get<TopicsWrapper>(
+      `/grammar/lessons/${lessonId}/topics`,
+    );
+    return response.topics;
+  },
 
-  getTopicByKey: (topicKey: string) =>
-    grammarApiCall<GrammarTopic>(`/grammar/topics/${topicKey}`),
+  getTopicByKey: async (topicKey: string) => {
+    const response = await api.get<TopicWrapper>(`/grammar/topics/${topicKey}`);
+    return response.topic;
+  },
 
-  getQuizQuestions: (topicKey: string) =>
-    grammarApiCall<GrammarQuizQuestionsResponse>(`/grammar/topics/${topicKey}/quiz`),
+  getQuizQuestions: async (topicKey: string) => {
+    const response = await api.get<QuestionsWrapper>(
+      `/grammar/topics/${topicKey}/quiz`,
+    );
+    return response.questions;
+  },
 
+  // Submit response is not wrapped in a key, it's the data map directly
   submitAnswers: (payload: SubmitGrammarAnswersPayload) =>
-    grammarApiCall<GrammarSubmitResult>('/grammar/submit', {
-      method: 'POST',
-      body: payload,
-    }),
+    api.post<GrammarSubmitResult>("/grammar/submit", payload),
 
-  getAttemptsByTopic: (topicKey: string) =>
-    grammarApiCall<GrammarAttempt[]>(`/grammar/topics/${topicKey}/attempts`),
+  getAttemptsByTopic: async (topicKey: string) => {
+    const response = await api.get<AttemptsWrapper>(
+      `/grammar/topics/${topicKey}/attempts`,
+    );
+    return response.attempts;
+  },
 
-  getMyAttempts: () => grammarApiCall<GrammarAttempt[]>('/grammar/my-attempts'),
+  getMyAttempts: async () => {
+    const response = await api.get<AttemptsWrapper>("/grammar/my-attempts");
+    return response.attempts;
+  },
 
-  getQuestionsWithAnswers: (topicKey: string) =>
-    grammarApiCall<GrammarQuizQuestionsResponse>(
+  getQuestionsWithAnswers: async (topicKey: string) => {
+    const response = await api.get<QuestionsWrapper>(
       `/grammar/topics/${topicKey}/questions`,
-    ),
+    );
+    return response.questions;
+  },
 
-  createQuestion: (topicKey: string, question: GrammarQuestionPayload) =>
-    grammarApiCall<GrammarQuizQuestion>('/grammar/questions', {
-      method: 'POST',
-      body: {
-        topicKey,
-        questions: [
-          {
-            questionText: question.questionText,
-            explanation: question.explanation ?? null,
-            options: question.options.map((opt) => ({
-              optionText: opt.optionText,
-              optionLetter: opt.optionLetter,
-              isCorrect: opt.isCorrect,
-            })),
-          },
-        ],
-      },
-    }),
+  createQuestion: async (
+    topicKey: string,
+    question: GrammarQuestionPayload,
+  ) => {
+    const response = await api.post<QuestionWrapper>("/grammar/questions", {
+      topicKey,
+      questions: [
+        {
+          questionText: question.questionText,
+          explanation: question.explanation ?? null,
+          options: question.options.map((opt) => ({
+            optionText: opt.optionText,
+            optionLetter: opt.optionLetter,
+            isCorrect: opt.isCorrect,
+          })),
+        },
+      ],
+    });
+    return response.question;
+  },
 
-  updateQuestion: (questionId: string, question: GrammarQuestionPayload) =>
-    grammarApiCall<GrammarQuizQuestion>(`/grammar/questions/${questionId}`, {
-      method: 'PUT',
-      body: {
+  updateQuestion: async (
+    questionId: string,
+    question: GrammarQuestionPayload,
+  ) => {
+    const response = await api.put<QuestionWrapper>(
+      `/grammar/questions/${questionId}`,
+      {
         questionText: question.questionText,
         explanation: question.explanation ?? null,
         options: question.options.map((opt) => ({
@@ -143,10 +112,10 @@ export const grammarService = {
           isCorrect: opt.isCorrect,
         })),
       },
-    }),
+    );
+    return response.question;
+  },
 
   deleteQuestion: (questionId: string) =>
-    grammarApiCall<void>(`/grammar/questions/${questionId}`, {
-      method: 'DELETE',
-    }),
+    api.delete<void>(`/grammar/questions/${questionId}`),
 };

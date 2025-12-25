@@ -115,7 +115,21 @@ export function renderWithQueryClient(ui: ReactElement, options?: RenderOptions)
   };
 }
 
+/**
+ * Create a wrapper for testing hooks with QueryClient
+ */
+export function createQueryWrapper() {
+  const testQueryClient = createTestQueryClient();
+  const wrapper = ({ children }: WrapperProps) => (
+    <QueryClientProvider client={testQueryClient}>
+      {children}
+    </QueryClientProvider>
+  );
+  return { wrapper, queryClient: testQueryClient };
+}
+
 // Re-export everything from testing-library
 // eslint-disable-next-line react-refresh/only-export-components
 export * from '@testing-library/react';
+export { renderHook } from '@testing-library/react';
 export { default as userEvent } from '@testing-library/user-event';

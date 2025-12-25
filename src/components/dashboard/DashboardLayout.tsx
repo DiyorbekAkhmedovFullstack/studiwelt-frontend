@@ -12,7 +12,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       <LandingNavbar />
 
       {/* Main Content with top padding to account for fixed navbar */}
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         <div className="max-w-[1100px] mx-auto px-6 py-10">
           {children}
         </div>

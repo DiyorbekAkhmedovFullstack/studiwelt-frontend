@@ -84,7 +84,7 @@ export function LessonDeckPage() {
 
   return (
     <div className="min-h-screen bg-page">
-      <main className="pt-10 px-6 pb-10">
+      <main id="main-content" className="pt-10 px-6 pb-10">
         <div className="max-w-[1000px] mx-auto">
           {/* Header */}
           <header className="mb-8">

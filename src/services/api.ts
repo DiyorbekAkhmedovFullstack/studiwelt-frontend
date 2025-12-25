@@ -1,3 +1,4 @@
+import type { z } from 'zod';
 import type { ApiEnvelope } from '../types/api';
 
 const API_BASE_URL =
@@ -9,7 +10,18 @@ type ApiOptions = {
   method?: HttpMethod;
   body?: unknown;
   headers?: Record<string, string>;
+  schema?: z.ZodTypeAny;
 };
+
+// Validation error class for schema validation failures
+export class ApiValidationError extends Error {
+  errors: z.ZodError;
+  constructor(message: string, errors: z.ZodError) {
+    super(message);
+    this.name = 'ApiValidationError';
+    this.errors = errors;
+  }
+}
 
 async function apiCall<TData>(
   endpoint: string,
@@ -62,20 +74,39 @@ async function apiCall<TData>(
   }
 
   // Successful response: backend wraps actual payload in `data`.
-  return (payload?.data as TData) ?? ({} as TData);
+  const data = payload?.data ?? {};
+
+  // Validate with schema if provided
+  if (options.schema) {
+    const result = options.schema.safeParse(data);
+    if (!result.success) {
+      console.error('API response validation failed:', result.error.format());
+      throw new ApiValidationError(
+        `API response validation failed for ${endpoint}`,
+        result.error,
+      );
+    }
+    return result.data as TData;
+  }
+
+  return data as TData;
 }
 
 export const api = {
-  get: <TData>(endpoint: string) =>
-    apiCall<TData>(endpoint, { method: 'GET' }),
-  post: <TData>(endpoint: string, body?: unknown) =>
-    apiCall<TData>(endpoint, { method: 'POST', body }),
-  put: <TData>(endpoint: string, body?: unknown) =>
-    apiCall<TData>(endpoint, { method: 'PUT', body }),
-  patch: <TData>(endpoint: string, body?: unknown) =>
-    apiCall<TData>(endpoint, { method: 'PATCH', body }),
-  delete: <TData>(endpoint: string) =>
-    apiCall<TData>(endpoint, { method: 'DELETE' }),
+  get: <TData>(endpoint: string, schema?: z.ZodTypeAny) =>
+    apiCall<TData>(endpoint, { method: 'GET', schema }),
+
+  post: <TData>(endpoint: string, body?: unknown, schema?: z.ZodTypeAny) =>
+    apiCall<TData>(endpoint, { method: 'POST', body, schema }),
+
+  put: <TData>(endpoint: string, body?: unknown, schema?: z.ZodTypeAny) =>
+    apiCall<TData>(endpoint, { method: 'PUT', body, schema }),
+
+  patch: <TData>(endpoint: string, body?: unknown, schema?: z.ZodTypeAny) =>
+    apiCall<TData>(endpoint, { method: 'PATCH', body, schema }),
+
+  delete: <TData>(endpoint: string, schema?: z.ZodTypeAny) =>
+    apiCall<TData>(endpoint, { method: 'DELETE', schema }),
 };
 
 export { API_BASE_URL };

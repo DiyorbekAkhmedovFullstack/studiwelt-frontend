@@ -63,7 +63,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
         if (!active) return;
         setUser(data.user);
         setIsHydrated(true);
-      } catch {
+      } catch (err) {
+        // Log auth errors for production troubleshooting
+        if (import.meta.env.DEV) {
+          console.error("[AuthContext] Hydration failed:", err);
+        }
         if (!active) return;
         setUser(null);
         setIsHydrated(true);

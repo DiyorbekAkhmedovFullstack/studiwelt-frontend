@@ -217,8 +217,23 @@ export function CoursePage() {
                   }
                 };
 
+                const isClickable = !isAccessible || isRoleRestricted;
+
+                const handleKeyDown = (e: React.KeyboardEvent) => {
+                  if (isClickable && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault();
+                    handleLockedClick();
+                  }
+                };
+
                 return (
-                  <div key={lesson.id} onClick={!isAccessible || isRoleRestricted ? handleLockedClick : undefined}>
+                  <div
+                    key={lesson.id}
+                    role={isClickable ? 'button' : undefined}
+                    tabIndex={isClickable ? 0 : undefined}
+                    onClick={isClickable ? handleLockedClick : undefined}
+                    onKeyDown={isClickable ? handleKeyDown : undefined}
+                  >
                     <LessonCard
                       lessonNumber={lessonNum}
                       title={lesson.title}
