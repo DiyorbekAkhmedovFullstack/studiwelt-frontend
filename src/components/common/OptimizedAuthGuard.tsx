@@ -1,28 +1,35 @@
 import { useSyncExternalStore } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 type OptimizedAuthGuardProps = {
   children: React.ReactNode;
   fallback?: React.ReactNode;
 };
 
-// useSyncExternalStore pattern for detecting client-side rendering
 const emptySubscribe = () => () => {};
 const getClientSnapshot = () => true;
 const getServerSnapshot = () => false;
 
 /**
- * OptimizedAuthGuard renders children immediately and shows fallback only during hydration.
- * This prevents blocking the entire app render while auth state is loading.
+ * OptimizedAuthGuard protects routes by checking authentication state.
+ * It handles hydration to prevent flickering and redirects to login if unauthenticated.
  */
 export function OptimizedAuthGuard({ children, fallback }: OptimizedAuthGuardProps) {
-  // Returns false during SSR, true on client - no extra render needed
+  const { user, isHydrated } = useAuth();
+  const location = useLocation();
+  
   const isClient = useSyncExternalStore(emptySubscribe, getClientSnapshot, getServerSnapshot);
 
-  // During SSR, show fallback if provided
-  if (!isClient && fallback) {
+  // During SSR or before hydration is complete, show fallback
+  if ((!isClient || !isHydrated) && fallback) {
     return <>{fallback}</>;
   }
 
-  // On client, always show children
+  // If hydration is done and no user is found, redirect to login
+  if (isHydrated && !user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
   return <>{children}</>;
 }

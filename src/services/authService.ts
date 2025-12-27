@@ -38,8 +38,9 @@ export const authService = {
     api.post<unknown>("/user/register", payload),
 
   verifyAccount: async (key: string) => {
+    const baseUrl = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8085";
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8085"}/user/verify/account?key=${encodeURIComponent(key)}`,
+      `${baseUrl}/user/verify/account?key=${encodeURIComponent(key)}`,
       {
         method: "GET",
         credentials: "include",
@@ -47,12 +48,12 @@ export const authService = {
       },
     );
 
+    const envelope = await response.json().catch(() => null);
+
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message || "Verification failed");
+      throw new Error(envelope?.message || "Verification failed");
     }
 
-    const envelope = await response.json();
     return {
       user: envelope.data.user,
       message: envelope.message,

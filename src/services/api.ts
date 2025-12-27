@@ -68,6 +68,9 @@ async function apiCall<TData>(
   }
 
   if (!response.ok) {
+    if (response.status === 401) {
+      window.dispatchEvent(new CustomEvent('auth:unauthorized'));
+    }
     const message =
       (payload && payload.message) || `Request failed with status ${response.status}`;
     throw new Error(message);

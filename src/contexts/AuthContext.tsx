@@ -74,10 +74,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
       }
     };
 
+    const handleUnauthorized = () => {
+      setUser(null);
+    };
+
     hydrate();
+
+    window.addEventListener('auth:unauthorized', handleUnauthorized);
 
     return () => {
       active = false;
+      window.removeEventListener('auth:unauthorized', handleUnauthorized);
     };
   }, []);
 
