@@ -31,7 +31,6 @@ type ResetPasswordPayload = {
 
 type MfaSetupResponse = {
   user: User;
-  qrCodeSecret: string;
 };
 
 export const authService = {
