@@ -7,10 +7,9 @@ import { toastService } from '../../services/toastService';
 
 export function MfaSection() {
   const { user, setUser } = useAuth();
-  const [mfaSetup, setMfaSetup] = useState<{ user: User; qrCodeSecret: string } | null>(null);
+  const [mfaSetup, setMfaSetup] = useState<{ user: User } | null>(null);
   const [digits, setDigits] = useState<string[]>(['', '', '', '', '', '']);
   const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const isMfaEnabled = user?.mfa ?? false;
@@ -106,19 +105,6 @@ export function MfaSection() {
     }
   };
 
-  const handleCopyKey = () => {
-    if (mfaSetup?.qrCodeSecret) {
-      navigator.clipboard.writeText(mfaSetup.qrCodeSecret);
-      setCopied(true);
-      toastService.success('Secret key copied.');
-
-      // Reset copied state after 2 seconds
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    }
-  };
-
   const allDigitsFilled = digits.every((digit) => digit.length === 1);
 
   // If MFA is already enabled, show status
@@ -208,54 +194,22 @@ export function MfaSection() {
       </p>
 
       {/* QR Section */}
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-start mb-6 sm:mb-10">
+      <div className="flex justify-center mb-6 sm:mb-10">
         {/* QR Code */}
-        <div className="flex-shrink-0 w-full sm:w-auto flex justify-center sm:block">
+        <div className="flex-shrink-0">
           {mfaSetup.user.qrCodeImageUri ? (
             <div className="bg-white p-4 border border-[#E0E0E0] rounded-xl shadow-md">
               <img
                 src={mfaSetup.user.qrCodeImageUri}
                 alt="MFA QR code"
-                className="w-32 h-32 sm:w-40 sm:h-40"
+                className="w-40 h-40 sm:w-48 sm:h-48"
               />
             </div>
           ) : (
-            <div className="bg-white p-4 border border-[#E0E0E0] rounded-xl shadow-md w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
+            <div className="bg-white p-4 border border-[#E0E0E0] rounded-xl shadow-md w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center">
               <div className="text-center text-text-muted text-sm">QR Code</div>
             </div>
           )}
-        </div>
-
-        {/* Manual Key */}
-        <div className="flex-1 w-full">
-          <div className="text-[13px] sm:text-[14px] font-medium text-text-muted mb-2">Can't scan the code?</div>
-          <p className="text-[13px] sm:text-[14px] text-text-muted mb-3">
-            Enter this text code into your app manually.
-          </p>
-          <div className="flex items-center justify-between bg-[#FAFAFA] border border-[#E0E0E0] rounded-lg overflow-hidden">
-            <input
-              type="text"
-              readOnly
-              value={mfaSetup.qrCodeSecret}
-              className="flex-1 font-mono text-[11px] sm:text-[13px] md:text-[14px] text-text-main tracking-wide bg-transparent px-3 sm:px-4 py-3 outline-none border-none"
-            />
-            <button
-              onClick={handleCopyKey}
-              className="flex-shrink-0 px-4 sm:px-5 py-3 text-primary hover:bg-[rgba(166,123,91,0.08)] transition-colors border-l border-[#E0E0E0]"
-              aria-label={copied ? 'Copied' : 'Copy to clipboard'}
-            >
-              {copied ? (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              ) : (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-              )}
-            </button>
-          </div>
         </div>
       </div>
 
