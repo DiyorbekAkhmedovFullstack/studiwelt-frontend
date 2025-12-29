@@ -52,17 +52,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
     let active = true;
 
     const hydrate = async () => {
-      // Immediately mark as loading complete to unblock UI
-      // UI will render with null user state (showing login buttons)
-      if (active) {
-        setLoading(false);
-      }
-
       try {
         const data = await authService.getProfile();
         if (!active) return;
         setUser(data.user);
-        setIsHydrated(true);
       } catch (err) {
         // Log auth errors for production troubleshooting
         if (import.meta.env.DEV) {
@@ -70,7 +63,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
         if (!active) return;
         setUser(null);
-        setIsHydrated(true);
+      } finally {
+        if (active) {
+          setLoading(false);
+          setIsHydrated(true);
+        }
       }
     };
 
