@@ -90,7 +90,7 @@ export function LessonPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
+      <div className="min-h-screen flex items-center justify-center bg-page">
         <LoadingSpinner />
       </div>
     );
