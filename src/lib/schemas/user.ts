@@ -47,7 +47,8 @@ export const ProfileResponseSchema = z.object({
 
 export const MfaSetupResponseSchema = z.object({
   user: UserSchema,
-  qrCodeSecret: z.string(),
+  // qrCodeSecret is no longer returned by the backend for security reasons.
+  // Users should scan the QR code image (qrCodeImageUri in user object) instead.
 });
 
 // Type exports for inference

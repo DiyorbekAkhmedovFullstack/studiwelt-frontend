@@ -158,7 +158,6 @@ describe('authService', () => {
     it('should call api.patch to setup MFA', async () => {
       vi.mocked(api.patch).mockResolvedValue({
         user: mockUser,
-        qrCodeSecret: 'secret-key',
       });
 
       const result = await authService.setupMfa();
@@ -168,7 +167,7 @@ describe('authService', () => {
         {},
         expect.anything()
       );
-      expect(result).toEqual({ user: mockUser, qrCodeSecret: 'secret-key' });
+      expect(result).toEqual({ user: mockUser });
     });
   });
 
