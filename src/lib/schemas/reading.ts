@@ -32,10 +32,10 @@ export const ReadingSchema = z.object({
 export const QuestionResultSchema = z.object({
   questionId: z.string(),
   questionText: z.string(),
-  selectedAnswer: OptionLetterSchema,
+  selectedAnswer: OptionLetterSchema.nullable().optional(),
   correctAnswer: OptionLetterSchema,
   isCorrect: z.boolean(),
-  explanation: z.string(),
+  explanation: z.string().nullable().optional(),
   options: z.array(ReadingOptionSchema),
 });
 

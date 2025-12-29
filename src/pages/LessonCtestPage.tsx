@@ -322,7 +322,7 @@ export function LessonCtestPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
+            onClick={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
             className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
           >
             Back to lesson
@@ -342,7 +342,7 @@ export function LessonCtestPage() {
           <header className="mb-8">
             <button
               type="button"
-              onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
+              onClick={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
               className="text-[14px] text-primary font-semibold mb-3 hover:underline inline-flex items-center gap-1"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

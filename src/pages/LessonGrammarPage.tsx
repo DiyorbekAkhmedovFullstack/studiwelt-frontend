@@ -199,7 +199,7 @@ export function LessonGrammarPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
+            onClick={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
             className="rounded-md bg-primary px-4 py-2 text-xs font-semibold text-text-main hover:bg-primary-hover hover:text-page"
           >
             Back to lesson

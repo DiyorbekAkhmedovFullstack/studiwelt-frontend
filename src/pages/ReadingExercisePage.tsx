@@ -162,7 +162,7 @@ export function ReadingExercisePage() {
         <div className="flex items-center gap-2 sm:gap-4">
           <button
             type="button"
-            onClick={() => navigate(`/course/${lessonNumber}`)}
+            onClick={() => navigate(`/course/${lessonNumber}`, { replace: true })}
             className="group flex items-center gap-2 px-3 py-2 -ml-2 rounded-lg text-text-muted hover:text-text-main hover:bg-black/5 transition-all"
           >
             <svg
