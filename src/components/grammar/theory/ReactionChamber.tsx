@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { DragEvent } from 'react';
 
 type PrepositionOption = {
   value: string;
@@ -6,8 +7,8 @@ type PrepositionOption = {
 };
 
 type ReactionChamberProps = {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   verb: string;
   sentenceEnding: string;
   options: PrepositionOption[];
@@ -16,98 +17,133 @@ type ReactionChamberProps = {
 };
 
 export function ReactionChamber({
-  title,
-  subtitle,
   verb,
   sentenceEnding,
   options,
   successMessage,
-  errorMessage,
 }: ReactionChamberProps) {
   const [selectedPrep, setSelectedPrep] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<string>('');
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [wrongAttempts, setWrongAttempts] = useState<Set<string>>(new Set());
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [draggingValue, setDraggingValue] = useState<string | null>(null);
 
-  const handleSelection = (option: PrepositionOption) => {
-    if (isCorrect) return; // Already solved
+  const handleSelect = (option: PrepositionOption) => {
+    if (isCorrect || selectedPrep) return;
 
     if (option.isCorrect) {
       setSelectedPrep(option.value);
       setIsCorrect(true);
-      setFeedback(successMessage);
-    } else {
-      setWrongAttempts((prev) => new Set(prev).add(option.value));
-      setIsCorrect(false);
-      setFeedback(errorMessage);
+    }
+    // Wrong answers are simply ignored - no visual feedback needed
+  };
 
-      // Clear error state after animation
-      setTimeout(() => {
-        setIsCorrect(null);
-        setFeedback('');
-      }, 1500);
+  const handleDragStart = (e: DragEvent<HTMLDivElement>, value: string) => {
+    if (isCorrect || selectedPrep) return;
+    e.dataTransfer.setData('text/plain', value);
+    e.dataTransfer.effectAllowed = 'move';
+    setDraggingValue(value);
+  };
+
+  const handleDragEnd = () => {
+    setDraggingValue(null);
+  };
+
+  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    if (!isCorrect && !selectedPrep) {
+      setIsDragOver(true);
+    }
+  };
+
+  const handleDragLeave = () => {
+    setIsDragOver(false);
+  };
+
+  const handleDropOnTarget = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    if (isCorrect || selectedPrep) return;
+
+    const value = e.dataTransfer.getData('text/plain');
+    const option = options.find((o) => o.value === value);
+    if (option) {
+      handleSelect(option);
     }
   };
 
   return (
-    <section className="text-center bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-[0_8px_24px_rgba(62,54,48,0.06)] sm:shadow-[0_10px_32px_rgba(62,54,48,0.07)] md:shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-5 sm:p-8 md:p-10 lg:p-12">
-      <div className="mb-6 sm:mb-8 md:mb-10">
-        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[1.3rem] font-serif mb-2">{title}</h2>
-        <p className="text-text-muted text-xs sm:text-sm md:text-base">{subtitle}</p>
-      </div>
+    <div className="bg-surface rounded-xl sm:rounded-[20px] p-4 sm:p-6 shadow-card">
+      {/* Sentence with inline drop zone */}
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl font-serif text-text-main mb-5 sm:mb-6">
+        <span>{verb}</span>
 
-      {/* Reaction Chamber */}
-      <div className="text-base sm:text-lg md:text-xl lg:text-[1.4rem] my-6 sm:my-8 md:my-10 mx-auto max-w-full sm:max-w-[500px] md:max-w-[600px] min-h-[80px] sm:min-h-[100px] md:min-h-[120px] flex flex-wrap items-center justify-center gap-2 sm:gap-3 font-serif px-2">
-        <span className="font-bold">{verb}</span>
-        <span
-          className={`border-b-2 min-w-[60px] sm:min-w-[70px] md:min-w-[80px] text-center transition-all ${
-            selectedPrep
-              ? 'border-primary text-primary font-bold'
-              : 'border-dashed border-text-muted text-text-muted'
+        {/* Drop Zone */}
+        <div
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDropOnTarget}
+          className={`inline-flex items-center justify-center min-w-[70px] sm:min-w-[80px] h-[38px] sm:h-[44px] px-4 rounded-xl transition-all duration-200 ${
+            isCorrect
+              ? 'bg-[#6B8C6E] text-white font-semibold shadow-sm'
+              : isDragOver
+                ? 'bg-[#4A7C8C]/15 border-2 border-[#4A7C8C] border-dashed scale-105'
+                : 'bg-[#F5F1ED] border-2 border-dashed border-[#D4C8BC]'
           }`}
         >
-          {selectedPrep || '___'}
-        </span>
+          {selectedPrep ? (
+            <span className="font-semibold">{selectedPrep}</span>
+          ) : (
+            <svg
+              className={`w-5 h-5 transition-colors ${isDragOver ? 'text-[#4A7C8C]' : 'text-[#C4B5A8]'}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
+            </svg>
+          )}
+        </div>
+
         <span>{sentenceEnding}</span>
       </div>
 
-      {/* Element Shelf (Options) */}
-      <div className="flex justify-center gap-2 sm:gap-3 flex-wrap mb-4 sm:mb-5 md:mb-6">
+      {/* Draggable Chips */}
+      <div className="flex flex-wrap gap-2.5 sm:gap-3">
         {options.map((option) => {
-          const isWrong = wrongAttempts.has(option.value);
           const isSelected = selectedPrep === option.value;
+          const isDragging = draggingValue === option.value;
+          const isDisabled = isCorrect || !!selectedPrep;
+
+          if (isSelected) return null;
 
           return (
-            <button
+            <div
               key={option.value}
-              type="button"
-              onClick={() => handleSelection(option)}
-              disabled={isCorrect === true}
-              className={`bg-white border px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl font-semibold cursor-pointer transition-all shadow-[0_2px_4px_rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:border-[#E3D4C5] disabled:cursor-not-allowed disabled:pointer-events-none text-sm sm:text-base md:text-lg ${
-                isSelected
-                  ? 'bg-[#4A7C8C] text-white border-[#4A7C8C]'
-                  : isWrong
-                    ? 'bg-[#FFF5F5] text-[#C07766] border-[#C07766] animate-shake'
-                    : 'border-[rgba(0,0,0,0.1)]'
+              draggable={!isDisabled}
+              onDragStart={(e) => handleDragStart(e, option.value)}
+              onDragEnd={handleDragEnd}
+              onClick={() => handleSelect(option)}
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-sm sm:text-base font-medium transition-all select-none ${
+                isDragging
+                  ? 'bg-[#4A7C8C]/10 text-[#4A7C8C] opacity-40 scale-95'
+                  : isDisabled
+                    ? 'bg-gray-100 text-gray-400 cursor-default'
+                    : 'bg-white text-text-main shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)] cursor-grab active:cursor-grabbing active:scale-95'
               }`}
             >
               {option.value}
-            </button>
+            </div>
           );
         })}
       </div>
 
-      {/* Result Message */}
-      <div
-        className={`mt-4 sm:mt-5 md:mt-6 text-xs sm:text-sm md:text-base text-text-muted min-h-[24px] sm:min-h-[28px] transition-opacity ${
-          feedback ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        {isCorrect && (
-          <span className="text-[#4A7C8C] font-bold">{feedback}</span>
-        )}
-        {isCorrect === false && feedback}
-      </div>
-    </section>
+      {/* Success Message */}
+      {isCorrect && (
+        <p className="mt-4 text-sm text-[#6B8C6E]">
+          {successMessage}
+        </p>
+      )}
+    </div>
   );
 }

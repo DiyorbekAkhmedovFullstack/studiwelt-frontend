@@ -78,6 +78,9 @@ export function PolitenessSlider({ title, levels }: PolitenessSliderProps) {
             [&::-moz-range-thumb]:border-0
             [&::-moz-range-thumb]:shadow-[0_2px_6px_rgba(0,0,0,0.2)]"
         />
+        <p className="mt-3 text-[0.65rem] sm:text-[0.7rem] text-text-muted italic opacity-80">
+          (Verschieben, um die Höflichkeit zu ändern)
+        </p>
       </div>
     </section>
   );

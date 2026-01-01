@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 export function Lesson01PassivTheory() {
-  const [activeTab, setActiveTab] = useState('praesens');
 
   return (
     <div>
@@ -47,106 +44,144 @@ export function Lesson01PassivTheory() {
         </p>
       </section>
 
-      {/* 2. TENSES & FORMS */}
+      {/* 2. TENSES & FORMS - Comprehensive Table */}
       <section className="bg-surface rounded-xl sm:rounded-[24px] p-3 sm:p-6 md:p-10 shadow-card mb-4 sm:mb-8 md:mb-10">
         <h2 className="text-sm sm:text-base md:text-[1.35rem] font-serif mb-3 sm:mb-5 md:mb-6 pb-2 border-b-2 border-[#E3D4C5]">
-          Zeitformen & Modalverben
+          Alle Zeitformen im Passiv
         </h2>
 
-        {/* Tabs */}
-        <div className="flex gap-1 sm:gap-2 mb-3 sm:mb-5 md:mb-6 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide">
-          {[
-            { id: 'praesens', label: 'Präsens' },
-            { id: 'praeteritum', label: 'Präteritum' },
-            { id: 'perfekt', label: 'Perfekt / Plusq.' },
-            { id: 'modal', label: 'Mit Modalverben' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-2 sm:px-4 md:px-5 py-1 sm:py-2.5 rounded-full text-[0.65rem] sm:text-sm md:text-base font-semibold whitespace-nowrap transition-all duration-200 ${
-                activeTab === tab.id
-                  ? 'bg-primary text-white border border-primary'
-                  : 'bg-transparent text-text-muted border border-[#E3D4C5]'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+        {/* Responsive Table - hides Subjekt & Zeitangabe on mobile */}
+        <div>
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-b-2 border-[#E3D4C5]">
+                <th className="py-2 sm:py-3 pr-1 sm:pr-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted w-8 sm:w-auto"></th>
+                <th className="py-2 sm:py-3 px-1 sm:px-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">Zeitform</th>
+                <th className="hidden md:table-cell py-2 sm:py-3 px-2 sm:px-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">Subjekt</th>
+                <th className="py-2 sm:py-3 px-1 sm:px-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">Position 2</th>
+                <th className="hidden sm:table-cell py-2 sm:py-3 px-2 sm:px-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">Zeitangabe</th>
+                <th className="py-2 sm:py-3 pl-1 sm:pl-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">Ende</th>
+              </tr>
+            </thead>
+            <tbody className="font-serif">
+              {/* Präsens */}
+              <tr className="border-b border-[#E3D4C5]/50">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#EEE] text-[#666] font-sans">B2</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Präsens</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">wird</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">heute</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert.</td>
+              </tr>
+              {/* Präteritum */}
+              <tr className="border-b border-[#E3D4C5]/50">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#EEE] text-[#666] font-sans">B2</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Präteritum</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">wurde</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">gestern</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert.</td>
+              </tr>
+              {/* Perfekt */}
+              <tr className="border-b border-[#E3D4C5]/50">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#EEE] text-[#666] font-sans">B2</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Perfekt</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">ist</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">gestern</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert worden.</td>
+              </tr>
+              {/* Plusquamperfekt */}
+              <tr className="border-b border-[#E3D4C5]/50 ">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#D9A441]/20 text-[#8B6914] font-sans">C1</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Plusquamperf.</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">war</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">vor der Abreise</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert worden.</td>
+              </tr>
+              {/* Futur I */}
+              <tr className="border-b border-[#E3D4C5]/50 ">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#D9A441]/20 text-[#8B6914] font-sans">C1</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Futur I</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">wird</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">bestimmt bald</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert werden.</td>
+              </tr>
+              {/* Futur II */}
+              <tr className="border-b border-[#E3D4C5]/50 ">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#D9A441]/20 text-[#8B6914] font-sans">C1</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Futur II</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">wird</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">bis morgen</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">inform. worden sein.*</td>
+              </tr>
+              {/* Konjunktiv 2 Gegenwart */}
+              <tr className="border-b border-[#E3D4C5]/50">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#EEE] text-[#666] font-sans">B2</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Konj. 2 Gegenw.</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">würde</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">heute noch</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert.</td>
+              </tr>
+              {/* Konjunktiv 2 Vergangenheit */}
+              <tr className="border-b border-[#E3D4C5]/50 ">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#D9A441]/20 text-[#8B6914] font-sans">C1</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Konj. 2 Verg.</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">wäre</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">vor der Abreise</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert worden.</td>
+              </tr>
+              {/* Konjunktiv 1 Gegenwart */}
+              <tr className="border-b border-[#E3D4C5]/50">
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#EEE] text-[#666] font-sans">B2</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Konj. 1 Gegenw.</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">werde</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">heute</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert.</td>
+              </tr>
+              {/* Konjunktiv 1 Vergangenheit */}
+              <tr>
+                <td className="py-1.5 sm:py-3 pr-1 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#D9A441]/20 text-[#8B6914] font-sans">C1</span>
+                </td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main">Konj. 1 Verg.</td>
+                <td className="hidden md:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">Die Gruppe</td>
+                <td className="py-1.5 sm:py-3 px-1 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-[#6B8C6E] font-bold">sei</td>
+                <td className="hidden sm:table-cell py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">gestern</td>
+                <td className="py-1.5 sm:py-3 pl-1 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-bold">informiert worden.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        {/* Tab Content */}
-        <div className="animate-[fadeIn_0.4s]">
-          {activeTab === 'praesens' && (
-            <div className="bg-[#FAFAFA] sm:bg-transparent p-2.5 sm:p-0 rounded-lg">
-              <code className="text-[0.65rem] sm:text-xs md:text-sm block font-mono bg-[#F4F4F4] px-2 sm:px-3 py-1.5 sm:py-3 rounded-md sm:rounded-lg border-l-3 sm:border-l-4 border-[#6B8C6E] mb-2 sm:mb-4">
-                werden + Partizip II
-              </code>
-              <p className="text-[0.65rem] sm:text-xs md:text-sm mb-1.5 sm:mb-3 leading-relaxed text-text-muted">Die Standardform für aktuelle Prozesse.</p>
-              <p className="text-[0.7rem] sm:text-xs md:text-sm font-serif italic text-text-main">
-                "Die Daten <strong>werden</strong> gerade <strong>analysiert</strong>."
-              </p>
-            </div>
-          )}
-
-          {activeTab === 'praeteritum' && (
-            <div className="bg-[#FAFAFA] sm:bg-transparent p-2.5 sm:p-0 rounded-lg">
-              <code className="text-[0.65rem] sm:text-xs md:text-sm block font-mono bg-[#F4F4F4] px-2 sm:px-3 py-1.5 sm:py-3 rounded-md sm:rounded-lg border-l-3 sm:border-l-4 border-[#6B8C6E] mb-2 sm:mb-4">
-                wurden + Partizip II
-              </code>
-              <p className="text-[0.65rem] sm:text-xs md:text-sm mb-1.5 sm:mb-3 leading-relaxed text-text-muted">Häufig in Berichten, Nachrichten und Erzählungen.</p>
-              <p className="text-[0.7rem] sm:text-xs md:text-sm font-serif italic text-text-main">
-                "Die Brücke <strong>wurde</strong> 1990 <strong>gebaut</strong>."
-              </p>
-            </div>
-          )}
-
-          {activeTab === 'perfekt' && (
-            <div className="bg-[#FAFAFA] sm:bg-transparent p-2.5 sm:p-0 rounded-lg">
-              <code className="text-[0.65rem] sm:text-xs md:text-sm block font-mono bg-[#F4F4F4] px-2 sm:px-3 py-1.5 sm:py-3 rounded-md sm:rounded-lg border-l-3 sm:border-l-4 border-[#6B8C6E] mb-2 sm:mb-4">
-                sein + Partizip II + worden
-              </code>
-              <p className="text-[0.65rem] sm:text-xs md:text-sm mb-1.5 sm:mb-3 leading-relaxed text-text-muted">
-                Achtung Falle! Das Partizip von "werden" ist hier <strong className="text-text-main">worden</strong>, nicht{' '}
-                <span className="line-through opacity-50">geworden</span>.
-              </p>
-              <p className="text-[0.7rem] sm:text-xs md:text-sm font-serif italic mb-2 sm:mb-4 text-text-main">
-                "Das Paket <strong>ist</strong> gestern <strong>geliefert worden</strong>."
-              </p>
-              <hr className="border-0 border-t border-dashed border-[#DDD] my-2 sm:my-4" />
-              <p className="text-[0.65rem] sm:text-xs md:text-sm leading-relaxed text-text-muted">
-                <strong className="text-text-main">Plusquamperfekt:</strong>{' '}
-                <em className="text-text-main">
-                  "Als ich kam, <strong>war</strong> das Essen schon{' '}
-                  <strong>gekocht worden</strong>."
-                </em>
-              </p>
-            </div>
-          )}
-
-          {activeTab === 'modal' && (
-            <div className="bg-[#FAFAFA] sm:bg-transparent p-2.5 sm:p-0 rounded-lg space-y-2 sm:space-y-4">
-              <div>
-                <code className="text-[0.65rem] sm:text-xs md:text-sm block font-mono bg-[#F4F4F4] px-2 sm:px-3 py-1.5 sm:py-3 rounded-md sm:rounded-lg border-l-3 sm:border-l-4 border-[#6B8C6E] mb-1.5 sm:mb-3">
-                  Präsens: Modalverb + Partizip II + werden
-                </code>
-                <p className="text-[0.7rem] sm:text-xs md:text-sm font-serif italic text-text-main">
-                  "Der Müll <strong>muss getrennt werden</strong>."
-                </p>
-              </div>
-
-              <div>
-                <code className="text-[0.65rem] sm:text-xs md:text-sm block font-mono bg-[#F4F4F4] px-2 sm:px-3 py-1.5 sm:py-3 rounded-md sm:rounded-lg border-l-3 sm:border-l-4 border-[#6B8C6E] mb-1.5 sm:mb-3">
-                  Vergangenheit: Modalverb (Prät) + Partizip II + werden
-                </code>
-                <p className="text-[0.7rem] sm:text-xs md:text-sm font-serif italic text-text-main">
-                  "Die Rechnung <strong>musste bezahlt werden</strong>." (Nicht:{' '}
-                  <span className="line-through opacity-50">hat bezahlt werden müssen</span>)
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
+        {/* Footnote */}
+        <p className="text-[0.6rem] sm:text-xs md:text-sm mt-3 sm:mt-4 text-text-muted italic">
+          * Diese Form wird nur sehr selten verwendet.
+        </p>
       </section>
 
       {/* 3. AGENTS (Von vs Durch) */}
@@ -158,7 +193,7 @@ export function Lesson01PassivTheory() {
           Wenn wir den Täter nennen wollen, nutzen wir Präpositionen.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
           {/* VON */}
           <div className="border border-[#E3D4C5] p-3 sm:p-5 rounded-lg sm:rounded-xl">
             <div className="text-[#C07766] text-[0.65rem] sm:text-xs md:text-sm font-bold mb-1.5 sm:mb-2 uppercase tracking-wider">
@@ -182,6 +217,22 @@ export function Lesson01PassivTheory() {
             </p>
             <p className="text-xs sm:text-sm md:text-base font-serif text-text-main">
               "Das Haus wurde <strong>durch ein Feuer</strong> zerstört."
+            </p>
+          </div>
+
+          {/* MIT */}
+          <div className="border border-[#E3D4C5] p-3 sm:p-5 rounded-lg sm:rounded-xl">
+            <div className="text-[#C07766] text-[0.65rem] sm:text-xs md:text-sm font-bold mb-1.5 sm:mb-2 uppercase tracking-wider">
+              MIT + Dativ
+            </div>
+            <p className="text-xs sm:text-sm md:text-base text-text-muted mb-2 sm:mb-3 leading-relaxed">
+              Für <strong>Instrumente</strong> und Werkzeuge, die benutzt werden.
+            </p>
+            <p className="text-xs sm:text-sm md:text-base font-serif text-text-main">
+              "Das Papier wurde <strong>mit einer Schere</strong> geschnitten."
+            </p>
+            <p className="text-xs sm:text-sm md:text-base font-serif text-text-main mt-2">
+              "Die Analyse wurde <strong>mit der neuen Technologie</strong> durchgeführt."
             </p>
           </div>
         </div>

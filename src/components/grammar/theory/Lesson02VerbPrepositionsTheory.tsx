@@ -5,7 +5,17 @@ import { ReactionChamber } from './ReactionChamber';
 export function Lesson02VerbPrepositionsTheory() {
   return (
     <>
-      {/* Chemistry Grid - Verb + Preposition Combinations */}
+      {/* AKKUSATIV Section Header */}
+      <div className="mb-4 sm:mb-6">
+        <h3 className="text-sm sm:text-base md:text-[1.35rem] font-serif font-bold text-text-main mb-1 sm:mb-2">
+          Präpositionen mit Akkusativ
+        </h3>
+        <p className="text-xs sm:text-sm md:text-base text-text-muted">
+          Diese Präpositionen verlangen den Akkusativ.
+        </p>
+      </div>
+
+      {/* Akkusativ Grid */}
       <VerbPrepositionGrid
         cards={[
           {
@@ -13,21 +23,14 @@ export function Lesson02VerbPrepositionsTheory() {
             caseType: 'Akkusativ',
             description: 'Fokus auf die Zukunft oder ein Ziel (Mental Direction).',
             verbs: [
-              { verb: 'warten', translation: 'to wait for' },
-              { verb: 'sich freuen', translation: 'to look forward to' },
-              { verb: 'sich vorbereiten', translation: 'to prepare for' },
-              { verb: 'sich konzentrieren', translation: 'to focus on' },
-            ],
-          },
-          {
-            preposition: 'an',
-            caseType: 'Dativ',
-            description: 'Teilhabe oder statischer Zustand.',
-            verbs: [
-              { verb: 'teilnehmen', translation: 'to participate in' },
-              { verb: 'arbeiten', translation: 'to work on' },
-              { verb: 'leiden', translation: 'to suffer from (disease)' },
-              { verb: 'zweifeln', translation: 'to doubt' },
+              'warten',
+              'sich freuen',
+              'sich vorbereiten',
+              'sich konzentrieren',
+              'hoffen',
+              'aufpassen',
+              'achten',
+              'antworten',
             ],
           },
           {
@@ -35,10 +38,199 @@ export function Lesson02VerbPrepositionsTheory() {
             caseType: 'Akkusativ',
             description: 'Thema oder Emotion.',
             verbs: [
-              { verb: 'sprechen', translation: 'to talk about' },
-              { verb: 'diskutieren', translation: 'to discuss' },
-              { verb: 'lachen', translation: 'to laugh about' },
-              { verb: 'sich ärgern', translation: 'to be annoyed at' },
+              'sprechen',
+              'diskutieren',
+              'sich ärgern',
+              'sich freuen',
+              'nachdenken',
+              'berichten',
+              'sich unterhalten',
+              'sich beschweren',
+            ],
+          },
+          {
+            preposition: 'für',
+            caseType: 'Akkusativ',
+            description: 'Zielobjekt oder Empfänger.',
+            verbs: [
+              'sich interessieren',
+              'sich entscheiden',
+              'sich bedanken',
+              'kämpfen',
+              'sorgen',
+              'sich entschuldigen',
+              'werben',
+            ],
+          },
+          {
+            preposition: 'gegen',
+            caseType: 'Akkusativ',
+            description: 'Ablehnung oder Widerstand.',
+            verbs: [
+              'protestieren',
+              'kämpfen',
+              'sich entscheiden',
+              'sich verteidigen',
+              'sich wehren',
+            ],
+          },
+          {
+            preposition: 'um',
+            caseType: 'Akkusativ',
+            description: 'Objekt mit Intensität oder Thema.',
+            verbs: [
+              'sich bewerben',
+              'sich bemühen',
+              'sich kümmern',
+              'kämpfen',
+              'sich sorgen',
+              'bitten',
+              'es geht',
+            ],
+          },
+          {
+            preposition: 'an',
+            caseType: 'Akkusativ',
+            description: 'Kontakt oder mentale Verbindung.',
+            verbs: [
+              'denken',
+              'sich erinnern',
+              'glauben',
+              'schicken',
+              'sich gewöhnen',
+              'sich wenden',
+            ],
+          },
+        ]}
+      />
+
+      {/* DATIV Section Header */}
+      <div className="mb-4 sm:mb-6 mt-8 sm:mt-12">
+        <h3 className="text-sm sm:text-base md:text-[1.35rem] font-serif font-bold text-text-main mb-1 sm:mb-2">
+          Präpositionen mit Dativ
+        </h3>
+        <p className="text-xs sm:text-sm md:text-base text-text-muted">
+          Diese Präpositionen verlangen den Dativ.
+        </p>
+      </div>
+
+      {/* Dativ Grid */}
+      <VerbPrepositionGrid
+        cards={[
+          {
+            preposition: 'an',
+            caseType: 'Dativ',
+            description: 'Teilhabe oder statischer Zustand.',
+            verbs: [
+              'teilnehmen',
+              'arbeiten',
+              'leiden',
+              'zweifeln',
+              'sterben',
+              'erkranken',
+              'sich orientieren',
+            ],
+          },
+          {
+            preposition: 'auf',
+            caseType: 'Dativ',
+            description: 'Basis oder Grundlage.',
+            verbs: [
+              'basieren',
+              'beruhen',
+              'bestehen',
+              'beharren',
+            ],
+          },
+          {
+            preposition: 'aus',
+            caseType: 'Dativ',
+            description: 'Herkunft oder Bestandteile.',
+            verbs: [
+              'bestehen',
+              'stammen',
+              'entstehen',
+              'sich ergeben',
+              'übersetzen',
+            ],
+          },
+          {
+            preposition: 'bei',
+            caseType: 'Dativ',
+            description: 'Person oder Institution.',
+            verbs: [
+              'sich bewerben',
+              'arbeiten',
+              'sich bedanken',
+              'sich beschweren',
+              'sich entschuldigen',
+              'anrufen',
+            ],
+          },
+          {
+            preposition: 'mit',
+            caseType: 'Dativ',
+            description: 'Partner oder Beginn/Ende.',
+            verbs: [
+              'sprechen',
+              'diskutieren',
+              'anfangen',
+              'aufhören',
+              'beginnen',
+              'sich unterhalten',
+              'kämpfen',
+            ],
+          },
+          {
+            preposition: 'nach',
+            caseType: 'Dativ',
+            description: 'Suche oder Sinne.',
+            verbs: [
+              'fragen',
+              'suchen',
+              'sich erkundigen',
+              'sich sehnen',
+              'riechen',
+              'schmecken',
+            ],
+          },
+          {
+            preposition: 'von',
+            caseType: 'Dativ',
+            description: 'Thema oder Herkunft.',
+            verbs: [
+              'träumen',
+              'erzählen',
+              'abhängen',
+              'sich erholen',
+              'sich befreien',
+              'überzeugen',
+            ],
+          },
+          {
+            preposition: 'vor',
+            caseType: 'Dativ',
+            description: 'Gefahr oder Angst.',
+            verbs: [
+              'sich fürchten',
+              'Angst haben',
+              'flüchten',
+              'fliehen',
+              'warnen',
+              'schützen',
+            ],
+          },
+          {
+            preposition: 'zu',
+            caseType: 'Dativ',
+            description: 'Anlass oder Kombination.',
+            verbs: [
+              'gratulieren',
+              'gehören',
+              'passen',
+              'beitragen',
+              'einladen',
+              'führen',
             ],
           },
         ]}

@@ -21,6 +21,19 @@ export function Lesson03ConnectorsTheory() {
             note: '(Positiver als "und")',
           },
           {
+            type: 'positive',
+            part1: 'Nicht nur',
+            part2: 'sondern auch',
+            icon: '++',
+            title: 'Verstärkung (A + B).',
+            example: (
+              <>
+                Das Internet ist <em>nicht nur</em> informativ, <em>sondern auch</em> unterhaltsam.
+              </>
+            ),
+            note: '(Betont den zweiten Teil)',
+          },
+          {
             type: 'negative',
             part1: 'Weder',
             part2: 'noch',
@@ -46,6 +59,18 @@ export function Lesson03ConnectorsTheory() {
             ),
           },
           {
+            type: 'alternative',
+            part1: 'Teils',
+            part2: 'teils',
+            icon: '%',
+            title: 'Aufteilung (Ein bisschen A, ein bisschen B).',
+            example: (
+              <>
+                Ich nutze das Handy <em>teils</em> beruflich, <em>teils</em> privat.
+              </>
+            ),
+          },
+          {
             type: 'contrast',
             part1: 'Zwar',
             part2: 'aber',
@@ -56,6 +81,31 @@ export function Lesson03ConnectorsTheory() {
                 Die Wohnung ist <em>zwar</em> klein, <em>aber</em> sie ist billig.
               </>
             ),
+          },
+          {
+            type: 'contrast',
+            part1: 'Einerseits',
+            part2: 'andererseits',
+            icon: '<>',
+            title: 'Zwei Aspekte / Gegensatz.',
+            example: (
+              <>
+                <em>Einerseits</em> ist es teuer, <em>andererseits</em> ist die Qualität top.
+              </>
+            ),
+          },
+          {
+            type: 'contrast',
+            part1: 'Je',
+            part2: 'desto',
+            icon: '>>',
+            title: 'Vergleich (Proportionalität).',
+            example: (
+              <>
+                <em>Je</em> mehr man lernt, <em>desto</em> besser spricht man.
+              </>
+            ),
+            note: '(Nebensatz + Hauptsatz)',
           },
         ]}
       />
