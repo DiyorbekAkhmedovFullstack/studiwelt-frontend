@@ -26,6 +26,13 @@ const FSPIcon = () => (
   </svg>
 );
 
+const BookIcon = () => (
+  <svg className="w-[18px] h-[18px] text-text-muted transition-colors group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+  </svg>
+);
+
 const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
   <svg
     width="16"
@@ -91,16 +98,26 @@ export function LearnMoreDropdown() {
           />
 
           <div
-            className="absolute top-[125%] right-0 w-[220px] bg-white rounded-2xl p-2 z-[100] transition-all duration-200 opacity-100 translate-y-0"
+            className="absolute top-[125%] right-0 w-[240px] bg-white rounded-2xl p-2 z-[100] transition-all duration-200 opacity-100 translate-y-0"
             style={{
               boxShadow: '0 10px 25px -5px rgba(160, 120, 92, 0.25), 0 8px 10px -6px rgba(160, 120, 92, 0.1)'
             }}
             role="menu"
           >
             <Link
-              to="#application"
+              to="/about-studienkolleg"
               onClick={close}
-              className="flex items-center gap-3 px-4 py-3 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group"
+              className="flex items-center gap-3 px-4 py-3 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group whitespace-nowrap"
+              role="menuitem"
+            >
+              <BookIcon />
+              About Studienkolleg
+            </Link>
+
+            <Link
+              to="/application"
+              onClick={close}
+              className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group"
               role="menuitem"
             >
               <ApplicationIcon />

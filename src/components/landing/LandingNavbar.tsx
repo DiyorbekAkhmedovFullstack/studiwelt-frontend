@@ -121,6 +121,83 @@ const LoginIcon = () => (
   </svg>
 );
 
+const ApplicationIcon = () => (
+  <svg
+    className="w-[18px] h-[18px] text-text-muted"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <polyline points="14 2 14 8 20 8"></polyline>
+    <line x1="16" y1="13" x2="8" y2="13"></line>
+    <line x1="16" y1="17" x2="8" y2="17"></line>
+    <polyline points="10 9 9 9 8 9"></polyline>
+  </svg>
+);
+
+const EntranceExamIcon = () => (
+  <svg
+    className="w-[18px] h-[18px] text-text-muted"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M9 11l3 3L22 4"></path>
+    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+  </svg>
+);
+
+const FSPIcon = () => (
+  <svg
+    className="w-[18px] h-[18px] text-text-muted"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </svg>
+);
+
+const AnimatedDownArrow = () => (
+  <svg
+    className="w-3.5 h-3.5 text-text-muted animate-bounce"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+);
+
+const MenuChevron = ({ isOpen }: { isOpen: boolean }) => (
+  <svg
+    className={`w-4 h-4 text-text-muted transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+);
+
 export function LandingNavbar() {
   const { user, isHydrated, logout } = useAuth();
   const { courseProgress } = useProgress();
@@ -181,24 +258,28 @@ export function LandingNavbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden min-h-11 min-w-11 flex items-center justify-center"
+          className="md:hidden min-h-11 flex items-center gap-1.5 justify-center"
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
           {!isHydrated ? (
             <div className="animate-pulse w-9 h-9 rounded-full bg-gray-200"></div>
           ) : isAuthenticated && user?.imageUrl ? (
-            <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/20">
-              <img
-                src={user.imageUrl}
-                alt={`${user.firstName} ${user.lastName}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ) : isMobileMenuOpen ? (
-            <CloseIcon />
+            <>
+              <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/20">
+                <img
+                  src={user.imageUrl}
+                  alt={`${user.firstName} ${user.lastName}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <MenuChevron isOpen={isMobileMenuOpen} />
+            </>
           ) : (
-            <MenuIcon />
+            <>
+              {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+              <MenuChevron isOpen={isMobileMenuOpen} />
+            </>
           )}
         </button>
       </div>
@@ -307,6 +388,50 @@ function AuthenticatedMobileMenu({
 
       <div className="h-px bg-border-soft mx-4 my-2"></div>
 
+      {/* Learn More Section */}
+      <div className="flex items-center gap-2 text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2">
+        Learn More
+        <AnimatedDownArrow />
+      </div>
+
+      <Link
+        to="/about-studienkolleg"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <BookIcon />
+        About Studienkolleg
+      </Link>
+
+      <Link
+        to="/application"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <ApplicationIcon />
+        Application
+      </Link>
+
+      <Link
+        to="#entrance-exam"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <EntranceExamIcon />
+        Entrance Exam
+      </Link>
+
+      <Link
+        to="#fsp"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <FSPIcon />
+        FSP
+      </Link>
+
+      <div className="h-px bg-border-soft mx-4 my-2"></div>
+
       {/* Logout */}
       <button
         onClick={onLogout}
@@ -371,17 +496,45 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
       <div className="h-px bg-border-soft mx-4 my-2"></div>
 
       {/* Additional Info Section */}
-      <div className="text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2">
+      <div className="flex items-center gap-2 text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2">
         Learn More
+        <AnimatedDownArrow />
       </div>
 
       <Link
-        to="#studienkolleg"
+        to="/about-studienkolleg"
         onClick={onClose}
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <BookIcon />
         About Studienkolleg
+      </Link>
+
+      <Link
+        to="/application"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <ApplicationIcon />
+        Application
+      </Link>
+
+      <Link
+        to="#entrance-exam"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <EntranceExamIcon />
+        Entrance Exam
+      </Link>
+
+      <Link
+        to="#fsp"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <FSPIcon />
+        FSP
       </Link>
     </>
   );

@@ -14,73 +14,130 @@ type PolitenessSliderProps = {
   };
 };
 
+const LEVEL_DATA = {
+  1: {
+    borderColor: 'border-[#C07766]',
+    labelBg: 'bg-[rgba(192,119,102,0.1)]',
+    labelText: 'text-[#C07766]',
+    accentColor: 'text-[#C07766]',
+    grammar: 'Imperativ',
+    context: 'Nur unter engen Freunden oder Familie',
+  },
+  2: {
+    borderColor: 'border-[#D9A441]',
+    labelBg: 'bg-[rgba(217,164,65,0.1)]',
+    labelText: 'text-[#8B6914]',
+    accentColor: 'text-[#D9A441]',
+    grammar: 'Indikativ',
+    context: 'Alltägliche Situationen, Bekannte',
+  },
+  3: {
+    borderColor: 'border-[#6B8C6E]',
+    labelBg: 'bg-[rgba(107,140,110,0.1)]',
+    labelText: 'text-[#2D4A30]',
+    accentColor: 'text-[#6B8C6E]',
+    grammar: 'Konjunktiv II',
+    context: 'Formell, Fremde, TestDaF/DSH',
+  },
+} as const;
+
 export function PolitenessSlider({ title, levels }: PolitenessSliderProps) {
   const [currentLevel, setCurrentLevel] = useState<1 | 2 | 3>(1);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newLevel = parseInt(e.target.value) as 1 | 2 | 3;
-
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentLevel(newLevel);
-      setIsTransitioning(false);
-    }, 100);
-  };
 
   const currentData = levels[currentLevel];
-  const isVeryPolite = currentLevel === 3;
+  const config = LEVEL_DATA[currentLevel];
 
   return (
-    <section className="text-center bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-[0_8px_24px_rgba(62,54,48,0.06)] sm:shadow-[0_10px_32px_rgba(62,54,48,0.07)] md:shadow-[0_12px_40px_rgba(62,54,48,0.08)] p-5 sm:p-8 md:p-10 lg:p-12">
-      <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif mb-6 sm:mb-7 md:mb-8">{title}</h2>
+    <section className="bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-card p-5 sm:p-6 md:p-8 lg:p-10 mb-8 sm:mb-12 md:mb-16">
+      <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif mb-5 sm:mb-6 pb-2 border-b-2 border-[#E3D4C5]">
+        {title}
+      </h2>
 
-      {/* Output Bubble */}
-      <div
-        className={`bg-[#FAF6F3] p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl font-serif text-sm sm:text-base md:text-lg lg:text-xl xl:text-[1.2rem] min-h-[70px] sm:min-h-[80px] md:min-h-[90px] flex items-center justify-center mb-3 sm:mb-4 transition-all ${
-          isVeryPolite ? 'text-primary font-bold' : 'text-text-main'
-        }`}
-        style={{ opacity: isTransitioning ? 0.5 : 1 }}
-      >
-        {currentData.text}
+      {/* Level Selector */}
+      <div className="flex gap-2 sm:gap-3 mb-5 sm:mb-6">
+        {([1, 2, 3] as const).map((level) => {
+          const lvlConfig = LEVEL_DATA[level];
+          const isSelected = currentLevel === level;
+
+          return (
+            <button
+              key={level}
+              type="button"
+              onClick={() => setCurrentLevel(level)}
+              className={`
+                flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl
+                text-[0.65rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider
+                transition-all border-2
+                ${isSelected
+                  ? `${lvlConfig.labelBg} ${lvlConfig.borderColor} ${lvlConfig.labelText}`
+                  : 'bg-[#F8F6F4] border-transparent text-text-muted hover:bg-[#F0EEEC]'
+                }
+              `}
+            >
+              Level {level}
+            </button>
+          );
+        })}
       </div>
 
-      <div className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] font-bold uppercase tracking-wider mb-6 sm:mb-7 md:mb-8">
-        {currentData.label}
-      </div>
+      {/* Output Display */}
+      <div className={`bg-[#FAF6F3] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border-l-4 ${config.borderColor} mb-5 sm:mb-6`}>
+        {/* Label */}
+        <div className={`${config.labelBg} ${config.labelText} inline-block px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-wider mb-3 sm:mb-4`}>
+          {currentData.label}
+        </div>
 
-      {/* Slider */}
-      <div className="max-w-full sm:max-w-[400px] md:max-w-[500px] mx-auto px-2 sm:px-0">
-        <input
-          type="range"
-          min="1"
-          max="3"
-          value={currentLevel}
-          step="1"
-          onChange={handleChange}
-          className="w-full h-1 sm:h-1.5 bg-[#EBE5DA] rounded-sm appearance-none cursor-pointer
-            [&::-webkit-slider-thumb]:appearance-none
-            [&::-webkit-slider-thumb]:w-5
-            [&::-webkit-slider-thumb]:h-5
-            sm:[&::-webkit-slider-thumb]:w-6
-            sm:[&::-webkit-slider-thumb]:h-6
-            [&::-webkit-slider-thumb]:rounded-full
-            [&::-webkit-slider-thumb]:bg-primary
-            [&::-webkit-slider-thumb]:cursor-pointer
-            [&::-webkit-slider-thumb]:shadow-[0_2px_6px_rgba(0,0,0,0.2)]
-            [&::-moz-range-thumb]:w-5
-            [&::-moz-range-thumb]:h-5
-            sm:[&::-moz-range-thumb]:w-6
-            sm:[&::-moz-range-thumb]:h-6
-            [&::-moz-range-thumb]:rounded-full
-            [&::-moz-range-thumb]:bg-primary
-            [&::-moz-range-thumb]:cursor-pointer
-            [&::-moz-range-thumb]:border-0
-            [&::-moz-range-thumb]:shadow-[0_2px_6px_rgba(0,0,0,0.2)]"
-        />
-        <p className="mt-3 text-[0.65rem] sm:text-[0.7rem] text-text-muted italic opacity-80">
-          (Verschieben, um die Höflichkeit zu ändern)
+        {/* Sentence */}
+        <p className="font-serif text-base sm:text-lg md:text-xl lg:text-[1.3rem] text-text-main leading-relaxed">
+          „{currentData.text}"
         </p>
+
+        {/* Grammar Info */}
+        <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mt-5 pt-5 border-t border-[#E3D4C5]">
+          <div className="sm:flex-1">
+            <span className="text-[0.65rem] sm:text-[0.7rem] text-text-muted uppercase tracking-wider font-bold block mb-1.5">
+              Grammatik
+            </span>
+            <span className={`text-sm sm:text-base md:text-lg font-semibold ${config.accentColor}`}>
+              {config.grammar}
+            </span>
+          </div>
+          <div className="sm:flex-1">
+            <span className="text-[0.65rem] sm:text-[0.7rem] text-text-muted uppercase tracking-wider font-bold block mb-1.5">
+              Verwendung
+            </span>
+            <span className="text-sm sm:text-base text-text-main leading-relaxed">
+              {config.context}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Visual Scale */}
+      <div className="relative pt-2">
+        <div className="flex justify-between items-end mb-2">
+          {([1, 2, 3] as const).map((level) => {
+            const isSelected = currentLevel === level;
+            const height = level === 1 ? 'h-4 sm:h-5' : level === 2 ? 'h-6 sm:h-8' : 'h-8 sm:h-11';
+            const lvlConfig = LEVEL_DATA[level];
+
+            return (
+              <div key={level} className="flex-1 flex justify-center">
+                <div
+                  className={`
+                    w-full max-w-[60px] sm:max-w-[80px] ${height} rounded-t-md transition-all
+                    ${isSelected ? lvlConfig.borderColor.replace('border-', 'bg-') : 'bg-[#E3D4C5]'}
+                  `}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div className="h-1 bg-[#E3D4C5] rounded-full" />
+        <div className="flex justify-between mt-2">
+          <span className="text-[0.55rem] sm:text-[0.6rem] text-text-muted uppercase tracking-wide">unhöflich</span>
+          <span className="text-[0.55rem] sm:text-[0.6rem] text-text-muted uppercase tracking-wide">höflich</span>
+        </div>
       </div>
     </section>
   );

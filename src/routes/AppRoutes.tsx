@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
+import { ScrollToTop } from '../components/common/ScrollToTop';
 
 // Critical pages - load immediately (above the fold)
 import { LandingPage } from '../pages/LandingPage';
@@ -46,6 +47,8 @@ const AdminCtestPage = lazy(() => import('../pages/AdminCtestPage').then(m => ({
 const DeckResultsPage = lazy(() => import('../pages/DeckResultsPage').then(m => ({ default: m.DeckResultsPage })));
 const ProfilePage = lazy(() => import('../pages/ProfilePage').then(m => ({ default: m.ProfilePage })));
 const StudienkollegDetailPage = lazy(() => import('../pages/StudienkollegDetailPage').then(m => ({ default: m.StudienkollegDetailPage })));
+const AboutStudienkollegPage = lazy(() => import('../pages/AboutStudienkollegPage').then(m => ({ default: m.AboutStudienkollegPage })));
+const ApplicationPage = lazy(() => import('../pages/ApplicationPage').then(m => ({ default: m.ApplicationPage })));
 const UpgradeToStudentPage = lazy(() => import('../pages/UpgradeToStudentPage').then(m => ({ default: m.UpgradeToStudentPage })));
 const PaymentSuccessPage = lazy(() => import('../pages/PaymentSuccessPage').then(m => ({ default: m.PaymentSuccessPage })));
 const PaymentCancelPage = lazy(() => import('../pages/PaymentCancelPage').then(m => ({ default: m.PaymentCancelPage })));
@@ -53,6 +56,7 @@ const PaymentCancelPage = lazy(() => import('../pages/PaymentCancelPage').then(m
 export function AppRoutes() {
   return (
     <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -224,6 +228,8 @@ export function AppRoutes() {
       <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
       <Route path="/" element={<LandingPage />} />
+      <Route path="/about-studienkolleg" element={<AboutStudienkollegPage />} />
+      <Route path="/application" element={<ApplicationPage />} />
       <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

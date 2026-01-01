@@ -22,7 +22,7 @@ export function CausalContextSelector() {
       id: 'scenario1',
       context: 'Umgangsgespräch',
       situation: 'Ich komme nicht zur Party',
-      reason: 'ich muss arbeiten',
+      reason: 'ich arbeiten muss',
       options: [
         {
           conjunction: 'weil',
@@ -156,17 +156,16 @@ export function CausalContextSelector() {
       </p>
 
       {/* Scenario Selector */}
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-5 sm:mb-6 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex gap-2 mb-4 sm:mb-6 overflow-x-auto pb-2 -mx-1 px-1">
         {scenarios.map((scenario) => (
           <button
             key={scenario.id}
             type="button"
             onClick={() => handleScenarioChange(scenario.id)}
-            className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg text-[0.65rem] sm:text-xs md:text-sm font-semibold transition-all flex-shrink-0 ${
-              selectedScenario === scenario.id
-                ? 'bg-primary text-white'
-                : 'bg-[#F5F5F5] text-text-muted hover:bg-[#E8E8E8]'
-            }`}
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[0.6rem] sm:text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 ${selectedScenario === scenario.id
+              ? 'bg-primary text-white'
+              : 'bg-[#F5F5F5] text-text-muted hover:bg-[#E8E8E8]'
+              }`}
           >
             {scenario.context}
           </button>
@@ -199,13 +198,12 @@ export function CausalContextSelector() {
             key={option.conjunction}
             type="button"
             onClick={() => handleConjunctionClick(option.conjunction)}
-            className={`px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl font-serif font-bold text-sm sm:text-base md:text-lg transition-all ${
-              selectedConjunction === option.conjunction
-                ? option.isCorrect
-                  ? 'bg-[#E8F5E9] border-2 border-[#2E7D32] text-[#2E7D32]'
-                  : 'bg-[#FFEBEE] border-2 border-[#C62828] text-[#C62828]'
-                : 'bg-white border-2 border-[#E0E0E0] text-text-main hover:border-primary hover:bg-[#FFF9F0]'
-            }`}
+            className={`px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl font-serif font-bold text-sm sm:text-base md:text-lg transition-all ${selectedConjunction === option.conjunction
+              ? option.isCorrect
+                ? 'bg-[#E8F5E9] border-2 border-[#2E7D32] text-[#2E7D32]'
+                : 'bg-[#FFEBEE] border-2 border-[#C62828] text-[#C62828]'
+              : 'bg-white border-2 border-[#E0E0E0] text-text-main hover:border-primary hover:bg-[#FFF9F0]'
+              }`}
           >
             {option.conjunction}
           </button>
@@ -215,11 +213,10 @@ export function CausalContextSelector() {
       {/* Feedback */}
       {showFeedback && selectedOption && (
         <div
-          className={`rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 ${
-            selectedOption.isCorrect
-              ? 'bg-[#E8F5E9] border-[#2E7D32]'
-              : 'bg-[#FFF3E0] border-[#E65100]'
-          }`}
+          className={`rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 ${selectedOption.isCorrect
+            ? 'bg-[#E8F5E9] border-[#2E7D32]'
+            : 'bg-[#FFF3E0] border-[#E65100]'
+            }`}
         >
           <div className="flex items-start gap-2 sm:gap-3">
             <span className="text-xl sm:text-2xl">{selectedOption.isCorrect ? '✓' : 'ℹ'}</span>
