@@ -15,24 +15,13 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Separate vendor chunks
+          // Keep all node_modules in a single vendor chunk to avoid initialization order issues
           if (id.includes("node_modules")) {
-            if (
-              id.includes("react") ||
-              id.includes("react-dom") ||
-              id.includes("react-router") ||
-              id.includes("i18next") ||
-              id.includes("react-i18next")
-            ) {
-              return "react-vendor";
-            }
+            // Only separate large icon library
             if (id.includes("@fortawesome")) {
               return "fontawesome";
             }
-            if (id.includes("react-hot-toast")) {
-              return "toast";
-            }
-            return "vendor"; // Other node_modules
+            return "vendor";
           }
 
           // Separate admin pages into own chunk
@@ -41,7 +30,6 @@ export default defineConfig({
           }
 
           // Split lesson/exercise pages into feature-based chunks
-          // Grammar feature (theory components are lazy-loaded separately per lesson)
           if (
             id.includes("/pages/LessonGrammar") ||
             id.includes("/pages/Grammar")
@@ -49,10 +37,6 @@ export default defineConfig({
             return "grammar-pages";
           }
 
-          // Each grammar theory lesson gets its own chunk via lazy loading
-          // This is handled automatically by dynamic imports in LessonGrammarTheory.tsx
-
-          // C-Test feature
           if (
             id.includes("/pages/LessonCtest") ||
             id.includes("/pages/Ctest")
@@ -60,17 +44,14 @@ export default defineConfig({
             return "ctest-pages";
           }
 
-          // Reading feature
           if (id.includes("/pages/Reading")) {
             return "reading-pages";
           }
 
-          // Flashcard/Deck feature
           if (id.includes("/pages/LessonDeck") || id.includes("/pages/Deck")) {
             return "deck-pages";
           }
 
-          // Core lesson pages (LessonPage)
           if (id.includes("/pages/Lesson")) {
             return "lesson-core";
           }
