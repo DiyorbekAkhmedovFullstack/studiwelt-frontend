@@ -21,7 +21,7 @@ export function CoursePage() {
   const error = queryError
     ? queryError instanceof Error
       ? queryError.message
-      : 'Load failed.'
+      : 'Laden fehlgeschlagen.'
     : null;
 
   if (loading || progressLoading) {
@@ -81,8 +81,8 @@ export function CoursePage() {
 
       weeks.push({
         weekNumber,
-        title: `Week ${weekNumber}`,
-        subtitle: `Days ${startDay}-${endDay}${isCompleted ? ' • Completed' : isActive ? ' • In Progress' : ' • Locked'}`,
+        title: `Woche ${weekNumber}`,
+        subtitle: `Tage ${startDay}–${endDay}${isCompleted ? ' • Abgeschlossen' : isActive ? ' • In Bearbeitung' : ' • Gesperrt'}`,
         lessons: weekLessons,
         isCompleted,
         isActive,
@@ -98,9 +98,9 @@ export function CoursePage() {
     <DashboardLayout>
       {/* Header */}
       <header className="mb-10">
-        <h1 className="text-[32px] font-bold mb-2">Your Journey</h1>
+        <h1 className="text-[32px] font-bold mb-2">Dein Lernweg</h1>
         <p className="text-text-muted">
-          You are currently on <strong>Day {currentDay}</strong> of {totalLessons}. Keep the rhythm going.
+          Du bist gerade bei <strong>Tag {currentDay}</strong> von {totalLessons}. Bleib am Ball!
         </p>
       </header>
 
@@ -113,7 +113,7 @@ export function CoursePage() {
             </svg>
           }
           value={`${Math.round(completionPercentage)}%`}
-          label="Completion"
+          label="Fortschritt"
         />
         <StatCard
           icon={
@@ -123,7 +123,7 @@ export function CoursePage() {
             </svg>
           }
           value={`${completedLessons}/${totalLessons}`}
-          label="Lessons Done"
+          label="Abgeschlossen"
           iconBgColor="#E6F0FF"
           iconColor="#4A90E2"
         />
@@ -133,8 +133,8 @@ export function CoursePage() {
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
             </svg>
           }
-          value={`Day ${currentDay}`}
-          label="Current Day"
+          value={`Tag ${currentDay}`}
+          label="Aktueller Tag"
           iconBgColor="#FFF4E6"
           iconColor="#FF9F43"
         />
@@ -206,7 +206,7 @@ export function CoursePage() {
                   // Priority 1: Sequential lock (must complete previous lesson first)
                   if (!isAccessible) {
                     toastService.warning(
-                      `Lesson ${lessonNum} is locked. Please complete Lesson ${lessonNum - 1} first to unlock this lesson.`,
+                      `Lektion ${lessonNum} ist gesperrt. Bitte schließe zuerst Lektion ${lessonNum - 1} ab, um diese Lektion freizuschalten.`,
                       { duration: 5000 }
                     );
                   }
@@ -238,7 +238,7 @@ export function CoursePage() {
                       lessonNumber={lessonNum}
                       title={lesson.title}
                       state={state}
-                      duration={completedSections > 0 ? `${completedSections}/4 sections` : undefined}
+                      duration={completedSections > 0 ? `${completedSections}/4 Abschnitte` : undefined}
                       to={isAccessible && !isRoleRestricted ? `/course/${lessonNum}` : undefined}
                     />
                   </div>

@@ -34,35 +34,37 @@ export function TransformationTable() {
   ];
 
   return (
-    <section className="mb-8 sm:mb-12 md:mb-16">
-      <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] font-serif mb-4 sm:mb-5 md:mb-6">Wichtige Transformationen</h2>
-      <div className="bg-surface rounded-[12px] sm:rounded-[14px] md:rounded-[16px] shadow-card overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-        <table className="w-full border-collapse min-w-[500px] sm:min-w-0">
+    <section className="bg-surface rounded-xl sm:rounded-[24px] p-3 sm:p-6 md:p-10 shadow-card mb-4 sm:mb-8 md:mb-10">
+      <h2 className="text-sm sm:text-base md:text-[1.35rem] font-serif mb-3 sm:mb-5 md:mb-6 pb-2 border-b-2 border-[#E3D4C5]">
+        Wichtige Transformationen
+      </h2>
+      <div className="overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
+        <table className="w-full text-left min-w-[400px] sm:min-w-0">
           <thead>
-            <tr>
-              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] px-3 sm:px-4 md:px-6 py-3 sm:py-4 bg-[#FAF6F3] uppercase tracking-wide font-semibold w-1/5">
+            <tr className="border-b-2 border-[#E3D4C5]">
+              <th className="py-2 sm:py-3 pr-2 sm:pr-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">
                 Logik
               </th>
-              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] px-3 sm:px-4 md:px-6 py-3 sm:py-4 bg-[#FAF6F3] uppercase tracking-wide font-semibold w-2/5">
+              <th className="py-2 sm:py-3 px-2 sm:px-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">
                 Verbal (Konnektor)
               </th>
-              <th className="text-left text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] px-3 sm:px-4 md:px-6 py-3 sm:py-4 bg-[#FAF6F3] uppercase tracking-wide font-semibold w-2/5">
-                Nominal (Präposition + Genitiv)
+              <th className="py-2 sm:py-3 pl-2 sm:pl-4 text-[0.55rem] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-text-muted">
+                Nominal (Präposition)
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="font-serif">
             {transformations.map((row, index) => (
-              <tr key={index}>
-                <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-b border-[rgba(0,0,0,0.05)] last:border-b-0">
-                  <span className="text-[0.6rem] sm:text-[0.65rem] md:text-[0.7rem] inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md font-semibold bg-[#F0F0F0]">
+              <tr key={index} className="border-b border-[#E3D4C5]/50 last:border-b-0">
+                <td className="py-1.5 sm:py-3 pr-2 sm:pr-4">
+                  <span className="text-[0.5rem] sm:text-[0.65rem] md:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md font-bold uppercase tracking-[0.5px] bg-[#EEE] text-[#666] font-sans">
                     {row.logic}
                   </span>
                 </td>
-                <td className="text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-b border-[rgba(0,0,0,0.05)] last:border-b-0">
+                <td className="py-1.5 sm:py-3 px-2 sm:px-4 text-[0.6rem] sm:text-xs md:text-sm text-text-muted">
                   {row.verbal}
                 </td>
-                <td className="text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-b border-[rgba(0,0,0,0.05)] last:border-b-0 font-medium">
+                <td className="py-1.5 sm:py-3 pl-2 sm:pl-4 text-[0.6rem] sm:text-xs md:text-sm text-text-main font-medium">
                   {row.nominal}
                 </td>
               </tr>

@@ -42,8 +42,8 @@ i18n
             useSuspense: false,
         },
 
-        // Debug mode in development
-        debug: import.meta.env.DEV,
+        // Debug mode disabled to reduce console noise
+        debug: false,
     });
 
 export default i18n;

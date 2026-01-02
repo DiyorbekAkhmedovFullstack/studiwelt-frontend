@@ -78,7 +78,7 @@ export const LessonCard = memo(function LessonCard({
     <>
       <div className="flex justify-between items-start mb-4">
         <span className="text-xs font-semibold uppercase tracking-wider text-text-muted">
-          Day {lessonNumber.toString().padStart(2, "0")}
+          Tag {lessonNumber.toString().padStart(2, "0")}
         </span>
         <div
           className={`w-7 h-7 rounded-full flex items-center justify-center ${iconStyles[state]}`}
@@ -96,7 +96,7 @@ export const LessonCard = memo(function LessonCard({
       {(duration || type || state === "active") && (
         <div className="mt-auto flex gap-3 text-xs text-text-muted items-center">
           {state === "active" ? (
-            <div className="font-semibold text-primary">Resume Lesson</div>
+            <div className="font-semibold text-primary">Weiter lernen</div>
           ) : (
             <>
               {duration && (
@@ -114,7 +114,7 @@ export const LessonCard = memo(function LessonCard({
                 </div>
               )}
               {type && <div>{type}</div>}
-              {state === "locked" && <div>Locked</div>}
+              {state === "locked" && <div>Gesperrt</div>}
             </>
           )}
         </div>
