@@ -52,6 +52,8 @@ const ApplicationPage = lazy(() => import('../pages/ApplicationPage').then(m => 
 const UpgradeToStudentPage = lazy(() => import('../pages/UpgradeToStudentPage').then(m => ({ default: m.UpgradeToStudentPage })));
 const PaymentSuccessPage = lazy(() => import('../pages/PaymentSuccessPage').then(m => ({ default: m.PaymentSuccessPage })));
 const PaymentCancelPage = lazy(() => import('../pages/PaymentCancelPage').then(m => ({ default: m.PaymentCancelPage })));
+const EntranceExamPage = lazy(() => import('../pages/EntranceExamPage').then(m => ({ default: m.EntranceExamPage })));
+const FSPPage = lazy(() => import('../pages/FSPPage').then(m => ({ default: m.FSPPage })));
 
 export function AppRoutes() {
   return (
@@ -61,177 +63,179 @@ export function AppRoutes() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/registration-success" element={<RegistrationSuccessPage />} />
-      {/* Email verification links: support both /verify/account (email) and /verify-account (internal) */}
-      <Route path="/verify/account" element={<VerifyAccountPage />} />
-      <Route path="/verify-account" element={<VerifyAccountPage />} />
-      <Route path="/verification-success" element={<VerificationSuccessPage />} />
-      <Route path="/already-verified" element={<AlreadyVerifiedPage />} />
-      <Route path="/mfa" element={<MfaVerifyPage />} />
-      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-      {/* Password reset links: support both /verify/password (email) and /reset-password (internal) */}
-      <Route path="/verify/password" element={<ResetPasswordPage />} />
-      <Route path="/reset-password" element={<ResetPasswordPage />} />
+        {/* Email verification links: support both /verify/account (email) and /verify-account (internal) */}
+        <Route path="/verify/account" element={<VerifyAccountPage />} />
+        <Route path="/verify-account" element={<VerifyAccountPage />} />
+        <Route path="/verification-success" element={<VerificationSuccessPage />} />
+        <Route path="/already-verified" element={<AlreadyVerifiedPage />} />
+        <Route path="/mfa" element={<MfaVerifyPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        {/* Password reset links: support both /verify/password (email) and /reset-password (internal) */}
+        <Route path="/verify/password" element={<ResetPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-      <Route
-        path="/course"
-        element={<ProtectedRoute element={<CoursePage />} />}
-      />
+        <Route
+          path="/course"
+          element={<ProtectedRoute element={<CoursePage />} />}
+        />
 
-      <Route
-        path="/profile"
-        element={<ProtectedRoute element={<ProfilePage />} />}
-      />
+        <Route
+          path="/profile"
+          element={<ProtectedRoute element={<ProfilePage />} />}
+        />
 
-      <Route
-        path="/upgrade"
-        element={<ProtectedRoute element={<UpgradeToStudentPage />} />}
-      />
+        <Route
+          path="/upgrade"
+          element={<ProtectedRoute element={<UpgradeToStudentPage />} />}
+        />
 
-      <Route
-        path="/payment/success"
-        element={<ProtectedRoute element={<PaymentSuccessPage />} />}
-      />
+        <Route
+          path="/payment/success"
+          element={<ProtectedRoute element={<PaymentSuccessPage />} />}
+        />
 
-      <Route
-        path="/payment/cancel"
-        element={<ProtectedRoute element={<PaymentCancelPage />} />}
-      />
+        <Route
+          path="/payment/cancel"
+          element={<ProtectedRoute element={<PaymentCancelPage />} />}
+        />
 
-      <Route
-        path="/course/:lessonNumber"
-        element={<ProtectedRoute element={<LessonPage />} />}
-      />
-      <Route
-        path="/course/:lessonNumber/deck"
-        element={<ProtectedRoute element={<LessonDeckPage />} />}
-      />
-      <Route
-        path="/course/:lessonNumber/deck/results"
-        element={<ProtectedRoute element={<DeckResultsPage />} />}
-      />
+        <Route
+          path="/course/:lessonNumber"
+          element={<ProtectedRoute element={<LessonPage />} />}
+        />
+        <Route
+          path="/course/:lessonNumber/deck"
+          element={<ProtectedRoute element={<LessonDeckPage />} />}
+        />
+        <Route
+          path="/course/:lessonNumber/deck/results"
+          element={<ProtectedRoute element={<DeckResultsPage />} />}
+        />
 
-      <Route
-        path="/course/:lessonNumber/reading/:readingId"
-        element={<ProtectedRoute element={<ReadingExercisePage />} />}
-      />
-      <Route
-        path="/course/:lessonNumber/reading/:readingId/results"
-        element={<ProtectedRoute element={<ReadingResultsPage />} />}
-      />
+        <Route
+          path="/course/:lessonNumber/reading/:readingId"
+          element={<ProtectedRoute element={<ReadingExercisePage />} />}
+        />
+        <Route
+          path="/course/:lessonNumber/reading/:readingId/results"
+          element={<ProtectedRoute element={<ReadingResultsPage />} />}
+        />
 
-      <Route
-        path="/course/:lessonNumber/grammar"
-        element={<ProtectedRoute element={<LessonGrammarPage />} />}
-      />
-      <Route
-        path="/course/:lessonNumber/grammar/results"
-        element={<ProtectedRoute element={<GrammarResultsPage />} />}
-      />
+        <Route
+          path="/course/:lessonNumber/grammar"
+          element={<ProtectedRoute element={<LessonGrammarPage />} />}
+        />
+        <Route
+          path="/course/:lessonNumber/grammar/results"
+          element={<ProtectedRoute element={<GrammarResultsPage />} />}
+        />
 
-      <Route
-        path="/course/:lessonNumber/ctest"
-        element={<ProtectedRoute element={<LessonCtestPage />} />}
-      />
-      <Route
-        path="/course/:lessonNumber/ctest/results"
-        element={<ProtectedRoute element={<CtestResultsPage />} />}
-      />
+        <Route
+          path="/course/:lessonNumber/ctest"
+          element={<ProtectedRoute element={<LessonCtestPage />} />}
+        />
+        <Route
+          path="/course/:lessonNumber/ctest/results"
+          element={<ProtectedRoute element={<CtestResultsPage />} />}
+        />
 
-      <Route
-        path="/admin/lessons"
-        element={
-          <ProtectedRoute requiredRole="ADMIN" element={<AdminLessonsPage />} />
-        }
-      />
+        <Route
+          path="/admin/lessons"
+          element={
+            <ProtectedRoute requiredRole="ADMIN" element={<AdminLessonsPage />} />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber"
-        element={
-          <ProtectedRoute
-            requiredRole="ADMIN"
-            element={<AdminLessonDetailPage />}
-          />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber"
+          element={
+            <ProtectedRoute
+              requiredRole="ADMIN"
+              element={<AdminLessonDetailPage />}
+            />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/deck"
-        element={
-          <ProtectedRoute requiredRole="ADMIN" element={<AdminLessonDeckPage />} />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/deck"
+          element={
+            <ProtectedRoute requiredRole="ADMIN" element={<AdminLessonDeckPage />} />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/readings"
-        element={
-          <ProtectedRoute requiredRole="ADMIN" element={<AdminReadingsPage />} />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/readings"
+          element={
+            <ProtectedRoute requiredRole="ADMIN" element={<AdminReadingsPage />} />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/readings/new"
-        element={
-          <ProtectedRoute
-            requiredRole="ADMIN"
-            element={<AdminReadingFormPage />}
-          />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/readings/new"
+          element={
+            <ProtectedRoute
+              requiredRole="ADMIN"
+              element={<AdminReadingFormPage />}
+            />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/readings/:readingId/edit"
-        element={
-          <ProtectedRoute
-            requiredRole="ADMIN"
-            element={<AdminReadingFormPage />}
-          />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/readings/:readingId/edit"
+          element={
+            <ProtectedRoute
+              requiredRole="ADMIN"
+              element={<AdminReadingFormPage />}
+            />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/grammar"
-        element={
-          <ProtectedRoute
-            requiredRole="ADMIN"
-            element={<AdminGrammarQuestionsPage />}
-          />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/grammar"
+          element={
+            <ProtectedRoute
+              requiredRole="ADMIN"
+              element={<AdminGrammarQuestionsPage />}
+            />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/grammar/questions/new"
-        element={
-          <ProtectedRoute
-            requiredRole="ADMIN"
-            element={<AdminGrammarQuestionFormPage />}
-          />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/grammar/questions/new"
+          element={
+            <ProtectedRoute
+              requiredRole="ADMIN"
+              element={<AdminGrammarQuestionFormPage />}
+            />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/grammar/questions/:questionId/edit"
-        element={
-          <ProtectedRoute
-            requiredRole="ADMIN"
-            element={<AdminGrammarQuestionFormPage />}
-          />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/grammar/questions/:questionId/edit"
+          element={
+            <ProtectedRoute
+              requiredRole="ADMIN"
+              element={<AdminGrammarQuestionFormPage />}
+            />
+          }
+        />
 
-      <Route
-        path="/admin/lessons/:lessonNumber/ctest"
-        element={
-          <ProtectedRoute requiredRole="ADMIN" element={<AdminCtestPage />} />
-        }
-      />
+        <Route
+          path="/admin/lessons/:lessonNumber/ctest"
+          element={
+            <ProtectedRoute requiredRole="ADMIN" element={<AdminCtestPage />} />
+          }
+        />
 
-      <Route path="/unauthorized" element={<UnauthorizedPage />} />
+        <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/about-studienkolleg" element={<AboutStudienkollegPage />} />
-      <Route path="/application" element={<ApplicationPage />} />
-      <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about-studienkolleg" element={<AboutStudienkollegPage />} />
+        <Route path="/application" element={<ApplicationPage />} />
+        <Route path="/entrance-exam" element={<EntranceExamPage />} />
+        <Route path="/fsp" element={<FSPPage />} />
+        <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>
   );

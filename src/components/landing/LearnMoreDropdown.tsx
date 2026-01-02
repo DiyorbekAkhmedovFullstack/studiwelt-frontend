@@ -125,7 +125,7 @@ export function LearnMoreDropdown() {
             </Link>
 
             <Link
-              to="#entrance-exam"
+              to="/entrance-exam"
               onClick={close}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group"
               role="menuitem"
@@ -135,7 +135,7 @@ export function LearnMoreDropdown() {
             </Link>
 
             <Link
-              to="#fsp"
+              to="/fsp"
               onClick={close}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group"
               role="menuitem"

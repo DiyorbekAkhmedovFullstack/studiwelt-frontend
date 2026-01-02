@@ -413,7 +413,7 @@ function AuthenticatedMobileMenu({
       </Link>
 
       <Link
-        to="#entrance-exam"
+        to="/entrance-exam"
         onClick={onClose}
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
@@ -422,7 +422,7 @@ function AuthenticatedMobileMenu({
       </Link>
 
       <Link
-        to="#fsp"
+        to="/fsp"
         onClick={onClose}
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
@@ -520,7 +520,7 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
       </Link>
 
       <Link
-        to="#entrance-exam"
+        to="/entrance-exam"
         onClick={onClose}
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
@@ -529,7 +529,7 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
       </Link>
 
       <Link
-        to="#fsp"
+        to="/fsp"
         onClick={onClose}
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
