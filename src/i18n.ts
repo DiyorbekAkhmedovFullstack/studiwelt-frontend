@@ -18,7 +18,7 @@ i18n
         defaultNS: 'common',
 
         // Namespaces to load
-        ns: ['common', 'landing', 'aboutStudienkolleg', 'application'],
+        ns: ['common', 'landing', 'aboutStudienkolleg', 'application', 'entranceExam'],
 
         // Backend configuration for loading translations
         backend: {
@@ -27,7 +27,8 @@ i18n
 
         // Language detection options
         detection: {
-            order: ['localStorage', 'navigator', 'htmlTag'],
+            order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+            lookupQuerystring: 'lng',
             caches: ['localStorage'],
             lookupLocalStorage: 'i18nextLng',
         },

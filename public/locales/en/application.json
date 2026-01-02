@@ -73,7 +73,8 @@
             "Motivation letter (some universities)",
             "Proof of university admission qualification"
         ],
-        "warning": "<strong>Important:</strong> Each Studienkolleg may have additional requirements. Always check the specific institution's website for their complete checklist."
+        "warningLabel": "Important:",
+        "warningText": "Each Studienkolleg may have additional requirements. Always check the specific institution's website for their complete checklist."
     },
     "deadlines": {
         "title": "Application Deadlines",

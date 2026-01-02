@@ -73,7 +73,8 @@
             "Motivationsschreiben (bei einigen Universitäten)",
             "Nachweis der Hochschulzugangsberechtigung"
         ],
-        "warning": "<strong>Wichtig:</strong> Jedes Studienkolleg kann zusätzliche Anforderungen haben. Überprüfe immer die vollständige Checkliste auf der Website der jeweiligen Institution."
+        "warningLabel": "Wichtig:",
+        "warningText": "Jedes Studienkolleg kann zusätzliche Anforderungen haben. Überprüfe immer die vollständige Checkliste auf der Website der jeweiligen Institution."
     },
     "deadlines": {
         "title": "Bewerbungsfristen",

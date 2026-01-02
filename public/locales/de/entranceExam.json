@@ -1,0 +1,156 @@
+{
+    "hero": {
+        "badge": "BEREITE DICH AUF DEN ERFOLG VOR",
+        "title": "Die",
+        "titleHighlight": "Aufnahmeprüfung verstehen",
+        "description": "Die wettbewerbsfähige Aufnahmeprüfung für öffentliche Studienkollegs. Deine Leistung entscheidet über die Zulassung — bereite dich strategisch vor, um deinen Platz zu sichern.",
+        "tags": {
+            "twoPartExam": "2-teilige Prüfung",
+            "germanLevel": "Deutsch B1-B2",
+            "competitive": "Wettbewerbszulassung"
+        }
+    },
+    "overview": {
+        "title": "Was ist die Aufnahmeprüfung?",
+        "description": "Die Aufnahmeprüfung, die über deine Zulassung zu einem öffentlichen Studienkolleg entscheidet.",
+        "purpose": {
+            "title": "Zweck",
+            "description": "Prüft, ob du die sprachlichen Fähigkeiten und das Grundwissen hast, um im anspruchsvollen Studienkolleg-Lehrplan erfolgreich zu sein."
+        },
+        "format": {
+            "title": "Format",
+            "description": "Zwei Teile: ein Deutschtest (60-90 Min.) und ein fachspezifischer Test (45-60 Min.) je nach gewähltem Kursschwerpunkt."
+        },
+        "competitiveness": {
+            "title": "Wettbewerb",
+            "description": "Begrenzte Plätze verfügbar. Bewerber werden nach Punktzahl eingestuft — je höher deine Punktzahl, desto besser deine Zulassungschancen."
+        }
+    },
+    "components": {
+        "title": "Prüfungsbestandteile",
+        "description": "Die Prüfung testet sowohl deine Deutschkenntnisse als auch dein Fachwissen.",
+        "germanTest": {
+            "title": "Deutschtest",
+            "duration": "60-90 Minuten",
+            "items": [
+                { "title": "C-Test / Lückentest", "description": "Lückenübungen zur Prüfung von Grammatik und Wortschatz" },
+                { "title": "Leseverstehen", "description": "Verstehen von Sach- und literarischen Texten" },
+                { "title": "Hörverstehen", "description": "Verstehen von Vorträgen, Gesprächen, Nachrichten" },
+                { "title": "Schriftlicher Ausdruck", "description": "Zusammenfassungen, Kurztexte, Erörterungen schreiben" },
+                { "title": "Grammatik & Wortschatz", "description": "Satzumformung, Fehlerkorrektur" }
+            ]
+        },
+        "subjectTest": {
+            "title": "Fachspezifischer Test",
+            "duration": "45-60 Minuten",
+            "description": "Variiert je nach Kursschwerpunkt. Die meisten erfordern Mathematik, mit zusätzlichen Fächern je nach Fachrichtung:",
+            "courses": {
+                "T": "Mathe + Physik",
+                "M": "Mathe + Biologie + Chemie",
+                "W": "Mathe + Wirtschaft",
+                "G": "Diagrammauswertung + Geisteswissenschaften",
+                "S": "Erweitertes Deutsch + Geisteswissenschaften"
+            },
+            "calculatorNote": "Taschenrechner in der Regel nicht erlaubt"
+        }
+    },
+    "courseDetails": {
+        "title": "Kursspezifische Details",
+        "description": "Wähle deinen Kurs, um genau zu sehen, was in der Aufnahmeprüfung geprüft wird.",
+        "subjectsTested": "Geprüfte Fächer",
+        "mathTopics": "Mathematik-Themen",
+        "otherTopics": "Weitere Themen",
+        "keyAreas": "Schwerpunkte",
+        "courses": {
+            "T": {
+                "name": "T-Kurs",
+                "fullName": "Technik & Ingenieurwesen",
+                "subjects": ["Mathematik", "Physik (manchmal Chemie)"],
+                "mathTopics": ["Funktionen & Algebra", "Lineare & quadratische Gleichungen", "Geometrie", "Binomische Formeln", "Potenzen"],
+                "otherTopics": ["Mechanik", "Elektrizität", "Optik"]
+            },
+            "M": {
+                "name": "M-Kurs",
+                "fullName": "Medizin & Biologie",
+                "subjects": ["Mathematik", "Biologie", "Chemie"],
+                "mathTopics": ["Algebra", "Funktionen"],
+                "otherTopics": ["Biologische Grundprozesse", "Periodensystem", "Chemische Reaktionen"]
+            },
+            "W": {
+                "name": "W-Kurs",
+                "fullName": "Wirtschaft & Ökonomie",
+                "subjects": ["Mathematik", "Wirtschaftsgrundlagen"],
+                "mathTopics": ["Prozentrechnung", "Zinsrechnung", "Algebra"],
+                "otherTopics": ["Marktdynamik", "Angebot & Nachfrage"]
+            },
+            "G": {
+                "name": "G-Kurs",
+                "fullName": "Geisteswissenschaften & Kunst",
+                "subjects": ["Erweiterter Deutschtest", "Diagramm-/Dateninterpretation"],
+                "otherTopics": ["Analyse von Grafiken und Statistiken", "Schriftliche Argumentation"]
+            },
+            "S": {
+                "name": "S-Kurs",
+                "fullName": "Sprachen",
+                "subjects": ["Erweiterte Deutschkenntnisse", "Geisteswissenschaftliche Komponente"],
+                "otherTopics": ["Fortgeschrittenes Leseverstehen", "Akademisches Schreiben"]
+            }
+        }
+    },
+    "timeline": {
+        "title": "Prüfungstermine",
+        "description": "Aufnahmeprüfungen finden zweimal jährlich statt, jeweils vor Semesterbeginn.",
+        "winter": {
+            "title": "Wintersemester",
+            "date": "Juli",
+            "note": "Vorlesungsbeginn im Oktober"
+        },
+        "summer": {
+            "title": "Sommersemester",
+            "date": "Januar/Februar",
+            "note": "Vorlesungsbeginn im April"
+        },
+        "disclaimer": "Genaue Termine variieren je nach Institution. Überprüfe immer bei deinem Ziel-Studienkolleg."
+    },
+    "tips": {
+        "title": "Vorbereitungstipps",
+        "description": "Maximiere deine Chancen mit strategischer Vorbereitung.",
+        "items": [
+            { "title": "Früh anfangen", "description": "Beginne die Vorbereitung 3-6 Monate vor dem Prüfungstermin" },
+            { "title": "B2-Niveau erreichen", "description": "Strebe mindestens B2-Deutschkenntnisse an" },
+            { "title": "C-Tests üben", "description": "Nutze \"Mut zur Lücke\"-Bücher für gezieltes Training" },
+            { "title": "Mathe-Grundlagen wiederholen", "description": "Konzentriere dich auf die Grundlagen für deinen Kurs" },
+            { "title": "Musterprüfungen nutzen", "description": "Übe mit Prüfungen von Studienkolleg-Webseiten" },
+            { "title": "Fehler analysieren", "description": "Lerne aus Fehlern, um Schwachstellen zu erkennen" },
+            { "title": "Eintauchen", "description": "Höre täglich deutsche Podcasts und Medien" },
+            { "title": "Anforderungen prüfen", "description": "Überprüfe die Besonderheiten deiner Zielinstitution" }
+        ]
+    },
+    "info": {
+        "title": "Wichtige Informationen",
+        "items": {
+            "retakes": {
+                "label": "Wiederholung möglich:",
+                "text": "Du kannst die Prüfung in der Regel 1-2 Mal wiederholen, falls du nicht bestehst."
+            },
+            "private": {
+                "label": "Private Studienkollegs:",
+                "text": "Können Studierende ohne Aufnahmeprüfung zulassen, erheben aber Studiengebühren."
+            },
+            "variations": {
+                "label": "Institutionelle Unterschiede:",
+                "text": "Jedes Studienkolleg kann leicht unterschiedliche Prüfungsformate und Anforderungen haben."
+            },
+            "samples": {
+                "label": "Musterprüfungen verfügbar:",
+                "text": "Viele Studienkollegs bieten Übungsprüfungen auf ihren Webseiten an."
+            }
+        }
+    },
+    "cta": {
+        "title": "Bereit zur Vorbereitung?",
+        "description": "Starte heute mit deiner Prüfungsvorbereitung mit unserem strukturierten Deutschkurs.",
+        "startButton": "Mit der Vorbereitung beginnen",
+        "applicationButton": "Bewerbungsleitfaden ansehen"
+    }
+}

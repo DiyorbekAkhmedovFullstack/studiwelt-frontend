@@ -37,7 +37,7 @@ export function ProfilePage() {
     setAvatarSaving(true);
 
     try {
-      const avatarUrl = `https://api.dicebear.com/9.x/notionists/svg?seed=${encodeURIComponent(
+      const avatarUrl = `https://api.dicebear.com/9.x/notionists/png?seed=${encodeURIComponent(
         avatarSeed || 'User',
       )}`;
 

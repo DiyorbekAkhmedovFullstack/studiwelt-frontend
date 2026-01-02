@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -75,67 +76,16 @@ const AlertIcon = () => (
 
 type CourseType = 'T' | 'M' | 'W' | 'G' | 'S';
 
-const courseExamData: Record<CourseType, { name: string; fullName: string; color: string; subjects: string[]; mathTopics?: string[]; otherTopics?: string[] }> = {
-    T: {
-        name: 'T-Kurs',
-        fullName: 'Technical & Engineering',
-        color: 'bg-blue-100 text-blue-600 border-blue-200',
-        subjects: ['Mathematics', 'Physics (sometimes Chemistry)'],
-        mathTopics: ['Functions & algebra', 'Linear & quadratic equations', 'Geometry', 'Binomial formulas', 'Exponents & powers'],
-        otherTopics: ['Mechanics', 'Electricity', 'Optics'],
-    },
-    M: {
-        name: 'M-Kurs',
-        fullName: 'Medicine & Biology',
-        color: 'bg-red-100 text-red-600 border-red-200',
-        subjects: ['Mathematics', 'Biology', 'Chemistry'],
-        mathTopics: ['Algebra', 'Functions'],
-        otherTopics: ['Basic biological processes', 'Periodic table', 'Chemical reactions'],
-    },
-    W: {
-        name: 'W-Kurs',
-        fullName: 'Business & Economics',
-        color: 'bg-green-100 text-green-600 border-green-200',
-        subjects: ['Mathematics', 'Economics basics'],
-        mathTopics: ['Percentage calculations', 'Interest calculations', 'Algebra'],
-        otherTopics: ['Market dynamics', 'Supply & demand'],
-    },
-    G: {
-        name: 'G-Kurs',
-        fullName: 'Humanities & Arts',
-        color: 'bg-purple-100 text-purple-600 border-purple-200',
-        subjects: ['Extended German test', 'Chart/Data interpretation'],
-        otherTopics: ['Analyzing graphs and statistics', 'Written argumentation'],
-    },
-    S: {
-        name: 'S-Kurs',
-        fullName: 'Languages',
-        color: 'bg-amber-100 text-amber-600 border-amber-200',
-        subjects: ['Extended German proficiency', 'Humanities component'],
-        otherTopics: ['Advanced reading comprehension', 'Academic writing'],
-    },
+const courseColors: Record<CourseType, string> = {
+    T: 'bg-blue-100 text-blue-600 border-blue-200',
+    M: 'bg-red-100 text-red-600 border-red-200',
+    W: 'bg-green-100 text-green-600 border-green-200',
+    G: 'bg-purple-100 text-purple-600 border-purple-200',
+    S: 'bg-amber-100 text-amber-600 border-amber-200',
 };
 
-const germanTestComponents = [
-    { title: 'C-Test / Lückentest', description: 'Gap-filling exercises testing grammar and vocabulary' },
-    { title: 'Reading Comprehension', description: 'Understanding factual and literary texts' },
-    { title: 'Listening Comprehension', description: 'Understanding lectures, conversations, news' },
-    { title: 'Written Expression', description: 'Writing summaries, short texts, discussions' },
-    { title: 'Grammar & Vocabulary', description: 'Sentence restructuring, error correction' },
-];
-
-const preparationTips = [
-    { title: 'Start Early', description: 'Begin preparation 3-6 months before the exam date' },
-    { title: 'Reach B2 Level', description: 'Aim for B2 German proficiency minimum' },
-    { title: 'Practice C-Tests', description: 'Use "Mut zur Lücke" books for targeted practice' },
-    { title: 'Review Math Basics', description: 'Focus on fundamentals required for your course' },
-    { title: 'Use Sample Exams', description: 'Practice with papers from Studienkolleg websites' },
-    { title: 'Analyze Mistakes', description: 'Learn from errors to identify weak areas' },
-    { title: 'Immerse Yourself', description: 'Listen to German podcasts and media daily' },
-    { title: 'Check Requirements', description: 'Verify specifics for your target institution' },
-];
-
 export function EntranceExamPage() {
+    const { t } = useTranslation('entranceExam');
     const [selectedCourse, setSelectedCourse] = useState<CourseType>('T');
     const [heroRef, heroVisible] = useScrollAnimation();
     const [overviewRef, overviewVisible] = useScrollAnimation();
@@ -146,7 +96,13 @@ export function EntranceExamPage() {
     const [infoRef, infoVisible] = useScrollAnimation();
     const [ctaRef, ctaVisible] = useScrollAnimation();
 
-    const currentCourse = courseExamData[selectedCourse];
+    const currentCourse = t(`courseDetails.courses.${selectedCourse}`, { returnObjects: true }) as {
+        name: string;
+        fullName: string;
+        subjects: string[];
+        mathTopics?: string[];
+        otherTopics?: string[];
+    };
 
     return (
         <div className="min-h-screen bg-page overflow-x-hidden">
@@ -160,17 +116,16 @@ export function EntranceExamPage() {
                         className={`transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <span className="inline-block px-4 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold mb-6 tracking-wider">
-                            PREPARE TO SUCCEED
+                            {t('hero.badge')}
                         </span>
 
                         <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold mb-6 max-w-[800px] mx-auto">
-                            Understanding the{' '}
-                            <span className="text-primary italic">Aufnahmeprüfung</span>
+                            {t('hero.title')}{' '}
+                            <span className="text-primary italic">{t('hero.titleHighlight')}</span>
                         </h1>
 
                         <p className="text-base sm:text-lg text-text-muted max-w-[650px] mx-auto mb-8 leading-relaxed">
-                            The competitive entrance exam required by public Studienkollegs. Your performance
-                            determines admission — prepare strategically to secure your place.
+                            {t('hero.description')}
                         </p>
 
                         <div className="flex flex-wrap justify-center gap-4 text-sm text-text-muted">
@@ -179,13 +134,13 @@ export function EntranceExamPage() {
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                     <polyline points="14 2 14 8 20 8"></polyline>
                                 </svg>
-                                <span>2-Part Exam</span>
+                                <span>{t('hero.tags.twoPartExam')}</span>
                             </div>
                             <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                                 </svg>
-                                <span>German B1-B2</span>
+                                <span>{t('hero.tags.germanLevel')}</span>
                             </div>
                             <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -194,7 +149,7 @@ export function EntranceExamPage() {
                                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 </svg>
-                                <span>Competitive Admission</span>
+                                <span>{t('hero.tags.competitive')}</span>
                             </div>
                         </div>
                     </div>
@@ -209,9 +164,9 @@ export function EntranceExamPage() {
                         className={`transition-all duration-700 ${overviewVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">What is the Aufnahmeprüfung?</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('overview.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                The entrance exam that determines your admission to a public Studienkolleg.
+                                {t('overview.description')}
                             </p>
                         </div>
 
@@ -220,9 +175,9 @@ export function EntranceExamPage() {
                                 <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                                     <BookOpenIcon />
                                 </div>
-                                <h3 className="text-lg font-bold mb-2">Purpose</h3>
+                                <h3 className="text-lg font-bold mb-2">{t('overview.purpose.title')}</h3>
                                 <p className="text-text-muted text-[15px] leading-relaxed">
-                                    Assesses whether you have the language skills and foundational knowledge to succeed in the demanding Studienkolleg curriculum.
+                                    {t('overview.purpose.description')}
                                 </p>
                             </div>
 
@@ -230,9 +185,9 @@ export function EntranceExamPage() {
                                 <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                                     <ClockIcon />
                                 </div>
-                                <h3 className="text-lg font-bold mb-2">Format</h3>
+                                <h3 className="text-lg font-bold mb-2">{t('overview.format.title')}</h3>
                                 <p className="text-text-muted text-[15px] leading-relaxed">
-                                    Two parts: a German language test (60-90 min) and a subject-specific test (45-60 min) based on your chosen course track.
+                                    {t('overview.format.description')}
                                 </p>
                             </div>
 
@@ -240,9 +195,9 @@ export function EntranceExamPage() {
                                 <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                                     <TrophyIcon />
                                 </div>
-                                <h3 className="text-lg font-bold mb-2">Competitiveness</h3>
+                                <h3 className="text-lg font-bold mb-2">{t('overview.competitiveness.title')}</h3>
                                 <p className="text-text-muted text-[15px] leading-relaxed">
-                                    Limited seats available. Applicants are ranked by score — the higher you score, the better your chances of admission.
+                                    {t('overview.competitiveness.description')}
                                 </p>
                             </div>
                         </div>
@@ -258,9 +213,9 @@ export function EntranceExamPage() {
                         className={`transition-all duration-700 ${componentsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Exam Components</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('components.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                The exam tests both your German proficiency and subject knowledge.
+                                {t('components.description')}
                             </p>
                         </div>
 
@@ -272,13 +227,13 @@ export function EntranceExamPage() {
                                         <GermanIcon />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold">German Language Test</h3>
-                                        <span className="text-sm text-text-muted">60-90 minutes</span>
+                                        <h3 className="text-xl font-bold">{t('components.germanTest.title')}</h3>
+                                        <span className="text-sm text-text-muted">{t('components.germanTest.duration')}</span>
                                     </div>
                                 </div>
 
                                 <div className="space-y-3">
-                                    {germanTestComponents.map((component, index) => (
+                                    {(t('components.germanTest.items', { returnObjects: true }) as Array<{ title: string; description: string }>).map((component, index) => (
                                         <div key={index} className="flex items-start gap-3 bg-page p-3 rounded-lg">
                                             <CheckIcon />
                                             <div>
@@ -297,35 +252,35 @@ export function EntranceExamPage() {
                                         <MathIcon />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold">Subject-Specific Test</h3>
-                                        <span className="text-sm text-text-muted">45-60 minutes</span>
+                                        <h3 className="text-xl font-bold">{t('components.subjectTest.title')}</h3>
+                                        <span className="text-sm text-text-muted">{t('components.subjectTest.duration')}</span>
                                     </div>
                                 </div>
 
                                 <p className="text-text-muted text-[15px] mb-4">
-                                    Varies by course track. Most require mathematics, with additional subjects based on your field:
+                                    {t('components.subjectTest.description')}
                                 </p>
 
                                 <div className="space-y-2 text-[14px]">
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
                                         <span className="font-bold text-blue-600 w-16">T-Kurs</span>
-                                        <span className="text-text-muted">Math + Physics</span>
+                                        <span className="text-text-muted">{t('components.subjectTest.courses.T')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
                                         <span className="font-bold text-red-600 w-16">M-Kurs</span>
-                                        <span className="text-text-muted">Math + Biology + Chemistry</span>
+                                        <span className="text-text-muted">{t('components.subjectTest.courses.M')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
                                         <span className="font-bold text-green-600 w-16">W-Kurs</span>
-                                        <span className="text-text-muted">Math + Economics</span>
+                                        <span className="text-text-muted">{t('components.subjectTest.courses.W')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
                                         <span className="font-bold text-purple-600 w-16">G-Kurs</span>
-                                        <span className="text-text-muted">Chart evaluation + Humanities</span>
+                                        <span className="text-text-muted">{t('components.subjectTest.courses.G')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
                                         <span className="font-bold text-amber-600 w-16">S-Kurs</span>
-                                        <span className="text-text-muted">Extended German + Humanities</span>
+                                        <span className="text-text-muted">{t('components.subjectTest.courses.S')}</span>
                                     </div>
                                 </div>
 
@@ -335,7 +290,7 @@ export function EntranceExamPage() {
                                         <line x1="12" y1="8" x2="12" y2="12"></line>
                                         <line x1="12" y1="16" x2="12.01" y2="16"></line>
                                     </svg>
-                                    Calculators typically not allowed
+                                    {t('components.subjectTest.calculatorNote')}
                                 </p>
                             </div>
                         </div>
@@ -351,15 +306,15 @@ export function EntranceExamPage() {
                         className={`transition-all duration-700 ${courseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Course-Specific Details</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('courseDetails.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                Select your course to see exactly what's tested in the entrance exam.
+                                {t('courseDetails.description')}
                             </p>
                         </div>
 
                         {/* Course Selector Tabs */}
                         <div className="flex flex-wrap justify-center gap-2 mb-8">
-                            {(Object.keys(courseExamData) as CourseType[]).map((course) => (
+                            {(['T', 'M', 'W', 'G', 'S'] as CourseType[]).map((course) => (
                                 <button
                                     key={course}
                                     onClick={() => setSelectedCourse(course)}
@@ -368,15 +323,15 @@ export function EntranceExamPage() {
                                             : 'bg-page text-text-muted hover:bg-highlight'
                                         }`}
                                 >
-                                    {courseExamData[course].name}
+                                    {t(`courseDetails.courses.${course}.name`)}
                                 </button>
                             ))}
                         </div>
 
                         {/* Course Details Card */}
-                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${currentCourse.color.split(' ')[0].replace('bg-', 'border-').replace('-100', '-400')}`}>
+                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${courseColors[selectedCourse].split(' ')[0].replace('bg-', 'border-').replace('-100', '-400')}`}>
                             <div className="flex items-center gap-3 mb-6">
-                                <div className={`px-3 py-1.5 rounded-lg text-sm font-bold ${currentCourse.color}`}>
+                                <div className={`px-3 py-1.5 rounded-lg text-sm font-bold ${courseColors[selectedCourse]}`}>
                                     {currentCourse.name}
                                 </div>
                                 <span className="text-lg font-semibold">{currentCourse.fullName}</span>
@@ -384,7 +339,7 @@ export function EntranceExamPage() {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <h4 className="font-bold mb-3 text-text-main">Subjects Tested</h4>
+                                    <h4 className="font-bold mb-3 text-text-main">{t('courseDetails.subjectsTested')}</h4>
                                     <ul className="space-y-2">
                                         {currentCourse.subjects.map((subject, index) => (
                                             <li key={index} className="flex items-center gap-2 text-[15px]">
@@ -398,7 +353,7 @@ export function EntranceExamPage() {
                                 <div>
                                     {currentCourse.mathTopics && (
                                         <div className="mb-4">
-                                            <h4 className="font-bold mb-3 text-text-main">Math Topics</h4>
+                                            <h4 className="font-bold mb-3 text-text-main">{t('courseDetails.mathTopics')}</h4>
                                             <ul className="space-y-1 text-[14px] text-text-muted">
                                                 {currentCourse.mathTopics.map((topic, index) => (
                                                     <li key={index} className="flex items-center gap-2">
@@ -413,7 +368,7 @@ export function EntranceExamPage() {
                                     {currentCourse.otherTopics && (
                                         <div>
                                             <h4 className="font-bold mb-3 text-text-main">
-                                                {currentCourse.mathTopics ? 'Other Topics' : 'Key Areas'}
+                                                {currentCourse.mathTopics ? t('courseDetails.otherTopics') : t('courseDetails.keyAreas')}
                                             </h4>
                                             <ul className="space-y-1 text-[14px] text-text-muted">
                                                 {currentCourse.otherTopics.map((topic, index) => (
@@ -440,9 +395,9 @@ export function EntranceExamPage() {
                         className={`transition-all duration-700 ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Exam Timeline</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('timeline.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                Entrance exams are held twice a year, before each semester begins.
+                                {t('timeline.description')}
                             </p>
                         </div>
 
@@ -451,23 +406,23 @@ export function EntranceExamPage() {
                                 <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <CalendarIcon />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Winter Semester</h3>
-                                <p className="text-3xl font-bold text-primary mb-2">July</p>
-                                <p className="text-text-muted text-sm">Classes start in October</p>
+                                <h3 className="text-xl font-bold mb-2">{t('timeline.winter.title')}</h3>
+                                <p className="text-3xl font-bold text-primary mb-2">{t('timeline.winter.date')}</p>
+                                <p className="text-text-muted text-sm">{t('timeline.winter.note')}</p>
                             </div>
 
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card text-center">
                                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <CalendarIcon />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Summer Semester</h3>
-                                <p className="text-3xl font-bold text-primary mb-2">January/February</p>
-                                <p className="text-text-muted text-sm">Classes start in April</p>
+                                <h3 className="text-xl font-bold mb-2">{t('timeline.summer.title')}</h3>
+                                <p className="text-3xl font-bold text-primary mb-2">{t('timeline.summer.date')}</p>
+                                <p className="text-text-muted text-sm">{t('timeline.summer.note')}</p>
                             </div>
                         </div>
 
                         <p className="text-center text-text-muted text-sm mt-6 max-w-[600px] mx-auto">
-                            Exact dates vary by institution. Always verify with your target Studienkolleg.
+                            {t('timeline.disclaimer')}
                         </p>
                     </div>
                 </div>
@@ -481,14 +436,14 @@ export function EntranceExamPage() {
                         className={`transition-all duration-700 ${tipsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Preparation Tips</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('tips.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                Maximize your chances with strategic preparation.
+                                {t('tips.description')}
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {preparationTips.map((tip, index) => (
+                            {(t('tips.items', { returnObjects: true }) as Array<{ title: string; description: string }>).map((tip, index) => (
                                 <div
                                     key={index}
                                     className="bg-page p-5 rounded-[16px] transition-all duration-300 hover:-translate-y-1"
@@ -513,7 +468,7 @@ export function EntranceExamPage() {
                         className={`transition-all duration-700 ${infoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Important Information</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('info.title')}</h2>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
@@ -521,7 +476,7 @@ export function EntranceExamPage() {
                                 <p className="text-sm text-blue-800 flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
-                                        <strong>Retakes allowed:</strong> You can typically repeat the exam 1-2 times if you don't pass initially.
+                                        <strong>{t('info.items.retakes.label')}</strong> {t('info.items.retakes.text')}
                                     </span>
                                 </p>
                             </div>
@@ -530,7 +485,7 @@ export function EntranceExamPage() {
                                 <p className="text-sm text-green-800 flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
-                                        <strong>Private Studienkollegs:</strong> May admit students without an entrance exam, but charge tuition fees.
+                                        <strong>{t('info.items.private.label')}</strong> {t('info.items.private.text')}
                                     </span>
                                 </p>
                             </div>
@@ -539,7 +494,7 @@ export function EntranceExamPage() {
                                 <p className="text-sm text-amber-800 flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
-                                        <strong>Institution variations:</strong> Each Studienkolleg may have slightly different exam formats and requirements.
+                                        <strong>{t('info.items.variations.label')}</strong> {t('info.items.variations.text')}
                                     </span>
                                 </p>
                             </div>
@@ -548,7 +503,7 @@ export function EntranceExamPage() {
                                 <p className="text-sm text-purple-800 flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
-                                        <strong>Sample exams available:</strong> Many Studienkollegs provide practice exams on their websites.
+                                        <strong>{t('info.items.samples.label')}</strong> {t('info.items.samples.text')}
                                     </span>
                                 </p>
                             </div>
@@ -564,9 +519,9 @@ export function EntranceExamPage() {
                         ref={ctaRef}
                         className={`text-center transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
-                        <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Ready to Prepare?</h2>
+                        <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('cta.title')}</h2>
                         <p className="text-text-muted text-base sm:text-lg max-w-[600px] mx-auto mb-8">
-                            Start your exam preparation today with our structured German language course.
+                            {t('cta.description')}
                         </p>
 
                         <div className="flex flex-wrap justify-center gap-4">
@@ -574,7 +529,7 @@ export function EntranceExamPage() {
                                 to="/register"
                                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-primary-hover shadow-[0_4px_12px_rgba(166,123,91,0.3)] active:scale-[0.98]"
                             >
-                                Start Preparing
+                                {t('cta.startButton')}
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -585,7 +540,7 @@ export function EntranceExamPage() {
                                 to="/application"
                                 className="inline-flex items-center gap-2 bg-transparent text-text-main font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-page border border-border"
                             >
-                                View Application Guide
+                                {t('cta.applicationButton')}
                             </Link>
                         </div>
                     </div>

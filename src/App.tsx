@@ -4,6 +4,7 @@ import { CustomToaster } from './components/common/CustomToast';
 import { NavbarSkeleton } from './components/common/NavbarSkeleton';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { SkipLink } from './components/common/SkipLink';
+import { LanguagePromptBanner } from './components/common/LanguagePromptBanner';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <AppRoutes />
       </Suspense>
       <CustomToaster />
+      <LanguagePromptBanner />
     </ErrorBoundary>
   );
 }

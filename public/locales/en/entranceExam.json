@@ -1,0 +1,156 @@
+{
+    "hero": {
+        "badge": "PREPARE TO SUCCEED",
+        "title": "Understanding the",
+        "titleHighlight": "Aufnahmeprüfung",
+        "description": "The competitive entrance exam required by public Studienkollegs. Your performance determines admission — prepare strategically to secure your place.",
+        "tags": {
+            "twoPartExam": "2-Part Exam",
+            "germanLevel": "German B1-B2",
+            "competitive": "Competitive Admission"
+        }
+    },
+    "overview": {
+        "title": "What is the Aufnahmeprüfung?",
+        "description": "The entrance exam that determines your admission to a public Studienkolleg.",
+        "purpose": {
+            "title": "Purpose",
+            "description": "Assesses whether you have the language skills and foundational knowledge to succeed in the demanding Studienkolleg curriculum."
+        },
+        "format": {
+            "title": "Format",
+            "description": "Two parts: a German language test (60-90 min) and a subject-specific test (45-60 min) based on your chosen course track."
+        },
+        "competitiveness": {
+            "title": "Competitiveness",
+            "description": "Limited seats available. Applicants are ranked by score — the higher you score, the better your chances of admission."
+        }
+    },
+    "components": {
+        "title": "Exam Components",
+        "description": "The exam tests both your German proficiency and subject knowledge.",
+        "germanTest": {
+            "title": "German Language Test",
+            "duration": "60-90 minutes",
+            "items": [
+                { "title": "C-Test / Lückentest", "description": "Gap-filling exercises testing grammar and vocabulary" },
+                { "title": "Reading Comprehension", "description": "Understanding factual and literary texts" },
+                { "title": "Listening Comprehension", "description": "Understanding lectures, conversations, news" },
+                { "title": "Written Expression", "description": "Writing summaries, short texts, discussions" },
+                { "title": "Grammar & Vocabulary", "description": "Sentence restructuring, error correction" }
+            ]
+        },
+        "subjectTest": {
+            "title": "Subject-Specific Test",
+            "duration": "45-60 minutes",
+            "description": "Varies by course track. Most require mathematics, with additional subjects based on your field:",
+            "courses": {
+                "T": "Math + Physics",
+                "M": "Math + Biology + Chemistry",
+                "W": "Math + Economics",
+                "G": "Chart evaluation + Humanities",
+                "S": "Extended German + Humanities"
+            },
+            "calculatorNote": "Calculators typically not allowed"
+        }
+    },
+    "courseDetails": {
+        "title": "Course-Specific Details",
+        "description": "Select your course to see exactly what's tested in the entrance exam.",
+        "subjectsTested": "Subjects Tested",
+        "mathTopics": "Math Topics",
+        "otherTopics": "Other Topics",
+        "keyAreas": "Key Areas",
+        "courses": {
+            "T": {
+                "name": "T-Kurs",
+                "fullName": "Technical & Engineering",
+                "subjects": ["Mathematics", "Physics (sometimes Chemistry)"],
+                "mathTopics": ["Functions & algebra", "Linear & quadratic equations", "Geometry", "Binomial formulas", "Exponents & powers"],
+                "otherTopics": ["Mechanics", "Electricity", "Optics"]
+            },
+            "M": {
+                "name": "M-Kurs",
+                "fullName": "Medicine & Biology",
+                "subjects": ["Mathematics", "Biology", "Chemistry"],
+                "mathTopics": ["Algebra", "Functions"],
+                "otherTopics": ["Basic biological processes", "Periodic table", "Chemical reactions"]
+            },
+            "W": {
+                "name": "W-Kurs",
+                "fullName": "Business & Economics",
+                "subjects": ["Mathematics", "Economics basics"],
+                "mathTopics": ["Percentage calculations", "Interest calculations", "Algebra"],
+                "otherTopics": ["Market dynamics", "Supply & demand"]
+            },
+            "G": {
+                "name": "G-Kurs",
+                "fullName": "Humanities & Arts",
+                "subjects": ["Extended German test", "Chart/Data interpretation"],
+                "otherTopics": ["Analyzing graphs and statistics", "Written argumentation"]
+            },
+            "S": {
+                "name": "S-Kurs",
+                "fullName": "Languages",
+                "subjects": ["Extended German proficiency", "Humanities component"],
+                "otherTopics": ["Advanced reading comprehension", "Academic writing"]
+            }
+        }
+    },
+    "timeline": {
+        "title": "Exam Timeline",
+        "description": "Entrance exams are held twice a year, before each semester begins.",
+        "winter": {
+            "title": "Winter Semester",
+            "date": "July",
+            "note": "Classes start in October"
+        },
+        "summer": {
+            "title": "Summer Semester",
+            "date": "January/February",
+            "note": "Classes start in April"
+        },
+        "disclaimer": "Exact dates vary by institution. Always verify with your target Studienkolleg."
+    },
+    "tips": {
+        "title": "Preparation Tips",
+        "description": "Maximize your chances with strategic preparation.",
+        "items": [
+            { "title": "Start Early", "description": "Begin preparation 3-6 months before the exam date" },
+            { "title": "Reach B2 Level", "description": "Aim for B2 German proficiency minimum" },
+            { "title": "Practice C-Tests", "description": "Use \"Mut zur Lücke\" books for targeted practice" },
+            { "title": "Review Math Basics", "description": "Focus on fundamentals required for your course" },
+            { "title": "Use Sample Exams", "description": "Practice with papers from Studienkolleg websites" },
+            { "title": "Analyze Mistakes", "description": "Learn from errors to identify weak areas" },
+            { "title": "Immerse Yourself", "description": "Listen to German podcasts and media daily" },
+            { "title": "Check Requirements", "description": "Verify specifics for your target institution" }
+        ]
+    },
+    "info": {
+        "title": "Important Information",
+        "items": {
+            "retakes": {
+                "label": "Retakes allowed:",
+                "text": "You can typically repeat the exam 1-2 times if you don't pass initially."
+            },
+            "private": {
+                "label": "Private Studienkollegs:",
+                "text": "May admit students without an entrance exam, but charge tuition fees."
+            },
+            "variations": {
+                "label": "Institution variations:",
+                "text": "Each Studienkolleg may have slightly different exam formats and requirements."
+            },
+            "samples": {
+                "label": "Sample exams available:",
+                "text": "Many Studienkollegs provide practice exams on their websites."
+            }
+        }
+    },
+    "cta": {
+        "title": "Ready to Prepare?",
+        "description": "Start your exam preparation today with our structured German language course.",
+        "startButton": "Start Preparing",
+        "applicationButton": "View Application Guide"
+    }
+}
