@@ -1,0 +1,141 @@
+{
+    "hero": {
+        "badge": "DEIN WEG ZUR UNIVERSITÄT",
+        "title": "Die",
+        "titleHighlight": "Feststellungsprüfung",
+        "description": "Die abschließende Prüfung am Ende des Studienkollegs, die deine Eignung für ein deutsches Universitätsstudium bestätigt und bundesweit anerkannt wird.",
+        "tags": {
+            "writtenExams": "Schriftliche Prüfungen",
+            "passingGrade": "Note 4,0 zum Bestehen",
+            "nationallyRecognized": "Bundesweit anerkannt"
+        }
+    },
+    "overview": {
+        "title": "Was ist die FSP?",
+        "description": "Die Feststellungsprüfung ist dein letzter Schritt zur deutschen Universitätszulassung.",
+        "purpose": {
+            "title": "Zweck",
+            "description": "Bescheinigt, dass deine Qualifikationen dem deutschen Abitur entsprechen und ermöglicht die direkte Universitätszulassung."
+        },
+        "format": {
+            "title": "Format",
+            "description": "Drei schriftliche Prüfungen (je 3-4 Stunden). Abgelegt am Ende des zweiten Semesters."
+        },
+        "recognition": {
+            "title": "Anerkennung",
+            "description": "Dein FSP-Zeugnis wird an allen deutschen Universitäten anerkannt und öffnet bundesweit Türen in deinem Fachbereich."
+        }
+    },
+    "structure": {
+        "title": "Prüfungsstruktur",
+        "description": "Die FSP besteht aus schriftlichen Prüfungen in deinen Kursfächern.",
+        "writtenExams": {
+            "title": "Schriftliche Prüfungen",
+            "duration": "3-4 Stunden pro Fach",
+            "items": [
+                { "title": "Deutsch (DaF)", "description": "Pflicht für alle Kurse, B2/C1 Niveau" },
+                { "title": "Fachprüfung 1", "description": "Kernfach basierend auf deinem Kursschwerpunkt" },
+                { "title": "Fachprüfung 2", "description": "Zusätzliches Fach für deinen Schwerpunkt" }
+            ]
+        }
+    },
+    "courseDetails": {
+        "title": "Fächer nach Kurs",
+        "description": "Wähle deinen Kurs, um zu sehen, welche Fächer geprüft werden.",
+        "writtenExams": "Schriftliche Prüfungen",
+        "courses": {
+            "T": {
+                "name": "T-Kurs",
+                "fullName": "Technik & Ingenieurwesen",
+                "written": ["Deutsch (DaF)", "Mathematik", "Physik oder Chemie/IT"]
+            },
+            "M": {
+                "name": "M-Kurs",
+                "fullName": "Medizin & Biologie",
+                "written": ["Deutsch (DaF)", "Biologie oder Chemie", "Mathematik oder Physik"]
+            },
+            "W": {
+                "name": "W-Kurs",
+                "fullName": "Wirtschaft & Ökonomie",
+                "written": ["Deutsch (DaF)", "Mathematik", "VWL/BWL"]
+            },
+            "G": {
+                "name": "G-Kurs",
+                "fullName": "Geisteswissenschaften & Kunst",
+                "written": ["Deutsch (DaF)", "Geschichte", "Sozialkunde/Geographie"]
+            },
+            "S": {
+                "name": "S-Kurs",
+                "fullName": "Sprachen",
+                "written": ["Deutsch (DaF)", "Deutsche Literatur", "Zweite Fremdsprache"]
+            }
+        }
+    },
+    "grading": {
+        "title": "Notensystem",
+        "description": "Verstehe, wie deine FSP bewertet wird.",
+        "scale": [
+            { "range": "1,0 - 1,5", "meaning": "Sehr gut" },
+            { "range": "1,6 - 2,5", "meaning": "Gut" },
+            { "range": "2,6 - 3,5", "meaning": "Befriedigend" },
+            { "range": "3,6 - 4,0", "meaning": "Ausreichend" },
+            { "range": "4,1 - 5,0", "meaning": "Nicht bestanden" }
+        ],
+        "rules": {
+            "german": {
+                "label": "Deutschnote:",
+                "text": "Muss mindestens 4,0 sein — kein Ausgleich möglich."
+            },
+            "compensation": {
+                "label": "Notenausgleich:",
+                "text": "Ein Fach unter 4,0 kann durch bessere Noten in anderen Fächern ausgeglichen werden."
+            },
+            "betterGrades": {
+                "label": "Bessere Noten = bessere Chancen:",
+                "text": "Deine FSP-Note beeinflusst die Wettbewerbsfähigkeit bei der Universitätszulassung."
+            }
+        }
+    },
+    "tips": {
+        "title": "Vorbereitungstipps",
+        "description": "Maximiere deine Erfolgschancen mit diesen Strategien.",
+        "items": [
+            { "title": "Alle Kurse besuchen", "description": "Regelmäßige Anwesenheit ist entscheidend für das Verständnis des Materials" },
+            { "title": "Strukturierter Lernplan", "description": "Erstelle einen Zeitplan, der alle Fächer systematisch abdeckt" },
+            { "title": "Lerngruppen bilden", "description": "Arbeite mit Kommilitonen zusammen, um zu diskutieren und zu wiederholen" },
+            { "title": "Alte Prüfungen üben", "description": "Mache dich mit Frageformaten und Zeitvorgaben vertraut" },
+            { "title": "Zeitmanagement beherrschen", "description": "Übe, Aufgaben innerhalb von Zeitlimits zu erledigen" },
+            { "title": "Dozentenmaterialien nutzen", "description": "Wiederhole alle bereitgestellten Übungsaufgaben und Leitfäden" },
+            { "title": "Probeprüfungen ablegen", "description": "Simuliere echte Prüfungsbedingungen vor dem Test" },
+            { "title": "Ausruhen und Stress managen", "description": "Achte auf gesunden Schlaf und Stressbewältigung" }
+        ]
+    },
+    "after": {
+        "title": "Nach Bestehen der FSP",
+        "description": "Herzlichen Glückwunsch! Dein FSP-Zeugnis öffnet die Türen zu deutschen Universitäten.",
+        "cards": {
+            "universityAccess": {
+                "title": "Universitätszugang",
+                "description": "Bewirb dich an jeder deutschen Universität in deinem Fachbereich."
+            },
+            "nationwideRecognition": {
+                "title": "Bundesweite Anerkennung",
+                "description": "Dein Zeugnis gilt an allen Universitäten in ganz Deutschland."
+            },
+            "competitiveEdge": {
+                "title": "Wettbewerbsvorteil",
+                "description": "Bessere Noten verbessern die Zulassungschancen für beliebte Studiengänge."
+            },
+            "retakeOptions": {
+                "title": "Wiederholungsmöglichkeiten",
+                "description": "Bei Nichtbestehen kannst du die FSP in der Regel 1-2 Mal wiederholen."
+            }
+        }
+    },
+    "cta": {
+        "title": "Bereit zur Vorbereitung?",
+        "description": "Starte heute deine Vorbereitungsreise mit unserem strukturierten Deutschkurs.",
+        "startButton": "Mit der Vorbereitung beginnen",
+        "learnButton": "Mehr über das Studienkolleg erfahren"
+    }
+}

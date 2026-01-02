@@ -49,7 +49,7 @@ export function ReadingExercisePage() {
   const error = readingError
     ? readingError instanceof Error
       ? readingError.message
-      : 'Load failed.'
+      : 'Laden fehlgeschlagen.'
     : null;
 
   const handleAnswerChange = (
@@ -93,14 +93,14 @@ export function ReadingExercisePage() {
             const nowCompleted = isSectionLocked(reading.lessonId, 'reading');
             if (nowCompleted) {
               toastService.success(
-                'Reading section completed!',
+                'Leseverstehen-Bereich abgeschlossen!',
                 { duration: 6000 }
               );
             } else {
-              toastService.success('Quiz submitted.');
+              toastService.success('Quiz abgesendet.');
             }
           } else {
-            toastService.success('Quiz submitted.');
+            toastService.success('Quiz abgesendet.');
           }
 
           // Navigate to results page, passing result via state
@@ -113,11 +113,11 @@ export function ReadingExercisePage() {
           const message =
             err instanceof Error
               ? err.message
-              : 'Submit failed.';
+              : 'Absenden fehlgeschlagen.';
 
           // Check if section was completed (403 Forbidden)
           if (message.includes('locked') || message.includes('403')) {
-            toastService.info('Section already completed.');
+            toastService.info('Bereich bereits abgeschlossen.');
           } else {
             toastService.error(message);
           }
@@ -135,7 +135,7 @@ export function ReadingExercisePage() {
     return (
       <SectionCompletedState
         backPath={`/course/${lessonNumber}`}
-        backLabel="Back to lesson"
+        backLabel="Zurück zur Lektion"
       />
     );
   }
@@ -143,9 +143,9 @@ export function ReadingExercisePage() {
   if (error || !reading) {
     return (
       <ErrorState
-        error={error ?? 'Reading not found.'}
+        error={error ?? 'Lesetext nicht gefunden.'}
         backPath={`/course/${lessonNumber}`}
-        backLabel="Back to lesson"
+        backLabel="Zurück zur Lektion"
       />
     );
   }
@@ -178,12 +178,12 @@ export function ReadingExercisePage() {
             >
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            <span className="text-sm font-medium">Exit</span>
+            <span className="text-sm font-medium">Beenden</span>
           </button>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 text-text-muted text-[11px] sm:text-sm">
-          <span className="hidden sm:inline">Question {answeredCount} of {reading.questions.length}</span>
+          <span className="hidden sm:inline">Frage {answeredCount} von {reading.questions.length}</span>
           <span className="sm:hidden">{answeredCount}/{reading.questions.length}</span>
           <div className="w-16 sm:w-24 h-1 sm:h-1.5 bg-[#EEE] rounded-full overflow-hidden">
             <div
@@ -201,7 +201,7 @@ export function ReadingExercisePage() {
           className={`flex-1 py-3 text-sm font-semibold transition-colors relative ${activeTab === 'passage' ? 'text-primary' : 'text-text-muted hover:text-text-main'
             }`}
         >
-          Passage
+          Lesetext
           {activeTab === 'passage' && (
             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
           )}
@@ -211,7 +211,7 @@ export function ReadingExercisePage() {
           className={`flex-1 py-3 text-sm font-semibold transition-colors relative ${activeTab === 'questions' ? 'text-primary' : 'text-text-muted hover:text-text-main'
             }`}
         >
-          Questions
+          Fragen
           {activeTab === 'questions' && (
             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
           )}
@@ -226,7 +226,7 @@ export function ReadingExercisePage() {
           <div className="flex justify-center min-h-min">
             <article className="bg-surface w-full max-w-3xl px-4 sm:px-16 py-6 sm:py-16 shadow-[0_10px_40px_rgba(62,54,48,0.1)] rounded-sm h-fit paper-sheet">
               <div className="text-[11px] sm:text-sm text-text-muted uppercase tracking-wider mb-3 sm:mb-4 font-semibold">
-                Reading Passage
+                Lesetext
               </div>
               <h1 className="font-serif text-xl sm:text-2xl md:text-[32px] mb-4 sm:mb-8 leading-tight text-text-main">
                 {reading.title}
@@ -251,7 +251,7 @@ export function ReadingExercisePage() {
               className="bg-surface rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-card border border-transparent"
             >
               <span className="block text-[11px] sm:text-xs font-semibold text-primary mb-2 uppercase tracking-wide">
-                Question {qIndex + 1}
+                Frage {qIndex + 1}
               </span>
               <p className="text-sm sm:text-base md:text-[17px] font-semibold mb-3 sm:mb-5 leading-relaxed text-text-main">
                 {question.questionText}
@@ -290,7 +290,7 @@ export function ReadingExercisePage() {
               disabled={!allQuestionsAnswered() || submitMutation.isPending}
               className="w-full bg-primary text-white border-none py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base cursor-pointer transition-all hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {submitMutation.isPending ? 'Submitting...' : 'Check Answers'}
+              {submitMutation.isPending ? 'Wird gesendet...' : 'Antworten prüfen'}
             </button>
           </div>
         </aside>

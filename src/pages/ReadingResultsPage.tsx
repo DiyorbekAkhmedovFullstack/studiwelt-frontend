@@ -19,14 +19,14 @@ export function ReadingResultsPage() {
       <div className="min-h-screen flex items-center justify-center bg-page p-4">
         <div className="w-full max-w-md rounded-[24px] bg-surface p-8 shadow-card border border-[#E3D4C5]">
           <p className="mb-6 text-base text-text-main" role="alert">
-            No results found. Please take the quiz first.
+            Keine Ergebnisse gefunden. Bitte schließe zuerst das Quiz ab.
           </p>
           <button
             type="button"
             onClick={() => navigate(`/course/${lessonNumber}/reading/${readingId}`)}
             className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary-hover transition-all"
           >
-            Take quiz
+            Zum Quiz
           </button>
         </div>
       </div>
@@ -47,7 +47,7 @@ export function ReadingResultsPage() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Back to Lesson {lessonNumber}
+          Zurück zu Lektion {lessonNumber}
         </button>
       </header>
 
@@ -56,9 +56,9 @@ export function ReadingResultsPage() {
         {/* Title */}
         <div className="mb-6 sm:mb-8">
           <span className="text-[0.7rem] sm:text-[0.75rem] uppercase tracking-wider font-bold text-primary mb-2 sm:mb-3 block">
-            Reading Results
+            Leseverstehen-Ergebnisse
           </span>
-          <h1 className="font-serif text-3xl sm:text-[2.5rem] mb-2 text-text-main">Quiz Complete</h1>
+          <h1 className="font-serif text-3xl sm:text-[2.5rem] mb-2 text-text-main">Quiz abgeschlossen</h1>
         </div>
 
         {/* Score Card */}
@@ -89,10 +89,10 @@ export function ReadingResultsPage() {
             </div>
 
             <h2 className="font-serif text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-text-main">
-              {passed ? 'Excellent Work!' : 'Keep Practicing!'}
+              {passed ? 'Ausgezeichnete Arbeit!' : 'Weiter üben!'}
             </h2>
             <p className="text-sm sm:text-base text-text-muted mb-4 sm:mb-6">
-              You scored <strong>{result.score}</strong> out of <strong>{result.totalQuestions}</strong> questions correctly.
+              Du hast <strong>{result.score}</strong> von <strong>{result.totalQuestions}</strong> Fragen richtig beantwortet.
             </p>
 
             <div className={`inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 ${passed ? 'bg-[#EBF5EC] text-[#6B8C6E]' : 'bg-[#FFF5F5] text-[#C07766]'
@@ -105,7 +105,7 @@ export function ReadingResultsPage() {
                 )}
               </svg>
               <span className="text-xs sm:text-sm font-bold">
-                {passed ? 'Passed' : 'Not Passed'} (60% required)
+                {passed ? 'Bestanden' : 'Nicht bestanden'} (60% erforderlich)
               </span>
             </div>
           </div>
@@ -113,7 +113,7 @@ export function ReadingResultsPage() {
 
         {/* Question Review */}
         <div className="mb-6 sm:mb-8">
-          <h2 className="font-serif text-xl sm:text-[1.5rem] mb-4 sm:mb-6 text-text-main">Question Review</h2>
+          <h2 className="font-serif text-xl sm:text-[1.5rem] mb-4 sm:mb-6 text-text-main">Fragenübersicht</h2>
         </div>
 
         <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
@@ -128,7 +128,7 @@ export function ReadingResultsPage() {
                 {/* Question Header */}
                 <div className="flex items-start justify-between mb-4 sm:mb-5">
                   <span className="text-[0.7rem] sm:text-[0.75rem] uppercase tracking-wider font-bold text-text-muted">
-                    Question {qIndex + 1}
+                    Frage {qIndex + 1}
                   </span>
                   <span
                     className={`inline-flex items-center gap-1.5 rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wide ${isCorrect
@@ -143,7 +143,7 @@ export function ReadingResultsPage() {
                         <path d="M18 6L6 18M6 6l12 12"></path>
                       )}
                     </svg>
-                    {isCorrect ? 'Correct' : 'Incorrect'}
+                    {isCorrect ? 'Richtig' : 'Falsch'}
                   </span>
                 </div>
 
@@ -170,7 +170,7 @@ export function ReadingResultsPage() {
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                           </svg>
-                          Correct Answer
+                          Richtige Antwort
                         </span>
                       );
                     } else if (isSelectedAnswer && !isCorrect) {
@@ -178,7 +178,7 @@ export function ReadingResultsPage() {
                       bgColor = 'bg-[#FFF5F5]';
                       badge = (
                         <span className="ml-auto text-[10px] sm:text-xs font-bold text-[#C07766]">
-                          Your Answer
+                          Deine Antwort
                         </span>
                       );
                     }
@@ -203,7 +203,7 @@ export function ReadingResultsPage() {
                 {/* Explanation */}
                 {questionResult.explanation && (
                   <div className="bg-[#FAF6F3] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
-                    <p className="text-xs sm:text-sm font-bold text-primary mb-1 sm:mb-2">Explanation</p>
+                    <p className="text-xs sm:text-sm font-bold text-primary mb-1 sm:mb-2">Erklärung</p>
                     <p className="text-xs sm:text-sm text-text-main leading-relaxed">
                       {questionResult.explanation}
                     </p>
@@ -221,7 +221,7 @@ export function ReadingResultsPage() {
             onClick={() => navigate(`/course/${lessonNumber}`, { replace: true })}
             className="bg-text-main text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-[0_12px_40px_rgba(62,54,48,0.08)] transition-all hover:-translate-y-1 hover:bg-primary text-sm sm:text-base"
           >
-            Back to Lesson
+            Zurück zur Lektion
           </button>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -83,59 +84,24 @@ const AlertIcon = () => (
 
 type CourseType = 'T' | 'M' | 'W' | 'G' | 'S';
 
-const courseExamData: Record<CourseType, { name: string; fullName: string; color: string; written: string[] }> = {
-    T: {
-        name: 'T-Kurs',
-        fullName: 'Technical & Engineering',
-        color: 'bg-blue-100 text-blue-600 border-blue-200',
-        written: ['German (DaF)', 'Mathematics', 'Physics or Chemistry/IT'],
-    },
-    M: {
-        name: 'M-Kurs',
-        fullName: 'Medicine & Biology',
-        color: 'bg-red-100 text-red-600 border-red-200',
-        written: ['German (DaF)', 'Biology or Chemistry', 'Mathematics or Physics'],
-    },
-    W: {
-        name: 'W-Kurs',
-        fullName: 'Business & Economics',
-        color: 'bg-green-100 text-green-600 border-green-200',
-        written: ['German (DaF)', 'Mathematics', 'Economics/Business Administration'],
-    },
-    G: {
-        name: 'G-Kurs',
-        fullName: 'Humanities & Arts',
-        color: 'bg-purple-100 text-purple-600 border-purple-200',
-        written: ['German (DaF)', 'History', 'Social Sciences/Geography'],
-    },
-    S: {
-        name: 'S-Kurs',
-        fullName: 'Languages',
-        color: 'bg-amber-100 text-amber-600 border-amber-200',
-        written: ['German (DaF)', 'German Literature', 'Second Language'],
-    },
+const courseColors: Record<CourseType, string> = {
+    T: 'bg-blue-100 text-blue-600 border-blue-200',
+    M: 'bg-red-100 text-red-600 border-red-200',
+    W: 'bg-green-100 text-green-600 border-green-200',
+    G: 'bg-purple-100 text-purple-600 border-purple-200',
+    S: 'bg-amber-100 text-amber-600 border-amber-200',
 };
 
-const gradingScale = [
-    { range: '1.0 - 1.5', meaning: 'Very Good (Sehr gut)', pass: true, color: 'bg-green-100 text-green-700' },
-    { range: '1.6 - 2.5', meaning: 'Good (Gut)', pass: true, color: 'bg-green-50 text-green-600' },
-    { range: '2.6 - 3.5', meaning: 'Satisfactory (Befriedigend)', pass: true, color: 'bg-amber-50 text-amber-600' },
-    { range: '3.6 - 4.0', meaning: 'Sufficient (Ausreichend)', pass: true, color: 'bg-amber-100 text-amber-700' },
-    { range: '4.1 - 5.0', meaning: 'Fail (Nicht bestanden)', pass: false, color: 'bg-red-50 text-red-600' },
-];
-
-const preparationTips = [
-    { title: 'Attend All Classes', description: 'Consistent attendance is crucial for understanding material' },
-    { title: 'Structured Study Plan', description: 'Create a schedule covering all subjects systematically' },
-    { title: 'Form Study Groups', description: 'Collaborate with classmates to discuss and review' },
-    { title: 'Practice Past Exams', description: 'Familiarize yourself with question formats and timing' },
-    { title: 'Master Time Management', description: 'Practice completing tasks within time limits' },
-    { title: 'Use Professor Materials', description: 'Review all provided practice problems and guides' },
-    { title: 'Take Mock Exams', description: 'Simulate real exam conditions before the test' },
-    { title: 'Rest and Manage Stress', description: 'Maintain healthy sleep and stress management' },
+const gradingColors = [
+    { pass: true, color: 'bg-green-100 text-green-700' },
+    { pass: true, color: 'bg-green-50 text-green-600' },
+    { pass: true, color: 'bg-amber-50 text-amber-600' },
+    { pass: true, color: 'bg-amber-100 text-amber-700' },
+    { pass: false, color: 'bg-red-50 text-red-600' },
 ];
 
 export function FSPPage() {
+    const { t } = useTranslation('fsp');
     const [selectedCourse, setSelectedCourse] = useState<CourseType>('T');
     const [heroRef, heroVisible] = useScrollAnimation();
     const [overviewRef, overviewVisible] = useScrollAnimation();
@@ -146,7 +112,14 @@ export function FSPPage() {
     const [afterRef, afterVisible] = useScrollAnimation();
     const [ctaRef, ctaVisible] = useScrollAnimation();
 
-    const currentCourse = courseExamData[selectedCourse];
+    const currentCourse = t(`courseDetails.courses.${selectedCourse}`, { returnObjects: true }) as {
+        name: string;
+        fullName: string;
+        written: string[];
+    };
+    const gradingScale = t('grading.scale', { returnObjects: true }) as { range: string; meaning: string }[];
+    const preparationTips = t('tips.items', { returnObjects: true }) as { title: string; description: string }[];
+    const structureItems = t('structure.writtenExams.items', { returnObjects: true }) as { title: string; description: string }[];
 
     return (
         <div className="min-h-screen bg-page overflow-x-hidden">
@@ -160,17 +133,16 @@ export function FSPPage() {
                         className={`transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <span className="inline-block px-4 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold mb-6 tracking-wider">
-                            YOUR PATH TO UNIVERSITY
+                            {t('hero.badge')}
                         </span>
 
                         <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold mb-6 max-w-[800px] mx-auto">
-                            The{' '}
-                            <span className="text-primary italic">Feststellungsprüfung</span>
+                            {t('hero.title')}{' '}
+                            <span className="text-primary italic">{t('hero.titleHighlight')}</span>
                         </h1>
 
                         <p className="text-base sm:text-lg text-text-muted max-w-[650px] mx-auto mb-8 leading-relaxed">
-                            The final assessment exam at the end of Studienkolleg that certifies your readiness
-                            for German university studies and grants nationwide recognition.
+                            {t('hero.description')}
                         </p>
 
                         <div className="flex flex-wrap justify-center gap-4 text-sm text-text-muted">
@@ -179,13 +151,13 @@ export function FSPPage() {
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                     <polyline points="14 2 14 8 20 8"></polyline>
                                 </svg>
-                                <span>Written Exams</span>
+                                <span>{t('hero.tags.writtenExams')}</span>
                             </div>
                             <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Grade 4.0 to Pass</span>
+                                <span>{t('hero.tags.passingGrade')}</span>
                             </div>
                             <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -193,7 +165,7 @@ export function FSPPage() {
                                     <line x1="2" y1="12" x2="22" y2="12"></line>
                                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                                 </svg>
-                                <span>Nationally Recognized</span>
+                                <span>{t('hero.tags.nationallyRecognized')}</span>
                             </div>
                         </div>
                     </div>
@@ -208,9 +180,9 @@ export function FSPPage() {
                         className={`transition-all duration-700 ${overviewVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">What is the FSP?</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('overview.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                The Feststellungsprüfung is your final step to German university admission.
+                                {t('overview.description')}
                             </p>
                         </div>
 
@@ -219,9 +191,9 @@ export function FSPPage() {
                                 <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                                     <CertificateIcon />
                                 </div>
-                                <h3 className="text-lg font-bold mb-2">Purpose</h3>
+                                <h3 className="text-lg font-bold mb-2">{t('overview.purpose.title')}</h3>
                                 <p className="text-text-muted text-[15px] leading-relaxed">
-                                    Certifies that your qualifications are equivalent to the German Abitur, enabling direct university admission.
+                                    {t('overview.purpose.description')}
                                 </p>
                             </div>
 
@@ -229,9 +201,9 @@ export function FSPPage() {
                                 <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                                     <DocumentIcon />
                                 </div>
-                                <h3 className="text-lg font-bold mb-2">Format</h3>
+                                <h3 className="text-lg font-bold mb-2">{t('overview.format.title')}</h3>
                                 <p className="text-text-muted text-[15px] leading-relaxed">
-                                    Three written exams (3-4 hours each). Taken at the end of your second semester.
+                                    {t('overview.format.description')}
                                 </p>
                             </div>
 
@@ -239,9 +211,9 @@ export function FSPPage() {
                                 <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                                     <GlobeIcon />
                                 </div>
-                                <h3 className="text-lg font-bold mb-2">Recognition</h3>
+                                <h3 className="text-lg font-bold mb-2">{t('overview.recognition.title')}</h3>
                                 <p className="text-text-muted text-[15px] leading-relaxed">
-                                    Your FSP certificate is recognized at all German universities, opening doors nationwide in your field.
+                                    {t('overview.recognition.description')}
                                 </p>
                             </div>
                         </div>
@@ -257,9 +229,9 @@ export function FSPPage() {
                         className={`transition-all duration-700 ${structureVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Exam Structure</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('structure.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                The FSP consists of written examinations in your course subjects.
+                                {t('structure.description')}
                             </p>
                         </div>
 
@@ -271,33 +243,21 @@ export function FSPPage() {
                                         <PenIcon />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold">Written Exams</h3>
-                                        <span className="text-sm text-text-muted">3-4 hours per subject</span>
+                                        <h3 className="text-xl font-bold">{t('structure.writtenExams.title')}</h3>
+                                        <span className="text-sm text-text-muted">{t('structure.writtenExams.duration')}</span>
                                     </div>
                                 </div>
 
                                 <ul className="space-y-3">
-                                    <li className="flex items-start gap-3 bg-page p-3 rounded-lg">
-                                        <CheckIcon />
-                                        <div>
-                                            <span className="font-semibold text-[14px]">German (DaF)</span>
-                                            <p className="text-text-muted text-[13px]">Mandatory for all courses, B2/C1 level</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex items-start gap-3 bg-page p-3 rounded-lg">
-                                        <CheckIcon />
-                                        <div>
-                                            <span className="font-semibold text-[14px]">Subject Exam 1</span>
-                                            <p className="text-text-muted text-[13px]">Core subject based on your course track</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex items-start gap-3 bg-page p-3 rounded-lg">
-                                        <CheckIcon />
-                                        <div>
-                                            <span className="font-semibold text-[14px]">Subject Exam 2</span>
-                                            <p className="text-text-muted text-[13px]">Additional subject for your track</p>
-                                        </div>
-                                    </li>
+                                    {structureItems.map((item, index) => (
+                                        <li key={index} className="flex items-start gap-3 bg-page p-3 rounded-lg">
+                                            <CheckIcon />
+                                            <div>
+                                                <span className="font-semibold text-[14px]">{item.title}</span>
+                                                <p className="text-text-muted text-[13px]">{item.description}</p>
+                                            </div>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
@@ -313,15 +273,15 @@ export function FSPPage() {
                         className={`transition-all duration-700 ${courseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Subjects by Course</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('courseDetails.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                Select your course to see which subjects are examined.
+                                {t('courseDetails.description')}
                             </p>
                         </div>
 
                         {/* Course Selector Tabs */}
                         <div className="flex flex-wrap justify-center gap-2 mb-8">
-                            {(Object.keys(courseExamData) as CourseType[]).map((course) => (
+                            {(Object.keys(courseColors) as CourseType[]).map((course) => (
                                 <button
                                     key={course}
                                     onClick={() => setSelectedCourse(course)}
@@ -330,15 +290,15 @@ export function FSPPage() {
                                         : 'bg-page text-text-muted hover:bg-highlight'
                                         }`}
                                 >
-                                    {courseExamData[course].name}
+                                    {t(`courseDetails.courses.${course}.name`)}
                                 </button>
                             ))}
                         </div>
 
                         {/* Course Details Card */}
-                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${currentCourse.color.split(' ')[0].replace('bg-', 'border-').replace('-100', '-400')}`}>
+                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${courseColors[selectedCourse].split(' ')[0].replace('bg-', 'border-').replace('-100', '-400')}`}>
                             <div className="flex items-center gap-3 mb-6">
-                                <div className={`px-3 py-1.5 rounded-lg text-sm font-bold ${currentCourse.color}`}>
+                                <div className={`px-3 py-1.5 rounded-lg text-sm font-bold ${courseColors[selectedCourse]}`}>
                                     {currentCourse.name}
                                 </div>
                                 <span className="text-lg font-semibold">{currentCourse.fullName}</span>
@@ -347,7 +307,7 @@ export function FSPPage() {
                             <div>
                                 <h4 className="font-bold mb-3 text-text-main flex items-center gap-2">
                                     <PenIcon />
-                                    Written Exams
+                                    {t('courseDetails.writtenExams')}
                                 </h4>
                                 <ul className="space-y-2">
                                     {currentCourse.written.map((subject, index) => (
@@ -371,9 +331,9 @@ export function FSPPage() {
                         className={`transition-all duration-700 ${gradingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Grading System</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('grading.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                Understanding how your FSP is graded.
+                                {t('grading.description')}
                             </p>
                         </div>
 
@@ -381,12 +341,12 @@ export function FSPPage() {
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
                                 <div className="space-y-3 mb-6">
                                     {gradingScale.map((grade, index) => (
-                                        <div key={index} className={`flex items-center justify-between p-4 rounded-lg ${grade.color}`}>
+                                        <div key={index} className={`flex items-center justify-between p-4 rounded-lg ${gradingColors[index].color}`}>
                                             <div className="flex items-center gap-3">
                                                 <span className="font-bold text-lg w-24">{grade.range}</span>
                                                 <span className="text-[14px]">{grade.meaning}</span>
                                             </div>
-                                            {grade.pass ? <CheckIcon /> : <XIcon />}
+                                            {gradingColors[index].pass ? <CheckIcon /> : <XIcon />}
                                         </div>
                                     ))}
                                 </div>
@@ -395,19 +355,19 @@ export function FSPPage() {
                                     <div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
                                         <p className="text-sm text-amber-800 flex items-start gap-2">
                                             <AlertIcon />
-                                            <span><strong>German grade:</strong> Must be at least 4.0 — no compensation available.</span>
+                                            <span><strong>{t('grading.rules.german.label')}</strong> {t('grading.rules.german.text')}</span>
                                         </p>
                                     </div>
                                     <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
                                         <p className="text-sm text-blue-800 flex items-start gap-2">
                                             <AlertIcon />
-                                            <span><strong>Compensation:</strong> One subject below 4.0 may be compensated by better grades in others.</span>
+                                            <span><strong>{t('grading.rules.compensation.label')}</strong> {t('grading.rules.compensation.text')}</span>
                                         </p>
                                     </div>
                                     <div className="p-4 bg-green-50 rounded-xl border border-green-200">
                                         <p className="text-sm text-green-800 flex items-start gap-2">
                                             <AlertIcon />
-                                            <span><strong>Better grades = better chances:</strong> Your FSP score affects university admission competitiveness.</span>
+                                            <span><strong>{t('grading.rules.betterGrades.label')}</strong> {t('grading.rules.betterGrades.text')}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -425,9 +385,9 @@ export function FSPPage() {
                         className={`transition-all duration-700 ${tipsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
                         <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Preparation Tips</h2>
+                            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('tips.title')}</h2>
                             <p className="text-text-muted text-base sm:text-lg">
-                                Maximize your chances of passing with these strategies.
+                                {t('tips.description')}
                             </p>
                         </div>
 
@@ -462,28 +422,28 @@ export function FSPPage() {
                                     <TrophyIcon />
                                 </div>
 
-                                <h2 className="text-[28px] md:text-[40px] font-bold mb-4">After Passing the FSP</h2>
+                                <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('after.title')}</h2>
 
                                 <p className="text-text-muted text-base sm:text-lg mb-8 leading-relaxed">
-                                    Congratulations! Your FSP certificate opens the doors to German universities.
+                                    {t('after.description')}
                                 </p>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                                     <div className="bg-surface p-5 rounded-xl">
-                                        <h4 className="font-bold mb-2">University Access</h4>
-                                        <p className="text-sm text-text-muted">Apply to any German university in your field of study.</p>
+                                        <h4 className="font-bold mb-2">{t('after.cards.universityAccess.title')}</h4>
+                                        <p className="text-sm text-text-muted">{t('after.cards.universityAccess.description')}</p>
                                     </div>
                                     <div className="bg-surface p-5 rounded-xl">
-                                        <h4 className="font-bold mb-2">Nationwide Recognition</h4>
-                                        <p className="text-sm text-text-muted">Your certificate is valid at all universities across Germany.</p>
+                                        <h4 className="font-bold mb-2">{t('after.cards.nationwideRecognition.title')}</h4>
+                                        <p className="text-sm text-text-muted">{t('after.cards.nationwideRecognition.description')}</p>
                                     </div>
                                     <div className="bg-surface p-5 rounded-xl">
-                                        <h4 className="font-bold mb-2">Competitive Edge</h4>
-                                        <p className="text-sm text-text-muted">Higher grades improve admission chances for popular programs.</p>
+                                        <h4 className="font-bold mb-2">{t('after.cards.competitiveEdge.title')}</h4>
+                                        <p className="text-sm text-text-muted">{t('after.cards.competitiveEdge.description')}</p>
                                     </div>
                                     <div className="bg-surface p-5 rounded-xl">
-                                        <h4 className="font-bold mb-2">Retake Options</h4>
-                                        <p className="text-sm text-text-muted">If you fail, you can typically retake the FSP 1-2 times.</p>
+                                        <h4 className="font-bold mb-2">{t('after.cards.retakeOptions.title')}</h4>
+                                        <p className="text-sm text-text-muted">{t('after.cards.retakeOptions.description')}</p>
                                     </div>
                                 </div>
                             </div>
@@ -499,9 +459,9 @@ export function FSPPage() {
                         ref={ctaRef}
                         className={`text-center transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                     >
-                        <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Ready to Prepare?</h2>
+                        <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('cta.title')}</h2>
                         <p className="text-text-muted text-base sm:text-lg max-w-[600px] mx-auto mb-8">
-                            Start your preparation journey today with our structured German language course.
+                            {t('cta.description')}
                         </p>
 
                         <div className="flex flex-wrap justify-center gap-4">
@@ -509,7 +469,7 @@ export function FSPPage() {
                                 to="/register"
                                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-primary-hover shadow-[0_4px_12px_rgba(166,123,91,0.3)] active:scale-[0.98]"
                             >
-                                Start Your Preparation
+                                {t('cta.startButton')}
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -520,7 +480,7 @@ export function FSPPage() {
                                 to="/about-studienkolleg"
                                 className="inline-flex items-center gap-2 bg-transparent text-text-main font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-page border border-border"
                             >
-                                Learn About Studienkolleg
+                                {t('cta.learnButton')}
                             </Link>
                         </div>
                     </div>

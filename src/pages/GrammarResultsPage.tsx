@@ -23,14 +23,14 @@ export function GrammarResultsPage() {
       <div className="min-h-screen flex items-center justify-center bg-page p-4">
         <div className="w-full max-w-md rounded-[24px] bg-surface p-8 shadow-card border border-[#E3D4C5]">
           <p className="mb-6 text-base text-text-main" role="alert">
-            No grammar results found. Please complete the grammar quiz first.
+            Keine Grammatik-Ergebnisse gefunden. Bitte schließe zuerst das Grammatik-Quiz ab.
           </p>
           <button
             type="button"
             onClick={() => navigate(`/course/${lessonNumber}/grammar`)}
             className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary-hover transition-all"
           >
-            Go to grammar quiz
+            Zum Grammatik-Quiz
           </button>
         </div>
       </div>
@@ -51,7 +51,7 @@ export function GrammarResultsPage() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Back to Lesson {lessonNumber}
+          Zurück zu Lektion {lessonNumber}
         </button>
       </header>
 
@@ -60,9 +60,9 @@ export function GrammarResultsPage() {
         {/* Title */}
         <div className="mb-8">
           <span className="text-[0.75rem] uppercase tracking-wider font-bold text-primary mb-3 block">
-            Grammar Results
+            Grammatik-Ergebnisse
           </span>
-          <h1 className="font-serif text-[2.5rem] mb-2 text-text-main">Quiz Complete</h1>
+          <h1 className="font-serif text-[2.5rem] mb-2 text-text-main">Quiz abgeschlossen</h1>
           {result.topicTitle && (
             <p className="text-[1.1rem] text-text-muted">{result.topicTitle}</p>
           )}
@@ -96,10 +96,10 @@ export function GrammarResultsPage() {
             </div>
 
             <h2 className="font-serif text-2xl font-bold mb-3 text-text-main">
-              {passed ? 'Excellent Work!' : 'Keep Practicing!'}
+              {passed ? 'Ausgezeichnete Arbeit!' : 'Weiter üben!'}
             </h2>
             <p className="text-base text-text-muted mb-6">
-              You answered <strong>{result.score}</strong> out of <strong>{result.totalQuestions}</strong> questions correctly.
+              Du hast <strong>{result.score}</strong> von <strong>{result.totalQuestions}</strong> Fragen richtig beantwortet.
             </p>
 
             <div className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 ${
@@ -113,7 +113,7 @@ export function GrammarResultsPage() {
                 )}
               </svg>
               <span className="text-sm font-bold">
-                {passed ? 'Passed' : 'Not Passed'} (60% required)
+                {passed ? 'Bestanden' : 'Nicht bestanden'} (60% erforderlich)
               </span>
             </div>
           </div>
@@ -121,7 +121,7 @@ export function GrammarResultsPage() {
 
         {/* Question Review */}
         <div className="mb-8">
-          <h2 className="font-serif text-[1.5rem] mb-6 text-text-main">Question Review</h2>
+          <h2 className="font-serif text-[1.5rem] mb-6 text-text-main">Fragenübersicht</h2>
         </div>
 
         <div className="space-y-6 mb-10">
@@ -133,7 +133,7 @@ export function GrammarResultsPage() {
               {/* Question Header */}
               <div className="flex items-start justify-between mb-5">
                 <span className="text-[0.75rem] uppercase tracking-wider font-bold text-text-muted">
-                  Question {qIndex + 1}
+                  Frage {qIndex + 1}
                 </span>
                 <span
                   className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide ${
@@ -149,7 +149,7 @@ export function GrammarResultsPage() {
                       <path d="M18 6L6 18M6 6l12 12"></path>
                     )}
                   </svg>
-                  {questionResult.isCorrect ? 'Correct' : 'Incorrect'}
+                  {questionResult.isCorrect ? 'Richtig' : 'Falsch'}
                 </span>
               </div>
 
@@ -178,7 +178,7 @@ export function GrammarResultsPage() {
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                           <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        Correct Answer
+                        Richtige Antwort
                       </span>
                     );
                   } else if (isSelected && !questionResult.isCorrect) {
@@ -186,7 +186,7 @@ export function GrammarResultsPage() {
                     bgColor = 'bg-[#FFF5F5]';
                     badge = (
                       <span className="ml-auto text-xs font-bold text-[#C07766]">
-                        Your Answer
+                        Deine Antwort
                       </span>
                     );
                   }
@@ -211,7 +211,7 @@ export function GrammarResultsPage() {
               {/* Explanation */}
               {questionResult.explanation && (
                 <div className="bg-[#FAF6F3] border-l-4 border-primary px-4 py-4 rounded-r-lg">
-                  <p className="text-sm font-bold text-primary mb-2">Explanation</p>
+                  <p className="text-sm font-bold text-primary mb-2">Erklärung</p>
                   <p className="text-sm text-text-main leading-relaxed">
                     {questionResult.explanation}
                   </p>
@@ -228,7 +228,7 @@ export function GrammarResultsPage() {
             onClick={() => navigate(`/course/${lessonNumber}`, { replace: true })}
             className="bg-text-main text-white px-8 py-4 rounded-full font-semibold shadow-[0_12px_40px_rgba(62,54,48,0.08)] transition-all hover:-translate-y-1 hover:bg-primary"
           >
-            Back to Lesson
+            Zurück zur Lektion
           </button>
         </div>
       </div>

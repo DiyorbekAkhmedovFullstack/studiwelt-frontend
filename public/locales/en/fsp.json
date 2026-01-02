@@ -1,0 +1,141 @@
+{
+    "hero": {
+        "badge": "YOUR PATH TO UNIVERSITY",
+        "title": "The",
+        "titleHighlight": "Feststellungsprüfung",
+        "description": "The final assessment exam at the end of Studienkolleg that certifies your readiness for German university studies and grants nationwide recognition.",
+        "tags": {
+            "writtenExams": "Written Exams",
+            "passingGrade": "Grade 4.0 to Pass",
+            "nationallyRecognized": "Nationally Recognized"
+        }
+    },
+    "overview": {
+        "title": "What is the FSP?",
+        "description": "The Feststellungsprüfung is your final step to German university admission.",
+        "purpose": {
+            "title": "Purpose",
+            "description": "Certifies that your qualifications are equivalent to the German Abitur, enabling direct university admission."
+        },
+        "format": {
+            "title": "Format",
+            "description": "Three written exams (3-4 hours each). Taken at the end of your second semester."
+        },
+        "recognition": {
+            "title": "Recognition",
+            "description": "Your FSP certificate is recognized at all German universities, opening doors nationwide in your field."
+        }
+    },
+    "structure": {
+        "title": "Exam Structure",
+        "description": "The FSP consists of written examinations in your course subjects.",
+        "writtenExams": {
+            "title": "Written Exams",
+            "duration": "3-4 hours per subject",
+            "items": [
+                { "title": "German (DaF)", "description": "Mandatory for all courses, B2/C1 level" },
+                { "title": "Subject Exam 1", "description": "Core subject based on your course track" },
+                { "title": "Subject Exam 2", "description": "Additional subject for your track" }
+            ]
+        }
+    },
+    "courseDetails": {
+        "title": "Subjects by Course",
+        "description": "Select your course to see which subjects are examined.",
+        "writtenExams": "Written Exams",
+        "courses": {
+            "T": {
+                "name": "T-Kurs",
+                "fullName": "Technical & Engineering",
+                "written": ["German (DaF)", "Mathematics", "Physics or Chemistry/IT"]
+            },
+            "M": {
+                "name": "M-Kurs",
+                "fullName": "Medicine & Biology",
+                "written": ["German (DaF)", "Biology or Chemistry", "Mathematics or Physics"]
+            },
+            "W": {
+                "name": "W-Kurs",
+                "fullName": "Business & Economics",
+                "written": ["German (DaF)", "Mathematics", "Economics/Business Administration"]
+            },
+            "G": {
+                "name": "G-Kurs",
+                "fullName": "Humanities & Arts",
+                "written": ["German (DaF)", "History", "Social Sciences/Geography"]
+            },
+            "S": {
+                "name": "S-Kurs",
+                "fullName": "Languages",
+                "written": ["German (DaF)", "German Literature", "Second Language"]
+            }
+        }
+    },
+    "grading": {
+        "title": "Grading System",
+        "description": "Understanding how your FSP is graded.",
+        "scale": [
+            { "range": "1.0 - 1.5", "meaning": "Very Good (Sehr gut)" },
+            { "range": "1.6 - 2.5", "meaning": "Good (Gut)" },
+            { "range": "2.6 - 3.5", "meaning": "Satisfactory (Befriedigend)" },
+            { "range": "3.6 - 4.0", "meaning": "Sufficient (Ausreichend)" },
+            { "range": "4.1 - 5.0", "meaning": "Fail (Nicht bestanden)" }
+        ],
+        "rules": {
+            "german": {
+                "label": "German grade:",
+                "text": "Must be at least 4.0 — no compensation available."
+            },
+            "compensation": {
+                "label": "Compensation:",
+                "text": "One subject below 4.0 may be compensated by better grades in others."
+            },
+            "betterGrades": {
+                "label": "Better grades = better chances:",
+                "text": "Your FSP score affects university admission competitiveness."
+            }
+        }
+    },
+    "tips": {
+        "title": "Preparation Tips",
+        "description": "Maximize your chances of passing with these strategies.",
+        "items": [
+            { "title": "Attend All Classes", "description": "Consistent attendance is crucial for understanding material" },
+            { "title": "Structured Study Plan", "description": "Create a schedule covering all subjects systematically" },
+            { "title": "Form Study Groups", "description": "Collaborate with classmates to discuss and review" },
+            { "title": "Practice Past Exams", "description": "Familiarize yourself with question formats and timing" },
+            { "title": "Master Time Management", "description": "Practice completing tasks within time limits" },
+            { "title": "Use Professor Materials", "description": "Review all provided practice problems and guides" },
+            { "title": "Take Mock Exams", "description": "Simulate real exam conditions before the test" },
+            { "title": "Rest and Manage Stress", "description": "Maintain healthy sleep and stress management" }
+        ]
+    },
+    "after": {
+        "title": "After Passing the FSP",
+        "description": "Congratulations! Your FSP certificate opens the doors to German universities.",
+        "cards": {
+            "universityAccess": {
+                "title": "University Access",
+                "description": "Apply to any German university in your field of study."
+            },
+            "nationwideRecognition": {
+                "title": "Nationwide Recognition",
+                "description": "Your certificate is valid at all universities across Germany."
+            },
+            "competitiveEdge": {
+                "title": "Competitive Edge",
+                "description": "Higher grades improve admission chances for popular programs."
+            },
+            "retakeOptions": {
+                "title": "Retake Options",
+                "description": "If you fail, you can typically retake the FSP 1-2 times."
+            }
+        }
+    },
+    "cta": {
+        "title": "Ready to Prepare?",
+        "description": "Start your preparation journey today with our structured German language course.",
+        "startButton": "Start Your Preparation",
+        "learnButton": "Learn About Studienkolleg"
+    }
+}

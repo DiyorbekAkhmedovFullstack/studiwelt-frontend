@@ -80,7 +80,7 @@ export function LessonGrammarPage() {
   const error = lessonError
     ? lessonError instanceof Error
       ? lessonError.message
-      : "Load failed."
+      : "Laden fehlgeschlagen."
     : null;
 
   const handleAnswerChange = (
@@ -129,14 +129,14 @@ export function LessonGrammarPage() {
             const nowCompleted = isSectionLocked(lesson.id, "grammar");
             if (nowCompleted) {
               toastService.success(
-                "✓ Grammar section successfully completed! You've finished all 3 attempts with great scores.",
+                "✓ Grammatik-Bereich erfolgreich abgeschlossen! Du hast alle 3 Versuche mit guten Ergebnissen beendet.",
                 { duration: 6000 },
               );
             } else {
-              toastService.success("Grammar quiz submitted successfully!");
+              toastService.success("Grammatik-Quiz erfolgreich abgesendet!");
             }
           } else {
-            toastService.success("Grammar quiz submitted successfully!");
+            toastService.success("Grammatik-Quiz erfolgreich abgesendet!");
           }
 
           navigate(`/course/${lessonNumber}/grammar/results`, {
@@ -148,12 +148,12 @@ export function LessonGrammarPage() {
           const message =
             err instanceof Error
               ? err.message
-              : "Failed to submit grammar answers. Please try again.";
+              : "Grammatik-Antworten konnten nicht gesendet werden. Bitte versuche es erneut.";
 
           // Check if section was completed (403 Forbidden)
           if (message.includes("locked") || message.includes("403")) {
             toastService.info(
-              "This section is already completed. You've used all 3 attempts successfully!",
+              "Dieser Bereich ist bereits abgeschlossen. Du hast alle 3 Versuche erfolgreich genutzt!",
             );
           } else {
             toastService.error(message);
@@ -170,9 +170,9 @@ export function LessonGrammarPage() {
   if (error || !lesson) {
     return (
       <ErrorState
-        error={error ?? "Lesson not found."}
+        error={error ?? "Lektion nicht gefunden."}
         backPath="/course"
-        backLabel="Back to course"
+        backLabel="Zurück zum Kurs"
       />
     );
   }
@@ -181,9 +181,9 @@ export function LessonGrammarPage() {
   if (isLocked && lesson) {
     return (
       <SectionCompletedState
-        title="Grammar Section Completed"
+        title="Grammatik-Bereich abgeschlossen"
         backPath={`/course/${lesson.lessonNumber}`}
-        backLabel="Back to lesson"
+        backLabel="Zurück zur Lektion"
       />
     );
   }
@@ -195,14 +195,14 @@ export function LessonGrammarPage() {
       <div className="min-h-screen flex items-center justify-center bg-page p-4">
         <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
           <p className="mb-4 text-sm text-text-main">
-            This lesson does not have a grammar topic configured yet.
+            Für diese Lektion ist noch kein Grammatik-Thema konfiguriert.
           </p>
           <button
             type="button"
             onClick={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
             className="rounded-md bg-primary px-4 py-2 text-xs font-semibold text-text-main hover:bg-primary-hover hover:text-page"
           >
-            Back to lesson
+            Zurück zur Lektion
           </button>
         </div>
       </div>
@@ -228,17 +228,17 @@ export function LessonGrammarPage() {
           >
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Back to Lesson {lesson.lessonNumber}
+          Zurück zu Lektion {lesson.lessonNumber}
         </button>
       </header>
 
       {/* Content Wrapper */}
       <div className="max-w-[800px] mx-auto my-10 px-6 w-full">
         <span className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] uppercase tracking-wider font-bold text-primary mb-3 sm:mb-4 block">
-          Grammar Theory
+          Grammatik-Theorie
         </span>
         <h1 className="font-serif text-xl sm:text-2xl md:text-[2.2rem] mb-3 sm:mb-4 leading-tight">
-          {displayTopic?.title ?? `Lesson ${lesson.lessonNumber} Grammar`}
+          {displayTopic?.title ?? `Lektion ${lesson.lessonNumber} Grammatik`}
         </h1>
         {displayTopic?.description && (
           <p className="text-text-muted text-sm sm:text-base md:text-[1.1rem] mb-6 sm:mb-8 md:mb-10 leading-relaxed">
@@ -251,16 +251,16 @@ export function LessonGrammarPage() {
 
         {/* Practice Section */}
         <span className="text-[0.75rem] uppercase tracking-wider font-bold text-primary mb-4 block mt-12">
-          Practice
+          Übung
         </span>
         <h2 className="font-serif mb-6 text-[1.5rem]">
-          Test your understanding
+          Teste dein Verständnis
         </h2>
 
         <section className="space-y-6">
           {questions.length === 0 && (
             <p className="text-sm text-text-muted">
-              There are no grammar questions configured for this topic yet.
+              Für dieses Thema sind noch keine Grammatik-Fragen konfiguriert.
             </p>
           )}
 
@@ -311,21 +311,21 @@ export function LessonGrammarPage() {
               className="bg-text-main text-white px-8 py-4 rounded-[50px] font-semibold shadow-[0_12px_40px_rgba(62,54,48,0.08)] transition-all hover:-translate-y-1 hover:bg-primary disabled:cursor-not-allowed disabled:opacity-50"
             >
               {submitMutation.isPending
-                ? "Submitting..."
-                : "Submit Grammar Quiz"}
+                ? "Wird gesendet..."
+                : "Grammatik-Quiz absenden"}
             </button>
           </div>
         )}
 
         {questions.length > 0 && !allQuestionsAnswered() && (
           <p className="text-center text-sm text-text-muted -mt-8 mb-8">
-            Please answer all questions before submitting (
+            Bitte beantworte alle Fragen vor dem Absenden (
             {
               Object.values(answers).filter(
                 (answer) => answer !== null && answer !== undefined,
               ).length
             }{" "}
-            of {questions.length} answered)
+            von {questions.length} beantwortet)
           </p>
         )}
       </div>
