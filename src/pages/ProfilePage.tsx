@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DashboardLayout } from '../components/dashboard';
 import { AvatarPicker, MfaSection } from '../components/profile';
 import { useAuth } from '../contexts/AuthContext';
@@ -6,6 +7,7 @@ import { toastService } from '../services/toastService';
 import { profileService } from '../services/profileService';
 
 export function ProfilePage() {
+  const { t } = useTranslation();
   const { user, setUser } = useAuth();
 
   // Avatar state
@@ -44,10 +46,10 @@ export function ProfilePage() {
       const data = await profileService.updateAvatar({ imageUrl: avatarUrl });
       setUser(data.user);
 
-      toastService.success('Avatar updated.');
+      toastService.success(t('profile.avatar.updateSuccess'));
     } catch (error) {
       toastService.error(
-        error instanceof Error ? error.message : 'Avatar update failed.'
+        error instanceof Error ? error.message : t('profile.avatar.updateFailed')
       );
     } finally {
       setAvatarSaving(false);
@@ -59,9 +61,9 @@ export function ProfilePage() {
       <div className="max-w-[800px] mx-auto">
         {/* Header */}
         <header className="mb-6 sm:mb-10 border-b border-[rgba(0,0,0,0.05)] pb-4 sm:pb-6">
-          <h1 className="text-2xl sm:text-[28px] md:text-[32px] font-serif font-bold mb-1 sm:mb-2">Your Profile</h1>
+          <h1 className="text-2xl sm:text-[28px] md:text-[32px] font-serif font-bold mb-1 sm:mb-2">{t('profile.title')}</h1>
           <p className="text-sm sm:text-base text-text-muted">
-            Manage your appearance and security settings.
+            {t('profile.subtitle')}
           </p>
         </header>
 

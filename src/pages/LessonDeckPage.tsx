@@ -33,7 +33,7 @@ export function LessonDeckPage() {
   const error = lessonError
     ? lessonError instanceof Error
       ? lessonError.message
-      : 'Load failed.'
+      : 'Laden fehlgeschlagen.'
     : null;
 
   if (loading) {
@@ -49,14 +49,14 @@ export function LessonDeckPage() {
       <div className="min-h-screen flex items-center justify-center bg-page p-4">
         <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
           <p className="mb-4 text-sm text-danger" role="alert">
-            {error ?? 'Lesson not found.'}
+            {error ?? 'Lektion nicht gefunden.'}
           </p>
           <button
             type="button"
             onClick={() => navigate('/course')}
             className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
           >
-            Back to course
+            Zurück zum Kurs
           </button>
         </div>
       </div>
@@ -68,14 +68,14 @@ export function LessonDeckPage() {
       <div className="min-h-screen flex items-center justify-center bg-page p-4">
         <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
           <p className="mb-2 text-sm text-text-main">
-            This lesson does not have a flashcard deck yet.
+            Diese Lektion hat noch kein Karteikarten-Deck.
           </p>
           <button
             type="button"
             onClick={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
             className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
           >
-            Back to lesson
+            Zurück zur Lektion
           </button>
         </div>
       </div>
@@ -96,7 +96,7 @@ export function LessonDeckPage() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
-              Back to Lesson
+              Zurück zur Lektion
             </button>
           </header>
 

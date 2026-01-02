@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface AvatarPickerProps {
   currentSeed: string;
   onSeedChange: (seed: string) => void;
@@ -26,6 +28,8 @@ export function AvatarPicker({
   onSave,
   saving,
 }: AvatarPickerProps) {
+  const { t } = useTranslation();
+
   const getAvatarUrl = (seed: string) => {
     return `https://api.dicebear.com/9.x/notionists/svg?seed=${encodeURIComponent(seed)}`;
   };
@@ -51,12 +55,12 @@ export function AvatarPicker({
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="font-semibold text-xs sm:text-[14px] text-text-main mb-1">Current Look</div>
+          <div className="font-semibold text-xs sm:text-[14px] text-text-main mb-1">{t('profile.avatar.currentLook')}</div>
         </div>
 
         {/* Right: Controls */}
         <div>
-          <h3 className="text-base sm:text-[17px] font-semibold mb-3 sm:mb-4">Choose an Avatar</h3>
+          <h3 className="text-base sm:text-[17px] font-semibold mb-3 sm:mb-4">{t('profile.avatar.chooseAvatar')}</h3>
 
           {/* Preset Avatars Grid */}
           <div className="grid grid-cols-[repeat(auto-fill,minmax(50px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(60px,1fr))] gap-2 sm:gap-3">
@@ -88,7 +92,7 @@ export function AvatarPicker({
           {onSave && (
             <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3">
               <span className="hidden sm:block text-[12px] text-text-muted whitespace-nowrap">
-                Hint: you can randomize too
+                {t('profile.avatar.hint')}
               </span>
               <button
                 type="button"
@@ -99,15 +103,15 @@ export function AvatarPicker({
                   <polyline points="23 4 23 10 17 10"></polyline>
                   <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
                 </svg>
-                Random
+                {t('profile.avatar.random')}
               </button>
               <button
                 type="button"
                 onClick={onSave}
                 disabled={saving}
-                className="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm sm:text-[14px] hover:bg-[#8E6A4F] transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                className="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm sm:text-[14px] hover:bg-[#8E6A4F] transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 whitespace-nowrap"
               >
-                {saving ? 'Saving avatar...' : 'Save Avatar'}
+                {saving ? t('profile.avatar.savingAvatar') : t('profile.avatar.saveAvatar')}
               </button>
             </div>
           )}

@@ -1,11 +1,13 @@
 import { useState, useRef } from 'react';
 import type { KeyboardEvent, ClipboardEvent } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { authService } from '../../services/authService';
 import type { User } from '../../types/api';
 import { toastService } from '../../services/toastService';
 
 export function MfaSection() {
+  const { t } = useTranslation();
   const { user, setUser } = useAuth();
   const [mfaSetup, setMfaSetup] = useState<{ user: User } | null>(null);
   const [digits, setDigits] = useState<string[]>(['', '', '', '', '', '']);
@@ -20,9 +22,9 @@ export function MfaSection() {
       const data = await authService.setupMfa();
       setMfaSetup(data);
       setUser(data.user);
-      toastService.success('MFA setup started.');
+      toastService.success(t('profile.security.setupStarted'));
     } catch {
-      toastService.error('MFA setup failed.');
+      toastService.error(t('profile.security.setupFailed'));
     } finally {
       setLoading(false);
     }
@@ -63,12 +65,12 @@ export function MfaSection() {
   const handleVerify = async () => {
     const code = digits.join('');
     if (code.length !== 6) {
-      toastService.error('Enter all 6 digits.');
+      toastService.error(t('profile.security.enterAllDigits'));
       return;
     }
 
     if (!mfaSetup || !user) {
-      toastService.error('User information missing.');
+      toastService.error(t('profile.security.userInfoMissing'));
       return;
     }
 
@@ -78,16 +80,16 @@ export function MfaSection() {
       setUser(result.user);
       setMfaSetup(null);
       setDigits(['', '', '', '', '', '']);
-      toastService.success('MFA enabled.');
+      toastService.success(t('profile.security.mfaEnabledToast'));
     } catch {
-      toastService.error('MFA enable failed.');
+      toastService.error(t('profile.security.mfaEnableFailed'));
     } finally {
       setLoading(false);
     }
   };
 
   const handleDisableMfa = async () => {
-    if (!window.confirm('Are you sure you want to disable MFA for your account?')) {
+    if (!window.confirm(t('profile.security.disableConfirm'))) {
       return;
     }
 
@@ -97,9 +99,9 @@ export function MfaSection() {
       setUser(result.user);
       setMfaSetup(null);
       setDigits(['', '', '', '', '', '']);
-      toastService.success('MFA disabled.');
+      toastService.success(t('profile.security.mfaDisabled'));
     } catch {
-      toastService.error('MFA disable failed.');
+      toastService.error(t('profile.security.mfaDisableFailed'));
     } finally {
       setLoading(false);
     }
@@ -116,22 +118,21 @@ export function MfaSection() {
 
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6 gap-3 sm:gap-0">
           <div>
-            <h2 className="text-xl sm:text-2xl font-serif font-bold mb-1 sm:mb-2">Security</h2>
-            <p className="text-sm sm:text-base text-text-muted">Manage your password and 2-step verification.</p>
+            <h2 className="text-xl sm:text-2xl font-serif font-bold mb-1 sm:mb-2">{t('profile.security.title')}</h2>
+            <p className="text-sm sm:text-base text-text-muted">{t('profile.security.subtitle')}</p>
           </div>
           <div className="flex items-center gap-2 px-3 py-1.5 bg-[rgba(107,140,110,0.1)] text-[#6B8C6E] rounded-full text-[13px] sm:text-[14px] font-semibold w-fit">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
-            MFA Enabled
+            {t('profile.security.mfaEnabled')}
           </div>
         </div>
 
         <div className="bg-[#F0F7F1] border border-[#D5E8D6] rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
           <p className="text-[14px] sm:text-[15px] text-text-main">
-            ✓ Multi-factor authentication is currently <strong>enabled</strong> for your account.
-            Your account has an extra layer of security.
+            <Trans i18nKey="profile.security.mfaEnabledDescription" components={{ strong: <strong /> }} />
           </p>
         </div>
 
@@ -140,7 +141,7 @@ export function MfaSection() {
           disabled={loading}
           className="w-full sm:w-auto px-6 py-3 border border-[#DDD] rounded-lg text-text-main font-medium text-[14px] sm:text-[15px] hover:bg-[#F5F5F5] transition-colors disabled:opacity-50"
         >
-          {loading ? 'Updating...' : 'Disable MFA'}
+          {loading ? t('profile.security.updating') : t('profile.security.disableMfa')}
         </button>
       </div>
     );
@@ -155,14 +156,14 @@ export function MfaSection() {
 
         <div className="flex justify-between items-start mb-4 sm:mb-6">
           <div>
-            <h2 className="text-xl sm:text-2xl font-serif font-bold mb-1 sm:mb-2">Security</h2>
-            <p className="text-sm sm:text-base text-text-muted">Manage your password and 2-step verification.</p>
+            <h2 className="text-xl sm:text-2xl font-serif font-bold mb-1 sm:mb-2">{t('profile.security.title')}</h2>
+            <p className="text-sm sm:text-base text-text-muted">{t('profile.security.subtitle')}</p>
           </div>
         </div>
 
         <div className="bg-[#FFF9F0] border border-[#F5E6D3] rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
           <p className="text-[14px] sm:text-[15px] text-text-main mb-0">
-            MFA is currently <strong>disabled</strong> for your account. Add an extra layer of protection with a time-based one-time password (TOTP) app such as Google Authenticator or 1Password.
+            <Trans i18nKey="profile.security.mfaDisabledDescription" components={{ strong: <strong /> }} />
           </p>
         </div>
 
@@ -171,7 +172,7 @@ export function MfaSection() {
           disabled={loading}
           className="w-full sm:w-auto px-6 py-3 bg-text-main text-white rounded-lg font-semibold text-[14px] sm:text-[15px] hover:bg-primary transition-all hover:-translate-y-0.5 disabled:opacity-50"
         >
-          {loading ? 'Starting setup...' : 'Set up MFA'}
+          {loading ? t('profile.security.startingSetup') : t('profile.security.setupMfa')}
         </button>
       </div>
     );
@@ -185,12 +186,11 @@ export function MfaSection() {
 
       {/* Step 1 */}
       <span className="block text-[11px] sm:text-[12px] uppercase tracking-wider text-primary font-bold mb-3 sm:mb-4">
-        Step 1 of 2
+        {t('profile.security.step1')}
       </span>
-      <h2 className="text-xl sm:text-2xl font-serif font-bold mb-3 sm:mb-4">Set up Authenticator App</h2>
+      <h2 className="text-xl sm:text-2xl font-serif font-bold mb-3 sm:mb-4">{t('profile.security.setupAuthenticator')}</h2>
       <p className="text-[14px] sm:text-[16px] leading-relaxed text-text-main mb-6 sm:mb-8 max-w-[500px]">
-        Use your authenticator app (Google Authenticator, Authy, etc.) to scan the QR code below.
-        This will link your STUDIWELT account to your device.
+        {t('profile.security.setupInstructions')}
       </p>
 
       {/* QR Section */}
@@ -201,13 +201,13 @@ export function MfaSection() {
             <div className="bg-white p-4 border border-[#E0E0E0] rounded-xl shadow-md">
               <img
                 src={mfaSetup.user.qrCodeImageUri}
-                alt="MFA QR code"
+                alt={t('profile.security.qrCodeAlt')}
                 className="w-40 h-40 sm:w-48 sm:h-48"
               />
             </div>
           ) : (
             <div className="bg-white p-4 border border-[#E0E0E0] rounded-xl shadow-md w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center">
-              <div className="text-center text-text-muted text-sm">QR Code</div>
+              <div className="text-center text-text-muted text-sm">{t('profile.security.qrCodePlaceholder')}</div>
             </div>
           )}
         </div>
@@ -215,12 +215,12 @@ export function MfaSection() {
 
       {/* Step 2 */}
       <span className="block text-[11px] sm:text-[12px] uppercase tracking-wider text-primary font-bold mb-3 sm:mb-4">
-        Step 2 of 2
+        {t('profile.security.step2')}
       </span>
       <div className="bg-page rounded-xl p-4 sm:p-8 text-center">
-        <h3 className="text-[16px] sm:text-[17px] font-semibold mb-1">Verify the code</h3>
+        <h3 className="text-[16px] sm:text-[17px] font-semibold mb-1">{t('profile.security.verifyCode')}</h3>
         <p className="text-text-muted text-[13px] sm:text-[14px] mb-4 sm:mb-6">
-          Enter the 6-digit code from your app to finish.
+          {t('profile.security.verifyInstructions')}
         </p>
 
         {/* 6 Digit Inputs */}
@@ -254,7 +254,7 @@ export function MfaSection() {
               : 'bg-text-main/30 text-white cursor-not-allowed'
           }`}
         >
-          {loading ? 'Verifying...' : 'Verify & Enable'}
+          {loading ? t('profile.security.verifying') : t('profile.security.verifyAndEnable')}
         </button>
       </div>
     </div>

@@ -25,5 +25,49 @@
         "startPlan": "Start Your 30-Day Plan",
         "learnMore": "Learn More",
         "viewAll": "View All"
+    },
+    "profile": {
+        "title": "Your Profile",
+        "subtitle": "Manage your appearance and security settings.",
+        "avatar": {
+            "currentLook": "Current Look",
+            "chooseAvatar": "Choose an Avatar",
+            "hint": "Hint: you can randomize too",
+            "random": "Random",
+            "saveAvatar": "Save Avatar",
+            "savingAvatar": "Saving avatar...",
+            "updateSuccess": "Avatar updated.",
+            "updateFailed": "Avatar update failed."
+        },
+        "security": {
+            "title": "Security",
+            "subtitle": "Manage your password and 2-step verification.",
+            "mfaEnabled": "MFA Enabled",
+            "mfaEnabledDescription": "Multi-factor authentication is currently <strong>enabled</strong> for your account. Your account has an extra layer of security.",
+            "mfaDisabledDescription": "MFA is currently <strong>disabled</strong> for your account. Add an extra layer of protection with a time-based one-time password (TOTP) app such as Google Authenticator or 1Password.",
+            "disableMfa": "Disable MFA",
+            "setupMfa": "Set up MFA",
+            "updating": "Updating...",
+            "startingSetup": "Starting setup...",
+            "disableConfirm": "Are you sure you want to disable MFA for your account?",
+            "setupStarted": "MFA setup started.",
+            "setupFailed": "MFA setup failed.",
+            "mfaEnabledToast": "MFA enabled.",
+            "mfaEnableFailed": "MFA enable failed.",
+            "mfaDisabled": "MFA disabled.",
+            "mfaDisableFailed": "MFA disable failed.",
+            "enterAllDigits": "Enter all 6 digits.",
+            "userInfoMissing": "User information missing.",
+            "step1": "Step 1 of 2",
+            "step2": "Step 2 of 2",
+            "setupAuthenticator": "Set up Authenticator App",
+            "setupInstructions": "Use your authenticator app (Google Authenticator, Authy, etc.) to scan the QR code below. This will link your STUDIWELT account to your device.",
+            "qrCodeAlt": "MFA QR code",
+            "qrCodePlaceholder": "QR Code",
+            "verifyCode": "Verify the code",
+            "verifyInstructions": "Enter the 6-digit code from your app to finish.",
+            "verifying": "Verifying...",
+            "verifyAndEnable": "Verify & Enable"
+        }
     }
 }

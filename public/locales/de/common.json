@@ -25,5 +25,49 @@
         "startPlan": "Dein 30-Tage-Plan starten",
         "learnMore": "Mehr erfahren",
         "viewAll": "Alle ansehen"
+    },
+    "profile": {
+        "title": "Dein Profil",
+        "subtitle": "Verwalte dein Erscheinungsbild und Sicherheitseinstellungen.",
+        "avatar": {
+            "currentLook": "Aktuelles Aussehen",
+            "chooseAvatar": "Wähle einen Avatar",
+            "hint": "Tipp: Du kannst auch zufällig wählen",
+            "random": "Zufällig",
+            "saveAvatar": "Avatar speichern",
+            "savingAvatar": "Avatar wird gespeichert...",
+            "updateSuccess": "Avatar aktualisiert.",
+            "updateFailed": "Avatar-Aktualisierung fehlgeschlagen."
+        },
+        "security": {
+            "title": "Sicherheit",
+            "subtitle": "Verwalte dein Passwort und die 2-Faktor-Authentifizierung.",
+            "mfaEnabled": "MFA aktiviert",
+            "mfaEnabledDescription": "Die Multi-Faktor-Authentifizierung ist derzeit für dein Konto <strong>aktiviert</strong>. Dein Konto hat eine zusätzliche Sicherheitsebene.",
+            "mfaDisabledDescription": "MFA ist derzeit für dein Konto <strong>deaktiviert</strong>. Füge eine zusätzliche Schutzebene mit einer zeitbasierten Einmalpasswort-App (TOTP) wie Google Authenticator oder 1Password hinzu.",
+            "disableMfa": "MFA deaktivieren",
+            "setupMfa": "MFA einrichten",
+            "updating": "Wird aktualisiert...",
+            "startingSetup": "Einrichtung wird gestartet...",
+            "disableConfirm": "Bist du sicher, dass du MFA für dein Konto deaktivieren möchtest?",
+            "setupStarted": "MFA-Einrichtung gestartet.",
+            "setupFailed": "MFA-Einrichtung fehlgeschlagen.",
+            "mfaEnabledToast": "MFA aktiviert.",
+            "mfaEnableFailed": "MFA-Aktivierung fehlgeschlagen.",
+            "mfaDisabled": "MFA deaktiviert.",
+            "mfaDisableFailed": "MFA-Deaktivierung fehlgeschlagen.",
+            "enterAllDigits": "Gib alle 6 Ziffern ein.",
+            "userInfoMissing": "Benutzerinformationen fehlen.",
+            "step1": "Schritt 1 von 2",
+            "step2": "Schritt 2 von 2",
+            "setupAuthenticator": "Authenticator-App einrichten",
+            "setupInstructions": "Verwende deine Authenticator-App (Google Authenticator, Authy, etc.), um den QR-Code unten zu scannen. Dadurch wird dein STUDIWELT-Konto mit deinem Gerät verknüpft.",
+            "qrCodeAlt": "MFA-QR-Code",
+            "qrCodePlaceholder": "QR-Code",
+            "verifyCode": "Code verifizieren",
+            "verifyInstructions": "Gib den 6-stelligen Code aus deiner App ein, um abzuschließen.",
+            "verifying": "Wird verifiziert...",
+            "verifyAndEnable": "Verifizieren & aktivieren"
+        }
     }
 }

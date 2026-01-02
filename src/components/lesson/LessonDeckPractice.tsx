@@ -93,7 +93,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
             const nowCompleted = isSectionLocked(currentDeck.lessonId, 'flashcards');
             if (nowCompleted) {
               toastService.success(
-                '✓ Flashcards section successfully completed! You\'ve finished all 3 attempts with great scores.',
+                '✓ Karteikarten-Abschnitt erfolgreich abgeschlossen! Du hast alle 3 Versuche mit tollen Ergebnissen absolviert.',
                 { duration: 6000 }
               );
             }
@@ -118,7 +118,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
       }
     } catch (err) {
       console.error('Failed to record card review', err);
-      toastService.error('Review failed.');
+      toastService.error('Überprüfung fehlgeschlagen.');
     } finally {
       setSavingReview(false);
     }
@@ -164,10 +164,10 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
   if (isLocked && lessonNumber) {
     return (
       <SectionCompletedState
-        title="Successfully Completed"
-        message="You have already completed this section."
+        title="Erfolgreich abgeschlossen"
+        message="Du hast diesen Abschnitt bereits abgeschlossen."
         backPath={`/course/${lessonNumber}`}
-        backLabel="Back to lesson"
+        backLabel="Zurück zur Lektion"
       />
     );
   }
@@ -175,7 +175,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
   if (total === 0) {
     return (
       <p className="mt-2 text-sm text-text-muted">
-        This lesson&apos;s deck does not contain any cards yet.
+        Das Deck dieser Lektion enthält noch keine Karten.
       </p>
     );
   }
@@ -188,7 +188,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
       {/* Progress Header */}
       <div className="bg-surface rounded-xl shadow-card p-5 mb-8 flex items-center justify-between">
         <div>
-          <div className="text-[14px] text-text-muted mb-1">Progress</div>
+          <div className="text-[14px] text-text-muted mb-1">Fortschritt</div>
           <div className="text-[24px] font-bold font-serif">
             <span className="text-primary">{currentIndex + 1}</span>
             <span className="text-text-muted"> / {total}</span>
@@ -203,7 +203,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
           </div>
         </div>
         <div className="text-right">
-          <div className="text-[14px] text-text-muted mb-1">Remaining</div>
+          <div className="text-[14px] text-text-muted mb-1">Verbleibend</div>
           <div className="text-[24px] font-bold font-serif text-text-main">{remaining}</div>
         </div>
       </div>
@@ -230,7 +230,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
             }}
           >
             <div className="w-full text-center text-[14px] uppercase tracking-wider text-text-muted font-semibold mb-auto">
-              Question
+              Frage
             </div>
             <p className="text-[28px] font-serif text-center text-text-main leading-relaxed whitespace-pre-wrap max-w-[90%] my-auto">
               {currentCard.front}
@@ -240,7 +240,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
-              Click to reveal answer
+              Klicken, um die Antwort anzuzeigen
             </div>
           </div>
 
@@ -253,7 +253,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
             }}
           >
             <div className="w-full text-center text-[14px] uppercase tracking-wider text-text-muted font-semibold mb-auto">
-              Answer
+              Antwort
             </div>
             <p className="text-[22px] font-serif text-center text-text-main leading-relaxed whitespace-pre-wrap max-w-[90%] my-auto">
               {currentCard.back}
@@ -315,28 +315,28 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
           <span className="inline-flex items-center bg-surface px-2 py-1 rounded border border-[#ccc] font-mono text-[14px] shadow-[0_2px_0_rgba(0,0,0,0.1)] mx-1">
             Space
           </span>
-          Flip
+          Umdrehen
           <span className="mx-2">•</span>
           <span className="inline-flex items-center bg-surface px-2 py-1 rounded border border-[#ccc] font-mono text-[14px] shadow-[0_2px_0_rgba(0,0,0,0.1)] mx-1">
             ←
           </span>
-          Hard
+          Schwer
           <span className="mx-2">•</span>
           <span className="inline-flex items-center bg-surface px-2 py-1 rounded border border-[#ccc] font-mono text-[14px] shadow-[0_2px_0_rgba(0,0,0,0.1)] mx-1">
             →
           </span>
-          Easy
+          Leicht
         </div>
       </div>
 
       {allReviewed && (
         <div className="mt-8 text-center">
           <div className="bg-[#EBF5EC] rounded-xl p-6 inline-block">
-            <div className="text-[17px] font-semibold text-[#6B8C6E] mb-2">Session Complete!</div>
+            <div className="text-[17px] font-semibold text-[#6B8C6E] mb-2">Sitzung abgeschlossen!</div>
             <p className="text-[14px] text-[#6B8C6E]">
-              You knew{' '}
-              <span className="font-bold">{sessionCorrect}</span> out of{' '}
-              <span className="font-bold">{total}</span> cards
+              Du wusstest{' '}
+              <span className="font-bold">{sessionCorrect}</span> von{' '}
+              <span className="font-bold">{total}</span> Karten
             </p>
           </div>
         </div>
