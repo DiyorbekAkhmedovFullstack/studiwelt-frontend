@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { OptimizedImage } from '../common/OptimizedImage';
 
@@ -26,148 +27,149 @@ const getImagePath = (cityName: string): string => {
 
 // Static data moved outside component to avoid recreating on each render
 const studienkollegs: Studienkolleg[] = [
-    {
-      id: '1',
-      slug: 'munich',
-      name: 'Studienkolleg München',
-      location: 'München',
-      imageUrl: getImagePath('munich'),
-      badge: 'Bayern',
-      courses: [
-        { name: 'M-Kurs', isMain: true },
-        { name: 'T-Kurs', isMain: true },
-        { name: 'W-Kurs' },
-        { name: 'G-Kurs' },
-      ],
-      applicationMethod: 'assist',
-    },
-    {
-      id: '2',
-      slug: 'berlin',
-      name: 'Studienkolleg der TU Berlin',
-      location: 'Berlin',
-      imageUrl: getImagePath('berlin'),
-      badge: 'Berlin',
-      courses: [
-        { name: 'T-Kurs', isMain: true },
-        { name: 'M-Kurs', isMain: true },
-        { name: 'W-Kurs' },
-      ],
-      applicationMethod: 'assist',
-    },
-    {
-      id: '3',
-      slug: 'hamburg',
-      name: 'Studienkolleg Hamburg',
-      location: 'Hamburg',
-      imageUrl: getImagePath('hamburg'),
-      badge: 'Hamburg',
-      courses: [
-        { name: 'M-Kurs', isMain: true },
-        { name: 'T-Kurs', isMain: true },
-        { name: 'W-Kurs' },
-        { name: 'G-Kurs' },
-      ],
-      applicationMethod: 'direct',
-    },
-    {
-      id: '4',
-      slug: 'karlsruhe',
-      name: 'Studienkolleg am KIT',
-      location: 'Karlsruhe',
-      imageUrl: getImagePath('karlsruhe'),
-      badge: 'Baden-Württemberg',
-      courses: [{ name: 'T-Kurs', isMain: true }, { name: 'M-Kurs (Ext)' }],
-      applicationMethod: 'direct',
-    },
-    {
-      id: '5',
-      slug: 'leipzig',
-      name: 'Studienkolleg Leipzig',
-      location: 'Leipzig',
-      imageUrl: getImagePath('leipzig'),
-      badge: 'Sachsen',
-      courses: [
-        { name: 'T-Kurs', isMain: true },
-        { name: 'M-Kurs', isMain: true },
-        { name: 'W-Kurs' },
-        { name: 'S/G-Kurs' },
-      ],
-      applicationMethod: 'assist',
-    },
-    {
-      id: '6',
-      slug: 'heidelberg',
-      name: 'Studienkolleg Heidelberg',
-      location: 'Heidelberg',
-      imageUrl: getImagePath('heidelberg'),
-      badge: 'Baden-Württemberg',
-      courses: [
-        { name: 'M-Kurs', isMain: true },
-        { name: 'T-Kurs' },
-        { name: 'G/S-Kurs' },
-        { name: 'W-Kurs' },
-      ],
-      applicationMethod: 'direct',
-    },
-    {
-      id: '7',
-      slug: 'halle',
-      name: 'Studienkolleg Halle(Saale)',
-      location: 'Halle(Saale)',
-      imageUrl: getImagePath('halle'),
-      badge: 'Sachsen-Anhalt',
-      courses: [
-        { name: 'M-Kurs', isMain: true },
-        { name: 'T-Kurs' },
-        { name: 'W-Kurs' },
-        { name: 'G-Kurs' },
-      ],
-      applicationMethod: 'direct',
-    },
-    {
-      id: '8',
-      slug: 'darmstadt',
-      name: 'Studienkolleg Darmstadt',
-      location: 'Darmstadt',
-      imageUrl: getImagePath('darmstadt'),
-      badge: 'Hessen',
-      courses: [{ name: 'T-Kurs', isMain: true }, { name: 'G-Kurs', isMain: true }],
-      applicationMethod: 'direct',
-    },
-    {
-      id: '9',
-      slug: 'frankfurt',
-      name: 'Studienkolleg Frankfurt',
-      location: 'Frankfurt am Main',
-      imageUrl: getImagePath('frankfurt'),
-      badge: 'Hessen',
-      courses: [
-        { name: 'M-Kurs', isMain: true },
-        { name: 'T-Kurs', isMain: true },
-        { name: 'W-Kurs' },
-        { name: 'G-Kurs' },
-      ],
-      applicationMethod: 'assist',
-    },
-    {
-      id: '10',
-      slug: 'hannover',
-      name: 'Studienkolleg Hannover',
-      location: 'Hannover',
-      imageUrl: getImagePath('hannover'),
-      badge: 'Niedersachsen',
-      courses: [
-        { name: 'M-Kurs', isMain: true },
-        { name: 'T-Kurs', isMain: true },
-        { name: 'W-Kurs' },
-        { name: 'G-Kurs' },
-      ],
-      applicationMethod: 'assist',
-    },
+  {
+    id: '1',
+    slug: 'munich',
+    name: 'Studienkolleg München',
+    location: 'München',
+    imageUrl: getImagePath('munich'),
+    badge: 'Bayern',
+    courses: [
+      { name: 'M-Kurs', isMain: true },
+      { name: 'T-Kurs', isMain: true },
+      { name: 'W-Kurs' },
+      { name: 'G-Kurs' },
+    ],
+    applicationMethod: 'assist',
+  },
+  {
+    id: '2',
+    slug: 'berlin',
+    name: 'Studienkolleg der TU Berlin',
+    location: 'Berlin',
+    imageUrl: getImagePath('berlin'),
+    badge: 'Berlin',
+    courses: [
+      { name: 'T-Kurs', isMain: true },
+      { name: 'M-Kurs', isMain: true },
+      { name: 'W-Kurs' },
+    ],
+    applicationMethod: 'assist',
+  },
+  {
+    id: '3',
+    slug: 'hamburg',
+    name: 'Studienkolleg Hamburg',
+    location: 'Hamburg',
+    imageUrl: getImagePath('hamburg'),
+    badge: 'Hamburg',
+    courses: [
+      { name: 'M-Kurs', isMain: true },
+      { name: 'T-Kurs', isMain: true },
+      { name: 'W-Kurs' },
+      { name: 'G-Kurs' },
+    ],
+    applicationMethod: 'direct',
+  },
+  {
+    id: '4',
+    slug: 'karlsruhe',
+    name: 'Studienkolleg am KIT',
+    location: 'Karlsruhe',
+    imageUrl: getImagePath('karlsruhe'),
+    badge: 'Baden-Württemberg',
+    courses: [{ name: 'T-Kurs', isMain: true }, { name: 'M-Kurs (Ext)' }],
+    applicationMethod: 'direct',
+  },
+  {
+    id: '5',
+    slug: 'leipzig',
+    name: 'Studienkolleg Leipzig',
+    location: 'Leipzig',
+    imageUrl: getImagePath('leipzig'),
+    badge: 'Sachsen',
+    courses: [
+      { name: 'T-Kurs', isMain: true },
+      { name: 'M-Kurs', isMain: true },
+      { name: 'W-Kurs' },
+      { name: 'S/G-Kurs' },
+    ],
+    applicationMethod: 'assist',
+  },
+  {
+    id: '6',
+    slug: 'heidelberg',
+    name: 'Studienkolleg Heidelberg',
+    location: 'Heidelberg',
+    imageUrl: getImagePath('heidelberg'),
+    badge: 'Baden-Württemberg',
+    courses: [
+      { name: 'M-Kurs', isMain: true },
+      { name: 'T-Kurs' },
+      { name: 'G/S-Kurs' },
+      { name: 'W-Kurs' },
+    ],
+    applicationMethod: 'direct',
+  },
+  {
+    id: '7',
+    slug: 'halle',
+    name: 'Studienkolleg Halle(Saale)',
+    location: 'Halle(Saale)',
+    imageUrl: getImagePath('halle'),
+    badge: 'Sachsen-Anhalt',
+    courses: [
+      { name: 'M-Kurs', isMain: true },
+      { name: 'T-Kurs' },
+      { name: 'W-Kurs' },
+      { name: 'G-Kurs' },
+    ],
+    applicationMethod: 'direct',
+  },
+  {
+    id: '8',
+    slug: 'darmstadt',
+    name: 'Studienkolleg Darmstadt',
+    location: 'Darmstadt',
+    imageUrl: getImagePath('darmstadt'),
+    badge: 'Hessen',
+    courses: [{ name: 'T-Kurs', isMain: true }, { name: 'G-Kurs', isMain: true }],
+    applicationMethod: 'direct',
+  },
+  {
+    id: '9',
+    slug: 'frankfurt',
+    name: 'Studienkolleg Frankfurt',
+    location: 'Frankfurt am Main',
+    imageUrl: getImagePath('frankfurt'),
+    badge: 'Hessen',
+    courses: [
+      { name: 'M-Kurs', isMain: true },
+      { name: 'T-Kurs', isMain: true },
+      { name: 'W-Kurs' },
+      { name: 'G-Kurs' },
+    ],
+    applicationMethod: 'assist',
+  },
+  {
+    id: '10',
+    slug: 'hannover',
+    name: 'Studienkolleg Hannover',
+    location: 'Hannover',
+    imageUrl: getImagePath('hannover'),
+    badge: 'Niedersachsen',
+    courses: [
+      { name: 'M-Kurs', isMain: true },
+      { name: 'T-Kurs', isMain: true },
+      { name: 'W-Kurs' },
+      { name: 'G-Kurs' },
+    ],
+    applicationMethod: 'assist',
+  },
 ];
 
 export function StudienkollegCarousel() {
+  const { t } = useTranslation('landing');
   const [sectionRef, sectionVisible] = useScrollAnimation();
   const navigate = useNavigate();
 
@@ -254,14 +256,12 @@ export function StudienkollegCarousel() {
         {/* Header */}
         <div
           ref={sectionRef}
-          className={`text-center max-w-[700px] mx-auto mb-12 transition-all duration-700 ${
-            sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-          }`}
+          className={`text-center max-w-[700px] mx-auto mb-12 transition-all duration-700 ${sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            }`}
         >
-          <h2 className="text-[32px] md:text-[40px] font-bold mb-3 sm:mb-4">Explore Studienkollegs</h2>
+          <h2 className="text-[32px] md:text-[40px] font-bold mb-3 sm:mb-4">{t('carousel.title')}</h2>
           <p className="text-text-muted text-sm sm:text-base md:text-lg px-4">
-            Germany offers tuition-free preparatory courses at top universities. Browse public
-            Studienkollegs and find your perfect match.
+            {t('carousel.description')}
           </p>
         </div>
       </div>
@@ -310,13 +310,12 @@ export function StudienkollegCarousel() {
             {visibleCards.map((stk, index) => (
               <div
                 key={stk.id}
-                className={`transition-all duration-500 ${
-                  isAnimating
-                    ? 'opacity-0 scale-95'
-                    : sectionVisible
+                className={`transition-all duration-500 ${isAnimating
+                  ? 'opacity-0 scale-95'
+                  : sectionVisible
                     ? 'opacity-100 scale-100'
                     : 'opacity-0 translate-y-5'
-                }`}
+                  }`}
                 style={{ transitionDelay: isAnimating ? '0ms' : `${index * 50}ms` }}
               >
                 <div
@@ -375,11 +374,10 @@ export function StudienkollegCarousel() {
                     <div className="mt-4 md:mt-6 pt-4 md:pt-5 border-t border-dashed border-[rgba(0,0,0,0.1)] flex items-center justify-between">
                       <div className="flex items-center gap-1.5 md:gap-2 text-[0.75rem] md:text-[0.85rem] font-semibold text-text-muted">
                         <div
-                          className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full ${
-                            stk.applicationMethod === 'assist'
-                              ? 'bg-[#D9A441] shadow-[0_0_0_3px_rgba(217,164,65,0.15)]'
-                              : 'bg-[#6B8C6E] shadow-[0_0_0_3px_rgba(107,140,110,0.15)]'
-                          }`}
+                          className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full ${stk.applicationMethod === 'assist'
+                            ? 'bg-[#D9A441] shadow-[0_0_0_3px_rgba(217,164,65,0.15)]'
+                            : 'bg-[#6B8C6E] shadow-[0_0_0_3px_rgba(107,140,110,0.15)]'
+                            }`}
                         />
                         {stk.applicationMethod === 'assist' ? 'Uni-Assist' : 'Direkt'}
                       </div>

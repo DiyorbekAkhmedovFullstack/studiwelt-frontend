@@ -1,0 +1,112 @@
+{
+    "hero": {
+        "badge": "DEIN WEG AN DEUTSCHE UNIVERSITÄTEN",
+        "title": "Was ist ein",
+        "titleHighlight": "Studienkolleg?",
+        "description": "Ein einjähriges Vorbereitungsprogramm, das die Lücke zwischen der Bildung in deinem Heimatland und den deutschen Hochschulanforderungen schließt. Schließe es erfolgreich ab und erhalte Zugang zu Universitäten in ganz Deutschland.",
+        "stats": {
+            "duration": "2 Semester",
+            "language": "Deutsch B1-B2",
+            "tuition": "Öffentlich: Gebührenfrei"
+        }
+    },
+    "why": {
+        "title": "Warum Studienkolleg?",
+        "description": "Nicht alle ausländischen Qualifikationen werden in Deutschland direkt anerkannt. Das Studienkolleg bereitet dich auf den Erfolg vor.",
+        "cards": {
+            "bridge": {
+                "title": "Bildungslücken schließen",
+                "description": "Fülle die Lücken zwischen dem Bildungssystem deines Heimatlandes und den deutschen akademischen Standards mit gezielter Vorbereitung."
+            },
+            "german": {
+                "title": "Akademisches Deutsch meistern",
+                "description": "Intensives Sprachtraining sorgt dafür, dass du für Vorlesungen, Prüfungen und akademisches Schreiben auf Deutsch bereit bist."
+            },
+            "path": {
+                "title": "Garantierter Universitätsweg",
+                "description": "Bestehe die FSP-Prüfung und erhalte Zugang zu Universitäten in ganz Deutschland. Deine Qualifikation wird bundesweit anerkannt."
+            }
+        }
+    },
+    "courses": {
+        "title": "Wähle deinen Schwerpunkt",
+        "description": "Das Studienkolleg bietet 5 spezialisierte Kurse. Wähle basierend auf deinem geplanten Studienfach.",
+        "types": {
+            "G": {
+                "fullName": "Geisteswissenschaften & Kunst",
+                "description": "Vorbereitung für Studien in Geisteswissenschaften, Sozialwissenschaften, Germanistik und Kunst.",
+                "examples": "Geschichte, Philosophie, Jura, Journalismus, Kunstgeschichte"
+            },
+            "M": {
+                "fullName": "Medizin & Biologie",
+                "description": "Für medizinische, biologische und pharmazeutische Studiengänge.",
+                "examples": "Medizin, Zahnmedizin, Pharmazie, Biologie, Tiermedizin"
+            },
+            "T": {
+                "fullName": "Technik & Ingenieurwesen",
+                "description": "Vorbereitung für technische Fächer einschließlich Ingenieurwesen und Naturwissenschaften.",
+                "examples": "Ingenieurwesen, Physik, Chemie, Mathematik, IT"
+            },
+            "W": {
+                "fullName": "Wirtschaft & Volkswirtschaft",
+                "description": "Für Wirtschafts-, Volkswirtschafts- und sozialwissenschaftliche Studiengänge.",
+                "examples": "Betriebswirtschaft, Volkswirtschaft, Soziologie"
+            },
+            "S": {
+                "fullName": "Sprachen",
+                "description": "Für Sprachstudien und Programme, die starke sprachliche Fähigkeiten erfordern.",
+                "examples": "Linguistik, Übersetzung, Fremdsprachen"
+            }
+        }
+    },
+    "requirements": {
+        "title": "Voraussetzungen",
+        "description": "Was du für die Bewerbung am Studienkolleg brauchst.",
+        "language": {
+            "title": "Deutsche Sprache",
+            "items": [
+                "Mindestens <strong>B1-Niveau</strong> (manche verlangen B2)",
+                "Zertifikat vom Goethe-Institut oder gleichwertig",
+                "TestDaF oder DSH werden auf höheren Niveaus akzeptiert"
+            ]
+        },
+        "academic": {
+            "title": "Akademischer Hintergrund",
+            "items": [
+                "Abgeschlossenes <strong>1 Jahr</strong> an einer Universität",
+                "Mindest-Notendurchschnitt von <strong>3,0</strong> (oder gleichwertig)",
+                "Abitur (übersetzt & beglaubigt)"
+            ]
+        },
+        "timeline": {
+            "title": "Bewerbungszeitraum",
+            "winter": "<strong>Wintersemester:</strong> Bewerbung bis 15. Juli",
+            "summer": "<strong>Sommersemester:</strong> Bewerbung bis 15. Januar"
+        }
+    },
+    "fsp": {
+        "badge": "DER LETZTE SCHRITT",
+        "title": "Feststellungsprüfung (FSP)",
+        "description": "Am Ende deiner Studienkolleg-Reise legst du die Feststellungsprüfung ab — die Prüfung, die deine Bereitschaft für ein deutsches Hochschulstudium bescheinigt.",
+        "cards": {
+            "tested": {
+                "title": "Was wird geprüft",
+                "description": "Deutsche Sprachkenntnisse und fachspezifisches Wissen aus deinem Schwerpunkt."
+            },
+            "duration": {
+                "title": "Dauer",
+                "description": "Schriftliche Prüfungen über mehrere Tage, plus mündliche Prüfungen in einigen Fächern."
+            },
+            "after": {
+                "title": "Nach dem Bestehen",
+                "description": "Erhalte Zugang zu Universitäten in ganz Deutschland in deinem gewählten Studienfach."
+            }
+        }
+    },
+    "cta": {
+        "title": "Bereit, deine Reise zu starten?",
+        "description": "Entdecke Studienkollegs in ganz Deutschland und finde die perfekte Wahl für deine akademischen Ziele.",
+        "exploreButton": "Studienkollegs entdecken",
+        "startButton": "Mit der Vorbereitung beginnen"
+    }
+}

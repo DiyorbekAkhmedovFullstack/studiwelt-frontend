@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "home": "Home",
+        "method": "Method",
+        "login": "Log in",
+        "getStarted": "Get Started",
+        "learnMore": "Learn More",
+        "currentCourse": "Current Course",
+        "germanLanguage": "German Language",
+        "profileAccount": "Profile & Account",
+        "upgradeToStudent": "Upgrade to Student",
+        "adminPanel": "Admin Panel",
+        "logOut": "Log Out",
+        "welcomeTitle": "Welcome to Studiwelt",
+        "welcomeSubtitle": "Higher education in Germany simplified",
+        "createAccount": "Create Account",
+        "freeToStart": "Free to start",
+        "alreadyHaveAccount": "Already have an account? Log in",
+        "aboutStudienkolleg": "About Studienkolleg",
+        "application": "Application",
+        "entranceExam": "Entrance Exam",
+        "fsp": "FSP"
+    },
+    "buttons": {
+        "startPlan": "Start Your 30-Day Plan",
+        "learnMore": "Learn More",
+        "viewAll": "View All"
+    }
+}

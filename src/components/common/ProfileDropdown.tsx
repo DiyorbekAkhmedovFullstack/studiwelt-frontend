@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect, useTransition } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { useProgress } from '../../contexts/ProgressContext';
 
 export function ProfileDropdown() {
+  const { t } = useTranslation('common');
   const { user, logout } = useAuth();
   const { courseProgress, isPending: isProgressPending } = useProgress();
   const navigate = useNavigate();
@@ -70,11 +72,10 @@ export function ProfileDropdown() {
 
       {/* Dropdown Panel */}
       <div
-        className={`absolute top-[calc(100%+16px)] right-0 w-80 bg-surface rounded-[24px] shadow-[0_10px_40px_-10px_rgba(62,54,48,0.15)] p-2 border border-[rgba(0,0,0,0.06)] transition-all duration-200 ${
-          isOpen
-            ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto visible'
-            : 'opacity-0 -translate-y-2.5 scale-98 pointer-events-none invisible'
-        }`}
+        className={`absolute top-[calc(100%+16px)] right-0 w-80 bg-surface rounded-[24px] shadow-[0_10px_40px_-10px_rgba(62,54,48,0.15)] p-2 border border-[rgba(0,0,0,0.06)] transition-all duration-200 ${isOpen
+          ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto visible'
+          : 'opacity-0 -translate-y-2.5 scale-98 pointer-events-none invisible'
+          }`}
       >
         {/* Header Section */}
         <div className="px-4 pt-4 pb-5 border-b border-[rgba(0,0,0,0.06)] mb-2">
@@ -86,7 +87,7 @@ export function ProfileDropdown() {
 
         {/* Current Course Section */}
         <div className="text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2 mt-2">
-          Current Course
+          {t('nav.currentCourse')}
         </div>
 
         <Link
@@ -101,7 +102,7 @@ export function ProfileDropdown() {
             </svg>
           </div>
           <div className="flex-1">
-            <span className="block font-semibold text-[14px] mb-1">German Language</span>
+            <span className="block font-semibold text-[14px] mb-1">{t('nav.germanLanguage')}</span>
             <div className="h-1 bg-[rgba(0,0,0,0.05)] rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full"
@@ -123,7 +124,7 @@ export function ProfileDropdown() {
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
-          Profile & Account
+          {t('nav.profileAccount')}
         </Link>
 
         {user?.role === 'USER' && (
@@ -137,7 +138,7 @@ export function ProfileDropdown() {
               <polyline points="2 17 12 22 22 17"></polyline>
               <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
-            Upgrade to Student
+            {t('nav.upgradeToStudent')}
           </Link>
         )}
 
@@ -152,7 +153,7 @@ export function ProfileDropdown() {
               <polyline points="2 17 12 22 22 17"></polyline>
               <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
-            Admin Panel
+            {t('nav.adminPanel')}
           </Link>
         )}
 
@@ -168,7 +169,7 @@ export function ProfileDropdown() {
             <polyline points="16 17 21 12 16 7"></polyline>
             <line x1="21" y1="12" x2="9" y2="12"></line>
           </svg>
-          Log Out
+          {t('nav.logOut')}
         </button>
       </div>
     </div>

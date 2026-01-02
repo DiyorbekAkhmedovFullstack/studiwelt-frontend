@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../components/landing/Button';
 import { FeatureCard } from '../components/landing/FeatureCard';
 import { PlatformPreview } from '../components/landing/PlatformPreview';
@@ -9,6 +10,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useAuth } from '../contexts/AuthContext';
 
 export function LandingPage() {
+  const { t } = useTranslation(['landing', 'common']);
   const { user } = useAuth();
   const isAuthenticated = !!user;
   const [heroRef, heroVisible] = useScrollAnimation();
@@ -28,23 +30,23 @@ export function LandingPage() {
               }`}
           >
             <span className="inline-block px-2 sm:px-4 py-0.5 sm:py-1 bg-primary-light text-primary rounded-[20px] text-[9px] sm:text-xs font-semibold mb-5 sm:mb-6 tracking-wider">
-              The only Platform you need to chase your dreams
+              {t('landing:hero.badge')}
             </span>
 
             <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[60px] leading-tight sm:leading-[1.2] lg:leading-[1.1] font-bold mb-6 sm:mb-6 max-w-[800px] mx-auto px-2">
-              Get in Studienkolleg{' '}
+              {t('landing:hero.titleLine1')}{' '}
               <br className="hidden sm:block" />
-              this year,{' '}
-              <span className="text-primary italic">Calmly.</span>
+              {t('landing:hero.titleLine2')}{' '}
+              <span className="text-primary italic">{t('landing:hero.titleHighlight')}</span>
             </h1>
 
             <p className="text-[11px] sm:text-sm md:text-base text-text-muted max-w-[600px] mx-auto mb-8 sm:mb-10 px-4">
-              Stop cramming. Start absorbing. A guided, step-by-step roadmap to Studienkolleg entrance exam without the burnout.
+              {t('landing:hero.description')}
             </p>
 
             <div className="flex justify-center items-center px-4">
               <Link to={isAuthenticated ? "/course" : "/register"}>
-                <Button variant="primary">Start Your 30-Day Plan</Button>
+                <Button variant="primary">{t('common:buttons.startPlan')}</Button>
               </Link>
             </div>
           </div>
@@ -62,9 +64,9 @@ export function LandingPage() {
             className={`text-center max-w-[700px] mx-auto mb-12 md:mb-16 transition-all duration-700 ${featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
           >
-            <h2 className="text-[32px] md:text-[40px] font-bold mb-3 sm:mb-4 px-4">The Anti-Burnout Method</h2>
+            <h2 className="text-[32px] md:text-[40px] font-bold mb-3 sm:mb-4 px-4">{t('landing:features.title')}</h2>
             <p className="text-text-muted text-base sm:text-lg px-4">
-              Most courses dump content on you. We structure it. Our "Daily Progress" method ensures you retain what you learn.
+              {t('landing:features.description')}
             </p>
           </div>
 
@@ -75,8 +77,8 @@ export function LandingPage() {
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               }
-              title="Structured Pacing"
-              description="Content is unlocked daily. Progress through lessons systematically, forcing your brain to enter 'diffuse mode' and actually process information."
+              title={t('landing:features.pacing.title')}
+              description={t('landing:features.pacing.description')}
               delay={0}
             />
 
@@ -90,8 +92,8 @@ export function LandingPage() {
                   <polyline points="10 9 9 9 8 9"></polyline>
                 </svg>
               }
-              title="Curated Resources"
-              description="No more hunting for materials. Every lesson comes with targeted exercises, flashcards, and reading comprehension tailored for quick mastery."
+              title={t('landing:features.resources.title')}
+              description={t('landing:features.resources.description')}
               delay={100}
             />
 
@@ -102,8 +104,8 @@ export function LandingPage() {
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               }
-              title="Progress Tracking"
-              description="Built-in progress bars and completion tracking help you focus on what matters. See your improvement in real-time across all sections."
+              title={t('landing:features.tracking.title')}
+              description={t('landing:features.tracking.description')}
               delay={200}
             />
           </div>
@@ -119,3 +121,4 @@ export function LandingPage() {
     </div>
   );
 }
+

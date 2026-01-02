@@ -1,0 +1,141 @@
+{
+    "hero": {
+        "badge": "SCHRITT-FÜR-SCHRITT-ANLEITUNG",
+        "title": "Wie du dich beim",
+        "titleHighlight": "Studienkolleg bewirbst",
+        "description": "Ein vollständiger Leitfaden durch den Bewerbungsprozess – von der Dokumentensammlung bis zum Zulassungsbescheid. Starte deine Reise zum Studium in Deutschland."
+    },
+    "routes": {
+        "title": "Zwei Wege zur Bewerbung",
+        "description": "Du kannst dich nicht direkt bei einem Studienkolleg bewerben. Bewerbungen müssen über die Universität erfolgen.",
+        "uniAssist": {
+            "title": "Über uni-assist",
+            "description": "Viele deutsche Universitäten nutzen uni-assist zur Bearbeitung internationaler Bewerbungen. Du reichst Dokumente einmal ein, und sie werden verifiziert und weitergeleitet.",
+            "items": [
+                "Zentrale Plattform für mehrere Bewerbungen",
+                "Dokumentenprüfung inklusive",
+                "Bearbeitungsgebühr: ca. 75 € pro Bewerbung"
+            ]
+        },
+        "direct": {
+            "title": "Direkt an die Universität",
+            "description": "Einige Universitäten akzeptieren Direktbewerbungen. Informiere dich beim International Office der jeweiligen Universität.",
+            "items": [
+                "Direkte Bewerbung über das Hochschulportal",
+                "Anforderungen variieren je nach Institution",
+                "Oft schnellere Bearbeitungszeit"
+            ]
+        }
+    },
+    "steps": {
+        "title": "Bewerbungsschritte",
+        "description": "Befolge diese Schritte für eine erfolgreiche Bewerbung am Studienkolleg.",
+        "tipLabel": "Tipp",
+        "items": [
+            {
+                "title": "Recherchieren & Auswählen",
+                "description": "Recherchiere Studienkollegs und wähle deine Zieluniversitäten. Entscheide dich für deinen Kursschwerpunkt (G, M, T, W oder S).",
+                "tip": "Bewirb dich bei mehreren Studienkollegs, um deine Chancen zu erhöhen."
+            },
+            {
+                "title": "Dokumente sammeln",
+                "description": "Sammle alle erforderlichen Dokumente. Lass Übersetzungen beglaubigen und notariell bestätigen.",
+                "tip": "Beginne diesen Prozess mindestens 2 Monate vor der Frist."
+            },
+            {
+                "title": "Bewerbung einreichen",
+                "description": "Bewirb dich über uni-assist oder direkt bei der Universität. Bezahle die Bewerbungsgebühren und lade alle Dokumente hoch.",
+                "tip": "Überprüfe alle Dokumente vor dem Absenden."
+            },
+            {
+                "title": "Aufnahmeprüfung",
+                "description": "Wenn deine Bewerbung genehmigt wird, wirst du zur Aufnahmeprüfung eingeladen.",
+                "tip": "Übe täglich Deutsch und Mathematik vor der Prüfung."
+            },
+            {
+                "title": "Visum & Ankunft",
+                "description": "Nach der Zulassung: Eröffne ein Sperrkonto, schließe eine Krankenversicherung ab und beantrage dein Studentenvisum.",
+                "tip": "Buche den Botschaftstermin frühzeitig."
+            }
+        ]
+    },
+    "documents": {
+        "title": "Erforderliche Dokumente",
+        "description": "Bereite diese Dokumente vor, bevor du mit der Bewerbung beginnst.",
+        "checklistTitle": "Dokumenten-Checkliste",
+        "items": [
+            "Abitur/Schulabschluss (übersetzt & beglaubigt)",
+            "Akademische Zeugnisse mit Noten",
+            "Deutschzertifikat (B1/B2)",
+            "Passkopie (mindestens 6 Monate gültig)",
+            "Passfotos",
+            "Lebenslauf",
+            "Motivationsschreiben (bei einigen Universitäten)",
+            "Nachweis der Hochschulzugangsberechtigung"
+        ],
+        "warning": "<strong>Wichtig:</strong> Jedes Studienkolleg kann zusätzliche Anforderungen haben. Überprüfe immer die vollständige Checkliste auf der Website der jeweiligen Institution."
+    },
+    "deadlines": {
+        "title": "Bewerbungsfristen",
+        "description": "Markiere diese Termine in deinem Kalender. Studienkolleg-Fristen sind oft früher als Universitätsfristen.",
+        "winter": {
+            "title": "Wintersemester",
+            "date": "15. Juli",
+            "note": "Vorlesungsbeginn im Oktober"
+        },
+        "summer": {
+            "title": "Sommersemester",
+            "date": "15. Januar",
+            "note": "Vorlesungsbeginn im April"
+        },
+        "disclaimer": "Einige Universitäten haben frühere Fristen. Überprüfe immer bei deiner Zieleinrichtung."
+    },
+    "exam": {
+        "title": "Aufnahmeprüfung",
+        "subtitle": "Entrance Exam",
+        "description": "Öffentliche Studienkollegs erfordern das Bestehen einer Aufnahmeprüfung. Diese testet deine Deutschkenntnisse und bei technischen Kursen (M, T, W) grundlegende Mathematik.",
+        "cards": {
+            "german": {
+                "title": "Deutschtest",
+                "description": "Leseverstehen, Schreiben, Grammatik und Hörverstehen."
+            },
+            "math": {
+                "title": "Mathetest",
+                "description": "Für M-, T-, W-Kurse. Algebra, Geometrie, Funktionen."
+            },
+            "when": {
+                "title": "Wann",
+                "description": "September (für Winter) und Februar (für Sommersemester)."
+            }
+        }
+    },
+    "visa": {
+        "title": "Nach der Zulassung",
+        "description": "Nach der Zulassung diese Schritte vor der Reise nach Deutschland erledigen.",
+        "blockedAccount": {
+            "title": "Sperrkonto",
+            "description": "Eröffne ein Sperrkonto mit ca. 11.904 €/Jahr zum Nachweis finanzieller Stabilität.",
+            "note": "Erforderlich für den Visumantrag"
+        },
+        "healthInsurance": {
+            "title": "Krankenversicherung",
+            "description": "Schließe eine deutsche Krankenversicherung ab (gesetzlich oder privat). Pflicht für Einschreibung und Visum.",
+            "note": "Ca. 110 €/Monat für gesetzliche Versicherung"
+        },
+        "studentVisa": {
+            "title": "Studentenvisum",
+            "description": "Beantrage ein Studentenvisum bei der deutschen Botschaft in deinem Land. Buche deinen Termin frühzeitig, da Wartezeiten mehrere Wochen betragen können.",
+            "requirements": [
+                "Zulassungsbescheid",
+                "Sperrkonto-Nachweis",
+                "Krankenversicherung"
+            ]
+        }
+    },
+    "cta": {
+        "title": "Bereit für deine Bewerbung?",
+        "description": "Beginne heute mit deiner Vorbereitung. Unser strukturierter Kurs hilft dir, die Aufnahmeprüfung zu meistern.",
+        "startButton": "Mit der Vorbereitung beginnen",
+        "learnButton": "Mehr über das Studienkolleg erfahren"
+    }
+}

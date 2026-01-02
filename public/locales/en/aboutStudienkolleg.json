@@ -1,0 +1,112 @@
+{
+    "hero": {
+        "badge": "YOUR PATHWAY TO GERMAN UNIVERSITIES",
+        "title": "What is a",
+        "titleHighlight": "Studienkolleg?",
+        "description": "A one-year preparatory program that bridges the gap between your home country's education and German university requirements. Successfully complete it, and you'll have access to universities across Germany.",
+        "stats": {
+            "duration": "2 Semesters",
+            "language": "German B1-B2",
+            "tuition": "Public: Tuition-Free"
+        }
+    },
+    "why": {
+        "title": "Why Studienkolleg?",
+        "description": "Not all foreign qualifications are directly recognized in Germany. Studienkolleg prepares you for success.",
+        "cards": {
+            "bridge": {
+                "title": "Bridge Your Education",
+                "description": "Fill the gaps between your home country's education system and German academic standards with focused preparation."
+            },
+            "german": {
+                "title": "Master Academic German",
+                "description": "Intensive language training ensures you're ready for lectures, exams, and academic writing in German."
+            },
+            "path": {
+                "title": "Guaranteed University Path",
+                "description": "Pass the FSP exam and gain access to universities throughout Germany. Your qualification is recognized nationwide."
+            }
+        }
+    },
+    "courses": {
+        "title": "Choose Your Track",
+        "description": "Studienkolleg offers 5 specialized courses. Choose based on your intended field of study.",
+        "types": {
+            "G": {
+                "fullName": "Humanities & Arts",
+                "description": "Prepares for studies in humanities, social sciences, German studies, and arts.",
+                "examples": "History, Philosophy, Law, Journalism, Art History"
+            },
+            "M": {
+                "fullName": "Medicine & Biology",
+                "description": "For medical, biological, and pharmaceutical degree programs.",
+                "examples": "Medicine, Dentistry, Pharmacy, Biology, Veterinary"
+            },
+            "T": {
+                "fullName": "Technical & Engineering",
+                "description": "Prepares for technical subjects including engineering and natural sciences.",
+                "examples": "Engineering, Physics, Chemistry, Mathematics, IT"
+            },
+            "W": {
+                "fullName": "Business & Economics",
+                "description": "For business, economics, and social science degree programs.",
+                "examples": "Business Administration, Economics, Sociology"
+            },
+            "S": {
+                "fullName": "Languages",
+                "description": "For language studies and programs requiring strong linguistic skills.",
+                "examples": "Linguistics, Translation, Foreign Languages"
+            }
+        }
+    },
+    "requirements": {
+        "title": "Requirements",
+        "description": "What you need to apply for Studienkolleg admission.",
+        "language": {
+            "title": "German Language",
+            "items": [
+                "Minimum <strong>B1 level</strong> (some require B2)",
+                "Certificate from Goethe-Institut or equivalent",
+                "TestDaF or DSH accepted at higher levels"
+            ]
+        },
+        "academic": {
+            "title": "Academic Background",
+            "items": [
+                "Completed <strong>1 year</strong> at a university",
+                "Minimum GPA of <strong>3.0</strong> (or equivalent)",
+                "High school diploma (translated & certified)"
+            ]
+        },
+        "timeline": {
+            "title": "Application Timeline",
+            "winter": "<strong>Winter Semester:</strong> Apply by July 15",
+            "summer": "<strong>Summer Semester:</strong> Apply by January 15"
+        }
+    },
+    "fsp": {
+        "badge": "THE FINAL STEP",
+        "title": "Feststellungsprüfung (FSP)",
+        "description": "At the end of your Studienkolleg journey, you'll take the Feststellungsprüfung — the assessment test that certifies your readiness for German university studies.",
+        "cards": {
+            "tested": {
+                "title": "What's Tested",
+                "description": "German language proficiency and subject-specific knowledge from your track."
+            },
+            "duration": {
+                "title": "Duration",
+                "description": "Written exams over several days, plus oral examinations in some subjects."
+            },
+            "after": {
+                "title": "After Passing",
+                "description": "Gain access to universities across Germany in your chosen field of study."
+            }
+        }
+    },
+    "cta": {
+        "title": "Ready to Start Your Journey?",
+        "description": "Explore Studienkollegs across Germany and find the perfect fit for your academic goals.",
+        "exploreButton": "Explore Studienkollegs",
+        "startButton": "Start Preparing"
+    }
+}

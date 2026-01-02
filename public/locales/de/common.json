@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "home": "Startseite",
+        "method": "Methode",
+        "login": "Anmelden",
+        "getStarted": "Loslegen",
+        "learnMore": "Mehr erfahren",
+        "currentCourse": "Aktueller Kurs",
+        "germanLanguage": "Deutsche Sprache",
+        "profileAccount": "Profil & Konto",
+        "upgradeToStudent": "Auf Student upgraden",
+        "adminPanel": "Admin-Bereich",
+        "logOut": "Abmelden",
+        "welcomeTitle": "Willkommen bei Studiwelt",
+        "welcomeSubtitle": "Hochschulbildung in Deutschland vereinfacht",
+        "createAccount": "Konto erstellen",
+        "freeToStart": "Kostenlos starten",
+        "alreadyHaveAccount": "Du hast bereits ein Konto? Anmelden",
+        "aboutStudienkolleg": "Über Studienkolleg",
+        "application": "Bewerbung",
+        "entranceExam": "Aufnahmeprüfung",
+        "fsp": "FSP"
+    },
+    "buttons": {
+        "startPlan": "Dein 30-Tage-Plan starten",
+        "learnMore": "Mehr erfahren",
+        "viewAll": "Alle ansehen"
+    }
+}

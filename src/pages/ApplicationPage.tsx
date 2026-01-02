@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -104,6 +105,7 @@ const applicationSteps = [
 ];
 
 export function ApplicationPage() {
+  const { t } = useTranslation('application');
   const [heroRef, heroVisible] = useScrollAnimation();
   const [routesRef, routesVisible] = useScrollAnimation();
   const [stepsRef, stepsVisible] = useScrollAnimation();
@@ -125,17 +127,16 @@ export function ApplicationPage() {
             className={`transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
             <span className="inline-block px-4 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold mb-6 tracking-wider">
-              STEP-BY-STEP GUIDE
+              {t('hero.badge')}
             </span>
 
             <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold mb-6 max-w-[800px] mx-auto">
-              How to Apply to{' '}
-              <span className="text-primary italic">Studienkolleg</span>
+              {t('hero.title')}{' '}
+              <span className="text-primary italic">{t('hero.titleHighlight')}</span>
             </h1>
 
             <p className="text-base sm:text-lg text-text-muted max-w-[650px] mx-auto mb-8 leading-relaxed">
-              A complete guide to navigating the application process, from gathering documents
-              to receiving your acceptance letter. Start your journey to studying in Germany.
+              {t('hero.description')}
             </p>
           </div>
         </div>
@@ -149,9 +150,9 @@ export function ApplicationPage() {
             className={`transition-all duration-700 ${routesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
             <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-              <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Two Ways to Apply</h2>
+              <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('routes.title')}</h2>
               <p className="text-text-muted text-base sm:text-lg">
-                You cannot apply directly to a Studienkolleg. Applications must go through the university.
+                {t('routes.description')}
               </p>
             </div>
 

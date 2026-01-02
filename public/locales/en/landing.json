@@ -1,0 +1,33 @@
+{
+    "hero": {
+        "badge": "The only Platform you need to chase your dreams",
+        "titleLine1": "Get in Studienkolleg",
+        "titleLine2": "this year,",
+        "titleHighlight": "Calmly.",
+        "description": "Stop cramming. Start absorbing. A guided, step-by-step roadmap to Studienkolleg entrance exam without the burnout."
+    },
+    "features": {
+        "title": "The Anti-Burnout Method",
+        "description": "Most courses dump content on you. We structure it. Our \"Daily Progress\" method ensures you retain what you learn.",
+        "pacing": {
+            "title": "Structured Pacing",
+            "description": "Content is unlocked daily. Progress through lessons systematically, forcing your brain to enter 'diffuse mode' and actually process information."
+        },
+        "resources": {
+            "title": "Curated Resources",
+            "description": "No more hunting for materials. Every lesson comes with targeted exercises, flashcards, and reading comprehension tailored for quick mastery."
+        },
+        "tracking": {
+            "title": "Progress Tracking",
+            "description": "Built-in progress bars and completion tracking help you focus on what matters. See your improvement in real-time across all sections."
+        }
+    },
+    "carousel": {
+        "title": "Explore Studienkollegs",
+        "description": "Germany offers tuition-free preparatory courses at top universities. Browse public Studienkollegs and find your perfect match."
+    },
+    "map": {
+        "title": "Your Future in Germany",
+        "description": "From Bavaria to Berlin, your journey to a German university starts here."
+    }
+}

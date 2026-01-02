@@ -1,11 +1,13 @@
 import { useState, useTransition } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 import { useProgress } from "../../contexts/ProgressContext";
 import { ProfileDropdown } from "../common/ProfileDropdown";
 import { SkeletonProfile } from "../common/SkeletonProfile";
 import { GetStartedDropdown } from "./GetStartedDropdown";
 import { LearnMoreDropdown } from "./LearnMoreDropdown";
+import { LanguageSwitcher } from "../common/LanguageSwitcher";
 
 const MenuIcon = () => (
   <svg
@@ -245,11 +247,13 @@ export function LandingNavbar() {
           ) : isAuthenticated ? (
             <>
               <LearnMoreDropdown />
+              <LanguageSwitcher />
               <ProfileDropdown />
             </>
           ) : (
             <>
               <LearnMoreDropdown />
+              <LanguageSwitcher />
               <GetStartedDropdown />
             </>
           )}
@@ -316,6 +320,7 @@ function AuthenticatedMobileMenu({
   onClose,
   onLogout,
 }: AuthenticatedMobileMenuProps) {
+  const { t } = useTranslation('common');
   return (
     <>
       {/* Header Section */}
@@ -328,7 +333,7 @@ function AuthenticatedMobileMenu({
 
       {/* Current Course Section */}
       <div className="text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2 mt-2">
-        Current Course
+        {t('nav.currentCourse')}
       </div>
 
       <Link
@@ -341,7 +346,7 @@ function AuthenticatedMobileMenu({
         </div>
         <div className="flex-1">
           <span className="block font-semibold text-[14px] mb-1">
-            German Language
+            {t('nav.germanLanguage')}
           </span>
           <div className="h-1 bg-border-soft rounded-full overflow-hidden">
             <div
@@ -361,7 +366,7 @@ function AuthenticatedMobileMenu({
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <ProfileIcon />
-        Profile & Account
+        {t('nav.profileAccount')}
       </Link>
 
       {user.role === "USER" && (
@@ -371,7 +376,7 @@ function AuthenticatedMobileMenu({
           className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg bg-primary/5 text-primary font-semibold text-[15px] transition-all hover:bg-primary/10 border border-primary/20"
         >
           <UpgradeIcon />
-          Upgrade to Student
+          {t('nav.upgradeToStudent')}
         </Link>
       )}
 
@@ -382,7 +387,7 @@ function AuthenticatedMobileMenu({
           className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
         >
           <UpgradeIcon />
-          Admin Panel
+          {t('nav.adminPanel')}
         </Link>
       )}
 
@@ -390,7 +395,7 @@ function AuthenticatedMobileMenu({
 
       {/* Learn More Section */}
       <div className="flex items-center gap-2 text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2">
-        Learn More
+        {t('nav.learnMore')}
         <AnimatedDownArrow />
       </div>
 
@@ -400,7 +405,7 @@ function AuthenticatedMobileMenu({
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <BookIcon />
-        About Studienkolleg
+        {t('nav.aboutStudienkolleg')}
       </Link>
 
       <Link
@@ -409,7 +414,7 @@ function AuthenticatedMobileMenu({
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <ApplicationIcon />
-        Application
+        {t('nav.application')}
       </Link>
 
       <Link
@@ -418,7 +423,7 @@ function AuthenticatedMobileMenu({
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <EntranceExamIcon />
-        Entrance Exam
+        {t('nav.entranceExam')}
       </Link>
 
       <Link
@@ -427,8 +432,15 @@ function AuthenticatedMobileMenu({
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <FSPIcon />
-        FSP
+        {t('nav.fsp')}
       </Link>
+
+      <div className="h-px bg-border-soft mx-4 my-2"></div>
+
+      {/* Language Switcher */}
+      <div className="px-4 py-2">
+        <LanguageSwitcher />
+      </div>
 
       <div className="h-px bg-border-soft mx-4 my-2"></div>
 
@@ -438,7 +450,7 @@ function AuthenticatedMobileMenu({
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-danger font-medium text-[15px] transition-colors hover:bg-[#FFF5F5] w-[calc(100%-16px)]"
       >
         <LogoutIcon />
-        Log Out
+        {t('nav.logOut')}
       </button>
     </>
   );
@@ -449,21 +461,22 @@ interface GuestMobileMenuProps {
 }
 
 function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
+  const { t } = useTranslation('common');
   return (
     <>
       {/* Header Section */}
       <div className="px-4 pt-4 pb-5 border-b border-[rgba(0,0,0,0.06)] mb-2">
         <div className="font-serif font-bold text-[17px] mb-0.5">
-          Welcome to Studiwelt
+          {t('nav.welcomeTitle')}
         </div>
         <div className="text-[14px] text-text-muted">
-          Higher education in Germany simplified
+          {t('nav.welcomeSubtitle')}
         </div>
       </div>
 
       {/* Navigation Section */}
       <div className="text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2 mt-2">
-        Get Started
+        {t('nav.getStarted')}
       </div>
 
       {/* Register Link - Primary Action */}
@@ -476,9 +489,9 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
           <SignUpIcon />
         </div>
         <div className="flex-1">
-          <span className="block">Create Account</span>
+          <span className="block">{t('nav.createAccount')}</span>
           <span className="block text-[12px] text-primary/70 font-normal">
-            Free to start
+            {t('nav.freeToStart')}
           </span>
         </div>
       </Link>
@@ -490,14 +503,14 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <LoginIcon />
-        Already have an account? Log in
+        {t('nav.alreadyHaveAccount')}
       </Link>
 
       <div className="h-px bg-border-soft mx-4 my-2"></div>
 
       {/* Additional Info Section */}
       <div className="flex items-center gap-2 text-[12px] uppercase tracking-wider text-text-muted font-semibold px-4 py-2">
-        Learn More
+        {t('nav.learnMore')}
         <AnimatedDownArrow />
       </div>
 
@@ -507,7 +520,7 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <BookIcon />
-        About Studienkolleg
+        {t('nav.aboutStudienkolleg')}
       </Link>
 
       <Link
@@ -516,7 +529,7 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <ApplicationIcon />
-        Application
+        {t('nav.application')}
       </Link>
 
       <Link
@@ -525,7 +538,7 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <EntranceExamIcon />
-        Entrance Exam
+        {t('nav.entranceExam')}
       </Link>
 
       <Link
@@ -534,8 +547,15 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
         className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
       >
         <FSPIcon />
-        FSP
+        {t('nav.fsp')}
       </Link>
+
+      <div className="h-px bg-border-soft mx-4 my-2"></div>
+
+      {/* Language Switcher */}
+      <div className="px-4 py-2">
+        <LanguageSwitcher />
+      </div>
     </>
   );
 }

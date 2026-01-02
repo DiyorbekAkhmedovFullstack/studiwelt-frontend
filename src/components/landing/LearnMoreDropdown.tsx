@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ApplicationIcon = () => (
   <svg className="w-[18px] h-[18px] text-text-muted transition-colors group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -50,6 +51,7 @@ const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
 );
 
 export function LearnMoreDropdown() {
+  const { t } = useTranslation('common');
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -85,7 +87,7 @@ export function LearnMoreDropdown() {
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        Learn More
+        {t('nav.learnMore')}
         <ChevronIcon isOpen={isOpen} />
       </button>
 
@@ -111,7 +113,7 @@ export function LearnMoreDropdown() {
               role="menuitem"
             >
               <BookIcon />
-              About Studienkolleg
+              {t('nav.aboutStudienkolleg')}
             </Link>
 
             <Link
@@ -121,7 +123,7 @@ export function LearnMoreDropdown() {
               role="menuitem"
             >
               <ApplicationIcon />
-              Application
+              {t('nav.application')}
             </Link>
 
             <Link
@@ -131,7 +133,7 @@ export function LearnMoreDropdown() {
               role="menuitem"
             >
               <EntranceExamIcon />
-              Entrance Exam
+              {t('nav.entranceExam')}
             </Link>
 
             <Link
@@ -141,7 +143,7 @@ export function LearnMoreDropdown() {
               role="menuitem"
             >
               <FSPIcon />
-              FSP
+              {t('nav.fsp')}
             </Link>
           </div>
         </>
@@ -149,3 +151,4 @@ export function LearnMoreDropdown() {
     </div>
   );
 }
+

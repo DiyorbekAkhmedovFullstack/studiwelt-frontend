@@ -1,0 +1,33 @@
+{
+    "hero": {
+        "badge": "Die einzige Plattform, die du für deine Träume brauchst",
+        "titleLine1": "Dieses Jahr",
+        "titleLine2": "ins Studienkolleg,",
+        "titleHighlight": "Entspannt.",
+        "description": "Schluss mit dem Pauken. Wissen nachhaltig aufnehmen. Ein geführter, schrittweiser Fahrplan zur Aufnahmeprüfung – ohne Burnout."
+    },
+    "features": {
+        "title": "Die Anti-Burnout-Methode",
+        "description": "Die meisten Kurse überschütten dich mit Inhalten. Wir strukturieren sie. Unsere Täglicher-Fortschritt-Methode sorgt dafür, dass du behältst, was du lernst.",
+        "pacing": {
+            "title": "Strukturiertes Tempo",
+            "description": "Inhalte werden täglich freigeschaltet. Arbeite systematisch durch die Lektionen und gib deinem Gehirn Zeit, Informationen wirklich zu verarbeiten."
+        },
+        "resources": {
+            "title": "Ausgewählte Materialien",
+            "description": "Keine Materialsuche mehr. Jede Lektion enthält gezielte Übungen, Karteikarten und Leseverständnis – maßgeschneidert für schnelles Lernen."
+        },
+        "tracking": {
+            "title": "Fortschrittsverfolgung",
+            "description": "Eingebaute Fortschrittsbalken und Abschlusstracking helfen dir, dich auf das Wesentliche zu konzentrieren. Sieh deine Verbesserung in Echtzeit."
+        }
+    },
+    "carousel": {
+        "title": "Studienkollegs entdecken",
+        "description": "Deutschland bietet kostenlose Vorbereitungskurse an Top-Universitäten. Durchsuche öffentliche Studienkollegs und finde dein perfektes Match."
+    },
+    "map": {
+        "title": "Deine Zukunft in Deutschland",
+        "description": "Von Bayern bis Berlin – dein Weg an eine deutsche Universität beginnt hier."
+    }
+}

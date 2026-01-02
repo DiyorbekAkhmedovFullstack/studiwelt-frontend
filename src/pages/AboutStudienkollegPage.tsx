@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -108,6 +109,7 @@ const courseTypes = [
 ];
 
 export function AboutStudienkollegPage() {
+  const { t } = useTranslation('aboutStudienkolleg');
   const [heroRef, heroVisible] = useScrollAnimation();
   const [whyRef, whyVisible] = useScrollAnimation();
   const [coursesRef, coursesVisible] = useScrollAnimation();
@@ -127,18 +129,16 @@ export function AboutStudienkollegPage() {
             className={`transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
             <span className="inline-block px-4 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold mb-6 tracking-wider">
-              YOUR PATHWAY TO GERMAN UNIVERSITIES
+              {t('hero.badge')}
             </span>
 
             <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold mb-6 max-w-[800px] mx-auto">
-              What is a{' '}
-              <span className="text-primary italic">Studienkolleg?</span>
+              {t('hero.title')}{' '}
+              <span className="text-primary italic">{t('hero.titleHighlight')}</span>
             </h1>
 
             <p className="text-base sm:text-lg text-text-muted max-w-[650px] mx-auto mb-8 leading-relaxed">
-              A one-year preparatory program that bridges the gap between your home country's education
-              and German university requirements. Successfully complete it, and you'll have access to
-              universities across Germany.
+              {t('hero.description')}
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm text-text-muted">
@@ -147,20 +147,20 @@ export function AboutStudienkollegPage() {
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                <span>2 Semesters</span>
+                <span>{t('hero.stats.duration')}</span>
               </div>
               <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
-                <span>German B1-B2</span>
+                <span>{t('hero.stats.language')}</span>
               </div>
               <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="12" y1="1" x2="12" y2="23"></line>
                   <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                 </svg>
-                <span>Public: Tuition-Free</span>
+                <span>{t('hero.stats.tuition')}</span>
               </div>
             </div>
           </div>
@@ -174,9 +174,9 @@ export function AboutStudienkollegPage() {
             ref={whyRef}
             className={`text-center max-w-[700px] mx-auto mb-12 md:mb-16 transition-all duration-700 ${whyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
-            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Why Studienkolleg?</h2>
+            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('why.title')}</h2>
             <p className="text-text-muted text-base sm:text-lg">
-              Not all foreign qualifications are directly recognized in Germany. Studienkolleg prepares you for success.
+              {t('why.description')}
             </p>
           </div>
 
@@ -186,9 +186,9 @@ export function AboutStudienkollegPage() {
               <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                 <BridgeIcon />
               </div>
-              <h3 className="text-lg font-bold mb-2">Bridge Your Education</h3>
+              <h3 className="text-lg font-bold mb-2">{t('why.cards.bridge.title')}</h3>
               <p className="text-text-muted text-[15px] leading-relaxed">
-                Fill the gaps between your home country's education system and German academic standards with focused preparation.
+                {t('why.cards.bridge.description')}
               </p>
             </div>
 
@@ -197,9 +197,9 @@ export function AboutStudienkollegPage() {
               <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                 <GermanIcon />
               </div>
-              <h3 className="text-lg font-bold mb-2">Master Academic German</h3>
+              <h3 className="text-lg font-bold mb-2">{t('why.cards.german.title')}</h3>
               <p className="text-text-muted text-[15px] leading-relaxed">
-                Intensive language training ensures you're ready for lectures, exams, and academic writing in German.
+                {t('why.cards.german.description')}
               </p>
             </div>
 
@@ -208,9 +208,9 @@ export function AboutStudienkollegPage() {
               <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                 <PathIcon />
               </div>
-              <h3 className="text-lg font-bold mb-2">Guaranteed University Path</h3>
+              <h3 className="text-lg font-bold mb-2">{t('why.cards.path.title')}</h3>
               <p className="text-text-muted text-[15px] leading-relaxed">
-                Pass the FSP exam and gain access to universities throughout Germany. Your qualification is recognized nationwide.
+                {t('why.cards.path.description')}
               </p>
             </div>
           </div>
@@ -224,9 +224,9 @@ export function AboutStudienkollegPage() {
             ref={coursesRef}
             className={`text-center max-w-[700px] mx-auto mb-12 md:mb-16 transition-all duration-700 ${coursesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
-            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Choose Your Track</h2>
+            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('courses.title')}</h2>
             <p className="text-text-muted text-base sm:text-lg">
-              Studienkolleg offers 5 specialized courses. Choose based on your intended field of study.
+              {t('courses.description')}
             </p>
           </div>
 
@@ -245,11 +245,11 @@ export function AboutStudienkollegPage() {
                     </div>
                     <div>
                       <span className="font-bold text-lg">{course.name}</span>
-                      <span className="block text-sm text-text-muted">{course.fullName}</span>
+                      <span className="block text-sm text-text-muted">{t(`courses.types.${course.letter}.fullName`)}</span>
                     </div>
                   </div>
-                  <p className="text-text-muted text-[14px] mb-3">{course.description}</p>
-                  <p className="text-xs text-primary font-medium">{course.examples}</p>
+                  <p className="text-text-muted text-[14px] mb-3">{t(`courses.types.${course.letter}.description`)}</p>
+                  <p className="text-xs text-primary font-medium">{t(`courses.types.${course.letter}.examples`)}</p>
                 </div>
               );
             })}
@@ -265,9 +265,9 @@ export function AboutStudienkollegPage() {
             className={`transition-all duration-700 ${requirementsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
             <div className="text-center max-w-[700px] mx-auto mb-12 md:mb-16">
-              <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Requirements</h2>
+              <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('requirements.title')}</h2>
               <p className="text-text-muted text-base sm:text-lg">
-                What you need to apply for Studienkolleg admission.
+                {t('requirements.description')}
               </p>
             </div>
 
@@ -280,26 +280,26 @@ export function AboutStudienkollegPage() {
                       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                     </svg>
                   </div>
-                  <h3 className="font-bold text-lg">German Language</h3>
+                  <h3 className="font-bold text-lg">{t('requirements.language.title')}</h3>
                 </div>
                 <ul className="space-y-2 text-[15px] text-text-muted">
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-success mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>Minimum <strong>B1 level</strong> (some require B2)</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.language.items.0') }} />
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-success mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>Certificate from Goethe-Institut or equivalent</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.language.items.1') }} />
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-success mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>TestDaF or DSH accepted at higher levels</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.language.items.2') }} />
                   </li>
                 </ul>
               </div>
@@ -313,26 +313,26 @@ export function AboutStudienkollegPage() {
                       <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                     </svg>
                   </div>
-                  <h3 className="font-bold text-lg">Academic Background</h3>
+                  <h3 className="font-bold text-lg">{t('requirements.academic.title')}</h3>
                 </div>
                 <ul className="space-y-2 text-[15px] text-text-muted">
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-success mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>Completed <strong>1 year</strong> at a university</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.academic.items.0') }} />
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-success mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>Minimum GPA of <strong>3.0</strong> (or equivalent)</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.academic.items.1') }} />
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-success mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>High school diploma (translated & certified)</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.academic.items.2') }} />
                   </li>
                 </ul>
               </div>
@@ -348,16 +348,16 @@ export function AboutStudienkollegPage() {
                       <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
                   </div>
-                  <h3 className="font-bold text-lg">Application Timeline</h3>
+                  <h3 className="font-bold text-lg">{t('requirements.timeline.title')}</h3>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[15px]">
                   <div className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-primary rounded-full"></span>
-                    <span><strong>Winter Semester:</strong> Apply by July 15</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.timeline.winter') }} />
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-primary rounded-full"></span>
-                    <span><strong>Summer Semester:</strong> Apply by January 15</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('requirements.timeline.summer') }} />
                   </div>
                 </div>
               </div>
@@ -376,30 +376,29 @@ export function AboutStudienkollegPage() {
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-[24px] p-8 md:p-12 lg:p-16">
               <div className="max-w-[700px] mx-auto text-center">
                 <span className="inline-block px-4 py-1 bg-primary/20 text-primary rounded-full text-xs font-semibold mb-6 tracking-wider">
-                  THE FINAL STEP
+                  {t('fsp.badge')}
                 </span>
 
                 <h2 className="text-[28px] md:text-[40px] font-bold mb-4">
-                  Feststellungsprüfung (FSP)
+                  {t('fsp.title')}
                 </h2>
 
                 <p className="text-text-muted text-base sm:text-lg mb-8 leading-relaxed">
-                  At the end of your Studienkolleg journey, you'll take the Feststellungsprüfung —
-                  the assessment test that certifies your readiness for German university studies.
+                  {t('fsp.description')}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
                   <div className="bg-surface p-5 rounded-xl">
-                    <h4 className="font-bold mb-2">What's Tested</h4>
-                    <p className="text-sm text-text-muted">German language proficiency and subject-specific knowledge from your track.</p>
+                    <h4 className="font-bold mb-2">{t('fsp.cards.tested.title')}</h4>
+                    <p className="text-sm text-text-muted">{t('fsp.cards.tested.description')}</p>
                   </div>
                   <div className="bg-surface p-5 rounded-xl">
-                    <h4 className="font-bold mb-2">Duration</h4>
-                    <p className="text-sm text-text-muted">Written exams over several days, plus oral examinations in some subjects.</p>
+                    <h4 className="font-bold mb-2">{t('fsp.cards.duration.title')}</h4>
+                    <p className="text-sm text-text-muted">{t('fsp.cards.duration.description')}</p>
                   </div>
                   <div className="bg-surface p-5 rounded-xl">
-                    <h4 className="font-bold mb-2">After Passing</h4>
-                    <p className="text-sm text-text-muted">Gain access to universities across Germany in your chosen field of study.</p>
+                    <h4 className="font-bold mb-2">{t('fsp.cards.after.title')}</h4>
+                    <p className="text-sm text-text-muted">{t('fsp.cards.after.description')}</p>
                   </div>
                 </div>
               </div>
@@ -415,9 +414,9 @@ export function AboutStudienkollegPage() {
             ref={ctaRef}
             className={`text-center transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
-            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">Ready to Start Your Journey?</h2>
+            <h2 className="text-[28px] md:text-[40px] font-bold mb-4">{t('cta.title')}</h2>
             <p className="text-text-muted text-base sm:text-lg max-w-[600px] mx-auto mb-8">
-              Explore Studienkollegs across Germany and find the perfect fit for your academic goals.
+              {t('cta.description')}
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -425,7 +424,7 @@ export function AboutStudienkollegPage() {
                 to="/#studienkolleg-carousel"
                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-primary-hover shadow-[0_4px_12px_rgba(166,123,91,0.3)] active:scale-[0.98]"
               >
-                Explore Studienkollegs
+                {t('cta.exploreButton')}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -436,7 +435,7 @@ export function AboutStudienkollegPage() {
                 to="/register"
                 className="inline-flex items-center gap-2 bg-transparent text-text-main font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-page border border-border"
               >
-                Start Preparing
+                {t('cta.startButton')}
               </Link>
             </div>
           </div>

@@ -1,0 +1,141 @@
+{
+    "hero": {
+        "badge": "STEP-BY-STEP GUIDE",
+        "title": "How to Apply to",
+        "titleHighlight": "Studienkolleg",
+        "description": "A complete guide to navigating the application process, from gathering documents to receiving your acceptance letter. Start your journey to studying in Germany."
+    },
+    "routes": {
+        "title": "Two Ways to Apply",
+        "description": "You cannot apply directly to a Studienkolleg. Applications must go through the university.",
+        "uniAssist": {
+            "title": "Via uni-assist",
+            "description": "Many German universities use uni-assist to process international applications. You submit documents once, and they verify and forward them.",
+            "items": [
+                "Centralized platform for multiple applications",
+                "Document verification included",
+                "Processing fee: ~€75 per application"
+            ]
+        },
+        "direct": {
+            "title": "Direct to University",
+            "description": "Some universities accept direct applications. Check the specific university's international office for their process.",
+            "items": [
+                "Apply directly through university portal",
+                "Requirements vary by institution",
+                "Often faster processing time"
+            ]
+        }
+    },
+    "steps": {
+        "title": "Application Steps",
+        "description": "Follow these steps to successfully apply to a Studienkolleg.",
+        "tipLabel": "Tip",
+        "items": [
+            {
+                "title": "Research & Choose",
+                "description": "Research Studienkollegs and choose your target universities. Decide on your course track (G, M, T, W, or S).",
+                "tip": "Apply to multiple Studienkollegs to increase your chances."
+            },
+            {
+                "title": "Gather Documents",
+                "description": "Collect all required documents. Get translations certified and notarized where needed.",
+                "tip": "Start this process at least 2 months before deadline."
+            },
+            {
+                "title": "Submit Application",
+                "description": "Apply through uni-assist or directly to the university. Pay application fees and upload all documents.",
+                "tip": "Double-check all documents before submitting."
+            },
+            {
+                "title": "Entrance Exam",
+                "description": "If your application is approved, you'll be invited to take the entrance exam (Aufnahmeprüfung).",
+                "tip": "Practice German and math daily before the exam."
+            },
+            {
+                "title": "Visa & Arrival",
+                "description": "After acceptance, open a blocked account, get health insurance, and apply for your student visa.",
+                "tip": "Book embassy appointment early."
+            }
+        ]
+    },
+    "documents": {
+        "title": "Required Documents",
+        "description": "Prepare these documents before starting your application.",
+        "checklistTitle": "Document Checklist",
+        "items": [
+            "High school diploma/certificate (translated & certified)",
+            "Academic transcripts with grades",
+            "German language certificate (B1/B2)",
+            "Passport copy (valid for at least 6 months)",
+            "Passport-size photos",
+            "CV/Resume",
+            "Motivation letter (some universities)",
+            "Proof of university admission qualification"
+        ],
+        "warning": "<strong>Important:</strong> Each Studienkolleg may have additional requirements. Always check the specific institution's website for their complete checklist."
+    },
+    "deadlines": {
+        "title": "Application Deadlines",
+        "description": "Mark these dates in your calendar. Studienkolleg deadlines are often earlier than university deadlines.",
+        "winter": {
+            "title": "Winter Semester",
+            "date": "July 15",
+            "note": "Classes start in October"
+        },
+        "summer": {
+            "title": "Summer Semester",
+            "date": "January 15",
+            "note": "Classes start in April"
+        },
+        "disclaimer": "Some universities have earlier deadlines. Always verify with your target institution."
+    },
+    "exam": {
+        "title": "Entrance Exam",
+        "subtitle": "Aufnahmeprüfung",
+        "description": "Public Studienkollegs require you to pass an entrance exam. This tests your German language skills and, for technical tracks (M, T, W), basic mathematics.",
+        "cards": {
+            "german": {
+                "title": "German Test",
+                "description": "Reading, writing, grammar, and listening comprehension."
+            },
+            "math": {
+                "title": "Math Test",
+                "description": "For M, T, W courses. Covers algebra, geometry, functions."
+            },
+            "when": {
+                "title": "When",
+                "description": "September (for winter) and February (for summer semester)."
+            }
+        }
+    },
+    "visa": {
+        "title": "After Acceptance",
+        "description": "Once accepted, complete these steps before traveling to Germany.",
+        "blockedAccount": {
+            "title": "Blocked Account",
+            "description": "Open a blocked account (Sperrkonto) with approximately €11,904/year to prove financial stability.",
+            "note": "Required for visa application"
+        },
+        "healthInsurance": {
+            "title": "Health Insurance",
+            "description": "Get German health insurance (public or private). Mandatory for enrollment and visa.",
+            "note": "~€110/month for public insurance"
+        },
+        "studentVisa": {
+            "title": "Student Visa",
+            "description": "Apply for a student visa at the German Embassy in your country. Book your appointment early as wait times can be several weeks.",
+            "requirements": [
+                "Admission letter",
+                "Blocked account proof",
+                "Health insurance"
+            ]
+        }
+    },
+    "cta": {
+        "title": "Ready to Start Your Application?",
+        "description": "Begin your preparation today. Our structured course helps you master the entrance exam.",
+        "startButton": "Start Preparing",
+        "learnButton": "Learn About Studienkolleg"
+    }
+}
