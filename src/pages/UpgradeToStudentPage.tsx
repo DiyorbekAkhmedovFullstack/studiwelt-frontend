@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { paymentService } from '../services/paymentService';
 import { toastService } from '../services/toastService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { DashboardLayout } from '../components/dashboard';
 
 export function UpgradeToStudentPage() {
+  const { t } = useTranslation('upgrade');
   const [loading, setLoading] = useState(false);
 
   const handleUpgrade = async () => {
     setLoading(true);
     try {
       const response = await paymentService.createStudentUpgradeSession();
-
-      // Redirect to Stripe Checkout
       window.location.href = response.session.url;
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Failed to create checkout session';
@@ -32,249 +32,98 @@ export function UpgradeToStudentPage() {
 
   return (
     <DashboardLayout>
-      <div className="max-w-5xl mx-auto">
-        {/* Info Banner */}
-        <div className="bg-[#EBF5EC] border border-[#C5E0C8] rounded-2xl p-6 mb-8">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-[#6B8C6E]/10 flex items-center justify-center flex-shrink-0 text-[#6B8C6E]">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
+      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* Pricing Card */}
+        <div style={{ width: '100%', maxWidth: '420px' }} className="bg-surface rounded-[24px] shadow-card">
+          {/* Header */}
+          <div className="p-8 pb-0">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                {t('pricing.plan')}
+              </span>
+              <span className="px-3 py-1 bg-success/10 text-success text-xs font-semibold rounded-full">
+                {t('pricing.badge')}
+              </span>
             </div>
-            <div className="flex-1">
-              <h3 className="font-bold text-[17px] text-[#6B8C6E] mb-2">Free Access to First 6 Lessons</h3>
-              <p className="text-[15px] text-text-main leading-relaxed">
-                You currently have free access to <strong>lessons 1-6</strong> (Week 1). To unlock the remaining <strong>24 lessons (7-30)</strong> and complete your Studienkolleg preparation, upgrade to Student for a one-time payment of <strong>$5</strong> with lifetime access.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* Main Pricing Card */}
-        <div className="bg-surface rounded-[24px] shadow-[0_8px_30px_rgba(62,54,48,0.12)] overflow-hidden mb-8">
-          {/* Top Banner */}
-          <div className="bg-gradient-to-r from-primary to-[#A8856B] px-8 py-6">
-            <div className="text-white">
-              <div className="text-[15px] font-medium opacity-90 mb-1">Student Access - Lifetime</div>
-              <div className="text-[42px] font-bold leading-none">
-                $5<span className="text-[24px] font-medium opacity-90">.00</span>
-              </div>
+            {/* Price */}
+            <div className="flex items-baseline gap-1 mb-2">
+              <span className="text-[64px] font-serif font-bold leading-none tracking-tight">
+                {t('pricing.price')}
+              </span>
+              <span className="text-2xl text-text-muted font-serif">{t('pricing.priceCents')}</span>
             </div>
+
+            <p className="text-text-muted text-sm mb-6">{t('pricing.terms')}</p>
           </div>
 
-          {/* Content */}
-          <div className="p-8 md:p-10">
-            {/* What You Get */}
-            <div className="mb-8">
-              <h3 className="text-[20px] font-bold mb-6 text-text-main">What's Included</h3>
+          {/* Divider */}
+          <div className="mx-8 h-px bg-border" />
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <FeatureItem
-                  icon={
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                    </svg>
-                  }
-                  title="30 Complete Lessons"
-                  description="Full Studienkolleg preparation course"
-                />
+          {/* Features */}
+          <div className="p-8 pt-6 space-y-4">
+            <FeatureItem text={t('features.lessons.title')} />
+            <FeatureItem text={t('features.activities.title')} />
+            <FeatureItem text={t('features.lifetime.title')} />
+            <FeatureItem text={t('features.devices.title')} />
+          </div>
 
-                <FeatureItem
-                  icon={
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="2" y="7" width="20" height="14" rx="2"></rect>
-                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
-                  }
-                  title="120+ Activities"
-                  description="Flashcards, Grammar, Reading & C-Tests"
-                />
-
-                <FeatureItem
-                  icon={
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M12 6v6l4 2"></path>
-                    </svg>
-                  }
-                  title="Learn at Your Pace"
-                  description="No deadlines, study when it suits you"
-                />
-
-                <FeatureItem
-                  icon={
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
-                  }
-                  title="Progress Tracking"
-                  description="Monitor your improvement with analytics"
-                />
-
-                <FeatureItem
-                  icon={
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                  }
-                  title="Lifetime Access"
-                  description="One payment, forever access"
-                />
-
-                <FeatureItem
-                  icon={
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="2" y="3" width="20" height="14" rx="2"></rect>
-                      <line x1="8" y1="21" x2="16" y2="21"></line>
-                      <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                  }
-                  title="All Devices"
-                  description="Desktop, tablet, and mobile ready"
-                />
-              </div>
-            </div>
-
-            {/* Upgrade Button */}
+          {/* CTA */}
+          <div className="p-8 pt-0">
             <button
               onClick={handleUpgrade}
               disabled={loading}
-              className="w-full bg-primary text-white py-5 rounded-[16px] font-bold text-[17px] hover:bg-primary-hover transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:shadow-[0_6px_20px_rgba(166,123,91,0.4)] hover:-translate-y-0.5 flex items-center justify-center gap-3"
+              className="w-full py-4 px-6 bg-text-main text-white rounded-2xl font-semibold text-[15px] hover:bg-primary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(166,123,91,0.25)] flex items-center justify-center gap-2"
             >
               {loading ? (
-                'Processing...'
+                t('cta.processing')
               ) : (
                 <>
-                  <span>Start Learning Now</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  {t('cta.button')}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </>
               )}
             </button>
+          </div>
 
-            {/* Trust Indicators */}
-            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-text-muted flex-wrap">
-              <div className="flex items-center gap-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-                Secure Payment
-              </div>
-              <div className="flex items-center gap-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                SSL Encrypted
-              </div>
-              <div className="flex items-center gap-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Instant Access
-              </div>
-            </div>
+          {/* Trust badge */}
+          <div className="px-8 pb-6 flex items-center justify-center gap-2 text-xs text-text-muted">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            {t('trust.stripe')}
           </div>
         </div>
 
-        {/* FAQ / Additional Info */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <InfoCard
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
-              </svg>
-            }
-            title="Why $5?"
-            description="We believe quality education should be accessible. This one-time fee covers our hosting and keeps the platform running."
-          />
-
-          <InfoCard
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-            }
-            title="Need Help?"
-            description="Our support team is here to help you succeed. Reach out anytime at support@studiwelt.com"
-          />
-
-          <InfoCard
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="8" r="7"></circle>
-                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-              </svg>
-            }
-            title="Our Promise"
-            description="If you're not satisfied within 7 days, we'll refund your payment—no questions asked."
-          />
-        </div>
-
         {/* Back Link */}
-        <div className="text-center">
+        <div className="mt-8">
           <Link
             to="/course"
-            className="inline-flex items-center gap-2 text-text-muted hover:text-text-main transition-colors text-[15px]"
+            className="inline-flex items-center gap-2 text-text-muted hover:text-text-main transition-colors text-sm"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7"></path>
+              <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Back to Course
+            {t('backToCourse')}
           </Link>
         </div>
-
-        <div className="h-16"></div>
       </div>
     </DashboardLayout>
   );
 }
 
-// Feature Item Component
-interface FeatureItemProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-function FeatureItem({ icon, title, description }: FeatureItemProps) {
+function FeatureItem({ text }: { text: string }) {
   return (
-    <div className="flex items-start gap-3">
-      <div className="w-10 h-10 rounded-xl bg-[#FAF6F3] flex items-center justify-center flex-shrink-0 text-primary">
-        <div className="w-5 h-5">{icon}</div>
+    <div className="flex items-center gap-3">
+      <div className="w-5 h-5 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-success">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
       </div>
-      <div className="flex-1">
-        <div className="font-semibold text-[15px] text-text-main mb-0.5">{title}</div>
-        <div className="text-[13px] text-text-muted leading-relaxed">{description}</div>
-      </div>
-    </div>
-  );
-}
-
-// Info Card Component
-interface InfoCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-function InfoCard({ icon, title, description }: InfoCardProps) {
-  return (
-    <div className="bg-surface rounded-2xl p-6 shadow-card">
-      <div className="w-12 h-12 rounded-xl bg-[#EBF5EC] flex items-center justify-center text-[#6B8C6E] mb-4">
-        <div className="w-6 h-6">{icon}</div>
-      </div>
-      <h4 className="font-bold text-[16px] mb-2">{title}</h4>
-      <p className="text-[14px] text-text-muted leading-relaxed">{description}</p>
+      <span className="text-sm">{text}</span>
     </div>
   );
 }

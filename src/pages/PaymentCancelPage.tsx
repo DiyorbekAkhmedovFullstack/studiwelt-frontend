@@ -6,7 +6,7 @@ export function PaymentCancelPage() {
 
   return (
     <DashboardLayout>
-      <div className="max-w-2xl mx-auto text-center py-16">
+      <div style={{ width: '100%', maxWidth: '672px', margin: '0 auto', textAlign: 'center', paddingTop: '64px', paddingBottom: '64px' }}>
         <div className="bg-surface rounded-xl p-12 shadow-card">
           <div className="w-20 h-20 bg-text-muted/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <svg

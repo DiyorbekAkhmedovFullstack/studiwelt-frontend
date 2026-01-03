@@ -1,0 +1,64 @@
+{
+    "header": {
+        "title": "Unlock Full Access",
+        "subtitle": "You have access to <strong>lessons 1–6</strong>. Unlock all 30 lessons."
+    },
+    "pricing": {
+        "plan": "Student Plan",
+        "price": "$5",
+        "priceCents": ".00",
+        "terms": "One-time payment • Lifetime access",
+        "badge": "Best Value"
+    },
+    "cta": {
+        "button": "Unlock Now",
+        "processing": "Processing...",
+        "readyTitle": "Ready to continue your journey?",
+        "readySubtitle": "Join students preparing for their Studienkolleg entrance exam."
+    },
+    "trust": {
+        "securePayment": "Secure payment via Stripe",
+        "instantAccess": "Instant access after payment",
+        "guarantee": "7-day money-back guarantee",
+        "stripe": "Secured by Stripe"
+    },
+    "features": {
+        "title": "What you get",
+        "subtitle": "Everything you need to prepare for your Studienkolleg entrance exam",
+        "lessons": {
+            "title": "30 complete lessons",
+            "description": "Structured curriculum for Studienkolleg"
+        },
+        "activities": {
+            "title": "120+ exercises",
+            "description": "Flashcards, grammar, reading & C-tests"
+        },
+        "pace": {
+            "title": "Learn at your pace",
+            "description": "No deadlines, no pressure"
+        },
+        "progress": {
+            "title": "Progress tracking",
+            "description": "Monitor your improvement"
+        },
+        "lifetime": {
+            "title": "Lifetime access",
+            "description": "Pay once, learn forever"
+        },
+        "devices": {
+            "title": "All devices",
+            "description": "Mobile, tablet & desktop"
+        }
+    },
+    "faq": {
+        "whyPrice": {
+            "title": "Why $5?",
+            "description": "We believe education should be accessible. This one-time fee covers our hosting costs."
+        },
+        "help": {
+            "title": "Need help?",
+            "description": "Our support team is here for you. Email us at support@studiwelt.com"
+        }
+    },
+    "backToCourse": "Back to course"
+}

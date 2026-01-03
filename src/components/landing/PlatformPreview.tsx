@@ -1,4 +1,26 @@
+import { useLessons } from '../../hooks/queries/useLessons';
+
 export function PlatformPreview() {
+  const { data: lessons = [] } = useLessons();
+
+  // Get week 3 lessons (days 13-18, index 12-17)
+  const week3Lessons = lessons.slice(12, 18);
+
+  // Fallback titles if lessons not loaded yet
+  const fallbackTitles = [
+    'Komplexe Grammatik',
+    'Hörverständnis',
+    'Fortgeschrittene Grammatik',
+    'Leseübung',
+    'Vokabelquiz',
+    'Schreibübung',
+  ];
+
+  // Get lesson title by index (0-5 for week 3)
+  const getLessonTitle = (index: number) => {
+    return week3Lessons[index]?.title || fallbackTitles[index];
+  };
+
   return (
     <div className="mt-12 md:mt-16 bg-surface rounded-[20px] shadow-soft w-full max-w-[900px] mx-auto p-2 sm:p-3 border border-[rgba(0,0,0,0.05)] relative transition-all duration-500 hover:[transform:perspective(1000px)_rotateX(0deg)] [transform:perspective(1000px)_rotateX(2deg)]">
       {/* Browser Dots */}
@@ -15,9 +37,9 @@ export function PlatformPreview() {
           <div className="max-w-[800px] mx-auto">
             {/* Header */}
             <header className="mb-6 sm:mb-10">
-              <h1 className="text-xl sm:text-2xl md:text-[32px] font-bold mb-1 sm:mb-2 text-text-main">Your Journey</h1>
+              <h1 className="text-xl sm:text-2xl md:text-[32px] font-bold mb-1 sm:mb-2 text-text-main">Dein Lernweg</h1>
               <p className="text-text-muted text-xs sm:text-sm">
-                You are currently on <strong>Day 15</strong> of 30. Keep the rhythm going.
+                Du bist gerade bei <strong>Tag 15</strong> von 30. Bleib am Ball!
               </p>
             </header>
 
@@ -31,7 +53,7 @@ export function PlatformPreview() {
                   </svg>
                 </div>
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">48%</div>
-                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Completion</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Fortschritt</div>
               </div>
 
               {/* Lessons Done */}
@@ -43,7 +65,7 @@ export function PlatformPreview() {
                   </svg>
                 </div>
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">14/30</div>
-                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Lessons Done</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Abgeschlossen</div>
               </div>
 
               {/* Current Day */}
@@ -53,8 +75,8 @@ export function PlatformPreview() {
                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
                   </svg>
                 </div>
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">Day 15</div>
-                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Current Day</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">Tag 15</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Aktueller Tag</div>
               </div>
             </div>
 
@@ -65,9 +87,9 @@ export function PlatformPreview() {
                   3
                 </div>
                 <div>
-                  <h3 className="text-sm sm:text-base md:text-xl font-bold text-text-main">Week 3</h3>
+                  <h3 className="text-sm sm:text-base md:text-xl font-bold text-text-main">Woche 3</h3>
                   <span className="text-[10px] sm:text-xs md:text-[15px] text-primary font-medium">
-                    Days 13-18 • In Progress
+                    Tage 13–18 • In Bearbeitung
                   </span>
                 </div>
               </div>
@@ -77,47 +99,47 @@ export function PlatformPreview() {
                 {/* Day 13 - Completed */}
                 <div className="bg-[#FCFCFC] rounded-xl p-4 sm:p-5 shadow-card border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
-                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 13</span>
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 13</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#E6F0E7] text-success flex items-center justify-center flex-shrink-0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                     </div>
                   </div>
-                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">Complex Grammar</h4>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">{getLessonTitle(0)}</h4>
                 </div>
 
                 {/* Day 14 - Completed */}
                 <div className="bg-[#FCFCFC] rounded-xl p-4 sm:p-5 shadow-card border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
-                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 14</span>
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 14</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#E6F0E7] text-success flex items-center justify-center flex-shrink-0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                     </div>
                   </div>
-                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">Listening Skills</h4>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">{getLessonTitle(1)}</h4>
                 </div>
 
                 {/* Day 15 - Active */}
                 <div className="bg-[#FFFCFA] border-primary rounded-xl p-4 sm:p-5 shadow-card border transition-all duration-300 cursor-pointer hover:-translate-y-1 min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
-                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 15</span>
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 15</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0">
                       <svg viewBox="0 0 24 24" fill="white" stroke="none" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                         <polygon points="5 3 19 12 5 21 5 3"></polygon>
                       </svg>
                     </div>
                   </div>
-                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-primary mb-2 leading-snug">Advanced Grammar</h4>
-                  <div className="mt-auto font-semibold text-xs text-primary">Resume Lesson</div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-primary mb-2 leading-snug">{getLessonTitle(2)}</h4>
+                  <div className="mt-auto font-semibold text-xs text-primary">Weiter lernen</div>
                 </div>
 
                 {/* Day 16 */}
                 <div className="opacity-60 bg-[#F5F5F5] rounded-xl p-4 sm:p-5 shadow-none border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
-                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 16</span>
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 16</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -125,14 +147,14 @@ export function PlatformPreview() {
                       </svg>
                     </div>
                   </div>
-                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">Reading Practice</h4>
-                  <div className="text-xs text-text-muted">Locked</div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">{getLessonTitle(3)}</h4>
+                  <div className="text-xs text-text-muted">Gesperrt</div>
                 </div>
 
                 {/* Day 17 */}
                 <div className="opacity-60 bg-[#F5F5F5] rounded-xl p-4 sm:p-5 shadow-none border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
-                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 17</span>
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 17</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -140,14 +162,14 @@ export function PlatformPreview() {
                       </svg>
                     </div>
                   </div>
-                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">Vocabulary Quiz</h4>
-                  <div className="text-xs text-text-muted">Locked</div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">{getLessonTitle(4)}</h4>
+                  <div className="text-xs text-text-muted">Gesperrt</div>
                 </div>
 
                 {/* Day 18 */}
                 <div className="opacity-60 bg-[#F5F5F5] rounded-xl p-4 sm:p-5 shadow-none border border-transparent min-w-[180px] sm:min-w-0 flex-shrink-0 snap-start">
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
-                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Day 18</span>
+                    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 18</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -155,8 +177,8 @@ export function PlatformPreview() {
                       </svg>
                     </div>
                   </div>
-                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">Writing Exercise</h4>
-                  <div className="text-xs text-text-muted">Locked</div>
+                  <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">{getLessonTitle(5)}</h4>
+                  <div className="text-xs text-text-muted">Gesperrt</div>
                 </div>
               </div>
             </div>

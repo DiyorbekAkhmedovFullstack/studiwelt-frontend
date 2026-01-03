@@ -1,0 +1,64 @@
+{
+    "header": {
+        "title": "Vollzugang freischalten",
+        "subtitle": "Du hast Zugang zu <strong>Lektionen 1–6</strong>. Schalte alle 30 Lektionen frei."
+    },
+    "pricing": {
+        "plan": "Student Plan",
+        "price": "$5",
+        "priceCents": ".00",
+        "terms": "Einmalige Zahlung • Lebenslanger Zugang",
+        "badge": "Bester Wert"
+    },
+    "cta": {
+        "button": "Jetzt freischalten",
+        "processing": "Wird verarbeitet...",
+        "readyTitle": "Bereit, deine Reise fortzusetzen?",
+        "readySubtitle": "Schließe dich Studenten an, die sich auf die Studienkolleg-Aufnahmeprüfung vorbereiten."
+    },
+    "trust": {
+        "securePayment": "Sichere Zahlung via Stripe",
+        "instantAccess": "Sofortiger Zugang nach Zahlung",
+        "guarantee": "7 Tage Geld-zurück-Garantie",
+        "stripe": "Gesichert durch Stripe"
+    },
+    "features": {
+        "title": "Was du bekommst",
+        "subtitle": "Alles was du brauchst, um dich auf die Studienkolleg-Aufnahmeprüfung vorzubereiten",
+        "lessons": {
+            "title": "30 vollständige Lektionen",
+            "description": "Strukturierter Lehrplan für das Studienkolleg"
+        },
+        "activities": {
+            "title": "120+ Übungen",
+            "description": "Karteikarten, Grammatik, Lesen & C-Tests"
+        },
+        "pace": {
+            "title": "Lerne in deinem Tempo",
+            "description": "Keine Fristen, kein Druck"
+        },
+        "progress": {
+            "title": "Fortschrittsverfolgung",
+            "description": "Behalte deine Verbesserungen im Blick"
+        },
+        "lifetime": {
+            "title": "Lebenslanger Zugang",
+            "description": "Einmal zahlen, für immer lernen"
+        },
+        "devices": {
+            "title": "Alle Geräte",
+            "description": "Mobil, Tablet & Desktop"
+        }
+    },
+    "faq": {
+        "whyPrice": {
+            "title": "Warum $5?",
+            "description": "Wir glauben, dass Bildung zugänglich sein sollte. Diese einmalige Gebühr deckt unsere Hosting-Kosten."
+        },
+        "help": {
+            "title": "Brauchst du Hilfe?",
+            "description": "Unser Support-Team ist für dich da. Schreib uns an support@studiwelt.com"
+        }
+    },
+    "backToCourse": "Zurück zum Kurs"
+}
