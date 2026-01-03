@@ -54,6 +54,7 @@ const PaymentSuccessPage = lazy(() => import('../pages/PaymentSuccessPage').then
 const PaymentCancelPage = lazy(() => import('../pages/PaymentCancelPage').then(m => ({ default: m.PaymentCancelPage })));
 const EntranceExamPage = lazy(() => import('../pages/EntranceExamPage').then(m => ({ default: m.EntranceExamPage })));
 const FSPPage = lazy(() => import('../pages/FSPPage').then(m => ({ default: m.FSPPage })));
+const StatePage = lazy(() => import('../pages/StatePage').then(m => ({ default: m.StatePage })));
 
 export function AppRoutes() {
   return (
@@ -235,6 +236,7 @@ export function AppRoutes() {
         <Route path="/entrance-exam" element={<EntranceExamPage />} />
         <Route path="/fsp" element={<FSPPage />} />
         <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
+        <Route path="/state/:stateId" element={<StatePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>
