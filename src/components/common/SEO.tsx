@@ -1,4 +1,9 @@
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
+
+/**
+ * SEO Component using React 19's native document metadata support.
+ * React 19 automatically hoists <title>, <meta>, and <link> tags to <head>.
+ */
 
 interface SEOProps {
   title?: string;
@@ -31,9 +36,23 @@ export function SEO({
   const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
   const canonical = canonicalUrl || (typeof window !== 'undefined' ? window.location.href : '');
 
+  // Handle structured data via useEffect for safety
+  useEffect(() => {
+    if (!structuredData) return;
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [structuredData]);
+
   return (
-    <Helmet>
-      {/* Primary Meta Tags */}
+    <>
+      {/* Primary Meta Tags - React 19 hoists these to <head> */}
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
@@ -58,12 +77,7 @@ export function SEO({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-
-      {/* Structured Data (JSON-LD) */}
-      {structuredData && (
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
-      )}
-    </Helmet>
+    </>
   );
 }
 
