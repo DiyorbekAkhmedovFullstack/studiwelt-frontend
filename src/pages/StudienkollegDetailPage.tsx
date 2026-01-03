@@ -6,6 +6,7 @@ import { CityInfoCard } from '../components/studienkolleg/CityInfoCard';
 import { CoursesCard } from '../components/studienkolleg/CoursesCard';
 import { ApplicationCard } from '../components/studienkolleg/ApplicationCard';
 import { ExamCard } from '../components/studienkolleg/ExamCard';
+import { SEO, getStudienkollegSEO } from '../components/common/SEO';
 
 export function StudienkollegDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -24,8 +25,16 @@ export function StudienkollegDetailPage() {
     return null;
   }
 
+  const seoProps = getStudienkollegSEO(
+    studienkolleg.name,
+    studienkolleg.city,
+    studienkolleg.location
+  );
+
   return (
     <div className="min-h-screen bg-page">
+      <SEO {...seoProps} />
+
       {/* Navigation Bar */}
       <nav className="h-[72px] flex items-center px-10 max-w-[1200px] mx-auto w-full">
         <button

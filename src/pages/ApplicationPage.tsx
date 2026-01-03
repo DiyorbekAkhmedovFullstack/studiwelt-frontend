@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { SEO, seoConfig } from '../components/common/SEO';
 
 // Icons
 const UniAssistIcon = () => (
@@ -74,6 +75,7 @@ export function ApplicationPage() {
 
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
+      <SEO {...seoConfig.application} />
       <LandingNavbar />
 
       {/* Hero Section */}

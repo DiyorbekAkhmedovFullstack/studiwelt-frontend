@@ -7,6 +7,7 @@ import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { AuthLayout, FormInput, PasswordInput } from '../components/auth';
 import { loginSchema, type LoginFormData } from '../lib/validations';
+import { SEO, seoConfig } from '../components/common/SEO';
 
 export function LoginPage() {
   const { login, user, loading } = useAuth();
@@ -57,16 +58,18 @@ export function LoginPage() {
   };
 
   return (
-    <AuthLayout
-      title="Welcome back"
-      subtitle="Continue your path to mastery."
-      brandSubtitle="Your daily space for focused German learning."
-      features={[
-        'Syncs progress across all devices',
-        'Resume exactly where you left off',
-        'Track your improvement in real-time',
-      ]}
-    >
+    <>
+      <SEO {...seoConfig.login} />
+      <AuthLayout
+        title="Welcome back"
+        subtitle="Continue your path to mastery."
+        brandSubtitle="Your daily space for focused German learning."
+        features={[
+          'Syncs progress across all devices',
+          'Resume exactly where you left off',
+          'Track your improvement in real-time',
+        ]}
+      >
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormInput
           label="Email"
@@ -111,6 +114,7 @@ export function LoginPage() {
           Register here
         </Link>
       </div>
-    </AuthLayout>
+      </AuthLayout>
+    </>
   );
 }

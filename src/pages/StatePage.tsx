@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { SEO, getStateSEO } from '../components/common/SEO';
 
 // State data interface
 interface University {
@@ -1880,6 +1881,7 @@ export function StatePage() {
   if (!state) {
     return (
       <div className="min-h-screen bg-page">
+        <SEO title="State Not Found" noIndex />
         <LandingNavbar />
         <div className="pt-32 text-center">
           <h1 className="text-3xl font-bold mb-4">State Not Found</h1>
@@ -1892,8 +1894,11 @@ export function StatePage() {
     );
   }
 
+  const seoProps = getStateSEO(state.name, state.germanName);
+
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
+      <SEO {...seoProps} />
       <LandingNavbar />
 
       {/* Hero Section */}

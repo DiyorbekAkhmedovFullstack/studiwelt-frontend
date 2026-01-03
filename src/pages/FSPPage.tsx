@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { SEO, seoConfig } from '../components/common/SEO';
 
 // Icons
 const CertificateIcon = () => (
@@ -123,6 +124,7 @@ export function FSPPage() {
 
     return (
         <div className="min-h-screen bg-page overflow-x-hidden">
+            <SEO {...seoConfig.fsp} />
             <LandingNavbar />
 
             {/* Hero Section */}

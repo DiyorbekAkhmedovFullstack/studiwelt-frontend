@@ -8,6 +8,7 @@ import { GermanyMapSection } from '../components/landing/GermanyMapSection';
 import { StudienkollegCarousel } from '../components/landing/StudienkollegCarousel';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useAuth } from '../contexts/AuthContext';
+import { SEO, seoConfig } from '../components/common/SEO';
 
 export function LandingPage() {
   const { t } = useTranslation(['landing', 'common']);
@@ -18,6 +19,8 @@ export function LandingPage() {
 
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
+      <SEO {...seoConfig.landing} />
+
       {/* Navigation */}
       <LandingNavbar />
 

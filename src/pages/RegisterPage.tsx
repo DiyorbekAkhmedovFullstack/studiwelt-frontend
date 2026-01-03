@@ -6,6 +6,7 @@ import { authService } from '../services/authService';
 import { toastService } from '../services/toastService';
 import { TestimonialAuthLayout, FormInput, PasswordInput } from '../components/auth';
 import { registerSchema, type RegisterFormData } from '../lib/validations';
+import { SEO, seoConfig } from '../components/common/SEO';
 
 export function RegisterPage() {
   const navigate = useNavigate();
@@ -49,13 +50,15 @@ export function RegisterPage() {
   };
 
   return (
-    <TestimonialAuthLayout
-      title="Create your account"
-      subtitle="Start your 30-day journey to mastery today."
-      testimonialText="I used to stress-study for hours with zero retention. The structured approach and progress tracking completely changed my learning journey."
-      testimonialAuthor="Sarah Jenkins"
-      testimonialRole="Student • Passed Studienkolleg 2024"
-    >
+    <>
+      <SEO {...seoConfig.register} />
+      <TestimonialAuthLayout
+        title="Create your account"
+        subtitle="Start your 30-day journey to mastery today."
+        testimonialText="I used to stress-study for hours with zero retention. The structured approach and progress tracking completely changed my learning journey."
+        testimonialAuthor="Sarah Jenkins"
+        testimonialRole="Student • Passed Studienkolleg 2024"
+      >
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-2 gap-4 mb-5">
           <div>
@@ -156,6 +159,7 @@ export function RegisterPage() {
           Log in
         </Link>
       </div>
-    </TestimonialAuthLayout>
+      </TestimonialAuthLayout>
+    </>
   );
 }
