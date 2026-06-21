@@ -35,13 +35,29 @@ function VocabCard({ simpleVerb, fvgPhrase, preposition }: VocabItem) {
 }
 
 export function FVGVocabulary() {
+  // 20 gängige, standardsprachliche Funktionsverbgefüge (Verb + Nomen, ggf. Präposition).
+  // Das Präpositions-Badge zeigt Präposition + Kasus des Objekts (sofern vorhanden).
   const vocabularyItems: VocabItem[] = [
-    { simpleVerb: 'beenden', fvgPhrase: 'zum Abschluss bringen' },
-    { simpleVerb: 'beantragen', fvgPhrase: 'einen Antrag stellen', preposition: 'auf' },
-    { simpleVerb: 'beeinflussen', fvgPhrase: 'Einfluss nehmen', preposition: 'auf' },
-    { simpleVerb: 'interessieren', fvgPhrase: 'Interesse wecken', preposition: 'an' },
+    { simpleVerb: 'entscheiden', fvgPhrase: 'eine Entscheidung treffen' },
+    { simpleVerb: 'fragen', fvgPhrase: 'eine Frage stellen' },
+    { simpleVerb: 'beantragen', fvgPhrase: 'einen Antrag stellen', preposition: 'auf + Akk.' },
     { simpleVerb: 'helfen', fvgPhrase: 'Hilfe leisten' },
+    { simpleVerb: 'kritisieren', fvgPhrase: 'Kritik üben', preposition: 'an + Dativ' },
+    { simpleVerb: 'beeinflussen', fvgPhrase: 'Einfluss nehmen', preposition: 'auf + Akk.' },
+    { simpleVerb: 'berücksichtigen', fvgPhrase: 'Rücksicht nehmen', preposition: 'auf + Akk.' },
+    { simpleVerb: 'sich verabschieden', fvgPhrase: 'Abschied nehmen', preposition: 'von + Dativ' },
+    { simpleVerb: 'verzichten', fvgPhrase: 'Verzicht leisten', preposition: 'auf + Akk.' },
     { simpleVerb: 'wichtig sein', fvgPhrase: 'eine Rolle spielen' },
+    { simpleVerb: 'ausdrücken', fvgPhrase: 'zum Ausdruck bringen' },
+    { simpleVerb: 'bereitstellen', fvgPhrase: 'zur Verfügung stellen' },
+    { simpleVerb: 'bezweifeln', fvgPhrase: 'in Frage stellen' },
+    { simpleVerb: 'erwägen', fvgPhrase: 'in Betracht ziehen' },
+    { simpleVerb: 'sich äußern', fvgPhrase: 'Stellung nehmen', preposition: 'zu + Dativ' },
+    { simpleVerb: 'informieren', fvgPhrase: 'in Kenntnis setzen', preposition: 'von + Dativ' },
+    { simpleVerb: 'nutzen', fvgPhrase: 'in Anspruch nehmen' },
+    { simpleVerb: 'beauftragen', fvgPhrase: 'in Auftrag geben' },
+    { simpleVerb: 'wirksam werden', fvgPhrase: 'in Kraft treten' },
+    { simpleVerb: 'sich widersetzen', fvgPhrase: 'Widerstand leisten', preposition: 'gegen + Akk.' },
   ];
 
   return (
