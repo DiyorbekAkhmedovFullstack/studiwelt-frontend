@@ -1,6 +1,10 @@
 import { ProbabilityScale } from './ProbabilityScale';
 import { RumorsVsClaims } from './RumorsVsClaims';
 import { DetectiveGame } from './DetectiveGame';
+import { NegationScale } from './NegationScale';
+import { ConcessionCard } from './ConcessionCard';
+import { ParticleWohl } from './ParticleWohl';
+import { SyntaxBox } from './SyntaxBox';
 
 export function Lesson14SubjectiveModals() {
   return (
@@ -15,6 +19,10 @@ export function Lesson14SubjectiveModals() {
       <ProbabilityScale />
       <RumorsVsClaims />
       <DetectiveGame />
+      <NegationScale />
+      <ConcessionCard />
+      <ParticleWohl />
+      <SyntaxBox />
     </>
   );
 }
