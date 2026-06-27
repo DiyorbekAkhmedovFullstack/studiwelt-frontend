@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, seoConfig } from '../components/common/SEO';
+import { Icon, Ui } from '../lib/icons';
 
 /* -------------------------------------------------------------------------- */
 /*  Small reveal-on-scroll wrapper (matches the platform's fade-up muse)      */
@@ -64,66 +65,23 @@ function SectionHeading({
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Icons                                                                      */
-/* -------------------------------------------------------------------------- */
-
-const stroke = {
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 2,
-  strokeLinecap: 'round' as const,
-  strokeLinejoin: 'round' as const,
-};
-
-const journeyIcons: ReactNode[] = [
-  // Application
-  <svg key="i0" viewBox="0 0 24 24" {...stroke}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>,
-  // Entrance exam
-  <svg key="i1" viewBox="0 0 24 24" {...stroke}><path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>,
-  // Two semesters
-  <svg key="i2" viewBox="0 0 24 24" {...stroke}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>,
-  // FSP
-  <svg key="i3" viewBox="0 0 24 24" {...stroke}><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>,
-  // University
-  <svg key="i4" viewBox="0 0 24 24" {...stroke}><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>,
-];
-
-const Check = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" {...stroke}>
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
-const Arrow = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" {...stroke}>
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
-
-const whyIcons: Record<string, ReactNode> = {
-  bridge: (
-    <svg viewBox="0 0 24 24" {...stroke}>
-      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-      <line x1="4" y1="22" x2="4" y2="15" />
-    </svg>
-  ),
-  german: (
-    <svg viewBox="0 0 24 24" {...stroke}>
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-    </svg>
-  ),
-  path: (
-    <svg viewBox="0 0 24 24" {...stroke}>
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-      <polyline points="22 4 12 14.01 9 11.01" />
-    </svg>
-  ),
-};
-
-/* -------------------------------------------------------------------------- */
 /*  Static config (non-translated)                                            */
 /* -------------------------------------------------------------------------- */
+
+// Journey steps share their order with the i18n `journey.steps` array.
+const journeyIcons = [
+  Icon.Application,
+  Icon.EntranceExam,
+  Icon.Semesters,
+  Icon.Assessment,
+  Icon.University,
+] as const;
+
+const whyCards = [
+  { key: 'bridge', icon: Icon.BridgeEducation },
+  { key: 'german', icon: Icon.AcademicGerman },
+  { key: 'path', icon: Icon.RecognisedPath },
+] as const;
 
 const courseTypes = [
   { letter: 'T', accent: 'bg-blue-100 text-blue-600' },
@@ -140,35 +98,9 @@ const eligibilityTiers = [
 ] as const;
 
 const requirementBlocks = [
-  {
-    key: 'language',
-    accent: 'bg-blue-100 text-blue-600',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" {...stroke}>
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
-  },
-  {
-    key: 'documents',
-    accent: 'bg-purple-100 text-purple-600',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" {...stroke}>
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-      </svg>
-    ),
-  },
-  {
-    key: 'finances',
-    accent: 'bg-green-100 text-green-600',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" {...stroke}>
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
-  },
+  { key: 'language', accent: 'bg-blue-100 text-blue-600', icon: Icon.LanguageReq },
+  { key: 'documents', accent: 'bg-purple-100 text-purple-600', icon: Icon.Documents },
+  { key: 'finances', accent: 'bg-green-100 text-green-600', icon: Icon.Finances },
 ] as const;
 
 /* -------------------------------------------------------------------------- */
@@ -222,7 +154,7 @@ export function AboutStudienkollegPage() {
                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-7 py-3.5 rounded-full text-[15px] transition-all hover:bg-primary-hover hover:-translate-y-0.5 shadow-[0_8px_20px_rgba(166,123,91,0.28)] active:scale-[0.98]"
               >
                 {t('hero.ctaPrimary')}
-                <Arrow />
+                <Ui.ArrowRight size={20} />
               </Link>
               <Link
                 to="/#studienkolleg-carousel"
@@ -271,11 +203,13 @@ export function AboutStudienkollegPage() {
             <div className="hidden lg:block absolute top-[34px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-primary-light via-primary/40 to-primary-light" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
-              {journeySteps.map((step, i) => (
+              {journeySteps.map((step, i) => {
+                const StepIcon = journeyIcons[i];
+                return (
                 <Reveal key={i} delay={i * 90} className="relative">
                   <div className="flex flex-col items-center text-center h-full">
-                    <div className="relative z-10 w-[68px] h-[68px] rounded-full bg-page border-2 border-primary-light flex items-center justify-center text-primary mb-5 shadow-card [&>svg]:w-7 [&>svg]:h-7">
-                      {journeyIcons[i]}
+                    <div className="relative z-10 w-[68px] h-[68px] rounded-full bg-page border-2 border-primary-light flex items-center justify-center text-primary mb-5 shadow-card">
+                      {StepIcon && <StepIcon size={28} stroke={2} />}
                       <span className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">
                         {i + 1}
                       </span>
@@ -289,7 +223,8 @@ export function AboutStudienkollegPage() {
                     </p>
                   </div>
                 </Reveal>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -306,11 +241,11 @@ export function AboutStudienkollegPage() {
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {(['bridge', 'german', 'path'] as const).map((key, i) => (
+            {whyCards.map(({ key, icon: WhyIcon }, i) => (
               <Reveal key={key} delay={i * 80}>
                 <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card border border-transparent transition-all duration-300 hover:-translate-y-1 hover:border-primary-light h-full">
-                  <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5 [&>svg]:w-6 [&>svg]:h-6">
-                    {whyIcons[key]}
+                  <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
+                    <WhyIcon size={24} stroke={2} />
                   </div>
                   <h3 className="text-lg font-bold mb-2">
                     {t(`why.cards.${key}.title`)}
@@ -434,6 +369,7 @@ export function AboutStudienkollegPage() {
               const items = t(`requirements.${block.key}.items`, {
                 returnObjects: true,
               }) as string[];
+              const BlockIcon = block.icon;
               return (
                 <Reveal key={block.key} delay={i * 80}>
                   <div className="bg-page p-6 sm:p-7 rounded-[20px] h-full">
@@ -441,7 +377,7 @@ export function AboutStudienkollegPage() {
                       <div
                         className={`w-10 h-10 rounded-lg flex items-center justify-center ${block.accent}`}
                       >
-                        {block.icon}
+                        <BlockIcon size={20} stroke={2} />
                       </div>
                       <h3 className="font-bold text-lg">
                         {t(`requirements.${block.key}.title`)}
@@ -450,7 +386,7 @@ export function AboutStudienkollegPage() {
                     <ul className="space-y-3 text-[14px] text-text-muted">
                       {items.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
-                          <Check className="w-[18px] h-[18px] text-success mt-0.5 flex-shrink-0" />
+                          <Ui.Check className="text-success mt-0.5 flex-shrink-0" size={18} stroke={2.5} />
                           <span dangerouslySetInnerHTML={{ __html: item }} />
                         </li>
                       ))}
@@ -466,12 +402,7 @@ export function AboutStudienkollegPage() {
             <div className="bg-page p-6 sm:p-8 rounded-[20px]">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" {...stroke}>
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
+                  <Icon.Timeline size={20} stroke={2} />
                 </div>
                 <h3 className="font-bold text-lg">
                   {t('requirements.timeline.title')}
@@ -561,7 +492,7 @@ export function AboutStudienkollegPage() {
                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-primary-hover hover:-translate-y-0.5 shadow-[0_8px_20px_rgba(166,123,91,0.28)] active:scale-[0.98]"
               >
                 {t('cta.exploreButton')}
-                <Arrow />
+                <Ui.ArrowRight size={20} />
               </Link>
 
               <Link
