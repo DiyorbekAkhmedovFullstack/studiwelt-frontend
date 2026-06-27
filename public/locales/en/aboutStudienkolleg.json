@@ -3,110 +3,180 @@
         "badge": "YOUR PATHWAY TO GERMAN UNIVERSITIES",
         "title": "What is a",
         "titleHighlight": "Studienkolleg?",
-        "description": "A one-year preparatory program that bridges the gap between your home country's education and German university requirements. Successfully complete it, and you'll have access to universities across Germany.",
-        "stats": {
-            "duration": "2 Semesters",
-            "language": "German B1-B2",
-            "tuition": "Public: Tuition-Free"
-        }
+        "description": "A state-recognised foundation year that turns a non-German school certificate into a full German university entrance qualification. Pass it, and you can study almost anywhere in Germany.",
+        "ctaPrimary": "Start preparing",
+        "ctaSecondary": "Explore Studienkollegs",
+        "stats": [
+            { "value": "1–2", "label": "Semesters" },
+            { "value": "B1 → C1", "label": "German level" },
+            { "value": "€0", "label": "Public tuition" },
+            { "value": "Nationwide", "label": "Recognition" }
+        ]
+    },
+    "journey": {
+        "badge": "THE BIG PICTURE",
+        "title": "Your path to a",
+        "titleHighlight": "German degree",
+        "description": "Five clear steps separate you from a German university place. Here is how the whole journey fits together.",
+        "steps": [
+            {
+                "label": "Step 1",
+                "title": "Application",
+                "description": "Apply through uni-assist or directly to the Studienkolleg. First check your certificate in the anabin / DAAD database."
+            },
+            {
+                "label": "Step 2",
+                "title": "Entrance exam",
+                "description": "Sit the Aufnahmeprüfung — a German test plus a subject test matched to your chosen track."
+            },
+            {
+                "label": "Step 3",
+                "title": "Two semesters",
+                "description": "Study your subjects entirely in German, with language teaching that lifts you from B2 towards C1."
+            },
+            {
+                "label": "Step 4",
+                "title": "Feststellungsprüfung",
+                "description": "Take the final FSP assessment — the exam that certifies you are ready for German university study."
+            },
+            {
+                "label": "Step 5",
+                "title": "University",
+                "description": "With a passed FSP your qualification is recognised nationwide. Apply for your degree across Germany."
+            }
+        ]
     },
     "why": {
-        "title": "Why Studienkolleg?",
-        "description": "Not all foreign qualifications are directly recognized in Germany. Studienkolleg prepares you for success.",
+        "title": "Why it exists",
+        "description": "Not every foreign school-leaving certificate counts as a German university entrance qualification. The Studienkolleg closes that gap.",
         "cards": {
             "bridge": {
-                "title": "Bridge Your Education",
-                "description": "Fill the gaps between your home country's education system and German academic standards with focused preparation."
+                "title": "Bridge your education",
+                "description": "It fills the gap between your home school system and German academic standards, so you start your degree on equal footing."
             },
             "german": {
-                "title": "Master Academic German",
-                "description": "Intensive language training ensures you're ready for lectures, exams, and academic writing in German."
+                "title": "Master academic German",
+                "description": "Subjects are taught in German, building the lecture, exam and academic-writing skills a degree demands — up to C1."
             },
             "path": {
-                "title": "Guaranteed University Path",
-                "description": "Pass the FSP exam and gain access to universities throughout Germany. Your qualification is recognized nationwide."
+                "title": "A recognised path",
+                "description": "Pass the FSP and your qualification is valid at universities throughout Germany, not just the one that hosted you."
             }
         }
     },
     "courses": {
-        "title": "Choose Your Track",
-        "description": "Studienkolleg offers 5 specialized courses. Choose based on your intended field of study.",
+        "title": "Choose your track",
+        "description": "University Studienkollegs run five specialised tracks (Schwerpunktkurse). You pick one based on the degree you intend to study.",
+        "trackLabel": "For university",
         "types": {
-            "G": {
-                "fullName": "Humanities & Arts",
-                "description": "Prepares for studies in humanities, social sciences, German studies, and arts.",
-                "examples": "History, Philosophy, Law, Journalism, Art History"
+            "T": {
+                "fullName": "Technology & Sciences",
+                "description": "The largest track — for engineering, mathematics and the natural sciences.",
+                "examples": "Engineering, Physics, Chemistry, Mathematics, Computer Science"
             },
             "M": {
                 "fullName": "Medicine & Biology",
-                "description": "For medical, biological, and pharmaceutical degree programs.",
+                "description": "For medical, biological and pharmaceutical degree programmes.",
                 "examples": "Medicine, Dentistry, Pharmacy, Biology, Veterinary"
-            },
-            "T": {
-                "fullName": "Technical & Engineering",
-                "description": "Prepares for technical subjects including engineering and natural sciences.",
-                "examples": "Engineering, Physics, Chemistry, Mathematics, IT"
             },
             "W": {
                 "fullName": "Business & Economics",
-                "description": "For business, economics, and social science degree programs.",
-                "examples": "Business Administration, Economics, Sociology"
+                "description": "For business, economics and most social-science degrees.",
+                "examples": "Business Administration, Economics, Sociology, Politics"
+            },
+            "G": {
+                "fullName": "Humanities & German Studies",
+                "description": "For the humanities, arts, German studies and related fields.",
+                "examples": "History, Philosophy, Law, Journalism, Art History"
             },
             "S": {
                 "fullName": "Languages",
-                "description": "For language studies and programs requiring strong linguistic skills.",
-                "examples": "Linguistics, Translation, Foreign Languages"
+                "description": "For language and linguistics degrees in languages other than German.",
+                "examples": "Linguistics, Translation, Modern Languages"
+            }
+        },
+        "fhNote": "Heading for a University of Applied Sciences (Fachhochschule)? Those run their own, more practice-oriented tracks — TI (technical), WW (economics), GD (design & arts) and SW (social work)."
+    },
+    "eligibility": {
+        "badge": "DO YOU NEED ONE?",
+        "title": "Check before you apply",
+        "description": "Whether you need a Studienkolleg depends entirely on how Germany rates your school certificate. Look yourself up in the anabin / DAAD database first.",
+        "tiers": {
+            "direct": {
+                "tag": "Direct access",
+                "title": "You can skip it",
+                "description": "Your certificate already counts as a full entrance qualification (HZB). You may apply straight to a German university."
+            },
+            "restricted": {
+                "tag": "Subject-restricted",
+                "title": "Partly recognised",
+                "description": "You can study only certain fields directly. For anything outside them, a Studienkolleg and the FSP are required."
+            },
+            "kolleg": {
+                "tag": "Studienkolleg required",
+                "title": "This is your route",
+                "description": "Your certificate isn't recognised for direct entry. A Studienkolleg plus the FSP is the standard path to any German degree."
             }
         }
     },
     "requirements": {
-        "title": "Requirements",
-        "description": "What you need to apply for Studienkolleg admission.",
+        "title": "What you need to apply",
+        "description": "Exact documents and deadlines vary by Studienkolleg, but almost every application asks for the same essentials.",
         "language": {
-            "title": "German Language",
+            "title": "German language",
             "items": [
-                "Minimum <strong>B1 level</strong> (some require B2)",
-                "Certificate from Goethe-Institut or equivalent",
-                "TestDaF or DSH accepted at higher levels"
+                "Minimum <strong>B1</strong> to apply — <strong>B2 is strongly recommended</strong>",
+                "Most public Studienkollegs require B2 for the entrance exam",
+                "Goethe, telc, TestDaF or DSH certificates are accepted"
             ]
         },
-        "academic": {
-            "title": "Academic Background",
+        "documents": {
+            "title": "Documents",
             "items": [
-                "Completed <strong>1 year</strong> at a university",
-                "Minimum GPA of <strong>3.0</strong> (or equivalent)",
-                "High school diploma (translated & certified)"
+                "School-leaving certificate, <strong>translated &amp; certified</strong>",
+                "German language certificate",
+                "Passport, biometric photo &amp; proof of health insurance",
+                "Short CV and letter of motivation"
+            ]
+        },
+        "finances": {
+            "title": "Costs & finances",
+            "items": [
+                "Public Kolleg: <strong>tuition-free</strong> + a €150–400 semester fee",
+                "Private Kolleg: roughly <strong>€5,000–10,000</strong> per year",
+                "Blocked account for your visa: <strong>≈ €11,904 / year</strong> (2026)"
             ]
         },
         "timeline": {
-            "title": "Application Timeline",
-            "winter": "<strong>Winter Semester:</strong> Apply by July 15",
-            "summer": "<strong>Summer Semester:</strong> Apply by January 15"
+            "title": "Application windows",
+            "note": "Each Studienkolleg sets its own deadline — always confirm on its website.",
+            "winter": "<strong>Winter semester:</strong> apply around mid-July",
+            "summer": "<strong>Summer semester:</strong> apply around mid-January"
         }
     },
     "fsp": {
         "badge": "THE FINAL STEP",
-        "title": "Feststellungsprüfung (FSP)",
-        "description": "At the end of your Studienkolleg journey, you'll take the Feststellungsprüfung — the assessment test that certifies your readiness for German university studies.",
+        "title": "The Feststellungsprüfung (FSP)",
+        "description": "The Studienkolleg ends with the FSP — the assessment that certifies you are ready for German university study and unlocks admission nationwide.",
         "cards": {
             "tested": {
-                "title": "What's Tested",
-                "description": "German language proficiency and subject-specific knowledge from your track."
+                "title": "What's tested",
+                "description": "German plus the core subjects of your track — exactly the knowledge your future degree builds on."
             },
-            "duration": {
-                "title": "Duration",
-                "description": "Written exams over several days, plus oral examinations in some subjects."
+            "format": {
+                "title": "Format",
+                "description": "Written exams across several days, with oral examinations in some subjects."
             },
             "after": {
-                "title": "After Passing",
-                "description": "Gain access to universities across Germany in your chosen field of study."
+                "title": "After passing",
+                "description": "Your qualification is recognised across Germany. Apply for degrees in your field at any university."
             }
         }
     },
     "cta": {
-        "title": "Ready to Start Your Journey?",
-        "description": "Explore Studienkollegs across Germany and find the perfect fit for your academic goals.",
+        "title": "Ready to start your journey?",
+        "description": "Explore Studienkollegs across Germany and prepare for the entrance exam with a structured, daily plan.",
         "exploreButton": "Explore Studienkollegs",
-        "startButton": "Start Preparing"
+        "startButton": "Start preparing"
     }
 }

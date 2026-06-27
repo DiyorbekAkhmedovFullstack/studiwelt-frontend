@@ -3,110 +3,180 @@
         "badge": "DEIN WEG AN DEUTSCHE UNIVERSITÄTEN",
         "title": "Was ist ein",
         "titleHighlight": "Studienkolleg?",
-        "description": "Ein einjähriges Vorbereitungsprogramm, das die Lücke zwischen der Bildung in deinem Heimatland und den deutschen Hochschulanforderungen schließt. Schließe es erfolgreich ab und erhalte Zugang zu Universitäten in ganz Deutschland.",
-        "stats": {
-            "duration": "2 Semester",
-            "language": "Deutsch B1-B2",
-            "tuition": "Öffentlich: Gebührenfrei"
-        }
+        "description": "Ein staatlich anerkanntes Vorbereitungsjahr, das ein ausländisches Schulzeugnis in eine vollwertige deutsche Hochschulzugangsberechtigung verwandelt. Bestehe es und du kannst fast überall in Deutschland studieren.",
+        "ctaPrimary": "Vorbereitung starten",
+        "ctaSecondary": "Studienkollegs entdecken",
+        "stats": [
+            { "value": "1–2", "label": "Semester" },
+            { "value": "B1 → C1", "label": "Deutschniveau" },
+            { "value": "0 €", "label": "Öffentliche Gebühren" },
+            { "value": "Bundesweit", "label": "Anerkennung" }
+        ]
+    },
+    "journey": {
+        "badge": "DER ÜBERBLICK",
+        "title": "Dein Weg zum",
+        "titleHighlight": "deutschen Abschluss",
+        "description": "Fünf klare Schritte trennen dich von deinem Studienplatz in Deutschland. So greift die ganze Reise ineinander.",
+        "steps": [
+            {
+                "label": "Schritt 1",
+                "title": "Bewerbung",
+                "description": "Bewirb dich über uni-assist oder direkt beim Studienkolleg. Prüfe zuerst dein Zeugnis in der anabin- / DAAD-Datenbank."
+            },
+            {
+                "label": "Schritt 2",
+                "title": "Aufnahmeprüfung",
+                "description": "Lege die Aufnahmeprüfung ab — einen Deutschtest plus einen Fachtest passend zu deinem Schwerpunkt."
+            },
+            {
+                "label": "Schritt 3",
+                "title": "Zwei Semester",
+                "description": "Studiere deine Fächer komplett auf Deutsch — mit Sprachunterricht, der dich von B2 Richtung C1 bringt."
+            },
+            {
+                "label": "Schritt 4",
+                "title": "Feststellungsprüfung",
+                "description": "Lege die abschließende FSP ab — die Prüfung, die deine Studierfähigkeit für die deutsche Hochschule bescheinigt."
+            },
+            {
+                "label": "Schritt 5",
+                "title": "Universität",
+                "description": "Mit bestandener FSP ist deine Qualifikation bundesweit anerkannt. Bewirb dich an Hochschulen in ganz Deutschland."
+            }
+        ]
     },
     "why": {
-        "title": "Warum Studienkolleg?",
-        "description": "Nicht alle ausländischen Qualifikationen werden in Deutschland direkt anerkannt. Das Studienkolleg bereitet dich auf den Erfolg vor.",
+        "title": "Warum es das gibt",
+        "description": "Nicht jedes ausländische Schulzeugnis gilt als deutsche Hochschulzugangsberechtigung. Das Studienkolleg schließt genau diese Lücke.",
         "cards": {
             "bridge": {
                 "title": "Bildungslücken schließen",
-                "description": "Fülle die Lücken zwischen dem Bildungssystem deines Heimatlandes und den deutschen akademischen Standards mit gezielter Vorbereitung."
+                "description": "Es füllt die Lücke zwischen deinem Schulsystem und den deutschen akademischen Standards — so startest du dein Studium auf Augenhöhe."
             },
             "german": {
                 "title": "Akademisches Deutsch meistern",
-                "description": "Intensives Sprachtraining sorgt dafür, dass du für Vorlesungen, Prüfungen und akademisches Schreiben auf Deutsch bereit bist."
+                "description": "Die Fächer werden auf Deutsch unterrichtet und bauen die Fähigkeiten für Vorlesungen, Prüfungen und wissenschaftliches Schreiben auf — bis C1."
             },
             "path": {
-                "title": "Garantierter Universitätsweg",
-                "description": "Bestehe die FSP-Prüfung und erhalte Zugang zu Universitäten in ganz Deutschland. Deine Qualifikation wird bundesweit anerkannt."
+                "title": "Ein anerkannter Weg",
+                "description": "Bestehe die FSP und deine Qualifikation gilt an Hochschulen in ganz Deutschland — nicht nur dort, wo du das Kolleg besucht hast."
             }
         }
     },
     "courses": {
         "title": "Wähle deinen Schwerpunkt",
-        "description": "Das Studienkolleg bietet 5 spezialisierte Kurse. Wähle basierend auf deinem geplanten Studienfach.",
+        "description": "Studienkollegs an Universitäten bieten fünf Schwerpunktkurse. Du wählst einen passend zum Studiengang, den du anstrebst.",
+        "trackLabel": "Für die Universität",
         "types": {
-            "G": {
-                "fullName": "Geisteswissenschaften & Kunst",
-                "description": "Vorbereitung für Studien in Geisteswissenschaften, Sozialwissenschaften, Germanistik und Kunst.",
-                "examples": "Geschichte, Philosophie, Jura, Journalismus, Kunstgeschichte"
+            "T": {
+                "fullName": "Technik & Naturwissenschaften",
+                "description": "Der größte Schwerpunkt — für Ingenieurwesen, Mathematik und Naturwissenschaften.",
+                "examples": "Ingenieurwesen, Physik, Chemie, Mathematik, Informatik"
             },
             "M": {
                 "fullName": "Medizin & Biologie",
                 "description": "Für medizinische, biologische und pharmazeutische Studiengänge.",
                 "examples": "Medizin, Zahnmedizin, Pharmazie, Biologie, Tiermedizin"
             },
-            "T": {
-                "fullName": "Technik & Ingenieurwesen",
-                "description": "Vorbereitung für technische Fächer einschließlich Ingenieurwesen und Naturwissenschaften.",
-                "examples": "Ingenieurwesen, Physik, Chemie, Mathematik, IT"
-            },
             "W": {
                 "fullName": "Wirtschaft & Volkswirtschaft",
-                "description": "Für Wirtschafts-, Volkswirtschafts- und sozialwissenschaftliche Studiengänge.",
-                "examples": "Betriebswirtschaft, Volkswirtschaft, Soziologie"
+                "description": "Für Wirtschaft, Volkswirtschaft und die meisten sozialwissenschaftlichen Studiengänge.",
+                "examples": "Betriebswirtschaft, Volkswirtschaft, Soziologie, Politik"
+            },
+            "G": {
+                "fullName": "Geisteswissenschaften & Germanistik",
+                "description": "Für Geisteswissenschaften, Kunst, Germanistik und verwandte Fächer.",
+                "examples": "Geschichte, Philosophie, Jura, Journalismus, Kunstgeschichte"
             },
             "S": {
                 "fullName": "Sprachen",
-                "description": "Für Sprachstudien und Programme, die starke sprachliche Fähigkeiten erfordern.",
-                "examples": "Linguistik, Übersetzung, Fremdsprachen"
+                "description": "Für sprach- und sprachwissenschaftliche Studiengänge in anderen Sprachen als Deutsch.",
+                "examples": "Linguistik, Übersetzung, moderne Sprachen"
+            }
+        },
+        "fhNote": "Du strebst eine Fachhochschule an? Diese haben eigene, praxisnähere Schwerpunkte — TI (Technik), WW (Wirtschaft), GD (Gestaltung & Kunst) und SW (Soziales)."
+    },
+    "eligibility": {
+        "badge": "BRAUCHST DU ÜBERHAUPT EINES?",
+        "title": "Prüfe es vor der Bewerbung",
+        "description": "Ob du ein Studienkolleg brauchst, hängt allein davon ab, wie Deutschland dein Schulzeugnis bewertet. Schlage dich zuerst in der anabin- / DAAD-Datenbank nach.",
+        "tiers": {
+            "direct": {
+                "tag": "Direkter Zugang",
+                "title": "Du kannst es überspringen",
+                "description": "Dein Zeugnis gilt bereits als vollwertige Hochschulzugangsberechtigung (HZB). Du kannst dich direkt an einer deutschen Hochschule bewerben."
+            },
+            "restricted": {
+                "tag": "Fachgebunden",
+                "title": "Teilweise anerkannt",
+                "description": "Du darfst nur bestimmte Fächer direkt studieren. Für alles andere sind ein Studienkolleg und die FSP nötig."
+            },
+            "kolleg": {
+                "tag": "Studienkolleg nötig",
+                "title": "Das ist dein Weg",
+                "description": "Dein Zeugnis reicht nicht für den direkten Zugang. Studienkolleg plus FSP ist der Standardweg zu jedem deutschen Abschluss."
             }
         }
     },
     "requirements": {
-        "title": "Voraussetzungen",
-        "description": "Was du für die Bewerbung am Studienkolleg brauchst.",
+        "title": "Was du zur Bewerbung brauchst",
+        "description": "Genaue Unterlagen und Fristen unterscheiden sich je Studienkolleg, doch fast jede Bewerbung verlangt dieselben Grundlagen.",
         "language": {
             "title": "Deutsche Sprache",
             "items": [
-                "Mindestens <strong>B1-Niveau</strong> (manche verlangen B2)",
-                "Zertifikat vom Goethe-Institut oder gleichwertig",
-                "TestDaF oder DSH werden auf höheren Niveaus akzeptiert"
+                "Mindestens <strong>B1</strong> zur Bewerbung — <strong>B2 wird dringend empfohlen</strong>",
+                "Die meisten öffentlichen Kollegs verlangen B2 für die Aufnahmeprüfung",
+                "Zertifikate von Goethe, telc, TestDaF oder DSH werden akzeptiert"
             ]
         },
-        "academic": {
-            "title": "Akademischer Hintergrund",
+        "documents": {
+            "title": "Unterlagen",
             "items": [
-                "Abgeschlossenes <strong>1 Jahr</strong> an einer Universität",
-                "Mindest-Notendurchschnitt von <strong>3,0</strong> (oder gleichwertig)",
-                "Abitur (übersetzt & beglaubigt)"
+                "Schulabschlusszeugnis, <strong>übersetzt &amp; beglaubigt</strong>",
+                "Deutsches Sprachzertifikat",
+                "Reisepass, biometrisches Foto &amp; Krankenversicherungsnachweis",
+                "Kurzer Lebenslauf und Motivationsschreiben"
+            ]
+        },
+        "finances": {
+            "title": "Kosten & Finanzen",
+            "items": [
+                "Öffentliches Kolleg: <strong>gebührenfrei</strong> + Semesterbeitrag 150–400 €",
+                "Privates Kolleg: etwa <strong>5.000–10.000 €</strong> pro Jahr",
+                "Sperrkonto für dein Visum: <strong>≈ 11.904 € / Jahr</strong> (2026)"
             ]
         },
         "timeline": {
-            "title": "Bewerbungszeitraum",
-            "winter": "<strong>Wintersemester:</strong> Bewerbung bis 15. Juli",
-            "summer": "<strong>Sommersemester:</strong> Bewerbung bis 15. Januar"
+            "title": "Bewerbungszeiträume",
+            "note": "Jedes Studienkolleg legt eigene Fristen fest — prüfe sie immer auf dessen Website.",
+            "winter": "<strong>Wintersemester:</strong> Bewerbung etwa Mitte Juli",
+            "summer": "<strong>Sommersemester:</strong> Bewerbung etwa Mitte Januar"
         }
     },
     "fsp": {
         "badge": "DER LETZTE SCHRITT",
-        "title": "Feststellungsprüfung (FSP)",
-        "description": "Am Ende deiner Studienkolleg-Reise legst du die Feststellungsprüfung ab — die Prüfung, die deine Bereitschaft für ein deutsches Hochschulstudium bescheinigt.",
+        "title": "Die Feststellungsprüfung (FSP)",
+        "description": "Das Studienkolleg endet mit der FSP — der Prüfung, die deine Studierfähigkeit bescheinigt und den bundesweiten Hochschulzugang freischaltet.",
         "cards": {
             "tested": {
-                "title": "Was wird geprüft",
-                "description": "Deutsche Sprachkenntnisse und fachspezifisches Wissen aus deinem Schwerpunkt."
+                "title": "Was geprüft wird",
+                "description": "Deutsch plus die Kernfächer deines Schwerpunkts — genau das Wissen, auf dem dein künftiges Studium aufbaut."
             },
-            "duration": {
-                "title": "Dauer",
-                "description": "Schriftliche Prüfungen über mehrere Tage, plus mündliche Prüfungen in einigen Fächern."
+            "format": {
+                "title": "Format",
+                "description": "Schriftliche Prüfungen über mehrere Tage, in einigen Fächern zusätzlich mündliche Prüfungen."
             },
             "after": {
                 "title": "Nach dem Bestehen",
-                "description": "Erhalte Zugang zu Universitäten in ganz Deutschland in deinem gewählten Studienfach."
+                "description": "Deine Qualifikation gilt in ganz Deutschland. Bewirb dich in deinem Fach an jeder Hochschule."
             }
         }
     },
     "cta": {
         "title": "Bereit, deine Reise zu starten?",
-        "description": "Entdecke Studienkollegs in ganz Deutschland und finde die perfekte Wahl für deine akademischen Ziele.",
+        "description": "Entdecke Studienkollegs in ganz Deutschland und bereite dich mit einem strukturierten Tagesplan auf die Aufnahmeprüfung vor.",
         "exploreButton": "Studienkollegs entdecken",
-        "startButton": "Mit der Vorbereitung beginnen"
+        "startButton": "Vorbereitung starten"
     }
 }
