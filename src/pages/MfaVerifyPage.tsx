@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, type FormEvent, type KeyboardEvent, type ClipboardEvent } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { toastService } from '../services/toastService';
 
@@ -9,6 +10,7 @@ type LocationState = {
 };
 
 export function MfaVerifyPage() {
+  const { t } = useTranslation('auth');
   const { completeMfa } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,7 +28,7 @@ export function MfaVerifyPage() {
 
   const submitCode = async (digitsToSubmit: string[]) => {
     if (!state?.userId) {
-      setError('Verification details are missing. Please log in again.');
+      setError(t('mfa.missingDetails'));
       return;
     }
 
@@ -37,7 +39,7 @@ export function MfaVerifyPage() {
 
     const code = digitsToSubmit.join('');
     if (code.length !== 6 || digitsToSubmit.some((d) => d.trim() === '')) {
-      setError('Please enter all 6 digits.');
+      setError(t('mfa.enterAllDigits'));
       setSubmitting(false);
       hasSubmittedRef.current = false;
       return;
@@ -47,7 +49,7 @@ export function MfaVerifyPage() {
       const result = await completeMfa(state.userId, code);
 
       if (!result.success || !result.user) {
-        setError(result.error ?? 'Verification failed. Please try again.');
+        setError(result.error ?? t('mfa.failed'));
         return;
       }
 
@@ -57,7 +59,7 @@ export function MfaVerifyPage() {
       // Show success toast after navigation
       setTimeout(() => {
         toastService.success(
-          'Signed in successfully.',
+          t('login.signedIn'),
           { duration: 3000 }
         );
       }, 100);
@@ -139,9 +141,9 @@ export function MfaVerifyPage() {
           </svg>
         </div>
 
-        <h1 className="text-[28px] font-serif font-bold mb-3 text-text-main">Two-Step Verification</h1>
+        <h1 className="text-[28px] font-serif font-bold mb-3 text-text-main">{t('mfa.title')}</h1>
         <p className="text-[16px] text-text-muted leading-relaxed mb-8">
-          Enter the 6-digit code from your authenticator app to verify your identity.
+          {t('mfa.description')}
         </p>
 
         {error && (
@@ -167,9 +169,8 @@ export function MfaVerifyPage() {
                 onChange={(e) => handleDigitChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
                 onPaste={index === 0 ? handlePaste : undefined}
-                className={`w-[50px] h-16 border-2 rounded-xl bg-white text-center text-[28px] font-semibold text-text-main transition-all caret-primary focus:outline-none focus:border-primary focus:-translate-y-1 focus:shadow-[0_8px_20px_rgba(166,123,91,0.15)] ${
-                  error ? 'border-danger animate-shake' : 'border-[#E0E0E0]'
-                }`}
+                className={`w-[50px] h-16 border-2 rounded-xl bg-white text-center text-[28px] font-semibold text-text-main transition-all caret-primary focus:outline-none focus:border-primary focus:-translate-y-1 focus:shadow-[0_8px_20px_rgba(166,123,91,0.15)] ${error ? 'border-danger animate-shake' : 'border-[#E0E0E0]'
+                  }`}
               />
             ))}
           </div>
@@ -178,13 +179,12 @@ export function MfaVerifyPage() {
           <button
             type="submit"
             disabled={!allDigitsFilled || submitting}
-            className={`w-full py-4 rounded-xl text-white font-semibold text-[16px] transition-all ${
-              allDigitsFilled && !submitting
+            className={`w-full py-4 rounded-xl text-white font-semibold text-[16px] transition-all ${allDigitsFilled && !submitting
                 ? 'bg-primary hover:bg-[#8E6A4F] hover:-translate-y-0.5 shadow-[0_4px_12px_rgba(166,123,91,0.3)]'
                 : 'bg-text-main/30 cursor-not-allowed'
-            }`}
+              }`}
           >
-            {submitting ? 'Verifying...' : 'Verify'}
+            {submitting ? t('mfa.submitting') : t('mfa.submit')}
           </button>
         </form>
 
@@ -196,7 +196,7 @@ export function MfaVerifyPage() {
               onClick={() => navigate('/login')}
               className="text-text-muted hover:text-primary transition-colors border-b border-transparent hover:border-primary"
             >
-              Back to login
+              {t('mfa.backToLogin')}
             </button>
           </p>
         </div>

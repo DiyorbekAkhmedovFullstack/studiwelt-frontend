@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function VerificationSuccessPage() {
+  const { t } = useTranslation('auth');
   const navigate = useNavigate();
   const [countdown, setCountdown] = useState(10);
 
@@ -47,22 +49,22 @@ export function VerificationSuccessPage() {
 
         {/* Message */}
         <h1 className="mb-4 text-[28px] font-serif font-bold text-text-main">
-          Welcome to STUDIWELT!
+          {t('verificationSuccess.title')}
         </h1>
         <p className="mb-8 text-[16px] text-text-muted leading-relaxed max-w-[400px] mx-auto">
-          Your account has been successfully verified. Get ready to start your German learning journey!
+          {t('verificationSuccess.message')}
         </p>
 
         {/* Countdown Display */}
         <div className="mb-6 rounded-xl bg-[#FFFCF8] p-6 border border-[rgba(166,123,91,0.15)]">
           <p className="text-[15px] text-text-main mb-2">
-            Redirecting to your course in
+            {t('verificationSuccess.redirecting')}
           </p>
           <div className="text-[48px] font-bold text-primary font-serif leading-none mb-2">
             {countdown}
           </div>
           <p className="text-[13px] text-text-muted">
-            second{countdown !== 1 ? 's' : ''}
+            {countdown !== 1 ? t('verificationSuccess.seconds') : t('verificationSuccess.second')}
           </p>
         </div>
 
@@ -72,7 +74,7 @@ export function VerificationSuccessPage() {
           onClick={() => navigate('/course')}
           className="w-full px-4 py-4 bg-primary text-white rounded-lg text-base font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:bg-primary-hover hover:-translate-y-0.5"
         >
-          Start Learning Now →
+          {t('verificationSuccess.button')}
         </button>
       </div>
 

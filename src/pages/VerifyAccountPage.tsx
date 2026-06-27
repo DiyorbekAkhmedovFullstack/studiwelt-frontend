@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { authService } from '../services/authService';
 import { useAuth } from '../contexts/AuthContext';
 
 export function VerifyAccountPage() {
+  const { t } = useTranslation('auth');
   const location = useLocation();
   const navigate = useNavigate();
   const { setUser } = useAuth();
@@ -16,7 +18,7 @@ export function VerifyAccountPage() {
 
     const verify = async () => {
       if (!key) {
-        setError('Verification key is missing.');
+        setError(t('verifyAccount.failed.keyMissing'));
         setVerifying(false);
         return;
       }
@@ -32,14 +34,14 @@ export function VerifyAccountPage() {
         }
       } catch (err) {
         const msg =
-          err instanceof Error ? err.message : 'Verification failed. Try again.';
+          err instanceof Error ? err.message : t('verifyAccount.failed.generic');
         setError(msg);
         setVerifying(false);
       }
     };
 
     void verify();
-  }, [location.search, navigate, setUser]);
+  }, [location.search, navigate, setUser, t]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-page p-4 relative overflow-hidden">
@@ -53,8 +55,8 @@ export function VerifyAccountPage() {
             <div className="w-16 h-16 bg-[#FAF6F3] rounded-full flex items-center justify-center mx-auto mb-6">
               <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#E3D4C5] border-t-primary"></div>
             </div>
-            <h2 className="text-[24px] font-serif font-bold mb-3 text-text-main">Verifying Your Account</h2>
-            <p className="text-[15px] text-text-muted">Please wait while we verify your account...</p>
+            <h2 className="text-[24px] font-serif font-bold mb-3 text-text-main">{t('verifyAccount.verifying.title')}</h2>
+            <p className="text-[15px] text-text-muted">{t('verifyAccount.verifying.message')}</p>
           </>
         )}
         {error && (
@@ -75,7 +77,7 @@ export function VerifyAccountPage() {
               </svg>
             </div>
             <h2 className="text-[24px] font-serif font-bold mb-3 text-text-main">
-              Verification Failed
+              {t('verifyAccount.failed.title')}
             </h2>
             <p className="text-[15px] text-danger mb-8 bg-[#FFF5F5] border border-[#FFDDDD] rounded-lg p-4" role="alert">
               {error}
@@ -85,7 +87,7 @@ export function VerifyAccountPage() {
               onClick={() => navigate('/login')}
               className="w-full px-4 py-4 bg-primary text-white rounded-lg text-base font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:bg-primary-hover hover:-translate-y-0.5"
             >
-              Go to Login
+              {t('verifyAccount.failed.goToLogin')}
             </button>
           </>
         )}

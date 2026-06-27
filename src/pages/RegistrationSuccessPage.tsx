@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function RegistrationSuccessPage() {
+  const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
   return (
@@ -29,11 +31,10 @@ export function RegistrationSuccessPage() {
 
         {/* Message */}
         <h1 className="mb-4 text-[28px] font-serif font-bold text-text-main">
-          Check Your Email
+          {t('registrationSuccess.title')}
         </h1>
         <p className="mb-8 text-[16px] text-text-muted leading-relaxed max-w-[400px] mx-auto">
-          We've sent a verification link to your email address. Please check your
-          inbox and click the link to verify and activate your account.
+          {t('registrationSuccess.message')}
         </p>
 
         {/* Info Note */}
@@ -45,7 +46,7 @@ export function RegistrationSuccessPage() {
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
             </svg>
             <p className="text-[14px] text-text-main">
-              <span className="font-semibold">Didn't receive the email?</span> Please check your spam folder or wait a few minutes for the email to arrive.
+              <span className="font-semibold">{t('registrationSuccess.noteTitle')}</span> {t('registrationSuccess.noteMessage')}
             </p>
           </div>
         </div>
@@ -56,7 +57,7 @@ export function RegistrationSuccessPage() {
           onClick={() => navigate('/')}
           className="w-full px-4 py-4 bg-primary text-white rounded-lg text-base font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:bg-primary-hover hover:-translate-y-0.5"
         >
-          Got it
+          {t('registrationSuccess.button')}
         </button>
       </div>
     </div>

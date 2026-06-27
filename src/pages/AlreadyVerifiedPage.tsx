@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function AlreadyVerifiedPage() {
+  const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
   return (
@@ -29,10 +31,10 @@ export function AlreadyVerifiedPage() {
 
         {/* Message */}
         <h1 className="mb-4 text-[28px] font-serif font-bold text-text-main">
-          Account Already Verified
+          {t('alreadyVerified.title')}
         </h1>
         <p className="mb-8 text-[16px] text-text-muted leading-relaxed max-w-[400px] mx-auto">
-          Your account has already been verified. You can continue to your course or go to the login page.
+          {t('alreadyVerified.message')}
         </p>
 
         {/* Action buttons */}
@@ -42,14 +44,14 @@ export function AlreadyVerifiedPage() {
             onClick={() => navigate('/course')}
             className="w-full px-4 py-4 bg-primary text-white rounded-lg text-base font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:bg-primary-hover hover:-translate-y-0.5"
           >
-            Go to Course →
+            {t('alreadyVerified.goToCourse')}
           </button>
           <button
             type="button"
             onClick={() => navigate('/login')}
             className="w-full px-4 py-4 bg-surface text-text-main border-2 border-[rgba(166,123,91,0.2)] rounded-lg text-base font-semibold cursor-pointer transition-all hover:border-primary hover:bg-[#FFFCF8]"
           >
-            Go to Login
+            {t('alreadyVerified.goToLogin')}
           </button>
         </div>
       </div>

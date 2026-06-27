@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { authService } from '../services/authService';
 import { toastService } from '../services/toastService';
 import { AuthLayout, PasswordInput } from '../components/auth';
@@ -26,6 +27,7 @@ function verifyPasswordKeyOnce(key: string): Promise<VerifyPasswordResult> {
 }
 
 export function ResetPasswordPage() {
+  const { t } = useTranslation('auth');
   const location = useLocation();
   const navigate = useNavigate();
   const [key, setKey] = useState<string | null>(null);
@@ -41,7 +43,7 @@ export function ResetPasswordPage() {
     const params = new URLSearchParams(location.search);
     const keyParam = params.get('key');
     if (!keyParam) {
-      setError('Reset key is missing.');
+      setError(t('resetPassword.invalidLink.keyMissing'));
       setLoading(false);
       return;
     }
@@ -53,20 +55,20 @@ export function ResetPasswordPage() {
         setUserId(verifiedUserId);
       } catch (err) {
         console.error('Password reset token verification failed', err);
-        setError('Invalid or expired reset link.');
+        setError(t('resetPassword.invalidLink.linkExpired'));
       } finally {
         setLoading(false);
       }
     };
 
     void verify();
-  }, [location.search]);
+  }, [location.search, t]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!userId || !key) return;
     if (!newPassword || newPassword !== confirmNewPassword) {
-      toastService.error('Passwords must match and not be empty.');
+      toastService.error(t('resetPassword.passwordsMustMatch'));
       return;
     }
 
@@ -80,7 +82,7 @@ export function ResetPasswordPage() {
       setShowSuccessModal(true);
     } catch (err) {
       const msg =
-        err instanceof Error ? err.message : 'Failed to reset password.';
+        err instanceof Error ? err.message : t('resetPassword.failed');
       toastService.error(msg);
     } finally {
       setSubmitting(false);
@@ -98,13 +100,13 @@ export function ResetPasswordPage() {
   if (error && !userId) {
     return (
       <AuthLayout
-        title="Invalid reset link"
-        subtitle="This password reset link is invalid or has expired."
-        brandSubtitle="Your daily space for focused German learning."
+        title={t('resetPassword.invalidLink.title')}
+        subtitle={t('resetPassword.invalidLink.subtitle')}
+        brandSubtitle={t('resetPassword.brandSubtitle')}
         features={[
-          'Reset links expire after 24 hours',
-          'Request a new reset link if needed',
-          'Contact support if issues persist',
+          t('resetPassword.invalidLink.features.expires'),
+          t('resetPassword.invalidLink.features.request'),
+          t('resetPassword.invalidLink.features.contact'),
         ]}
       >
         <div className="mb-5 p-4 bg-[#FFF5F5] border border-[#C07766] rounded-lg">
@@ -117,13 +119,13 @@ export function ResetPasswordPage() {
           to="/forgot-password"
           className="w-full px-4 py-4 bg-primary text-white rounded-lg text-base font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:bg-primary-hover hover:-translate-y-0.5 block text-center"
         >
-          Request new reset link
+          {t('resetPassword.invalidLink.requestNew')}
         </Link>
 
         <div className="text-center text-[15px] mt-8">
-          Remember your password?{' '}
+          {t('resetPassword.rememberPassword')}{' '}
           <Link to="/login" className="text-primary hover:text-primary-hover font-medium transition-colors">
-            Back to login
+            {t('resetPassword.backToLogin')}
           </Link>
         </div>
       </AuthLayout>
@@ -133,18 +135,18 @@ export function ResetPasswordPage() {
   return (
     <>
       <AuthLayout
-        title="Set new password"
-        subtitle="Choose a strong password for your account."
-        brandSubtitle="Your daily space for focused German learning."
+        title={t('resetPassword.title')}
+        subtitle={t('resetPassword.subtitle')}
+        brandSubtitle={t('resetPassword.brandSubtitle')}
         features={[
-          'Use at least 8 characters',
-          'Mix letters, numbers, and symbols',
-          'Avoid common words or patterns',
+          t('resetPassword.features.length'),
+          t('resetPassword.features.mix'),
+          t('resetPassword.features.avoid'),
         ]}
       >
         <form onSubmit={handleSubmit}>
           <PasswordInput
-            label="New Password"
+            label={t('resetPassword.newPassword')}
             id="newPassword"
             placeholder="••••••••"
             autoComplete="new-password"
@@ -155,7 +157,7 @@ export function ResetPasswordPage() {
           />
 
           <PasswordInput
-            label="Confirm New Password"
+            label={t('resetPassword.confirmPassword')}
             id="confirmNewPassword"
             placeholder="••••••••"
             autoComplete="new-password"
@@ -170,14 +172,14 @@ export function ResetPasswordPage() {
             disabled={submitting}
             className="w-full px-4 py-4 bg-primary text-white rounded-lg text-base font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:bg-primary-hover hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
           >
-            {submitting ? 'Saving...' : 'Reset password'}
+            {submitting ? t('resetPassword.submitting') : t('resetPassword.submit')}
           </button>
         </form>
 
         <div className="text-center text-[15px] mt-8">
-          Remember your password?{' '}
+          {t('resetPassword.rememberPassword')}{' '}
           <Link to="/login" className="text-primary hover:text-primary-hover font-medium transition-colors">
-            Back to login
+            {t('resetPassword.backToLogin')}
           </Link>
         </div>
       </AuthLayout>
@@ -197,12 +199,12 @@ export function ResetPasswordPage() {
 
             {/* Title */}
             <h2 className="text-[28px] font-serif font-bold text-text-main mb-3">
-              Password Reset!
+              {t('resetPassword.success.title')}
             </h2>
 
             {/* Message */}
             <p className="text-[15px] text-text-muted mb-8 leading-relaxed">
-              Your password has been successfully reset. You can now sign in with your new password.
+              {t('resetPassword.success.message')}
             </p>
 
             {/* Button */}
@@ -211,7 +213,7 @@ export function ResetPasswordPage() {
               onClick={() => navigate('/login')}
               className="w-full px-6 py-4 bg-primary text-white rounded-lg text-base font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(166,123,91,0.3)] hover:bg-primary-hover hover:-translate-y-0.5"
             >
-              Got it
+              {t('resetPassword.success.button')}
             </button>
           </div>
         </div>

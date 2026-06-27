@@ -18,7 +18,7 @@ i18n
         defaultNS: 'common',
 
         // Namespaces to load
-        ns: ['common', 'landing', 'aboutStudienkolleg', 'application', 'entranceExam', 'fsp'],
+        ns: ['common', 'landing', 'aboutStudienkolleg', 'application', 'entranceExam', 'fsp', 'auth', 'upgrade'],
 
         // Backend configuration for loading translations
         backend: {
