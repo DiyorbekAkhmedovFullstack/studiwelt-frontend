@@ -1,4 +1,3 @@
-import { AudioPlayerVisual } from './AudioPlayerVisual';
 import { SignalWordRadar } from './SignalWordRadar';
 import { ShorthandTrainer } from './ShorthandTrainer';
 
@@ -12,7 +11,6 @@ export function Lesson20ListeningComprehension() {
         </p>
       </section>
 
-      <AudioPlayerVisual />
       <SignalWordRadar />
       <ShorthandTrainer />
     </>
