@@ -1,121 +1,100 @@
-type SignalWord = {
-  word: string;
-  role: string;
-};
-
-type InfoCard = {
+type SignalCategory = {
   title: string;
-  description: string;
+  note: string;
+  example: string;
+  highlight: string;
 };
 
 export function SignalWordRadar() {
-  const signalWords: SignalWord[] = [
-    { word: 'Zunächst einmal', role: 'Start des Themas' },
-    { word: 'Allerdings', role: 'Gegensatz / Problem' },
-    { word: 'Dies liegt daran, dass', role: 'Grund / Ursache' },
-    { word: 'Veranschaulichen lässt sich dies am', role: 'Beispiel' },
-  ];
-
-  const infoCards: InfoCard[] = [
+  const categories: SignalCategory[] = [
     {
       title: 'Strukturierung / Reihenfolge',
-      description:
-        '"Zunächst", "Als Nächstes", "Im Folgenden", "Abschließend". Sie zeigen dir, an welcher Stelle der Vorlesung (und des Fragenbogens) du dich befindest.',
+      note: 'Zeigt, wo im Vortrag du dich befindest: "Zunächst", "Im Folgenden", "Abschließend".',
+      example:
+        'Zunächst möchte ich den historischen Hintergrund umreißen, bevor ich zu den aktuellen Zahlen komme.',
+      highlight: 'Zunächst',
     },
     {
       title: 'Widerspruch / Einschränkung',
-      description:
-        '"Allerdings", "Jedoch", "Demgegenüber", "Gleichwohl". Hier kommt oft die eigentliche Prüfungsantwort — die "Falle" wird aufgelöst.',
+      note: 'Hier steht oft die eigentliche Prüfungsantwort: "Allerdings", "Jedoch", "Gleichwohl".',
+      example:
+        'Elektroautos gelten als umweltfreundlich. Allerdings ist ihre Batterieherstellung sehr energieintensiv.',
+      highlight: 'Allerdings',
     },
     {
       title: 'Begründung',
-      description:
-        '"Dies liegt daran, dass", "Dies ist darauf zurückzuführen", "Ursächlich hierfür ist". Achte auf Ursache und Wirkung.',
+      note: 'Nennt eine Ursache: "Dies liegt daran, dass", "Ursächlich hierfür ist".',
+      example:
+        'Die Mieten steigen rasant. Dies liegt vor allem daran, dass in den Städten zu wenig gebaut wird.',
+      highlight: 'Dies liegt vor allem daran, dass',
     },
     {
       title: 'Beispiel / Veranschaulichung',
-      description:
-        '"Veranschaulichen lässt sich dies am Beispiel", "So etwa", "Man denke an". Illustrationen sind meist nicht die Kernantwort, sondern Belege.',
+      note: 'Belegt eine Aussage und ist selten die Kernantwort: "Veranschaulichen lässt sich dies am Beispiel".',
+      example:
+        'Viele Länder setzen auf Windkraft. Veranschaulichen lässt sich dies am Beispiel Dänemarks.',
+      highlight: 'Veranschaulichen lässt sich dies am Beispiel',
     },
     {
       title: 'Schlussfolgerung / Fazit',
-      description:
-        '"Daraus folgt, dass", "Somit", "Es lässt sich festhalten", "Zusammenfassend". Hier wird die Kernaussage gebündelt.',
+      note: 'Bündelt die Kernaussage: "Daraus folgt", "Somit", "Es lässt sich festhalten".',
+      example:
+        'Die Kosten steigen, die Nachfrage sinkt. Daraus folgt, dass sich das Modell langfristig nicht trägt.',
+      highlight: 'Daraus folgt, dass',
     },
     {
       title: 'Betonung / Wichtigkeit',
-      description:
-        '"Entscheidend ist", "Hervorzuheben ist", "Besonders wichtig". Oft zusätzlich durch langsameres, lauteres Sprechen markiert — unbedingt notieren.',
+      note: 'Markiert Kerninfo, oft zusätzlich langsamer und lauter gesprochen: "Entscheidend ist".',
+      example:
+        'Entscheidend ist dabei, dass die Maßnahmen frühzeitig greifen — sonst scheitert das gesamte Konzept.',
+      highlight: 'Entscheidend ist',
     },
     {
       title: 'Umformulierung / Präzisierung',
-      description:
-        '"Mit anderen Worten", "Anders gesagt", "Genauer gesagt". Dieselbe Aussage neu formuliert — deine zweite Chance, wenn du etwas verpasst hast.',
+      note: 'Wiederholt dieselbe Aussage neu — deine zweite Chance: "Mit anderen Worten", "Anders gesagt".',
+      example:
+        'Die Studie ist nicht repräsentativ. Mit anderen Worten: Ihre Ergebnisse lassen sich nicht verallgemeinern.',
+      highlight: 'Mit anderen Worten',
     },
   ];
 
+  const renderExample = (text: string, hl: string) => {
+    const idx = text.indexOf(hl);
+    if (idx === -1) return text;
+    return (
+      <>
+        {text.slice(0, idx)}
+        <span className="text-text-main bg-[rgba(217,164,65,0.22)] px-1 rounded font-semibold border-b-2 border-[#D9A441]">
+          {hl}
+        </span>
+        {text.slice(idx + hl.length)}
+      </>
+    );
+  };
+
   return (
     <section className="mb-12 sm:mb-16 md:mb-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
-        {/* Left: Simulated Hearing Experience */}
-        <div className="text-sm sm:text-base md:text-lg lg:text-[1.1rem] bg-surface p-5 sm:p-6 md:p-8 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] shadow-card font-serif leading-loose">
-          <span className="text-transparent blur-[8px] select-none">
-            Lorem ipsum dolor sit amet, consectetur
-          </span>{' '}
-          <span className="text-text-main relative group bg-[rgba(217,164,65,0.2)] px-1.5 py-0.5 rounded font-bold cursor-pointer border-b-2 border-[#D9A441]">
-            {signalWords[0].word}
-            <span className="text-white text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-text-main px-2 py-1 rounded font-sans whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {signalWords[0].role}
-            </span>
-          </span>{' '}
-          <span className="text-transparent blur-[8px] select-none">
-            adipiscing elit sed do eiusmod tempor
-          </span>{' '}
-          <span className="text-text-main relative group bg-[rgba(217,164,65,0.2)] px-1.5 py-0.5 rounded font-bold cursor-pointer border-b-2 border-[#D9A441]">
-            {signalWords[1].word}
-            <span className="text-white text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-text-main px-2 py-1 rounded font-sans whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {signalWords[1].role}
-            </span>
-          </span>{' '}
-          <span className="text-transparent blur-[8px] select-none">
-            incididunt ut labore et dolore magna aliqua
-          </span>{' '}
-          <span className="text-text-main relative group bg-[rgba(217,164,65,0.2)] px-1.5 py-0.5 rounded font-bold cursor-pointer border-b-2 border-[#D9A441]">
-            {signalWords[2].word}
-            <span className="text-white text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-text-main px-2 py-1 rounded font-sans whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {signalWords[2].role}
-            </span>
-          </span>{' '}
-          <span className="text-transparent blur-[8px] select-none">
-            ut enim ad minim veniam quis nostrud
-          </span>{' '}
-          <span className="text-text-main relative group bg-[rgba(217,164,65,0.2)] px-1.5 py-0.5 rounded font-bold cursor-pointer border-b-2 border-[#D9A441]">
-            {signalWords[3].word}
-            <span className="text-white text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-text-main px-2 py-1 rounded font-sans whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {signalWords[3].role}
-            </span>
-          </span>{' '}
-          <span className="text-transparent blur-[8px] select-none">
-            exercitation ullamco laboris nisi ut aliquip
-          </span>
-          .
-        </div>
+      <h3 className="text-base sm:text-lg md:text-xl lg:text-[1.3rem] font-serif mb-3 sm:mb-4 md:mb-5">
+        Gliederungssignale im Kontext
+      </h3>
+      <p className="text-text-muted text-xs sm:text-sm md:text-base mb-5 sm:mb-6">
+        Höre nicht auf jedes Wort, sondern auf diese "Wegweiser". Jedes Signal kündigt an, was als
+        Nächstes kommt — hier jeweils mit einem Beispiel aus einer Vorlesung.
+      </p>
 
-        {/* Right: Info Cards */}
-        <div>
-          <h3 className="text-base sm:text-lg md:text-xl lg:text-[1.3rem] font-serif mb-3 sm:mb-4">Gliederungssignale</h3>
-          <div className="space-y-3 sm:space-y-4">
-            {infoCards.map((card, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 sm:p-5 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border-l-[3px] sm:border-l-4 border-[#E3D4C5]"
-              >
-                <strong className="text-text-main text-sm sm:text-base block mb-1">{card.title}</strong>
-                <p className="text-xs sm:text-sm md:text-base">{card.description}</p>
-              </div>
-            ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        {categories.map((card, index) => (
+          <div
+            key={index}
+            className="bg-white p-4 sm:p-5 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border-l-[3px] sm:border-l-4 border-[#E3D4C5] flex flex-col"
+          >
+            <strong className="text-text-main text-sm sm:text-base block mb-1">{card.title}</strong>
+            <p className="text-xs sm:text-sm md:text-base mb-3">{card.note}</p>
+            <div className="mt-auto bg-[#FAF6F3] rounded-[10px] sm:rounded-[12px] p-3 sm:p-3.5 border-l-2 border-[#D9A441] font-serif text-xs sm:text-sm md:text-base leading-relaxed">
+              {renderExample(card.example, card.highlight)}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );
