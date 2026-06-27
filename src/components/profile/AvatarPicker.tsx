@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Icon } from '../../lib/icons';
 
 interface AvatarPickerProps {
   currentSeed: string;
@@ -99,10 +100,7 @@ export function AvatarPicker({
                 onClick={handleRandomize}
                 className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-surface border border-[#DDD] rounded-md hover:bg-[#F5F5F5] transition-colors text-text-muted hover:text-text-main font-semibold text-sm sm:text-[14px]"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polyline points="23 4 23 10 17 10"></polyline>
-                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-                </svg>
+                <Icon.Restart size={16} />
                 {t('profile.avatar.random')}
               </button>
               <button

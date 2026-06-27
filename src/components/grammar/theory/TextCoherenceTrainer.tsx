@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Ui } from '../../../lib/icons';
 
 type Exercise = {
   id: string;
@@ -208,7 +209,7 @@ export function TextCoherenceTrainer() {
           }`}
         >
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-xl sm:text-2xl">{isCorrect ? '✓' : '✗'}</span>
+            {isCorrect ? <Ui.Check className="text-success" size={22} /> : <Ui.Close className="text-danger" size={22} />}
             <div>
               <p className="text-xs sm:text-sm md:text-base text-text-main font-semibold mb-2">
                 {isCorrect ? 'Richtig!' : 'Nicht ganz richtig'}

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { DashboardLayout } from '../components/dashboard';
+import { Ui } from '../lib/icons';
 
 export function PaymentCancelPage() {
   const navigate = useNavigate();
@@ -9,19 +10,7 @@ export function PaymentCancelPage() {
       <div style={{ width: '100%', maxWidth: '672px', margin: '0 auto', textAlign: 'center', paddingTop: '64px', paddingBottom: '64px' }}>
         <div className="bg-surface rounded-xl p-12 shadow-card">
           <div className="w-20 h-20 bg-text-muted/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg
-              className="w-10 h-10 text-text-muted"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Ui.Close className="w-10 h-10 text-text-muted" />
           </div>
 
           <h1 className="text-[32px] font-bold mb-4">Payment Cancelled</h1>

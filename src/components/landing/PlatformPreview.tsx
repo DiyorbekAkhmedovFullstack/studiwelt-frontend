@@ -1,4 +1,5 @@
 import { useLessons } from '../../hooks/queries/useLessons';
+import { Icon, Ui } from '../../lib/icons';
 
 export function PlatformPreview() {
   const { data: lessons = [] } = useLessons();
@@ -48,9 +49,7 @@ export function PlatformPreview() {
               {/* Completion */}
               <div className="bg-surface rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-card border border-[rgba(0,0,0,0.02)]">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-[#E8F5E9] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#6B8C6E" strokeWidth="2.5" className="w-4 h-4 sm:w-5 sm:h-5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <Ui.Check className="w-4 h-4 sm:w-5 sm:h-5 text-[#6B8C6E]" stroke={2.5} />
                 </div>
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">48%</div>
                 <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Fortschritt</div>
@@ -59,10 +58,7 @@ export function PlatformPreview() {
               {/* Lessons Done */}
               <div className="bg-surface rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-card border border-[rgba(0,0,0,0.02)]">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-[#E6F0FF] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="2.5" className="w-4 h-4 sm:w-5 sm:h-5">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
+                  <Icon.Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#4A90E2]" stroke={2.5} />
                 </div>
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">14/30</div>
                 <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Abgeschlossen</div>
@@ -71,9 +67,7 @@ export function PlatformPreview() {
               {/* Current Day */}
               <div className="bg-surface rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-card border border-[rgba(0,0,0,0.02)]">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-[#FFF4E6] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#FF9F43" strokeWidth="2.5" className="w-4 h-4 sm:w-5 sm:h-5">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                  </svg>
+                  <Icon.Bolt className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF9F43]" stroke={2.5} />
                 </div>
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-0.5 sm:mb-1">Tag 15</div>
                 <div className="text-[10px] sm:text-xs md:text-sm text-text-muted">Aktueller Tag</div>
@@ -101,9 +95,7 @@ export function PlatformPreview() {
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
                     <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 13</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#E6F0E7] text-success flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
+                      <Ui.Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" stroke={3} />
                     </div>
                   </div>
                   <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">{getLessonTitle(0)}</h4>
@@ -114,9 +106,7 @@ export function PlatformPreview() {
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
                     <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 14</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#E6F0E7] text-success flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
+                      <Ui.Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" stroke={3} />
                     </div>
                   </div>
                   <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-muted line-through decoration-success mb-2 leading-snug">{getLessonTitle(1)}</h4>
@@ -127,9 +117,7 @@ export function PlatformPreview() {
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
                     <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 15</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 24 24" fill="white" stroke="none" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                      </svg>
+                      <Ui.Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                     </div>
                   </div>
                   <h4 className="font-semibold text-[15px] sm:text-[17px] text-primary mb-2 leading-snug">{getLessonTitle(2)}</h4>
@@ -141,10 +129,7 @@ export function PlatformPreview() {
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
                     <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 16</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                      </svg>
+                      <Ui.Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
                   <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">{getLessonTitle(3)}</h4>
@@ -156,10 +141,7 @@ export function PlatformPreview() {
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
                     <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 17</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                      </svg>
+                      <Ui.Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
                   <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">{getLessonTitle(4)}</h4>
@@ -171,10 +153,7 @@ export function PlatformPreview() {
                   <div className="flex justify-between items-start mb-3 sm:mb-4">
                     <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">Tag 18</span>
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0EBE5] text-text-muted flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                      </svg>
+                      <Ui.Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
                   <h4 className="font-semibold text-[15px] sm:text-[17px] text-text-main mb-2 leading-snug">{getLessonTitle(5)}</h4>

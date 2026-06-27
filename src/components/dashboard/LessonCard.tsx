@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import { Ui } from "../../lib/icons";
 
 interface LessonCardProps {
   lessonNumber: number;
@@ -41,37 +42,12 @@ export const LessonCard = memo(function LessonCard({
 
   const getIcon = (): ReactNode => {
     if (state === "completed") {
-      return (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          className="w-4 h-4"
-        >
-          <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-      );
+      return <Ui.Check className="w-4 h-4" stroke={3} />;
     }
     if (state === "active") {
-      return (
-        <svg viewBox="0 0 24 24" fill="white" stroke="none" className="w-4 h-4">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      );
+      return <Ui.Play className="w-4 h-4 text-white" />;
     }
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        className="w-4 h-4"
-      >
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-      </svg>
-    );
+    return <Ui.Lock className="w-4 h-4" />;
   };
 
   const content = (
@@ -101,15 +77,7 @@ export const LessonCard = memo(function LessonCard({
             <>
               {duration && (
                 <div className="flex items-center gap-1">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="w-4 h-4"
-                  >
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
+                  <Ui.Play className="w-4 h-4" />
                   {duration}
                 </div>
               )}

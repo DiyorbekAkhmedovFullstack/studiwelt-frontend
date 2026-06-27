@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { deckService } from '../../services/deckService';
 import toast from 'react-hot-toast';
+import { Icon, Ui } from '../../lib/icons';
 
 interface CSVUploadFormProps {
   deckId: string;
@@ -80,8 +81,8 @@ export function CSVUploadForm({ deckId, onUploadSuccess }: CSVUploadFormProps) {
 
   return (
     <div className="bg-surface rounded-[24px] p-8 shadow-card border border-[rgba(0,0,0,0.02)]">
-      <h2 className="text-[1.2rem] font-serif font-bold text-text-main mb-2">
-        📁 Bulk Import Flashcards
+      <h2 className="text-[1.2rem] font-serif font-bold text-text-main mb-2 flex items-center gap-2">
+        <Icon.Upload size={20} /> Bulk Import Flashcards
       </h2>
       <p className="text-[15px] text-text-muted mb-6">
         Upload a CSV file to import multiple flashcards at once. Format: <code className="bg-gray-100 px-2 py-1 rounded">front,back</code>
@@ -171,44 +172,12 @@ export function CSVUploadForm({ deckId, onUploadSuccess }: CSVUploadFormProps) {
         >
           {uploading ? (
             <>
-              <svg
-                className="animate-spin h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                />
-              </svg>
+              <Ui.Spinner className="animate-spin h-4 w-4" />
               Uploading...
             </>
           ) : (
             <>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
+              <Icon.Upload className="h-4 w-4" />
               Upload CSV
             </>
           )}
@@ -233,8 +202,8 @@ export function CSVUploadForm({ deckId, onUploadSuccess }: CSVUploadFormProps) {
 
       {/* Help Text */}
       <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <p className="text-sm text-blue-800 font-medium mb-2">
-          📝 CSV Format Example:
+        <p className="text-sm text-blue-800 font-medium mb-2 flex items-center gap-2">
+          <Icon.Documents size={16} /> CSV Format Example:
         </p>
         <pre className="text-xs bg-white p-3 rounded border border-blue-200 overflow-x-auto">
 {`front,back

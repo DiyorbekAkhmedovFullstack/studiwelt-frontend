@@ -2,6 +2,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { CTestResult } from '../types/api';
 import { DashboardLayout } from '../components/dashboard';
 import { MIN_PASSING_SCORE } from '../constants/progress';
+import { Ui } from '../lib/icons';
 
 type Params = {
   lessonNumber?: string;
@@ -115,17 +116,12 @@ export function CtestResultsPage() {
               }`}>
               {passed ? (
                 <>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <Ui.Check size={16} stroke={2.5} />
                   <span className="text-xs sm:text-[13px] font-bold uppercase tracking-wide">Bestanden</span>
                 </>
               ) : (
                 <>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
+                  <Ui.Close size={16} stroke={2.5} />
                   <span className="text-xs sm:text-[13px] font-bold uppercase tracking-wide">Nicht bestanden</span>
                 </>
               )}
@@ -160,17 +156,12 @@ export function CtestResultsPage() {
                   >
                     {gap.isCorrect ? (
                       <>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
+                        <Ui.Check size={14} stroke={3} />
                         Richtig
                       </>
                     ) : (
                       <>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
+                        <Ui.Close size={14} stroke={3} />
                         Falsch
                       </>
                     )}

@@ -5,6 +5,7 @@ import { LoadingSpinner } from "../components/common/LoadingSpinner";
 import { DashboardLayout } from "../components/dashboard";
 import { paymentService } from "../services/paymentService";
 import { toastService } from "../services/toastService";
+import { Ui } from "../lib/icons";
 
 export function UpgradeToStudentPage() {
   const { t } = useTranslation("upgrade");
@@ -95,16 +96,7 @@ export function UpgradeToStudentPage() {
               ) : (
                 <>
                   {t("cta.button")}
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                  <Ui.ArrowRight size={18} stroke={2.5} />
                 </>
               )}
             </button>
@@ -112,16 +104,7 @@ export function UpgradeToStudentPage() {
 
           {/* Trust badge */}
           <div className="px-8 pb-6 flex items-center justify-center gap-2 text-xs text-text-muted">
-            <svg
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
+            <Ui.Lock className="w-4 h-4" />
             {t("trust.stripe")}
           </div>
         </div>
@@ -132,16 +115,7 @@ export function UpgradeToStudentPage() {
             to="/course"
             className="inline-flex items-center gap-2 text-text-muted hover:text-text-main transition-colors text-sm"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
+            <Ui.ArrowLeft size={16} />
             {t("backToCourse")}
           </Link>
         </div>
@@ -154,17 +128,7 @@ function FeatureItem({ text }: { text: string }) {
   return (
     <div className="flex items-center gap-3">
       <div className="w-5 h-5 rounded-full bg-success/10 flex items-center justify-center `shrink-0">
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          className="text-success"
-        >
-          <polyline points="20 6 9 17 4 12" />
-        </svg>
+        <Ui.Check size={12} stroke={3} className="text-success" />
       </div>
       <span className="text-sm">{text}</span>
     </div>

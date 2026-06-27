@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '../../lib/icons';
 
 interface ErrorStateProps {
   error: string;
@@ -30,19 +31,7 @@ export function ErrorState({
       <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
         <div className="mb-4 flex items-start gap-3">
           <div className="flex-shrink-0">
-            <svg
-              className="h-6 w-6 text-danger"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
+            <Icon.Error className="h-6 w-6 text-danger" />
           </div>
           <div className="flex-1">
             <h3 className="text-sm font-semibold text-text-main mb-1">Error</h3>

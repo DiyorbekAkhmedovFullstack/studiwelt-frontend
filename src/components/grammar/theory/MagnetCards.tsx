@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Ui } from '../../../lib/icons';
 
 type MagnetCardProps = {
   type: 'preposition' | 'genitive';
@@ -21,17 +22,7 @@ function MagnetCard({ type, title, leftBlock, rightBlock, description, example }
         <div className="px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg font-bold font-serif shadow-[0_2px_8px_rgba(0,0,0,0.05)] bg-white border-2 border-text-main text-sm sm:text-base md:text-lg">
           {leftBlock}
         </div>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#8C8075"
-          strokeWidth="2"
-          className="sm:w-5 sm:h-5"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
+        <Ui.ArrowRight width={16} height={16} className="sm:w-5 sm:h-5 text-[#8C8075]" />
         <div className="text-white px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg font-bold font-serif shadow-[0_2px_8px_rgba(0,0,0,0.05)] bg-text-main text-sm sm:text-base md:text-lg">
           {rightBlock}
         </div>

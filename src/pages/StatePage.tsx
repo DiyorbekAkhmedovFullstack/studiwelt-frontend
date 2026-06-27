@@ -2,6 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, getStateSEO } from '../components/common/SEO';
+import { Icon, Ui } from '../lib/icons';
+import { highlightIcon } from '../lib/highlightIcons';
 
 // State data interface
 interface University {
@@ -137,37 +139,37 @@ const statesData: Record<string, StateData> = {
         title: 'Oktoberfest',
         description:
           'The world\'s largest folk festival, held annually in Munich since 1810. Over 6 million visitors celebrate with traditional beer, food, and Bavarian music.',
-        icon: '🍺',
+        icon: 'beer',
       },
       {
         title: 'Neuschwanstein Castle',
         description:
           'The fairy-tale castle that inspired Disney\'s Sleeping Beauty Castle. Built by King Ludwig II, it welcomes 1.3 million visitors annually and became a UNESCO World Heritage Site in 2025.',
-        icon: '🏰',
+        icon: 'castle',
       },
       {
         title: 'Traditional Dress',
         description:
           'Lederhosen for men and Dirndl for women are still worn at festivals and celebrations. This traditional clothing represents Bavarian identity and pride.',
-        icon: '👗',
+        icon: 'dress',
       },
       {
         title: 'Alpine Culture',
         description:
           'Yodeling, Schuhplattler dancing, and the greeting "Servus" are unique to Bavaria. The region\'s Catholic traditions and distinctive Bairisch dialect set it apart.',
-        icon: '⛰️',
+        icon: 'mountain',
       },
       {
         title: 'Beer Gardens',
         description:
           'Biergärten are outdoor areas where people enjoy beer, food, and socializing. A cornerstone of Bavarian social life, especially during summer months.',
-        icon: '🌳',
+        icon: 'tree',
       },
       {
         title: 'Culinary Traditions',
         description:
           'Famous for Weisswurst (white sausage), Brezen (pretzels), Schweinshaxe, and world-renowned beer brewing traditions dating back centuries.',
-        icon: '🥨',
+        icon: 'pretzel',
       },
     ],
     keyNumbers: [
@@ -271,37 +273,37 @@ const statesData: Record<string, StateData> = {
         title: 'Black Forest',
         description:
           'Germany\'s largest continuous forest, known for cuckoo clocks, cherry gâteau, and 17 Michelin-starred restaurants. A region of dark woods, healing spas, and ancient traditions.',
-        icon: '🌲',
+        icon: 'evergreen',
       },
       {
         title: 'Swabian Cuisine',
         description:
           'Home of Spätzle (egg noodles) and Maultaschen (Swabian ravioli). The region\'s hearty dishes reflect centuries of farming tradition and culinary creativity.',
-        icon: '🍝',
+        icon: 'pasta',
       },
       {
         title: 'Bollenhut',
         description:
           'The iconic Black Forest hat with large red (unmarried) or black (married) pompoms. A symbol of regional identity still worn during festivals and special occasions.',
-        icon: '🎩',
+        icon: 'hat',
       },
       {
         title: 'Fastnacht Carnival',
         description:
           'The Swabian-Alemannic carnival tradition with elaborate wooden masks, colorful costumes, and centuries-old customs distinct from Rhineland Karneval.',
-        icon: '🎭',
+        icon: 'theater',
       },
       {
         title: 'Dialects',
         description:
           'Four distinct dialects: Schwäbisch, Badisch, Alemannisch, and Fränkisch. The locals affectionately call their state "Ländle" (little land).',
-        icon: '💬',
+        icon: 'speech',
       },
       {
         title: 'Craftsmanship',
         description:
           'Traditional Black Forest clockmaking, precision instruments, and jewelry. The region produces the majority of Germany\'s clocks, watches, and custom jewelry.',
-        icon: '⏰',
+        icon: 'clock',
       },
     ],
     keyNumbers: [
@@ -346,37 +348,37 @@ const statesData: Record<string, StateData> = {
         title: 'Saarschleife',
         description:
           'The Great Loop of the Saar river at Mettlach. A breathtaking natural wonder and the state\'s most iconic landmark, best viewed from the Cloef viewpoint.',
-        icon: '🏞️',
+        icon: 'nature',
       },
       {
         title: 'Savoir Vivre',
         description:
           'A unique French-influenced lifestyle. Saarlanders enjoy good food ("Hauptsach gudd gess"), wine, and a relaxed pace of life unlike anywhere else in Germany.',
-        icon: '🍷',
+        icon: 'wine',
       },
       {
         title: 'Völklinger Hütte',
         description:
           'A UNESCO World Heritage site. This massive former ironworks plant has been preserved as a fascinating cultural center, exhibition space, and industrial museum.',
-        icon: '🏭',
+        icon: 'factory',
       },
       {
         title: 'Schwenken',
         description:
           'The local art of grilling on a swinging grill (Schwenker). It is more than just cooking; it is a social religion and the center of summer gatherings.',
-        icon: '🍖',
+        icon: 'meat',
       },
       {
         title: 'Silicon Saarland',
         description:
           'Home to the CISPA Helmholtz Center and Max Planck Institutes, the state is a global hotspot for cybersecurity and AI research, attracting talent worldwide.',
-        icon: '💻',
+        icon: 'laptop',
       },
       {
         title: 'Three-Country Corner',
         description:
           'Bordering France and Luxembourg, the region offers a truly European experience. You can hike across borders and experience three cultures in one day.',
-        icon: '🇪🇺',
+        icon: 'flag',
       },
     ],
     keyNumbers: [
@@ -458,37 +460,37 @@ const statesData: Record<string, StateData> = {
         title: 'Wine Country',
         description:
           'Produces 70% of Germany\'s wine. The Deutsche Weinstraße (German Wine Route) offers picturesque villages, world-class Riesling, and endless autumn festivals.',
-        icon: '🍇',
+        icon: 'grapes',
       },
       {
         title: 'Roman Legacy',
         description:
           'Trier, founded by Romans in 16 BC, is Germany\'s oldest city. The Porta Nigra and other monuments stand as UNESCO World Heritage sites.',
-        icon: '🏛️',
+        icon: 'monument',
       },
       {
         title: 'Romantic Rhine',
         description:
           'The Middle Rhine Valley with its steep vineyards, the legendary Lorelei rock, and the highest density of castles in the world.',
-        icon: '🏰',
+        icon: 'castle',
       },
       {
         title: 'Mainzer Fastnacht',
         description:
           'One of the largest carnival celebrations in Germany. A "fifth season" of parades, political satire, and street parties starting every November.',
-        icon: '🎭',
+        icon: 'theater',
       },
       {
         title: 'Palatinate Forest',
         description:
           'Germany\'s largest contiguous forest area and a UNESCO Biosphere Reserve. A paradise for hikers, climbers, and nature lovers.',
-        icon: '🌲',
+        icon: 'evergreen',
       },
       {
         title: 'Chemical Valley',
         description:
           'Home to Ludwigshafen and BASF, the world\'s largest chemical plant. The region is a global powerhouse for chemistry and pharmaceuticals.',
-        icon: '⚗️',
+        icon: 'chemistry',
       },
     ],
     keyNumbers: [
@@ -582,37 +584,37 @@ const statesData: Record<string, StateData> = {
         title: 'Mainhattan',
         description:
           'Frankfurt is the only German city with a massive skyline. It is the financial heart of the Eurozone, home to the ECB and the Stock Exchange.',
-        icon: '🏙️',
+        icon: 'skyline',
       },
       {
         title: 'Apfelwein',
         description:
           'The state\'s national drink. "Ebbelwoi" is a tart cider traditionally served in a Bembel (stone jug) and drunk from a ribbed glass (Geripptes).',
-        icon: '🍎',
+        icon: 'apple',
       },
       {
         title: 'Brothers Grimm',
         description:
           'Jacob and Wilhelm Grimm lived and worked in Kassel and Hanau. Their world-famous fairy tales (Cinderella, Hansel & Gretel) originate here.',
-        icon: '📚',
+        icon: 'books',
       },
       {
         title: 'Rheingau',
         description:
           'One of Germany\'s most prestigious wine regions, known globally for its Riesling. A landscape of rolling vineyards, castles, and the Rhine river.',
-        icon: '🥂',
+        icon: 'cheers',
       },
       {
         title: 'Documenta',
         description:
           'The world\'s most important exhibition of modern art, taking place every five years in Kassel. It transforms the entire city into a living museum.',
-        icon: '🎨',
+        icon: 'art',
       },
       {
         title: 'Spa Towns',
         description:
           'Wiesbaden and Bad Homburg are famous historic spa towns. Their thermal springs and casinos have attracted royalty and visitors for centuries.',
-        icon: '🧖',
+        icon: 'spa',
       },
     ],
     keyNumbers: [
@@ -688,37 +690,37 @@ const statesData: Record<string, StateData> = {
         title: 'Weimar Classicism',
         description:
           'Home to Goethe and Schiller, Weimar was the intellectual center of Europe in the 18th century. The city boasts multiple UNESCO World Heritage sites.',
-        icon: '🎭',
+        icon: 'theater',
       },
       {
         title: 'Bauhaus',
         description:
           'The revolutionary Bauhaus art school was founded in Weimar in 1919 by Walter Gropius, shaping modern architecture and design worldwide.',
-        icon: '🏗️',
+        icon: 'construction',
       },
       {
         title: 'Wartburg Castle',
         description:
           'Located in Eisenach, this is where Martin Luther translated the New Testament into German. A symbol of German unity and a UNESCO site.',
-        icon: '🏰',
+        icon: 'castle',
       },
       {
         title: 'Thuringian Bratwurst',
         description:
           'The "Rostbratwurst" is a protected regional specialty with a 600-year history. Grilling it over charcoal is a beloved local tradition.',
-        icon: '🌭',
+        icon: 'sausage',
       },
       {
         title: 'Green Heart',
         description:
           'The Thuringian Forest offers endless hiking trails, including the famous Rennsteig, and transforms into a winter sports paradise in snowy months.',
-        icon: '🌲',
+        icon: 'evergreen',
       },
       {
         title: 'Erfurt\'s Merchants\' Bridge',
         description:
           'The Krämerbrücke is the longest inhabited bridge in Europe, lined with charming half-timbered houses, artisan shops, and cafes.',
-        icon: '🌉',
+        icon: 'bridge',
       },
     ],
     keyNumbers: [
@@ -794,37 +796,37 @@ const statesData: Record<string, StateData> = {
         title: 'Silicon Saxony',
         description:
           'Europe\'s largest microelectronics cluster is based in Dresden. One in every three chips produced in Europe is made here, driving global innovation.',
-        icon: '💻',
+        icon: 'laptop',
       },
       {
         title: 'Saxon Switzerland',
         description:
           'The Elbe Sandstone Mountains offer dramatic rock formations and the famous Bastei Bridge. A paradise for climbers and hikers just south of Dresden.',
-        icon: '🧗',
+        icon: 'climbing',
       },
       {
         title: 'Baroque Splendor',
         description:
           'Dresden, known as "Florence on the Elbe," features world-class architecture like the Frauenkirche, Zwinger Palace, and Semperoper.',
-        icon: '🏛️',
+        icon: 'monument',
       },
       {
         title: 'City of Music',
         description:
           'Leipzig is the city of Bach, Mendelssohn, and Wagner. The St. Thomas Boys Choir and the Gewandhaus Orchestra are world-renowned.',
-        icon: '🎻',
+        icon: 'violin',
       },
       {
         title: 'Christmas Markets',
         description:
           'The Dresden Striezelmarkt is Germany\'s oldest Christmas market (1434). The region is famous for Ore Mountain wood crafts and Nutcrackers.',
-        icon: '🎄',
+        icon: 'christmas',
       },
       {
         title: 'Meissen Porcelain',
         description:
           'Europe\'s first hard-paste porcelain was invented here. The "White Gold" from Meissen remains a symbol of ultimate luxury and craftsmanship.',
-        icon: '☕',
+        icon: 'coffee',
       },
     ],
     keyNumbers: [
@@ -914,37 +916,37 @@ const statesData: Record<string, StateData> = {
         title: 'Cologne Cathedral',
         description:
           'The Kölner Dom is a Gothic masterpiece and Germany\'s most visited landmark. A UNESCO World Heritage site that took 632 years to complete.',
-        icon: '⛪',
+        icon: 'church',
       },
       {
         title: 'Carnival',
         description:
           'The "Fifth Season" sees millions celebrating on the streets of Cologne, Düsseldorf, and Mainz. A time of parades, costumes, and pure joy.',
-        icon: '🎭',
+        icon: 'theater',
       },
       {
         title: 'Industrial Culture',
         description:
           'The Ruhr area transformed from coal mines to culture. Sites like Zeche Zollverein in Essen show how industry became art and leisure.',
-        icon: '🏭',
+        icon: 'factory',
       },
       {
         title: 'Düsseldorf Fashion',
         description:
           'Known as Germany\'s fashion capital, Düsseldorf boasts the elegant Königsallee ("Kö") shopping boulevard and a vibrant art scene.',
-        icon: '👗',
+        icon: 'dress',
       },
       {
         title: 'Beethoven\'s City',
         description:
           'Bonn is the birthplace of Ludwig van Beethoven. His legacy is celebrated in museums, festivals, and the historic atmosphere of the former capital.',
-        icon: '🎹',
+        icon: 'piano',
       },
       {
         title: 'Football Passion',
         description:
           'Football is a religion here. Home to legendary clubs like Borussia Dortmund and Schalke 04, the region has the highest density of stadiums in Europe.',
-        icon: '⚽',
+        icon: 'soccer',
       },
     ],
     keyNumbers: [
@@ -1010,37 +1012,37 @@ const statesData: Record<string, StateData> = {
         title: 'Bauhaus Dessau',
         description:
           'The iconic Bauhaus building in Dessau is a UNESCO World Heritage site. It was the center of modern design and architecture in the 1920s.',
-        icon: '🏗️',
+        icon: 'construction',
       },
       {
         title: 'Lutherstadt Wittenberg',
         description:
           'The birthplace of the Reformation. Martin Luther nailed his 95 Theses to the door of the Castle Church here, changing history forever.',
-        icon: '📜',
+        icon: 'scroll',
       },
       {
         title: 'Harz Mountains',
         description:
           'A mountain range full of legends, witches, and the Brocken peak. The Harz Narrow Gauge Railways offer a nostalgic steam train ride through the forests.',
-        icon: '🚂',
+        icon: 'train',
       },
       {
         title: 'Quedlinburg',
         description:
           'A remarkably preserved medieval town with over 1,300 half-timbered houses. Walking through its streets feels like stepping back in time.',
-        icon: '🏘️',
+        icon: 'houses',
       },
       {
         title: 'Halle (Saale)',
         description:
           'A cultural capital known for the composer George Frideric Handel and the vibrant Nebra Sky Disc, the world\'s oldest map of the stars.',
-        icon: '🎼',
+        icon: 'music',
       },
       {
         title: 'Garden Kingdom',
         description:
           'The Dessau-Wörlitz Garden Realm is a stunning cultural landscape of English-style parks and palaces, recognized by UNESCO.',
-        icon: '🌳',
+        icon: 'tree',
       },
     ],
     keyNumbers: [
@@ -1116,37 +1118,37 @@ const statesData: Record<string, StateData> = {
         title: 'Autostadt Wolfsburg',
         description:
           'A massive automotive theme park and museum adjacent to the Volkswagen factory. A pilgrimage site for car enthusiasts from around the world.',
-        icon: '🚗',
+        icon: 'car',
       },
       {
         title: 'Lüneburg Heath',
         description:
           'A unique landscape of purple heather blooming in late summer. Historic towns like Lüneburg offer medieval charm and salt-mining history.',
-        icon: '🌾',
+        icon: 'wheat',
       },
       {
         title: 'East Frisian Islands',
         description:
           'The seven islands in the Wadden Sea UNESCO World Heritage site are famous for their sandy beaches, lighthouses, and traditional tea culture.',
-        icon: '🏝️',
+        icon: 'island',
       },
       {
         title: 'Goslar Old Town',
         description:
           'A UNESCO World Heritage site with over 1,500 half-timbered houses and the Imperial Palace (Kaiserpfalz), reflecting its wealth from mining.',
-        icon: '⚒️',
+        icon: 'tools',
       },
       {
         title: 'Hanover Fair',
         description:
           'The world\'s largest industrial trade fair takes place here every year, showcasing the latest innovations in technology and engineering.',
-        icon: '🏭',
+        icon: 'factory',
       },
       {
         title: 'Meyer Werft',
         description:
           'Located in Papenburg, this shipyard builds the world\'s largest cruise ships. Seeing these giants navigate the narrow Ems river is a spectacle.',
-        icon: '🚢',
+        icon: 'ship',
       },
     ],
     keyNumbers: [
@@ -1222,37 +1224,37 @@ const statesData: Record<string, StateData> = {
         title: 'Sanssouci Palace',
         description:
           'Frederick the Great\'s summer palace in Potsdam is a Rococo masterpiece. The park and palace complex is a UNESCO World Heritage site.',
-        icon: '🏰',
+        icon: 'castle',
       },
       {
         title: 'Spreewald',
         description:
           'A UNESCO biosphere reserve where the Spree river branches into hundreds of small canals. Famous for punt boat rides and Spreewald gherkins.',
-        icon: '🛶',
+        icon: 'canoe',
       },
       {
         title: 'Babelsberg Studio',
         description:
           'The oldest large-scale film studio in the world. Masterpieces like "Metropolis" and modern blockbusters like "Inglourious Basterds" were filmed here.',
-        icon: '🎬',
+        icon: 'film',
       },
       {
         title: 'Tropical Islands',
         description:
           'Housed in a former airship hangar, this is the world\'s largest indoor water park, featuring a rainforest, beach, and lagoon.',
-        icon: '🌴',
+        icon: 'palm',
       },
       {
         title: 'Cecilienhof',
         description:
           'The site of the Potsdam Conference in 1945, where Truman, Churchill, and Stalin decided the future of Germany and Europe.',
-        icon: '🤝',
+        icon: 'handshake',
       },
       {
         title: '3000 Lakes',
         description:
           'Brandenburg is one of the most water-rich states in Germany, with over 3,000 lakes offering endless opportunities for swimming and sailing.',
-        icon: '⛵',
+        icon: 'sailboat',
       },
     ],
     keyNumbers: [
@@ -1334,37 +1336,37 @@ const statesData: Record<string, StateData> = {
         title: 'Brandenburg Gate',
         description:
           'The city\'s most famous landmark and a symbol of German reunification. It stands at the heart of the capital, witnessing centuries of history.',
-        icon: '🏛️',
+        icon: 'monument',
       },
       {
         title: 'Start-up Capital',
         description:
           'Berlin is Europe\'s Silicon Valley, home to unicorns like Zalando and N26. The city attracts entrepreneurs and digital nomads from all over the world.',
-        icon: '🚀',
+        icon: 'rocket',
       },
       {
         title: 'Museum Island',
         description:
           'A UNESCO World Heritage site in the Spree river, hosting five world-class museums including the Pergamon and the Altes Museum.',
-        icon: '🏺',
+        icon: 'pottery',
       },
       {
         title: 'Club Culture',
         description:
           'Berlin\'s nightlife is legendary. Clubs like Berghain and the diverse techno scene have made the city a global destination for music lovers.',
-        icon: '🔊',
+        icon: 'speaker',
       },
       {
         title: 'East Side Gallery',
         description:
           'The longest remaining section of the Berlin Wall, now an open-air gallery featuring murals by artists from around the world.',
-        icon: '🎨',
+        icon: 'art',
       },
       {
         title: 'Currywurst',
         description:
           'Berlin\'s signature street food. Steamed and fried pork sausage seasoned with curry ketchup, best enjoyed at a local "Imbiss".',
-        icon: '🌭',
+        icon: 'sausage',
       },
     ],
     keyNumbers: [
@@ -1433,37 +1435,37 @@ const statesData: Record<string, StateData> = {
         title: 'Town Musicians',
         description:
           'The bronze statue of the donkey, dog, cat, and rooster from the Brothers Grimm fairy tale. Touching the donkey\'s legs is said to bring good luck.',
-        icon: '🐴',
+        icon: 'horse',
       },
       {
         title: 'Schnoor Quarter',
         description:
           'Bremen\'s oldest district. A maze of narrow cobblestone streets and tiny houses dating back to the 15th century, now filled with arts and crafts.',
-        icon: '🏘️',
+        icon: 'houses',
       },
       {
         title: 'UNESCO Town Hall',
         description:
           'The Gothic Town Hall and the Roland Statue are symbols of civic autonomy and freedom, recognized as a UNESCO World Heritage site.',
-        icon: '🏛️',
+        icon: 'monument',
       },
       {
         title: 'Aerospace Hub',
         description:
           'Bremen is the "City of Space". The European Service Module for the NASA Orion spacecraft is built here at Airbus.',
-        icon: '🚀',
+        icon: 'rocket',
       },
       {
         title: 'Beck\'s Brewery',
         description:
           'Home to one of the world\'s most famous beers. The brewery on the river Weser has been exporting its green bottles since 1873.',
-        icon: '🍺',
+        icon: 'beer',
       },
       {
         title: 'Maritime Mile',
         description:
           'The Schlachte embankment along the Weser river is a popular promenade with beer gardens, restaurants, and historic ships.',
-        icon: '⚓',
+        icon: 'anchor',
       },
     ],
     keyNumbers: [
@@ -1539,37 +1541,37 @@ const statesData: Record<string, StateData> = {
         title: 'Schwerin Castle',
         description:
           'Located on an island in Lake Schwerin, this romantic palace is nicknamed the "Neuschwanstein of the North" and houses the state parliament.',
-        icon: '🏰',
+        icon: 'castle',
       },
       {
         title: 'Baltic Coast',
         description:
           'With islands like Rügen and Usedom, the state boasts Germany\'s most beautiful beaches and the iconic chalk cliffs painted by Caspar David Friedrich.',
-        icon: '🏖️',
+        icon: 'beach',
       },
       {
         title: 'Hanseatic Heritage',
         description:
           'The historic centers of Stralsund and Wismar are UNESCO World Heritage sites, reflecting the wealth and power of the Hanseatic League.',
-        icon: '🧱',
+        icon: 'bricks',
       },
       {
         title: 'Müritz National Park',
         description:
           'A land of a thousand lakes. The largest terrestrial national park in Germany offers pristine nature, canoeing, and eagle watching.',
-        icon: '🛶',
+        icon: 'canoe',
       },
       {
         title: 'Hanse Sail',
         description:
           'One of the world\'s largest maritime festivals, bringing hundreds of tall ships and millions of visitors to Rostock every summer.',
-        icon: '⛵',
+        icon: 'sailboat',
       },
       {
         title: 'Backsteingotik',
         description:
           'The distinctive "Brick Gothic" architecture characterizes the region, with massive red-brick churches and city gates dominating the skylines.',
-        icon: '⛪',
+        icon: 'church',
       },
     ],
     keyNumbers: [
@@ -1645,37 +1647,37 @@ const statesData: Record<string, StateData> = {
         title: 'Wadden Sea',
         description:
           'A UNESCO World Heritage site and the largest unbroken system of intertidal sand and mud flats in the world. A unique ecosystem teeming with life.',
-        icon: '🦀',
+        icon: 'seafood',
       },
       {
         title: 'Holstentor',
         description:
           'The iconic Brick Gothic city gate of Lübeck, a symbol of the Hanseatic League and a UNESCO World Heritage site.',
-        icon: '🏰',
+        icon: 'castle',
       },
       {
         title: 'Kiel Week',
         description:
           'The largest sailing event in the world and a massive summer festival (Kieler Woche) that attracts millions of visitors.',
-        icon: '⛵',
+        icon: 'sailboat',
       },
       {
         title: 'Lübeck Marzipan',
         description:
           'A world-famous sweet treat protected by EU law. Niederegger is the most famous producer, founded in 1806.',
-        icon: '🍬',
+        icon: 'candy',
       },
       {
         title: 'Sylt',
         description:
           'Germany\'s "Hamptons". An island in the North Sea known for its distinctive shape, long sandy beaches, and thatched-roof houses.',
-        icon: '🏖️',
+        icon: 'beach',
       },
       {
         title: 'Viking Heritage',
         description:
           'Haithabu (Hedeby) was a major Viking trading settlement. Today, a museum and reconstructed village showcase this fascinating history.',
-        icon: '⚔️',
+        icon: 'swords',
       },
     ],
     keyNumbers: [
@@ -1751,37 +1753,37 @@ const statesData: Record<string, StateData> = {
         title: 'Elbphilharmonie',
         description:
           'A dazzling concert hall built on top of an old warehouse. Its wave-like glass facade has become the new symbol of the city.',
-        icon: '🎵',
+        icon: 'note',
       },
       {
         title: 'Speicherstadt',
         description:
           'The world\'s largest warehouse district and a UNESCO World Heritage site. Red-brick Gothic buildings crisscrossed by narrow canals.',
-        icon: '🧱',
+        icon: 'bricks',
       },
       {
         title: 'Port of Hamburg',
         description:
           'Germany\'s largest port. Boat tours offer close-up views of massive container ships, historic vessels, and the busy container terminals.',
-        icon: '🚢',
+        icon: 'ship',
       },
       {
         title: 'Miniatur Wunderland',
         description:
           'The world\'s largest model railway system. A magical world that attracts more visitors than any other tourist attraction in Germany.',
-        icon: '🚂',
+        icon: 'train',
       },
       {
         title: 'Reeperbahn',
         description:
           'The famous entertainment mile in the St. Pauli district. Known for its nightlife, theaters, and musical history (The Beatles started here).',
-        icon: '🎸',
+        icon: 'guitar',
       },
       {
         title: 'Alster Lakes',
         description:
           'Two artificial lakes in the heart of the city (Binnenalster and Außenalster). Popular for sailing, rowing, and relaxing on the banks.',
-        icon: '⛵',
+        icon: 'sailboat',
       },
     ],
     keyNumbers: [
@@ -1801,53 +1803,13 @@ const statesData: Record<string, StateData> = {
   },
 };
 
-// Icons
-const LocationIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-    <circle cx="12" cy="10" r="3"></circle>
-  </svg>
-);
-
-const UsersIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-    <circle cx="9" cy="7" r="4"></circle>
-    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-  </svg>
-);
-
-const AreaIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-  </svg>
-);
-
-const BookIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-  </svg>
-);
-
-const TrophyIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-    <path d="M4 22h16"></path>
-    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-  </svg>
-);
-
-const ArrowLeftIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="19" y1="12" x2="5" y2="12"></line>
-    <polyline points="12 19 5 12 12 5"></polyline>
-  </svg>
-);
+// Icons — mapped to the central registry (Tabler)
+const LocationIcon = () => <Icon.Location size={20} />;
+const UsersIcon = () => <Icon.Population size={20} />;
+const AreaIcon = () => <Icon.Area size={20} />;
+const BookIcon = () => <Icon.University size={20} />;
+const TrophyIcon = () => <Icon.Trophy size={20} />;
+const ArrowLeftIcon = () => <Ui.ArrowLeft size={20} />;
 
 const getRankBadgeColor = (rank: number) => {
   if (rank <= 3) return 'bg-amber-100 text-amber-700 border-amber-200';
@@ -2087,7 +2049,7 @@ export function StatePage() {
                   className="bg-page rounded-xl p-6 shadow-soft hover:shadow-card transition-all hover:-translate-y-1"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <span className="text-4xl mb-4 block">{item.icon}</span>
+                  <span className="text-primary mb-4 inline-flex">{highlightIcon(item.icon, 40)}</span>
                   <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-text-muted leading-relaxed">{item.description}</p>
                 </div>
@@ -2154,10 +2116,7 @@ export function StatePage() {
                   className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
                 >
                   Learn more about Studienkolleg
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
+                  <Ui.ArrowRight size={16} />
                 </Link>
               </div>
             </div>

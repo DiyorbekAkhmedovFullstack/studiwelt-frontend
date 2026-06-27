@@ -3,6 +3,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { toastService } from '../services/toastService';
+import { Ui } from '../lib/icons';
 
 type LocationState = {
   email?: string;
@@ -135,10 +136,7 @@ export function MfaVerifyPage() {
       <div className="w-full max-w-[480px] bg-surface rounded-[24px] shadow-[0_10px_40px_rgba(62,54,48,0.08)] p-12 text-center">
         {/* Lock Icon */}
         <div className="w-16 h-16 bg-[#FAF6F3] text-primary rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-          </svg>
+          <Ui.Lock size={32} />
         </div>
 
         <h1 className="text-[28px] font-serif font-bold mb-3 text-text-main">{t('mfa.title')}</h1>

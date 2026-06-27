@@ -1,3 +1,5 @@
+import { Icon } from '../../../lib/icons';
+
 type LessonReview = {
   title: string;
   keyPoints: string[];
@@ -140,7 +142,7 @@ export function GrammarReviewGrid() {
             {/* Exam Tip */}
             <div className="bg-white rounded-lg p-3">
               <div className="flex items-start gap-2">
-                <span className="text-sm">💡</span>
+                <Icon.Tip className="text-primary shrink-0 mt-0.5" size={14} />
                 <p className="text-[0.65rem] sm:text-xs text-text-muted italic">
                   {lesson.examTip}
                 </p>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Ui } from '../../../lib/icons';
 
 type MachineOption = {
   text: string;
@@ -65,17 +66,7 @@ export function AdjectiveMachine({
 
         {/* Processing Arrow */}
         <div className="flex justify-center my-4 sm:my-5 md:my-6">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#8C8075"
-            strokeWidth="2"
-            className="transform rotate-90 sm:w-6 sm:h-6"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          <Ui.ArrowRight width={20} height={20} className="transform rotate-90 sm:w-6 sm:h-6 text-[#8C8075]" />
         </div>
 
         {/* Output */}

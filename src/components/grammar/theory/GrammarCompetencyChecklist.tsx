@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Icon } from '../../../lib/icons';
 
 type CompetencyItem = {
   skill: string;
@@ -216,7 +217,7 @@ export function GrammarCompetencyChecklist() {
       {/* Tips */}
       <div className="mt-5 sm:mt-6 bg-[#FFF9E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#D9A441]">
         <div className="flex items-start gap-2 sm:gap-3">
-          <span className="text-lg sm:text-xl">💡</span>
+          <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
           <div>
             <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
               Wie nutzt du diese Checkliste?

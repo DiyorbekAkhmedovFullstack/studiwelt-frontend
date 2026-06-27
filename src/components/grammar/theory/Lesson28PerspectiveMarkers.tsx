@@ -1,3 +1,4 @@
+import { Icon, Ui } from '../../../lib/icons';
 import { PerspectiveMarkersGrid } from './PerspectiveMarkersGrid';
 import { ArgumentationStructure } from './ArgumentationStructure';
 import { RegisterTrainer } from './RegisterTrainer';
@@ -33,7 +34,7 @@ export function Lesson28PerspectiveMarkers() {
           {/* Informal */}
           <div className="bg-[#FFEBEE] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#C62828]">
             <h3 className="text-base sm:text-lg font-semibold text-[#C62828] mb-3 flex items-center gap-2">
-              <span>❌</span>
+              <Ui.Close size={18} />
               Informell (NICHT für Prüfungen!)
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -59,7 +60,7 @@ export function Lesson28PerspectiveMarkers() {
           {/* Neutral */}
           <div className="bg-[#E3F2FD] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#1565C0]">
             <h3 className="text-base sm:text-lg font-semibold text-[#1565C0] mb-3 flex items-center gap-2">
-              <span>✅</span>
+              <Ui.Check size={18} />
               Neutral (Mündliche Prüfung)
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -85,7 +86,7 @@ export function Lesson28PerspectiveMarkers() {
           {/* Formal */}
           <div className="bg-[#E8F5E9] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#2E7D32]">
             <h3 className="text-base sm:text-lg font-semibold text-[#2E7D32] mb-3 flex items-center gap-2">
-              <span>✅✅</span>
+              <span className="inline-flex"><Ui.Check size={18} /><Ui.Check size={18} className="-ml-2" /></span>
               Formal (Schriftliche Prüfung)
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -111,7 +112,7 @@ export function Lesson28PerspectiveMarkers() {
           {/* Very Formal */}
           <div className="bg-[#FFF3E0] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#E65100]">
             <h3 className="text-base sm:text-lg font-semibold text-[#E65100] mb-3 flex items-center gap-2">
-              <span>🎓</span>
+              <Icon.School size={18} />
               Sehr formal (Wissenschaftliche Arbeiten)
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -149,7 +150,7 @@ export function Lesson28PerspectiveMarkers() {
           {/* Mistake 1 */}
           <div>
             <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 flex items-center gap-2">
-              <span className="text-[#C62828]">❌</span>
+              <Ui.Close className="text-[#C62828] shrink-0 mt-0.5" size={16} />
               Fehler 1: Zu informelle Sprache in Essays
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -182,7 +183,7 @@ export function Lesson28PerspectiveMarkers() {
           {/* Mistake 2 */}
           <div>
             <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 flex items-center gap-2">
-              <span className="text-[#C62828]">❌</span>
+              <Ui.Close className="text-[#C62828] shrink-0 mt-0.5" size={16} />
               Fehler 2: Wiederholung derselben Formulierung
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -214,7 +215,7 @@ export function Lesson28PerspectiveMarkers() {
           {/* Mistake 3 */}
           <div>
             <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 flex items-center gap-2">
-              <span className="text-[#C62828]">❌</span>
+              <Ui.Close className="text-[#C62828] shrink-0 mt-0.5" size={16} />
               Fehler 3: Fehlende Struktur
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -301,7 +302,7 @@ export function Lesson28PerspectiveMarkers() {
         {/* Exam Tip */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 TestDaF/DSH Prüfungstipp

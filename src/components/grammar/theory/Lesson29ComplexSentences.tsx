@@ -1,3 +1,4 @@
+import { Icon, Ui } from '../../../lib/icons';
 import { SentenceStructureComparison } from './SentenceStructureComparison';
 import { CohesionDevicesGrid } from './CohesionDevicesGrid';
 import { TextCoherenceTrainer } from './TextCoherenceTrainer';
@@ -36,25 +37,25 @@ export function Lesson29ComplexSentences() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li className="flex items-center gap-2">
-                <span className="text-[#1565C0] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#1565C0] shrink-0" size={16} />
                 <span>
                   <strong>Journalistische Texte</strong> (Nachrichten, Berichte)
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-[#1565C0] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#1565C0] shrink-0" size={16} />
                 <span>
                   <strong>Gesprochene Sprache</strong> (einfacher zu verstehen)
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-[#1565C0] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#1565C0] shrink-0" size={16} />
                 <span>
                   <strong>Klare, direkte Aussagen</strong> (Handlungsanweisungen)
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-[#1565C0] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#1565C0] shrink-0" size={16} />
                 <span>
                   <strong>Aufzählungen</strong> (mehrere gleichwertige Informationen)
                 </span>
@@ -69,25 +70,25 @@ export function Lesson29ComplexSentences() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li className="flex items-center gap-2">
-                <span className="text-[#2E7D32] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#2E7D32] shrink-0" size={16} />
                 <span>
                   <strong>Akademische Texte</strong> (Essays, Hausarbeiten)
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-[#2E7D32] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#2E7D32] shrink-0" size={16} />
                 <span>
                   <strong>Komplexe Argumentation</strong> (Pro/Contra, Begründungen)
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-[#2E7D32] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#2E7D32] shrink-0" size={16} />
                 <span>
                   <strong>Fachliteratur</strong> (wissenschaftliche Aufsätze)
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-[#2E7D32] flex-shrink-0">✓</span>
+                <Ui.Check className="text-[#2E7D32] shrink-0" size={16} />
                 <span>
                   <strong>TestDaF/DSH Schreiben</strong> (zeigt C1-Kompetenz!)
                 </span>
@@ -99,7 +100,7 @@ export function Lesson29ComplexSentences() {
         {/* Balance Tip */}
         <div className="mt-5 sm:mt-6 bg-[#FFF9E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#D9A441]">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-[#D9A441] shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 Balance ist wichtig!
@@ -191,7 +192,7 @@ export function Lesson29ComplexSentences() {
           <div className="space-y-4">
             <div>
               <div className="text-xs sm:text-sm font-semibold text-text-main mb-2">
-                Gute Kohäsion + Gute Kohärenz ✓
+                Gute Kohäsion + Gute Kohärenz <Ui.Check className="inline text-success" size={14} />
               </div>
               <p className="text-xs sm:text-sm font-serif text-text-main mb-2 bg-white rounded p-3">
                 Maria lernte fleißig. <strong>Deshalb</strong> bestand <strong>sie</strong> die
@@ -254,7 +255,7 @@ export function Lesson29ComplexSentences() {
         {/* Exam Tip */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-[#D9A441] shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 TestDaF/DSH Prüfungstipp

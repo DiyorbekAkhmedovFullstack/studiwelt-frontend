@@ -19,5 +19,35 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      // All icons must go through the central registry (src/lib/icons.ts) so
+      // every glyph is declared once and never silently duplicated.
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@tabler/icons-react',
+              message:
+                'Import icons from "@/lib/icons" (Icon / Ui) instead of @tabler/icons-react directly.',
+            },
+          ],
+          patterns: [
+            {
+              group: ['@fortawesome/*'],
+              message:
+                'FontAwesome is removed. Use the icon registry in src/lib/icons.ts.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    // The icon registries are the only places allowed to import icons directly.
+    files: ['src/lib/icons.ts', 'src/lib/highlightIcons.tsx'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
   },
 ])

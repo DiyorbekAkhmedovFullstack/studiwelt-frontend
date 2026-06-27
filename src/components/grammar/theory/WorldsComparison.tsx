@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Icon } from '../../../lib/icons';
 
 type WorldsComparisonProps = {
   realityLabel: string;
@@ -16,8 +17,8 @@ export function WorldsComparison({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] overflow-hidden shadow-card mb-8 sm:mb-12 md:mb-16 relative">
       {/* Magic Wand Icon in the Middle */}
-      <div className="text-base sm:text-lg md:text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full shadow-[0_3px_10px_rgba(0,0,0,0.08)] sm:shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center justify-center z-10">
-        ✨
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full shadow-[0_3px_10px_rgba(0,0,0,0.08)] sm:shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center justify-center z-10 text-primary">
+        <Icon.Build size={20} />
       </div>
 
       {/* Reality Side (Left/Top) */}

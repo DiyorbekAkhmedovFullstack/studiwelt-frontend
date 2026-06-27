@@ -4,6 +4,7 @@ import { LoadingScreen, ErrorState, SectionCompletedState } from '../components/
 import { toastService } from '../services/toastService';
 import { useProgress } from '../contexts/ProgressContext';
 import { useReadingForTaking, useSubmitReadingAnswers } from '../hooks/queries/useReadings';
+import { Ui } from '../lib/icons';
 
 type Params = {
   lessonNumber?: string;
@@ -165,19 +166,7 @@ export function ReadingExercisePage() {
             onClick={() => navigate(`/course/${lessonNumber}`, { replace: true })}
             className="group flex items-center gap-2 px-3 py-2 -ml-2 rounded-lg text-text-muted hover:text-text-main hover:bg-black/5 transition-all"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform group-hover:-translate-x-0.5"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
+            <Ui.ArrowLeft size={20} className="transition-transform group-hover:-translate-x-0.5" />
             <span className="text-sm font-medium">Beenden</span>
           </button>
         </div>

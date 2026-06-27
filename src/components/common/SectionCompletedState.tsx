@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Ui } from '../../lib/icons';
 
 interface SectionCompletedStateProps {
   title?: string;
@@ -38,9 +39,7 @@ export function SectionCompletedState({
         {/* Success Icon */}
         <div className="mb-6 flex justify-center">
           <div className="w-20 h-20 bg-primary-light rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(166,123,91,0.15)]">
-            <svg className="w-10 h-10 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
+            <Ui.Check className="w-10 h-10 text-success" stroke={3} />
           </div>
         </div>
 

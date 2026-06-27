@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import { Icon } from '../../../lib/icons';
 
 export function SentenceCompressor() {
   const [isCompressed, setIsCompressed] = useState(false);
@@ -58,21 +59,12 @@ export function SentenceCompressor() {
         onClick={handleToggle}
         className="text-white text-xs sm:text-sm md:text-base bg-text-main border-none px-6 sm:px-7 md:px-8 lg:px-9 py-2.5 sm:py-3 md:py-3.5 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] font-semibold cursor-pointer transition-all shadow-[0_4px_12px_rgba(62,54,48,0.2)] inline-flex items-center gap-2 sm:gap-2.5 hover:bg-primary hover:-translate-y-0.5"
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
+        <Icon.Compress
+          width={16}
+          height={16}
           className="transition-transform duration-300 sm:w-5 sm:h-5"
           style={{ transform: isCompressed ? 'rotate(180deg)' : 'rotate(0deg)' }}
-        >
-          <path d="M4 14h6v6" />
-          <path d="M20 10h-6V4" />
-          <path d="M14 10l7-7" />
-          <path d="M3 21l7-7" />
-        </svg>
+        />
         <span>{isCompressed ? 'Auflösen (Relativsatz)' : 'Komprimieren'}</span>
       </button>
     </section>

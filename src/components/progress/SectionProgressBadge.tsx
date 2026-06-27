@@ -1,9 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faLock,
-  faCheck,
-  faCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { Ui } from '../../lib/icons';
 import type { SectionProgressDto } from '../../types/api';
 
 type SectionProgressBadgeProps = {
@@ -39,7 +34,7 @@ export function SectionProgressBadge({
         role="status"
         aria-label="Section locked"
       >
-        <FontAwesomeIcon icon={faLock} className={iconSizeClasses[size]} />
+        <Ui.Lock className={iconSizeClasses[size]} />
         <span>Locked</span>
       </div>
     );
@@ -53,7 +48,7 @@ export function SectionProgressBadge({
         role="status"
         aria-label={`Completed with ${progress.bestScore}%`}
       >
-        <FontAwesomeIcon icon={faCheck} className={iconSizeClasses[size]} />
+        <Ui.Check className={iconSizeClasses[size]} stroke={3} />
         <span className="font-semibold">
           {progress.bestScore.toFixed(0)}%
         </span>
@@ -91,7 +86,7 @@ export function SectionProgressBadge({
       role="status"
       aria-label="Not started"
     >
-      <FontAwesomeIcon icon={faCircle} className="h-1.5 w-1.5" />
+      <Ui.Dot className="h-1.5 w-1.5" />
       <span>Start</span>
       {showAttempts && <span className="opacity-60">(3 tries)</span>}
     </div>

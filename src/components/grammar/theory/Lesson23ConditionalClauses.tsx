@@ -1,3 +1,4 @@
+import { Icon, Ui } from '../../../lib/icons';
 import { ConditionalTypesGrid } from './ConditionalTypesGrid';
 import { WennOmissionDemo } from './WennOmissionDemo';
 import { ConditionalBuilder } from './ConditionalBuilder';
@@ -112,9 +113,9 @@ export function Lesson23ConditionalClauses() {
         </div>
         <div className="bg-[#FFF3E0] border-l-4 border-[#E65100] px-3 sm:px-4 py-2.5 sm:py-3 rounded-r-lg mb-4 sm:mb-6">
           <p className="text-[0.65rem] sm:text-xs md:text-sm text-text-main">
-            <strong>Häufiger Fehler:</strong> "Wenn ich gelernt würde..." ✗
+            <strong>Häufiger Fehler:</strong> "Wenn ich gelernt würde..." <Ui.Close className="inline text-danger" size={14} />
             <br />
-            <strong>Korrekt:</strong> "Wenn ich gelernt <strong>hätte</strong>..." ✓
+            <strong>Korrekt:</strong> "Wenn ich gelernt <strong>hätte</strong>..." <Ui.Check className="inline text-success" size={14} />
           </p>
         </div>
 
@@ -226,7 +227,7 @@ export function Lesson23ConditionalClauses() {
         {/* Exam Tip */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 TestDaF/DSH Prüfungstipp

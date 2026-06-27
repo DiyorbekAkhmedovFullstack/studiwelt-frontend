@@ -10,6 +10,7 @@ import {
 } from "../hooks/queries/useCTests";
 import { useLessonByNumber } from "../hooks/queries/useLessons";
 import { toastService } from "../services/toastService";
+import { Icon, Ui } from "../lib/icons";
 
 type Params = {
   lessonNumber?: string;
@@ -372,16 +373,7 @@ export function LessonCtestPage() {
               }
               className="text-[14px] text-primary font-semibold hover:underline inline-flex items-center gap-1"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
+              <Ui.ArrowLeft size={16} />
               Zurück zur Lektion
             </button>
           </header>
@@ -397,18 +389,7 @@ export function LessonCtestPage() {
                 onClick={jumpToNextEmptyGap}
                 className="inline-flex items-center gap-1 bg-primary text-white py-1.5 px-3 rounded-full text-xs font-medium shadow-sm active:bg-primary-hover transition-all cursor-pointer leading-none"
               >
-                <svg
-                  className="shrink-0"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.35-4.35"></path>
-                </svg>
+                <Icon.Search className="shrink-0" size={14} />
                 Nächste Lücke finden
               </button>
             )}
@@ -433,18 +414,7 @@ export function LessonCtestPage() {
                       onClick={jumpToNextEmptyGap}
                       className="inline-flex items-center gap-1.5 bg-primary text-white py-2 px-4 rounded-full text-[13px] font-medium hover:bg-primary-hover hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer leading-none"
                     >
-                      <svg
-                        className="shrink-0"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                      </svg>
+                      <Icon.Search className="shrink-0" size={14} />
                       Nächste Lücke
                     </button>
                   )}

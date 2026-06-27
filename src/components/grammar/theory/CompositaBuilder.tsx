@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Icon } from '../../../lib/icons';
 
 type CompositaType = {
   type: string;
@@ -230,7 +231,7 @@ export function CompositaBuilder() {
       {/* Fugenelemente Info */}
       <div className="mt-6 sm:mt-8 bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-4 sm:px-5 py-4 sm:py-5 rounded-r-lg">
         <div className="flex items-start gap-2 sm:gap-3">
-          <span className="text-lg sm:text-xl">💡</span>
+          <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
           <div>
             <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-2">
               Fugenelemente: -s-, -n-, -en-, -e-, -er-

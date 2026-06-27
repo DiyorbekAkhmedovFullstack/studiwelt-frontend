@@ -8,6 +8,7 @@ import { usePrefetchGrammar } from "../hooks/queries/useGrammar";
 import { useLessonByNumber } from "../hooks/queries/useLessons";
 import { useReadings } from "../hooks/queries/useReadings";
 import { toastService } from "../services/toastService";
+import { Icon, Ui } from "../lib/icons";
 
 type Params = {
   lessonNumber?: string;
@@ -130,16 +131,7 @@ export function LessonPage() {
           onClick={() => navigate("/course")}
           className="flex items-center gap-2 text-text-muted text-[14px] font-medium mb-6 hover:text-text-main transition-colors"
         >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
+          <Ui.ArrowLeft size={18} />
           Zurück zum Kurs
         </button>
 
@@ -206,14 +198,7 @@ export function LessonPage() {
             title="Grammatik"
             description="Übe deutsche Grammatikregeln und Satzbaumuster."
             onPrefetch={() => lesson && prefetchGrammarForLesson(lesson.id)}
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                <path d="M2 2l7.586 7.586"></path>
-                <circle cx="11" cy="11" r="2"></circle>
-              </svg>
-            }
+            icon={<Icon.Grammar />}
             to={`/course/${lesson.lessonNumber}/grammar`}
             isCompleted={isGrammarCompleted}
             actionText={
@@ -226,12 +211,7 @@ export function LessonPage() {
             <ModuleCard
               title="Leseverstehen"
               description="Lies authentische deutsche Texte und teste dein Leseverständnis."
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg>
-              }
+              icon={<Icon.Reading />}
               to={`/course/${lesson.lessonNumber}/reading/${primaryReading.id}`}
               isCompleted={isReadingCompleted}
               actionText={isReadingCompleted ? "Ergebnisse ansehen" : "Lesen starten"}
@@ -240,10 +220,7 @@ export function LessonPage() {
             <div className="bg-[#FAFAFA] rounded-2xl p-6 border-2 border-dashed border-[#E0E0E0] flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-[#F0F0F0] text-text-muted">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                  </svg>
+                  <Icon.Reading size={24} />
                 </div>
                 <h3 className="text-lg font-bold text-text-muted">Leseverstehen</h3>
               </div>
@@ -261,12 +238,7 @@ export function LessonPage() {
             <ModuleCard
               title="Lernkarten"
               description="Lerne neuen Wortschatz und wichtige Konzepte durch wiederholtes Üben."
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-              }
+              icon={<Icon.Flashcards />}
               to={`/course/${lesson.lessonNumber}/deck`}
               isCompleted={isFlashcardsCompleted}
               actionText={
@@ -277,10 +249,7 @@ export function LessonPage() {
             <div className="bg-[#FAFAFA] rounded-2xl p-6 border-2 border-dashed border-[#E0E0E0] flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-[#F0F0F0] text-text-muted">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                  </svg>
+                  <Icon.Flashcards size={24} />
                 </div>
                 <h3 className="text-lg font-bold text-text-muted">Lernkarten</h3>
               </div>
@@ -297,15 +266,7 @@ export function LessonPage() {
           <ModuleCard
             title="C-Test"
             description="Ergänze die fehlenden Wortteile und teste deine Sprachkenntnisse."
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-            }
+            icon={<Icon.Ctest />}
             to={`/course/${lesson.lessonNumber}/ctest`}
             isCompleted={isCtestCompleted}
             actionText={isCtestCompleted ? "Antworten ansehen" : "C-Test starten"}
@@ -365,9 +326,7 @@ function ModuleCard({
           <h3 className="text-lg font-bold text-text-main truncate">{title}</h3>
           {isCompleted && (
             <span className="text-xs font-semibold text-success flex items-center gap-1 mt-0.5">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <Ui.Check size={12} stroke={3} />
               Erledigt
             </span>
           )}
@@ -388,17 +347,7 @@ function ModuleCard({
         }`}
       >
         <span className="font-semibold text-sm">{actionText}</span>
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="transition-transform duration-200 group-hover:translate-x-1"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
+        <Ui.ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
       </div>
     </Link>
   );

@@ -1,5 +1,8 @@
+import type { ReactNode } from 'react';
+import { Icon } from '../../../lib/icons';
+
 type CardData = {
-  icon: string;
+  icon: ReactNode;
   subtitle: string;
   verb: string;
   description: string;
@@ -9,7 +12,7 @@ type CardData = {
 export function RumorsVsClaims() {
   const cards: CardData[] = [
     {
-      icon: '📰',
+      icon: <Icon.News size={22} />,
       subtitle: 'Fremdbehauptung (Gerücht)',
       verb: 'sollen',
       description:
@@ -17,7 +20,7 @@ export function RumorsVsClaims() {
       example: 'Der neue Film <strong>soll</strong> sehr gut sein.',
     },
     {
-      icon: '🗣️',
+      icon: <Icon.LanguageReq size={22} />,
       subtitle: 'Selbstbehauptung (Zweifel)',
       verb: 'wollen',
       description: 'Jemand behauptet das über sich selbst, aber ich bin skeptisch.',

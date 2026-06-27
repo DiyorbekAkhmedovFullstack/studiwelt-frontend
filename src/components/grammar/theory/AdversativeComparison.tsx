@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Ui } from '../../../lib/icons';
 
 type ComparisonType = 'aber' | 'sondern';
 
@@ -42,7 +43,7 @@ function ComparisonCard({
       {/* Example Correct */}
       <div className="mb-2 sm:mb-3">
         <div className="flex items-start gap-2">
-          <span className="text-[#6B8C6E] text-base sm:text-lg font-bold">✓</span>
+          <Ui.Check className="text-[#6B8C6E] shrink-0 mt-0.5" size={18} />
           <p className="text-xs sm:text-sm md:text-base font-serif text-text-main flex-1">
             {exampleCorrect}
           </p>
@@ -53,7 +54,7 @@ function ComparisonCard({
       {exampleWrong && (
         <div className="mb-3 sm:mb-4">
           <div className="flex items-start gap-2">
-            <span className="text-[#C07766] text-base sm:text-lg font-bold">✗</span>
+            <Ui.Close className="text-[#C07766] shrink-0 mt-0.5" size={18} />
             <p className="text-xs sm:text-sm md:text-base font-serif text-text-muted line-through flex-1">
               {exampleWrong}
             </p>

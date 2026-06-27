@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Ui } from '../../../lib/icons';
 
 type ExamSection = 'reading' | 'listening' | 'writing' | 'speaking';
 
@@ -229,7 +230,7 @@ export function ExamStrategiesGrid() {
                 key={idx}
                 className="flex items-center gap-2 bg-[#FAF6F3] rounded px-3 py-2"
               >
-                <span className="text-primary font-bold flex-shrink-0">✓</span>
+                <Ui.Check className="text-primary shrink-0 mt-0.5" size={16} />
                 <span className="text-xs sm:text-sm text-text-main">{focus}</span>
               </div>
             ))}

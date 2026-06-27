@@ -1,3 +1,5 @@
+import { Ui } from '../../../lib/icons';
+
 export function WeakNounConcept() {
   return (
     <section className="text-center bg-surface rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-5 sm:p-6 md:p-8 lg:p-10 shadow-card mb-8 sm:mb-12 md:mb-16 flex flex-col items-center">
@@ -12,17 +14,7 @@ export function WeakNounConcept() {
         </div>
 
         {/* Arrow */}
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="sm:w-6 sm:h-6"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
+        <Ui.ArrowRight width={20} height={20} className="sm:w-6 sm:h-6" />
 
         {/* Weak Form (with N) */}
         <div>

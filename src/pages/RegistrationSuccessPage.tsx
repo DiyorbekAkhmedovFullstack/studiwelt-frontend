@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Icon } from '../lib/icons';
 
 export function RegistrationSuccessPage() {
   const { t } = useTranslation('auth');
@@ -14,19 +15,7 @@ export function RegistrationSuccessPage() {
       <div className="w-full max-w-[520px] bg-surface rounded-[24px] shadow-[0_10px_40px_rgba(62,54,48,0.08)] p-12 text-center">
         {/* Email Icon */}
         <div className="w-20 h-20 bg-[#F0F7F1] rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg
-            className="h-10 w-10 text-success"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"
-            />
-          </svg>
+          <Icon.Mail className="h-10 w-10 text-success" />
         </div>
 
         {/* Message */}
@@ -40,11 +29,7 @@ export function RegistrationSuccessPage() {
         {/* Info Note */}
         <div className="mb-8 rounded-xl bg-[#FFFCF8] p-5 border border-[rgba(166,123,91,0.15)]">
           <div className="flex items-start gap-3 text-left">
-            <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
+            <Icon.Info className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
             <p className="text-[14px] text-text-main">
               <span className="font-semibold">{t('registrationSuccess.noteTitle')}</span> {t('registrationSuccess.noteMessage')}
             </p>

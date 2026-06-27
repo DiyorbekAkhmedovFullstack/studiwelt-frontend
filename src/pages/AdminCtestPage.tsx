@@ -5,6 +5,7 @@ import { toastService } from '../services/toastService';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
 import { useLessonByNumber } from '../hooks/queries/useLessons';
 import { useCTestsByLesson, useCreateCTest, useUpdateCTest, useDeleteCTest } from '../hooks/queries/useCTests';
+import { Icon } from '../lib/icons';
 
 type Params = {
   lessonNumber?: string;
@@ -596,7 +597,7 @@ export function AdminCtestPage() {
                   placeholder="Paste your German text here. The gap text will be generated automatically..."
                 />
                 <p className="mt-2 text-[13px] text-text-muted">
-                  ✨ Gap text is auto-generated following C-test rules. You can modify it below if needed.
+                  Gap text is auto-generated following C-test rules. You can modify it below if needed.
                 </p>
               </div>
               <div>
@@ -615,9 +616,9 @@ export function AdminCtestPage() {
                       }
                     }}
                     disabled={!originalText.trim()}
-                    className="rounded-lg border border-border-soft bg-surface px-3 py-1.5 text-[13px] font-medium text-text-main hover:bg-highlight disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border-soft bg-surface px-3 py-1.5 text-[13px] font-medium text-text-main hover:bg-highlight disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
-                    🔄 Regenerate
+                    <Icon.Restart size={14} /> Regenerate
                   </button>
                 </div>
                 <textarea

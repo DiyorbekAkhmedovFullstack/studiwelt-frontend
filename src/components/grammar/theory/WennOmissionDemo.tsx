@@ -1,3 +1,5 @@
+import { Icon } from '../../../lib/icons';
+
 type OmissionExample = {
   withWenn: string;
   withoutWenn: string;
@@ -98,7 +100,7 @@ export function WennOmissionDemo() {
             {/* Explanation */}
             <div className="bg-[rgba(166,123,91,0.1)] border-l-3 border-primary px-3 py-2 sm:py-2.5 rounded-r-lg">
               <p className="text-[0.65rem] sm:text-xs md:text-sm text-text-main">
-                <strong>💡</strong> {example.explanation}
+                <Icon.Tip className="inline text-primary" size={14} /> {example.explanation}
               </p>
             </div>
           </div>
@@ -108,7 +110,7 @@ export function WennOmissionDemo() {
       {/* Summary Box */}
       <div className="bg-[#E3F2FD] border-l-4 border-[#1565C0] px-4 sm:px-5 py-4 sm:py-5 rounded-r-lg mt-6 sm:mt-8">
         <div className="flex items-start gap-2 sm:gap-3">
-          <span className="text-lg sm:text-xl">📝</span>
+          <Icon.Documents className="text-[#1565C0] shrink-0 mt-0.5" size={20} />
           <div>
             <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1 sm:mb-2">
               Wann nutzen?

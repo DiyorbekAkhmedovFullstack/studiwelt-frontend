@@ -4,6 +4,7 @@ import { lessonService, type LessonResponse } from '../services/lessonService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
+import { Icon, Ui } from '../lib/icons';
 
 type Params = {
   lessonNumber?: string;
@@ -87,9 +88,7 @@ export function AdminLessonDetailPage() {
             to="/admin/lessons"
             className="flex items-center gap-2 text-text-muted text-[14px] font-medium mb-6 hover:text-text-main transition-colors"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
+            <Ui.ArrowLeft size={18} />
             Back to Lessons
           </Link>
           <p className="text-[13px] uppercase tracking-wider text-text-muted font-semibold mb-2">
@@ -119,9 +118,7 @@ export function AdminLessonDetailPage() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#7AB8D1] flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                  </svg>
+                  <Icon.Flashcards className="w-5 h-5 text-white" stroke={2.5} />
                 </div>
                 <span className="text-[15px] font-semibold text-[#3E3630]">Manage Deck</span>
               </div>
@@ -133,9 +130,7 @@ export function AdminLessonDetailPage() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-success flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
+                  <Icon.Reading className="w-5 h-5 text-white" stroke={2.5} />
                 </div>
                 <span className="text-[15px] font-semibold text-[#3E3630]">Manage Readings</span>
               </div>
@@ -147,9 +142,7 @@ export function AdminLessonDetailPage() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#9B7EBD] flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                  <Icon.Grammar className="w-5 h-5 text-white" stroke={2.5} />
                 </div>
                 <span className="text-[15px] font-semibold text-[#3E3630]">Manage Grammar</span>
               </div>
@@ -161,9 +154,7 @@ export function AdminLessonDetailPage() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-text-main flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                  <Icon.Ctest className="w-5 h-5 text-white" stroke={2.5} />
                 </div>
                 <span className="text-[15px] font-semibold text-[#3E3630]">Manage C-Test</span>
               </div>

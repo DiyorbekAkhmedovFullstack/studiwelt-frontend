@@ -8,196 +8,34 @@ import { SkeletonProfile } from "../common/SkeletonProfile";
 import { GetStartedDropdown } from "./GetStartedDropdown";
 import { LearnMoreDropdown } from "./LearnMoreDropdown";
 import { LanguageSwitcher } from "../common/LanguageSwitcher";
+import { Icon, Ui } from "../../lib/icons";
 
-const MenuIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-);
-
-const CloseIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <line x1="18" y1="6" x2="6" y2="18"></line>
-    <line x1="6" y1="6" x2="18" y2="18"></line>
-  </svg>
-);
-
-const BookIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-  </svg>
-);
-
-const ProfileIcon = () => (
-  <svg
-    className="text-text-muted w-[18px] h-[18px]"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-    <circle cx="12" cy="7" r="4"></circle>
-  </svg>
-);
-
-const UpgradeIcon = () => (
-  <svg
-    className="w-[18px] h-[18px]"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-    <polyline points="2 17 12 22 22 17"></polyline>
-    <polyline points="2 12 12 17 22 12"></polyline>
-  </svg>
-);
-
-const LogoutIcon = () => (
-  <svg
-    className="text-danger opacity-70 w-[18px] h-[18px]"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-    <polyline points="16 17 21 12 16 7"></polyline>
-    <line x1="21" y1="12" x2="9" y2="12"></line>
-  </svg>
-);
-
-const SignUpIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-    <circle cx="8.5" cy="7" r="4"></circle>
-    <line x1="20" y1="8" x2="20" y2="14"></line>
-    <line x1="23" y1="11" x2="17" y2="11"></line>
-  </svg>
-);
-
-const LoginIcon = () => (
-  <svg
-    className="text-text-muted w-[18px] h-[18px]"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-    <polyline points="10 17 15 12 10 7"></polyline>
-    <line x1="15" y1="12" x2="3" y2="12"></line>
-  </svg>
-);
-
-const ApplicationIcon = () => (
-  <svg
-    className="w-[18px] h-[18px] text-text-muted"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-    <polyline points="14 2 14 8 20 8"></polyline>
-    <line x1="16" y1="13" x2="8" y2="13"></line>
-    <line x1="16" y1="17" x2="8" y2="17"></line>
-    <polyline points="10 9 9 9 8 9"></polyline>
-  </svg>
-);
-
-const EntranceExamIcon = () => (
-  <svg
-    className="w-[18px] h-[18px] text-text-muted"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M9 11l3 3L22 4"></path>
-    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-  </svg>
-);
-
-const FSPIcon = () => (
-  <svg
-    className="w-[18px] h-[18px] text-text-muted"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-    <polyline points="2 17 12 22 22 17"></polyline>
-    <polyline points="2 12 12 17 22 12"></polyline>
-  </svg>
-);
+const MenuIcon = () => <Icon.Menu size={24} />;
+const CloseIcon = () => <Ui.Close size={24} />;
+const BookIcon = () => <Icon.Curriculum size={18} />;
+const ProfileIcon = () => <Icon.User className="text-text-muted w-[18px] h-[18px]" />;
+const UpgradeIcon = () => <Icon.Upgrade className="w-[18px] h-[18px]" />;
+const AdminIcon = () => <Icon.Settings className="text-text-muted w-[18px] h-[18px]" />;
+const LogoutIcon = () => <Icon.Logout className="text-danger opacity-70 w-[18px] h-[18px]" />;
+const SignUpIcon = () => <Icon.SignUp size={18} />;
+const LoginIcon = () => <Icon.Login className="text-text-muted w-[18px] h-[18px]" />;
+const ApplicationIcon = () => <Icon.Application className="w-[18px] h-[18px] text-text-muted" />;
+const EntranceExamIcon = () => <Icon.EntranceExam className="w-[18px] h-[18px] text-text-muted" />;
+const FSPIcon = () => <Icon.Assessment className="w-[18px] h-[18px] text-text-muted" />;
 
 const AnimatedDownArrow = () => (
-  <svg
-    className="w-3.5 h-3.5 text-text-muted animate-bounce"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="6 9 12 15 18 9"></polyline>
-  </svg>
+  <Ui.ChevronDown
+    size={14}
+    stroke={2.5}
+    className="text-text-muted animate-bounce"
+  />
 );
 
 const MenuChevron = ({ isOpen }: { isOpen: boolean }) => (
-  <svg
+  <Ui.ChevronDown
+    stroke={2.5}
     className={`w-4 h-4 text-text-muted transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="6 9 12 15 18 9"></polyline>
-  </svg>
+  />
 );
 
 export function LandingNavbar() {
@@ -386,7 +224,7 @@ function AuthenticatedMobileMenu({
           onClick={onClose}
           className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
         >
-          <UpgradeIcon />
+          <AdminIcon />
           {t('nav.adminPanel')}
         </Link>
       )}

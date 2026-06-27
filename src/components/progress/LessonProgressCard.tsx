@@ -1,14 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCheck,
-  faLock,
-  faLayerGroup,
-  faSpellCheck,
-  faBookOpen,
-  faListCheck,
-} from '@fortawesome/free-solid-svg-icons';
+import { Icon, Ui } from '../../lib/icons';
 import type { LessonProgressDto } from '../../types/api';
 import { ProgressBar } from './ProgressBar';
 
@@ -63,10 +55,7 @@ export function LessonProgressCard({
             className="flex h-8 w-8 items-center justify-center rounded-full border border-success/30 bg-success/10"
             aria-label="Lesson completed"
           >
-            <FontAwesomeIcon
-              icon={faCheck}
-              className="h-3.5 w-3.5 text-success"
-            />
+            <Ui.Check className="h-3.5 w-3.5 text-success" stroke={3} />
           </div>
         )}
 
@@ -75,7 +64,7 @@ export function LessonProgressCard({
             className="flex h-8 w-8 items-center justify-center rounded-full border border-danger/30 bg-danger/10"
             aria-label="Some sections locked"
           >
-            <FontAwesomeIcon icon={faLock} className="h-3.5 w-3.5 text-danger" />
+            <Ui.Lock className="h-3.5 w-3.5 text-danger" />
           </div>
         )}
       </div>
@@ -89,11 +78,13 @@ export function LessonProgressCard({
 
       <div className="grid grid-cols-2 gap-2">
         {[
-          { type: 'flashcards', data: lessonProgress.flashcards, icon: faLayerGroup },
-          { type: 'grammar', data: lessonProgress.grammar, icon: faSpellCheck },
-          { type: 'reading', data: lessonProgress.reading, icon: faBookOpen },
-          { type: 'ctest', data: lessonProgress.ctest, icon: faListCheck },
-        ].map(({ type, data, icon }) => (
+          { type: 'flashcards', data: lessonProgress.flashcards, icon: Icon.Flashcards },
+          { type: 'grammar', data: lessonProgress.grammar, icon: Icon.Grammar },
+          { type: 'reading', data: lessonProgress.reading, icon: Icon.Reading },
+          { type: 'ctest', data: lessonProgress.ctest, icon: Icon.Ctest },
+        ].map(({ type, data, icon: SectionIcon }) => {
+          const StatusIcon = data.isLocked ? Ui.Lock : data.isCompleted ? Ui.Check : SectionIcon;
+          return (
           <div
             key={type}
             className={`flex items-center gap-2 rounded-lg border px-2.5 py-2 text-xs font-medium transition ${data.isCompleted
@@ -105,10 +96,7 @@ export function LessonProgressCard({
                     : 'border-border-soft bg-highlight text-text-muted'
               }`}
           >
-            <FontAwesomeIcon
-              icon={data.isLocked ? faLock : data.isCompleted ? faCheck : icon}
-              className="h-3 w-3"
-            />
+            <StatusIcon className="h-3 w-3" />
             <div className="flex-1">
               <div className="truncate capitalize text-xs">{type}</div>
               {data.bestScore > 0 && (
@@ -116,7 +104,8 @@ export function LessonProgressCard({
               )}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {lessonProgress.lastActivity && (

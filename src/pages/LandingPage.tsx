@@ -9,6 +9,7 @@ import { StudienkollegCarousel } from '../components/landing/StudienkollegCarous
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useAuth } from '../contexts/AuthContext';
 import { SEO, seoConfig } from '../components/common/SEO';
+import { Icon } from '../lib/icons';
 
 export function LandingPage() {
   const { t } = useTranslation(['landing', 'common']);
@@ -75,38 +76,21 @@ export function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
             <FeatureCard
-              icon={
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg>
-              }
+              icon={<Icon.Pacing size={24} />}
               title={t('landing:features.pacing.title')}
               description={t('landing:features.pacing.description')}
               delay={0}
             />
 
             <FeatureCard
-              icon={
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-              }
+              icon={<Icon.Resources size={24} />}
               title={t('landing:features.resources.title')}
               description={t('landing:features.resources.description')}
               delay={100}
             />
 
             <FeatureCard
-              icon={
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-              }
+              icon={<Icon.Clock size={24} />}
               title={t('landing:features.tracking.title')}
               description={t('landing:features.tracking.description')}
               delay={200}

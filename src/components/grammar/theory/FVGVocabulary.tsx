@@ -1,3 +1,5 @@
+import { Ui } from '../../../lib/icons';
+
 type VocabItem = {
   simpleVerb: string;
   fvgPhrase: string;
@@ -10,15 +12,7 @@ function VocabCard({ simpleVerb, fvgPhrase, preposition }: VocabItem) {
       {/* Simple Verb */}
       <div className="text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] mb-2 flex items-center gap-1.5">
         {simpleVerb}
-        <svg
-          className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-50"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-        </svg>
+        <Ui.ChevronDown className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-50" />
       </div>
 
       {/* FVG Phrase */}

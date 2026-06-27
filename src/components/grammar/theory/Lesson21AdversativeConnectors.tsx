@@ -1,3 +1,4 @@
+import { Icon } from '../../../lib/icons';
 import { AdversativeComparison } from './AdversativeComparison';
 import { PositionShowcase } from './PositionShowcase';
 import { AdversativeSpectrum } from './AdversativeSpectrum';
@@ -183,7 +184,7 @@ export function Lesson21AdversativeConnectors() {
         {/* Pro Tip */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg mt-4 sm:mt-5 md:mt-6">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 Prüfungstipp

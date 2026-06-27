@@ -1,6 +1,7 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { GrammarSubmitResult } from '../types/api';
 import { MIN_PASSING_SCORE } from '../constants/progress';
+import { Ui } from '../lib/icons';
 
 type Params = {
   lessonNumber?: string;
@@ -48,9 +49,7 @@ export function GrammarResultsPage() {
           onClick={() => navigate(`/course/${lessonNumber}`)}
           className="flex items-center gap-2 text-text-muted text-[0.9rem] font-medium transition-colors hover:text-text-main"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
+          <Ui.ArrowLeft size={20} />
           Zurück zu Lektion {lessonNumber}
         </button>
       </header>
@@ -105,13 +104,7 @@ export function GrammarResultsPage() {
             <div className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 ${
               passed ? 'bg-[#EBF5EC] text-[#6B8C6E]' : 'bg-[#FFF5F5] text-[#C07766]'
             }`}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                {passed ? (
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                ) : (
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                )}
-              </svg>
+              {passed ? <Ui.Check size={16} stroke={3} /> : <Ui.Close size={16} stroke={3} />}
               <span className="text-sm font-bold">
                 {passed ? 'Bestanden' : 'Nicht bestanden'} (60% erforderlich)
               </span>
@@ -142,13 +135,7 @@ export function GrammarResultsPage() {
                       : 'bg-[#FFF5F5] text-[#C07766]'
                   }`}
                 >
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                    {questionResult.isCorrect ? (
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    ) : (
-                      <path d="M18 6L6 18M6 6l12 12"></path>
-                    )}
-                  </svg>
+                  {questionResult.isCorrect ? <Ui.Check size={12} stroke={3} /> : <Ui.Close size={12} stroke={3} />}
                   {questionResult.isCorrect ? 'Richtig' : 'Falsch'}
                 </span>
               </div>
@@ -175,9 +162,7 @@ export function GrammarResultsPage() {
                     bgColor = 'bg-[#F4F9F4]';
                     badge = (
                       <span className="ml-auto text-xs font-bold text-[#6B8C6E] flex items-center gap-1">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
+                        <Ui.Check size={14} stroke={3} />
                         Richtige Antwort
                       </span>
                     );

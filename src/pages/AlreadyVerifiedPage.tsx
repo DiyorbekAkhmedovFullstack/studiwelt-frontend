@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Icon } from '../lib/icons';
 
 export function AlreadyVerifiedPage() {
   const { t } = useTranslation('auth');
@@ -14,19 +15,7 @@ export function AlreadyVerifiedPage() {
       <div className="w-full max-w-[520px] bg-surface rounded-[24px] shadow-[0_10px_40px_rgba(62,54,48,0.08)] p-12 text-center">
         {/* Info Icon */}
         <div className="w-20 h-20 bg-[#F0F4FF] rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg
-            className="h-10 w-10 text-[#5B8DEF]"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <Icon.Info className="h-10 w-10 text-[#5B8DEF]" stroke={2.5} />
         </div>
 
         {/* Message */}

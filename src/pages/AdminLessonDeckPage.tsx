@@ -6,6 +6,7 @@ import type { Deck } from '../types/api';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { CSVUploadForm } from '../components/lesson/CSVUploadForm';
+import { Ui } from '../lib/icons';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
 
 type Params = {
@@ -285,9 +286,7 @@ export function AdminLessonDeckPage() {
             to={`/admin/lessons/${lesson.lessonNumber}`}
             className="flex items-center gap-2 text-text-muted text-[14px] font-medium mb-6 hover:text-text-main transition-colors"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
+            <Ui.ArrowLeft size={18} />
             Back to Lesson Detail
           </Link>
           <p className="text-[13px] uppercase tracking-wider text-text-muted font-semibold mb-2">

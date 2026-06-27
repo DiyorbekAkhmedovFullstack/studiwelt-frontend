@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Icon, Ui } from '../../../lib/icons';
 
 type ConnectorType = 'add' | 'contrast' | 'cond' | 'alt';
 
@@ -17,16 +18,7 @@ export function ConnectorCards() {
       type: 'cond',
       logicTag: 'Vergleich',
       icon: (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#D9A441"
-          strokeWidth="2"
-        >
-          <path d="M3 6l6 6 6-6M3 18l6-6 6 6" />
-        </svg>
+        <Icon.Compare width={20} height={20} className="text-[#D9A441]" />
       ),
       title: 'Je ... desto/umso',
       syntaxGuide: 'NS (Verb Ende), HS (Verb Pos 2)',
@@ -36,16 +28,7 @@ export function ConnectorCards() {
       type: 'add',
       logicTag: 'Addition',
       icon: (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#6B8C6E"
-          strokeWidth="2"
-        >
-          <path d="M12 5v14M5 12h14" />
-        </svg>
+        <Ui.Plus width={20} height={20} className="text-[#6B8C6E]" />
       ),
       title: 'Nicht nur ... sondern auch',
       syntaxGuide: 'HS (Pos 0), HS (Pos 0)',
@@ -56,17 +39,7 @@ export function ConnectorCards() {
       type: 'contrast',
       logicTag: 'Einschränkung',
       icon: (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#C07766"
-          strokeWidth="2"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
-        </svg>
+        <Icon.Restriction width={20} height={20} className="text-[#C07766]" />
       ),
       title: 'Zwar ... aber',
       syntaxGuide: 'HS (Pos 1/3), HS (Pos 0)',
@@ -77,16 +50,7 @@ export function ConnectorCards() {
       type: 'alt',
       logicTag: 'Alternative',
       icon: (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M4 20h5M4 20v-5" />
-        </svg>
+        <Icon.Switch width={20} height={20} />
       ),
       title: 'Entweder ... oder',
       syntaxGuide: 'HS (Pos 0), HS (Pos 0)',

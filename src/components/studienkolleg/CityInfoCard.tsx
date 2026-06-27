@@ -1,3 +1,5 @@
+import { Icon } from '../../lib/icons';
+
 type CityInfoCardProps = {
   cityName: string;
   description: string;
@@ -22,16 +24,7 @@ export function CityInfoCard({
         {/* Cost of Living */}
         <div className="bg-accent-subtle p-4 rounded-xl flex items-center gap-3">
           <div className="w-10 h-10 bg-surface rounded-full flex items-center justify-center text-primary shadow-sm">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-            </svg>
+            <Icon.Finances size={20} />
           </div>
           <div>
             <strong className="block text-sm text-text-main font-semibold">
@@ -44,18 +37,7 @@ export function CityInfoCard({
         {/* Transit */}
         <div className="bg-accent-subtle p-4 rounded-xl flex items-center gap-3">
           <div className="w-10 h-10 bg-surface rounded-full flex items-center justify-center text-primary shadow-sm">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M4 11a9 9 0 0 1 9 9" />
-              <path d="M4 4a16 16 0 0 1 16 16" />
-              <circle cx="5" cy="19" r="1" />
-            </svg>
+            <Icon.Transit size={20} />
           </div>
           <div>
             <strong className="block text-sm text-text-main font-semibold">

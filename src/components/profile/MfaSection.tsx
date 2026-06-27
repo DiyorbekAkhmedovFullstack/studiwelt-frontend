@@ -4,6 +4,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { authService } from '../../services/authService';
 import type { User } from '../../types/api';
+import { Ui } from '../../lib/icons';
 import { toastService } from '../../services/toastService';
 
 export function MfaSection() {
@@ -122,10 +123,7 @@ export function MfaSection() {
             <p className="text-sm sm:text-base text-text-muted">{t('profile.security.subtitle')}</p>
           </div>
           <div className="flex items-center gap-2 px-3 py-1.5 bg-[rgba(107,140,110,0.1)] text-[#6B8C6E] rounded-full text-[13px] sm:text-[14px] font-semibold w-fit">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
+            <Ui.Lock size={16} />
             {t('profile.security.mfaEnabled')}
           </div>
         </div>

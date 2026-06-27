@@ -3,63 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, seoConfig } from '../components/common/SEO';
+import { Icon, Ui } from '../lib/icons';
 
 // Icons
-const UniAssistIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"></circle>
-    <line x1="2" y1="12" x2="22" y2="12"></line>
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-  </svg>
-);
-
-const DirectIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-  </svg>
-);
-
-const DocumentIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-    <polyline points="14 2 14 8 20 8"></polyline>
-    <line x1="16" y1="13" x2="8" y2="13"></line>
-    <line x1="16" y1="17" x2="8" y2="17"></line>
-    <polyline points="10 9 9 9 8 9"></polyline>
-  </svg>
-);
-
-const CalendarIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-    <line x1="16" y1="2" x2="16" y2="6"></line>
-    <line x1="8" y1="2" x2="8" y2="6"></line>
-    <line x1="3" y1="10" x2="21" y2="10"></line>
-  </svg>
-);
-
-const ExamIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M9 11l3 3L22 4"></path>
-    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-  </svg>
-);
-
-const VisaIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-    <line x1="3" y1="10" x2="21" y2="10"></line>
-    <line x1="7" y1="15" x2="7.01" y2="15"></line>
-    <line x1="11" y1="15" x2="17" y2="15"></line>
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg className="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <polyline points="20 6 9 17 4 12"></polyline>
-  </svg>
-);
+const UniAssistIcon = () => <Icon.Country size={24} />;
+const DirectIcon = () => <Icon.School size={24} />;
+const DocumentIcon = () => <Icon.Documents size={24} />;
+const CalendarIcon = () => <Icon.Timeline size={24} />;
+const ExamIcon = () => <Icon.EntranceExam size={24} />;
+const VisaIcon = () => <Icon.Visa size={24} />;
+const CheckIcon = () => <Ui.Check className="w-5 h-5 text-success flex-shrink-0" />;
 
 
 export function ApplicationPage() {
@@ -188,11 +141,7 @@ export function ApplicationPage() {
                     <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                     <p className="text-text-muted text-[15px] mb-3">{step.description}</p>
                     <p className="text-sm text-primary font-medium flex items-center gap-2">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                      </svg>
+                      <Icon.Tip size={16} />
                       {t('steps.tipLabel')}: {step.tip}
                     </p>
                   </div>
@@ -236,11 +185,7 @@ export function ApplicationPage() {
 
               <div className="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200">
                 <p className="text-sm text-amber-800 flex items-start gap-2">
-                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                  </svg>
+                  <Icon.Warning className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>{t('documents.warningLabel')}</strong> {t('documents.warningText')}
                   </span>
@@ -355,10 +300,7 @@ export function ApplicationPage() {
               {/* Blocked Account */}
               <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
                 <div className="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                  </svg>
+                  <Icon.Finances size={24} />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{t('visa.blockedAccount.title')}</h3>
                 <p className="text-text-muted text-[15px] mb-3">
@@ -370,9 +312,7 @@ export function ApplicationPage() {
               {/* Health Insurance */}
               <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
                 <div className="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                  </svg>
+                  <Icon.Health size={24} />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{t('visa.healthInsurance.title')}</h3>
                 <p className="text-text-muted text-[15px] mb-3">
@@ -424,10 +364,7 @@ export function ApplicationPage() {
                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-primary-hover shadow-[0_4px_12px_rgba(166,123,91,0.3)] active:scale-[0.98]"
               >
                 {t('cta.startButton')}
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                <Ui.ArrowRight size={20} />
               </Link>
 
               <Link

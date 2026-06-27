@@ -6,6 +6,7 @@ import { CityInfoCard } from '../components/studienkolleg/CityInfoCard';
 import { CoursesCard } from '../components/studienkolleg/CoursesCard';
 import { ApplicationCard } from '../components/studienkolleg/ApplicationCard';
 import { ExamCard } from '../components/studienkolleg/ExamCard';
+import { Ui } from '../lib/icons';
 import { SEO, getStudienkollegSEO } from '../components/common/SEO';
 
 export function StudienkollegDetailPage() {
@@ -41,16 +42,7 @@ export function StudienkollegDetailPage() {
           onClick={() => navigate('/')}
           className="flex items-center gap-2 text-text-muted hover:text-text-main font-semibold text-sm transition-all duration-200 hover:-translate-x-1"
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
+          <Ui.ArrowLeft size={20} />
           Back to Directory
         </button>
       </nav>

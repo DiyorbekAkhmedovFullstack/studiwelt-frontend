@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { authService } from '../services/authService';
 import { useAuth } from '../contexts/AuthContext';
+import { Ui } from '../lib/icons';
 
 export function VerifyAccountPage() {
   const { t } = useTranslation('auth');
@@ -62,19 +63,7 @@ export function VerifyAccountPage() {
         {error && (
           <>
             <div className="w-16 h-16 bg-[#FFF5F5] rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg
-                className="h-8 w-8 text-danger"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <Ui.Close className="h-8 w-8 text-danger" stroke={2.5} />
             </div>
             <h2 className="text-[24px] font-serif font-bold mb-3 text-text-main">
               {t('verifyAccount.failed.title')}

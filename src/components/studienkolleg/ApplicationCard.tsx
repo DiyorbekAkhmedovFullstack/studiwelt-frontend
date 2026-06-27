@@ -1,4 +1,5 @@
 import type { StudienkollegData } from '../../data/studienkollegData';
+import { Ui } from '../../lib/icons';
 
 type ApplicationCardProps = {
   application: StudienkollegData['application'];
@@ -57,18 +58,7 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
         className="w-full py-3.5 px-4 bg-text-main text-white rounded-xl font-semibold text-center transition-all duration-200 hover:bg-primary hover:-translate-y-0.5 shadow-[0_4px_12px_rgba(62,54,48,0.2)] flex items-center justify-center gap-2 mb-3"
       >
         Start Application
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-          <polyline points="15 3 21 3 21 9" />
-          <line x1="10" y1="14" x2="21" y2="3" />
-        </svg>
+        <Ui.ExternalLink size={16} />
       </a>
       <a
         href={application.websiteUrl}

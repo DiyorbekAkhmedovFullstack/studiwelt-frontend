@@ -4,6 +4,7 @@ import { paymentService } from '../services/paymentService';
 import { toastService } from '../services/toastService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { DashboardLayout } from '../components/dashboard';
+import { Ui } from '../lib/icons';
 
 export function PaymentSuccessPage() {
   const [searchParams] = useSearchParams();
@@ -69,19 +70,7 @@ export function PaymentSuccessPage() {
       <div className="max-w-2xl mx-auto text-center py-16">
         <div className="bg-surface rounded-xl p-12 shadow-card">
           <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg
-              className="w-10 h-10 text-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            <Ui.Check className="w-10 h-10 text-primary" />
           </div>
 
           <h1 className="text-[32px] font-bold mb-4">Payment Successful!</h1>

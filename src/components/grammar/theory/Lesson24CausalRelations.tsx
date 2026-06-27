@@ -1,3 +1,4 @@
+import { Icon } from '../../../lib/icons';
 import { CausalSpectrumGrid } from './CausalSpectrumGrid';
 import { WeilDaComparison } from './WeilDaComparison';
 import { CausalContextSelector } from './CausalContextSelector';
@@ -140,7 +141,7 @@ export function Lesson24CausalRelations() {
         {/* Exam Tip */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 TestDaF/DSH Prüfungstipp

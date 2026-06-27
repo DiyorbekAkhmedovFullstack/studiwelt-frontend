@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Icon, Ui } from '../../lib/icons';
 
 const SUPPORTED_LANGUAGES = ['de', 'en'];
 const STORAGE_KEY = 'i18nextLng';
@@ -72,19 +73,7 @@ export function LanguagePromptBanner() {
         <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center flex-shrink-0">
-              <svg
-                className="w-5 h-5 text-primary"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
+              <Icon.Country className="w-5 h-5 text-primary" />
             </div>
             <div>
               <h2
@@ -103,18 +92,7 @@ export function LanguagePromptBanner() {
             className="p-1.5 rounded-lg text-text-muted hover:text-text-main hover:bg-highlight transition-colors"
             aria-label="Dismiss language selection"
           >
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <Ui.Close className="w-5 h-5" />
           </button>
         </div>
 

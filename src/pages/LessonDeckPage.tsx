@@ -3,6 +3,7 @@ import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { LessonDeckPractice } from '../components/lesson/LessonDeckPractice';
 import { useLessonByNumber } from '../hooks/queries/useLessons';
 import { useDecksByLesson } from '../hooks/queries/useDecks';
+import { Ui } from '../lib/icons';
 
 type Params = {
   lessonNumber?: string;
@@ -93,9 +94,7 @@ export function LessonDeckPage() {
               onClick={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
               className="text-[14px] text-primary font-semibold mb-3 hover:underline inline-flex items-center gap-1"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
+              <Ui.ArrowLeft size={16} />
               Zurück zur Lektion
             </button>
           </header>

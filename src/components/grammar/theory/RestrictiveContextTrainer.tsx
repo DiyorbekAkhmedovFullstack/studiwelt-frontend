@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Icon, Ui } from '../../../lib/icons';
 
 type Exercise = {
   id: string;
@@ -309,11 +310,9 @@ export function RestrictiveContextTrainer() {
           }`}
         >
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-xl sm:text-2xl">
-              {currentExercise.options.find((o) => o.particle === selectedParticle)?.isCorrect
-                ? '✓'
-                : 'ℹ'}
-            </span>
+            {currentExercise.options.find((o) => o.particle === selectedParticle)?.isCorrect
+              ? <Ui.Check className="text-success" size={22} />
+              : <Icon.Info className="text-primary" size={22} />}
             <div>
               <p className="text-xs sm:text-sm md:text-base text-text-main font-semibold mb-1">
                 {currentExercise.options.find((o) => o.particle === selectedParticle)?.isCorrect

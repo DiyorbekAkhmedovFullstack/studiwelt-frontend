@@ -1,3 +1,4 @@
+import { Icon, Ui } from '../../../lib/icons';
 import { GrammarReviewGrid } from './GrammarReviewGrid';
 import { ExamStrategiesGrid } from './ExamStrategiesGrid';
 import { GrammarCompetencyChecklist } from './GrammarCompetencyChecklist';
@@ -41,7 +42,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 1 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 aber vs. sondern verwechseln
               </h3>
@@ -61,7 +62,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 2 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 Zeitenfolge bei nachdem ignorieren
               </h3>
@@ -81,7 +82,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 3 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 Irrealis falsch bilden
               </h3>
@@ -101,7 +102,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 4 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 weil im formellen Text (statt da)
               </h3>
@@ -121,7 +122,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 5 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 Modalpartikeln schriftlich verwenden
               </h3>
@@ -140,7 +141,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 6 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 Adjektivendung vergessen
               </h3>
@@ -159,7 +160,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 7 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 nur in formalem Kontext
               </h3>
@@ -179,7 +180,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 8 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 Informelle Meinungsäußerung
               </h3>
@@ -198,7 +199,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 9 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 Nur Hauptsätze verwenden
               </h3>
@@ -218,7 +219,7 @@ export function Lesson30ExamPreparation() {
           {/* Error 10 */}
           <div className="bg-[#FFE5E5] rounded-lg p-4 sm:p-5 border-l-4 border-[#C2185B]">
             <div className="flex items-start gap-2 mb-2">
-              <span className="text-base sm:text-lg">❌</span>
+              <Ui.Close className="text-danger shrink-0 mt-0.5" size={18} />
               <h3 className="text-sm sm:text-base font-bold text-text-main">
                 Fehlende Referenzkette
               </h3>
@@ -305,7 +306,7 @@ export function Lesson30ExamPreparation() {
         {/* Final Motivation */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">🎯</span>
+            <Icon.Target className="text-primary shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 Letzter Tipp vor der Prüfung
@@ -315,7 +316,7 @@ export function Lesson30ExamPreparation() {
                 Konzentriere dich auf <strong>klare Struktur</strong> und{' '}
                 <strong>korrekte Anwendung</strong>, nicht auf Perfektion. Kleine Fehler sind
                 ok – niemand erwartet fehlerfreies Deutsch. Zeige, was du <strong>kannst</strong>
-                , nicht, was du nicht kannst. <strong>Viel Erfolg!</strong> 🍀
+                , nicht, was du nicht kannst. <strong>Viel Erfolg!</strong>
               </p>
             </div>
           </div>

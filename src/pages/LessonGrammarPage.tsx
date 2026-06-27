@@ -6,6 +6,7 @@ import {
   SectionCompletedState,
 } from "../components/common";
 import { LessonGrammarTheory } from "../components/grammar/LessonGrammarTheory";
+import { Ui } from "../lib/icons";
 import { useProgress } from "../contexts/ProgressContext";
 import { getGrammarTopicByLessonNumber } from "../data/grammarTopics";
 import {
@@ -129,7 +130,7 @@ export function LessonGrammarPage() {
             const nowCompleted = isSectionLocked(lesson.id, "grammar");
             if (nowCompleted) {
               toastService.success(
-                "✓ Grammatik-Bereich erfolgreich abgeschlossen! Du hast alle 3 Versuche mit guten Ergebnissen beendet.",
+                "Grammatik-Bereich erfolgreich abgeschlossen! Du hast alle 3 Versuche mit guten Ergebnissen beendet.",
                 { duration: 6000 },
               );
             } else {
@@ -218,16 +219,7 @@ export function LessonGrammarPage() {
           onClick={() => navigate(`/course/${lesson.lessonNumber}`)}
           className="flex items-center gap-2 text-text-muted text-[0.9rem] font-medium transition-colors hover:text-text-main"
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
+          <Ui.ArrowLeft size={20} />
           Zurück zu Lektion {lesson.lessonNumber}
         </button>
       </header>

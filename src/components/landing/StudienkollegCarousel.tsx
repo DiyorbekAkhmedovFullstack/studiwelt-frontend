@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { OptimizedImage } from '../common/OptimizedImage';
+import { Icon, Ui } from '../../lib/icons';
 
 type Course = {
   name: string;
@@ -276,16 +277,7 @@ export function StudienkollegCarousel() {
             className="flex absolute left-0 md:left-2 lg:-translate-x-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-gray-200 items-center justify-center transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-50 shadow-md"
             aria-label="Previous"
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
+            <Ui.ChevronLeft size={18} />
           </button>
           <button
             onClick={handleNext}
@@ -293,16 +285,7 @@ export function StudienkollegCarousel() {
             className="flex absolute right-0 md:right-2 lg:translate-x-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-gray-200 items-center justify-center transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-50 shadow-md"
             aria-label="Next"
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
+            <Ui.ChevronRight size={18} />
           </button>
 
           {/* Responsive Cards Grid: 1 on mobile, 2 on tablet, 3 on desktop */}
@@ -342,17 +325,7 @@ export function StudienkollegCarousel() {
                   {/* Content */}
                   <div className="p-5 md:p-7 flex flex-col flex-1">
                     <div className="flex items-center gap-1.5 text-[0.75rem] md:text-[0.85rem] text-text-muted font-semibold uppercase tracking-wide mb-2">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                      >
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
+                      <Icon.Location size={12} stroke={2.5} />
                       {stk.location}
                     </div>
 

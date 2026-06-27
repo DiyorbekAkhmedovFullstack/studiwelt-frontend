@@ -4,84 +4,18 @@ import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, seoConfig } from '../components/common/SEO';
+import { Icon, Ui } from '../lib/icons';
 
 // Icons
-const CertificateIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="12" rx="2"></rect>
-        <line x1="3" y1="10" x2="21" y2="10"></line>
-        <path d="M12 16v4"></path>
-        <path d="M8 20h8"></path>
-    </svg>
-);
-
-const DocumentIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-        <polyline points="14 2 14 8 20 8"></polyline>
-        <line x1="16" y1="13" x2="8" y2="13"></line>
-        <line x1="16" y1="17" x2="8" y2="17"></line>
-    </svg>
-);
-
-const GlobeIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="2" y1="12" x2="22" y2="12"></line>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-    </svg>
-);
-
-const PenIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-        <path d="M2 2l7.586 7.586"></path>
-        <circle cx="11" cy="11" r="2"></circle>
-    </svg>
-);
-
-
-
-const LightbulbIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
-        <path d="M9 18h6"></path>
-        <path d="M10 22h4"></path>
-    </svg>
-);
-
-const TrophyIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-        <path d="M4 22h16"></path>
-        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-    </svg>
-);
-
-const CheckIcon = () => (
-    <svg className="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
-);
-
-const XIcon = () => (
-    <svg className="w-5 h-5 text-danger flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-);
-
-const AlertIcon = () => (
-    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="8" x2="12" y2="12"></line>
-        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-    </svg>
-);
+const CertificateIcon = () => <Icon.Assessment size={24} />;
+const DocumentIcon = () => <Icon.Documents size={24} />;
+const GlobeIcon = () => <Icon.Country size={24} />;
+const PenIcon = () => <Icon.EntranceExam size={24} />;
+const LightbulbIcon = () => <Icon.Tip size={24} />;
+const TrophyIcon = () => <Icon.Trophy size={24} />;
+const CheckIcon = () => <Ui.Check className="w-5 h-5 text-success flex-shrink-0" />;
+const XIcon = () => <Ui.Close className="w-5 h-5 text-danger flex-shrink-0" />;
+const AlertIcon = () => <Icon.Info className="w-5 h-5 flex-shrink-0 mt-0.5" />;
 
 type CourseType = 'T' | 'M' | 'W' | 'G' | 'S';
 
@@ -149,24 +83,15 @@ export function FSPPage() {
 
                         <div className="flex flex-wrap justify-center gap-4 text-sm text-text-muted">
                             <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                </svg>
+                                <Icon.Documents size={16} />
                                 <span>{t('hero.tags.writtenExams')}</span>
                             </div>
                             <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
+                                <Ui.Check size={16} />
                                 <span>{t('hero.tags.passingGrade')}</span>
                             </div>
                             <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-full shadow-sm">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                                </svg>
+                                <Icon.Country size={16} />
                                 <span>{t('hero.tags.nationallyRecognized')}</span>
                             </div>
                         </div>
@@ -472,10 +397,7 @@ export function FSPPage() {
                                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-primary-hover shadow-[0_4px_12px_rgba(166,123,91,0.3)] active:scale-[0.98]"
                             >
                                 {t('cta.startButton')}
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
+                                <Ui.ArrowRight size={20} />
                             </Link>
 
                             <Link

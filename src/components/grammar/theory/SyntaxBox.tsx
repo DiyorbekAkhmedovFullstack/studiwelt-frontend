@@ -1,3 +1,5 @@
+import { Icon } from '../../../lib/icons';
+
 type SyntaxRule = {
   title: string;
   formula: string;
@@ -61,7 +63,7 @@ export function SyntaxBox() {
               „{rule.example}"
             </p>
             <p className="text-[0.75rem] sm:text-[0.8rem] md:text-[0.85rem] text-red-600 bg-red-50 rounded-[8px] p-2 sm:p-3">
-              <strong>⚠️ Lernfalle:</strong> {rule.trap}
+              <strong><Icon.Warning className="inline text-red-600" size={14} /> Lernfalle:</strong> {rule.trap}
             </p>
           </div>
         ))}

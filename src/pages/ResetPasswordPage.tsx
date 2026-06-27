@@ -5,6 +5,7 @@ import { authService } from '../services/authService';
 import { toastService } from '../services/toastService';
 import { AuthLayout, PasswordInput } from '../components/auth';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
+import { Ui } from '../lib/icons';
 
 type VerifyPasswordResult = {
   userId: string;
@@ -191,9 +192,7 @@ export function ResetPasswordPage() {
             {/* Success Icon */}
             <div className="mb-6 flex justify-center">
               <div className="w-16 h-16 bg-[#EBF5EC] rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-[#6B8C6E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <Ui.Check className="w-8 h-8 text-[#6B8C6E]" stroke={2.5} />
               </div>
             </div>
 

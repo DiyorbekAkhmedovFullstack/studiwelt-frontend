@@ -1,3 +1,4 @@
+import { Icon, Ui } from '../../../lib/icons';
 import { ModalParticleGrid } from './ModalParticleGrid';
 import { ParticleMeaningShift } from './ParticleMeaningShift';
 import { ParticleContextTrainer } from './ParticleContextTrainer';
@@ -151,7 +152,7 @@ export function Lesson25ModalParticles() {
           {/* Spoken German */}
           <div className="bg-[#E8F5E9] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#2E7D32]">
             <h3 className="text-base sm:text-lg font-semibold text-[#2E7D32] mb-3">
-              Gesprochenes Deutsch ✓
+              Gesprochenes Deutsch <Ui.Check className="inline" size={16} />
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-text-main">
               <li className="flex items-start gap-2">
@@ -176,7 +177,7 @@ export function Lesson25ModalParticles() {
           {/* Written German */}
           <div className="bg-[#FFEBEE] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#C62828]">
             <h3 className="text-base sm:text-lg font-semibold text-[#C62828] mb-3">
-              Geschriebenes Deutsch ✗
+              Geschriebenes Deutsch <Ui.Close className="inline" size={16} />
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-text-main">
               <li className="flex items-start gap-2">
@@ -244,7 +245,7 @@ export function Lesson25ModalParticles() {
         {/* Exam Tip */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 TestDaF/DSH Prüfungstipp

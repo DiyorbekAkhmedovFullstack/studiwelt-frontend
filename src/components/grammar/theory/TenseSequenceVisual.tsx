@@ -1,3 +1,5 @@
+import { Icon } from '../../../lib/icons';
+
 type TenseExample = {
   conjunction: string;
   subordinateClause: {
@@ -152,7 +154,7 @@ export function TenseSequenceVisual() {
       {/* Summary Box */}
       <div className="bg-[#FFF9E5] border-l-4 border-[#D9A441] px-4 sm:px-5 py-4 sm:py-5 rounded-r-lg mt-6 sm:mt-8">
         <div className="flex items-start gap-2 sm:gap-3">
-          <span className="text-lg sm:text-xl">⚡</span>
+          <Icon.Bolt className="text-[#D9A441] shrink-0 mt-0.5" size={20} />
           <div>
             <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1 sm:mb-2">
               Die goldene Regel

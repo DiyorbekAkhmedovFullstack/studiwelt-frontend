@@ -4,6 +4,7 @@ import type { Card, Deck } from '../../types/api';
 import { deckService } from '../../services/deckService';
 import { toastService } from '../../services/toastService';
 import { useProgress } from '../../contexts/ProgressContext';
+import { Icon, Ui } from '../../lib/icons';
 
 type LessonDeckPracticeProps = {
   deck: Deck;
@@ -93,7 +94,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
             const nowCompleted = isSectionLocked(currentDeck.lessonId, 'flashcards');
             if (nowCompleted) {
               toastService.success(
-                '✓ Karteikarten-Abschnitt erfolgreich abgeschlossen! Du hast alle 3 Versuche mit tollen Ergebnissen absolviert.',
+                'Karteikarten-Abschnitt erfolgreich abgeschlossen! Du hast alle 3 Versuche mit tollen Ergebnissen absolviert.',
                 { duration: 6000 }
               );
             }
@@ -236,10 +237,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
               {currentCard.front}
             </p>
             <div className="w-full text-center text-[14px] text-text-muted flex items-center justify-center gap-2 opacity-70 mt-auto">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
+              <Icon.Reveal size={18} />
               Klicken, um die Antwort anzuzeigen
             </div>
           </div>
@@ -275,10 +273,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
             className="relative w-16 h-16 rounded-full bg-surface shadow-card flex items-center justify-center text-[#C07766] border-2 border-transparent transition-all duration-200 hover:-translate-y-1 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 hover:bg-[#FFF5F5] hover:border-[#C07766]"
             style={{ transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
+            <Ui.Close size={24} stroke={2.5} />
           </button>
 
           {/* Flip Button */}
@@ -289,9 +284,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
             className="relative w-20 h-20 rounded-full bg-text-main text-white shadow-card flex items-center justify-center transition-all duration-200 hover:-translate-y-1 hover:rotate-180 hover:bg-primary active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
             style={{ transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-            </svg>
+            <Icon.Restart size={24} />
           </button>
 
           {/* Known Button */}
@@ -302,9 +295,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
             className="relative w-16 h-16 rounded-full bg-surface shadow-card flex items-center justify-center text-[#6B8C6E] border-2 border-transparent transition-all duration-200 hover:-translate-y-1 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 hover:bg-[#F0F7F1] hover:border-[#6B8C6E]"
             style={{ transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <Ui.Check size={24} stroke={2.5} />
           </button>
         </div>
       )}

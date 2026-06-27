@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import { Icon } from '../../../lib/icons';
 
 type LogicType = 'causal' | 'concessive' | 'final';
 
@@ -11,13 +12,13 @@ type LogicData = {
 
 type LogicButtonProps = {
   logicType: LogicType;
-  emoji: string;
+  icon: ReactNode;
   label: string;
   isActive: boolean;
   onClick: () => void;
 };
 
-function LogicButton({ logicType, emoji, label, isActive, onClick }: LogicButtonProps) {
+function LogicButton({ logicType, icon, label, isActive, onClick }: LogicButtonProps) {
   const activeClasses: Record<LogicType, string> = {
     causal: 'border-[#A67B5B] text-[#A67B5B] bg-[#F9F5F0]',
     concessive: 'border-[#C07766] text-[#C07766] bg-[#FFF5F5]',
@@ -34,7 +35,7 @@ function LogicButton({ logicType, emoji, label, isActive, onClick }: LogicButton
           : 'border-transparent text-text-muted hover:-translate-y-0.5'
       }`}
     >
-      <span className="text-base sm:text-lg md:text-xl">{emoji}</span> {label}
+      {icon} {label}
     </button>
   );
 }
@@ -136,21 +137,21 @@ export function LogicSwitcher() {
       <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-4 sm:mb-5 md:mb-6">
         <LogicButton
           logicType="causal"
-          emoji="🤔"
+          icon={<Icon.Tip size={18} />}
           label="Kausal (Grund)"
           isActive={currentLogic === 'causal'}
           onClick={() => handleSwitch('causal')}
         />
         <LogicButton
           logicType="concessive"
-          emoji="⛈️"
+          icon={<Icon.Bolt size={18} />}
           label="Konzessiv (Gegensatz)"
           isActive={currentLogic === 'concessive'}
           onClick={() => handleSwitch('concessive')}
         />
         <LogicButton
           logicType="final"
-          emoji="🎯"
+          icon={<Icon.Target size={18} />}
           label="Final (Zweck)"
           isActive={currentLogic === 'final'}
           onClick={() => handleSwitch('final')}

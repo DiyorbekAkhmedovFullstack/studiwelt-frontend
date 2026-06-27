@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import { Ui } from '../../../lib/icons';
 
 export function SentenceElevator() {
   const [isElevated, setIsElevated] = useState(false);
@@ -65,17 +66,7 @@ export function SentenceElevator() {
             onClick={handleElevate}
             className="text-white text-xs sm:text-sm md:text-base bg-primary border-none px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 rounded-[40px] sm:rounded-[45px] md:rounded-[50px] font-semibold cursor-pointer shadow-[0_4px_12px_rgba(166,123,91,0.3)] transition-all hover:bg-[#8D6546] hover:-translate-y-0.5 inline-flex items-center gap-2"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="sm:w-5 sm:h-5"
-            >
-              <path d="M12 19V5M5 12l7-7 7 7" />
-            </svg>
+            <Ui.ArrowUp width={16} height={16} className="sm:w-5 sm:h-5" />
             Niveau anheben
           </button>
         ) : (

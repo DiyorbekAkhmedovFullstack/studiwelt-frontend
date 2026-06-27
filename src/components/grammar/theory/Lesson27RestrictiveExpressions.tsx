@@ -1,3 +1,4 @@
+import { Icon, Ui } from '../../../lib/icons';
 import { RestrictiveParticlesGrid } from './RestrictiveParticlesGrid';
 import { FocusParticlesComparison } from './FocusParticlesComparison';
 import { RestrictiveContextTrainer } from './RestrictiveContextTrainer';
@@ -33,7 +34,7 @@ export function Lesson27RestrictiveExpressions() {
           {/* Academic/Formal Writing */}
           <div className="bg-[#FFF3E0] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#E65100]">
             <h3 className="text-base sm:text-lg font-semibold text-[#E65100] mb-3 flex items-center gap-2">
-              <span>📝</span>
+              <Icon.Documents size={18} />
               Akademisches Schreiben / Formelle Texte
             </h3>
             <div className="space-y-3">
@@ -53,7 +54,7 @@ export function Lesson27RestrictiveExpressions() {
                   <strong>Beispiel:</strong> Die Studie umfasst lediglich 50 Teilnehmer.
                 </p>
                 <p className="text-[0.65rem] sm:text-xs text-text-muted italic">
-                  ✓ Formal, präzise, akademisch
+                  <Ui.Check className="inline text-success" size={12} />Formal, präzise, akademisch
                 </p>
               </div>
             </div>
@@ -62,7 +63,7 @@ export function Lesson27RestrictiveExpressions() {
           {/* Neutral/Universal */}
           <div className="bg-[#E3F2FD] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#1565C0]">
             <h3 className="text-base sm:text-lg font-semibold text-[#1565C0] mb-3 flex items-center gap-2">
-              <span>✅</span>
+              <Ui.Check size={18} />
               Neutral / Universal einsetzbar
             </h3>
             <div className="space-y-3">
@@ -80,7 +81,7 @@ export function Lesson27RestrictiveExpressions() {
                   <strong>Beispiel:</strong> Ich habe nur 10 Euro.
                 </p>
                 <p className="text-[0.65rem] sm:text-xs text-text-muted italic">
-                  ✓ Neutral, sicher, immer korrekt
+                  <Ui.Check className="inline text-success" size={12} />Neutral, sicher, immer korrekt
                 </p>
               </div>
             </div>
@@ -89,7 +90,7 @@ export function Lesson27RestrictiveExpressions() {
           {/* Spoken/Informal */}
           <div className="bg-[#E8F5E9] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#2E7D32]">
             <h3 className="text-base sm:text-lg font-semibold text-[#2E7D32] mb-3 flex items-center gap-2">
-              <span>💬</span>
+              <Icon.LanguageReq size={18} />
               Gesprochenes Deutsch / Informell
             </h3>
             <div className="space-y-3">
@@ -107,7 +108,7 @@ export function Lesson27RestrictiveExpressions() {
                   <strong>Beispiel:</strong> Das dauert bloß fünf Minuten!
                 </p>
                 <p className="text-[0.65rem] sm:text-xs text-text-muted italic">
-                  ✓ Natürlich, lebendig, authentisch
+                  <Ui.Check className="inline text-success" size={12} />Natürlich, lebendig, authentisch
                 </p>
               </div>
             </div>
@@ -116,7 +117,7 @@ export function Lesson27RestrictiveExpressions() {
           {/* Literary/Elevated */}
           <div className="bg-[#F3E5F5] rounded-lg sm:rounded-xl p-4 sm:p-5 border-l-4 border-[#6A1B9A]">
             <h3 className="text-base sm:text-lg font-semibold text-[#6A1B9A] mb-3 flex items-center gap-2">
-              <span>📖</span>
+              <Icon.Curriculum size={18} />
               Literarisch / Gehoben
             </h3>
             <div className="space-y-3">
@@ -134,7 +135,7 @@ export function Lesson27RestrictiveExpressions() {
                   <strong>Beispiel:</strong> Allein die Tatsache zeigt das Problem.
                 </p>
                 <p className="text-[0.65rem] sm:text-xs text-text-muted italic">
-                  ✓ Poetisch, gehoben, literarisch
+                  <Ui.Check className="inline text-success" size={12} />Poetisch, gehoben, literarisch
                 </p>
               </div>
             </div>
@@ -195,10 +196,10 @@ export function Lesson27RestrictiveExpressions() {
             <div className="bg-[#FFE5E5] rounded-lg p-4 border-l-4 border-[#C2185B]">
               <div className="space-y-2">
                 <p className="text-xs sm:text-sm font-serif text-text-main">
-                  ✓ Das ist die <strong>einzige</strong> Lösung. (Adjektiv, dekliniert)
+                  <Ui.Check className="inline text-success" size={12} />Das ist die <strong>einzige</strong> Lösung. (Adjektiv, dekliniert)
                 </p>
                 <p className="text-xs sm:text-sm font-serif text-text-main">
-                  ✗ Das ist die <del>einzig</del> Lösung. (falsch!)
+                  <Ui.Close className="inline text-danger" size={12} /> Das ist die <del>einzig</del> Lösung. (falsch!)
                 </p>
                 <p className="text-[0.65rem] sm:text-xs text-text-muted italic mt-2">
                   → "Einzig" + Nomen = Adjektiv (braucht Endung)
@@ -316,7 +317,7 @@ export function Lesson27RestrictiveExpressions() {
         {/* Exam Tip */}
         <div className="bg-[rgba(166,123,91,0.1)] border-l-4 border-primary px-3 sm:px-4 py-3 sm:py-4 rounded-r-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            <span className="text-lg sm:text-xl">💡</span>
+            <Icon.Tip className="text-primary shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-xs sm:text-sm md:text-base font-bold text-text-main mb-1">
                 TestDaF/DSH Prüfungstipp

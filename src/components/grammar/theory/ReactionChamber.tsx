@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { DragEvent } from 'react';
+import { Ui } from '../../../lib/icons';
 
 type PrepositionOption = {
   value: string;
@@ -94,14 +95,10 @@ export function ReactionChamber({
           {selectedPrep ? (
             <span className="font-semibold">{selectedPrep}</span>
           ) : (
-            <svg
+            <Ui.Plus
               className={`w-5 h-5 transition-colors ${isDragOver ? 'text-[#4A7C8C]' : 'text-[#C4B5A8]'}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
-            </svg>
+              stroke={1.5}
+            />
           )}
         </div>
 

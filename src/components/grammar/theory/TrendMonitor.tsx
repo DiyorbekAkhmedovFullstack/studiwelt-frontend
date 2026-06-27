@@ -1,3 +1,6 @@
+import type { ReactNode } from 'react';
+import { Icon, Ui } from '../../../lib/icons';
+
 type TrendType = 'up' | 'down' | 'flat';
 
 type VocabItem = {
@@ -8,7 +11,7 @@ type VocabItem = {
 type TrendCard = {
   type: TrendType;
   title: string;
-  icon: string;
+  icon: ReactNode;
   vocab: VocabItem[];
 };
 
@@ -16,8 +19,8 @@ export function TrendMonitor() {
   const trends: TrendCard[] = [
     {
       type: 'up',
-      title: 'Steigend ↗',
-      icon: '📈',
+      title: 'Steigend',
+      icon: <Icon.TrendUp size={20} />,
       vocab: [
         { verb: 'ansteigen / wachsen', noun: 'der Anstieg / das Wachstum' },
         { verb: 'sich erhöhen / zunehmen', noun: 'die Erhöhung / die Zunahme' },
@@ -26,8 +29,8 @@ export function TrendMonitor() {
     },
     {
       type: 'down',
-      title: 'Fallend ↘',
-      icon: '📉',
+      title: 'Fallend',
+      icon: <Icon.TrendDown size={20} />,
       vocab: [
         { verb: 'sinken / fallen', noun: 'das Sinken / der Fall' },
         { verb: 'abnehmen / schrumpfen', noun: 'die Abnahme / die Schrumpfung' },
@@ -36,8 +39,8 @@ export function TrendMonitor() {
     },
     {
       type: 'flat',
-      title: 'Konstant →',
-      icon: '⏸',
+      title: 'Konstant',
+      icon: <Ui.Minus size={20} />,
       vocab: [
         { verb: 'gleich bleiben', noun: 'die Konstanz' },
         { verb: 'stagnieren', noun: 'die Stagnation' },

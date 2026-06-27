@@ -1,5 +1,6 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { MIN_PASSING_SCORE } from '../constants/progress';
+import { Icon, Ui } from '../lib/icons';
 
 type Params = {
   lessonNumber?: string;
@@ -55,9 +56,7 @@ export function DeckResultsPage() {
           onClick={() => navigate(`/course/${lessonNumber}`)}
           className="flex items-center gap-2 text-text-muted text-[0.9rem] font-medium transition-colors hover:text-text-main"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
+          <Ui.ArrowLeft size={20} />
           Zurück zu Lektion {lessonNumber}
         </button>
       </header>
@@ -110,28 +109,21 @@ export function DeckResultsPage() {
             {/* Statistics Badges */}
             <div className="flex flex-wrap items-center justify-center gap-3">
               <div className="inline-flex items-center gap-2 rounded-full bg-[#FAF6F3] px-5 py-2.5 border border-[#E3D4C5]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
+                <Icon.Flashcards size={16} />
                 <span className="text-sm text-text-muted">
                   Gesamt: <span className="font-bold text-text-main">{result.totalCards}</span>
                 </span>
               </div>
 
               <div className="inline-flex items-center gap-2 rounded-full bg-[#EBF5EC] px-5 py-2.5 border border-[#6B8C6E]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <Ui.Check size={16} stroke={3} />
                 <span className="text-sm text-[#6B8C6E]">
                   Gewusst: <span className="font-bold">{result.correct}</span>
                 </span>
               </div>
 
               <div className="inline-flex items-center gap-2 rounded-full bg-[#FFF5F5] px-5 py-2.5 border border-[#C07766]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 2v20M2 12h20"></path>
-                </svg>
+                <Ui.Plus size={16} stroke={2.5} />
                 <span className="text-sm text-[#C07766]">
                   Üben: <span className="font-bold">{result.incorrect}</span>
                 </span>
@@ -144,9 +136,7 @@ export function DeckResultsPage() {
         <section className="bg-surface rounded-[24px] p-8 shadow-card mb-10">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 w-12 h-12 bg-[#FAF6F3] rounded-full flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
+              <Icon.Star size={24} />
             </div>
             <div>
               <h3 className="font-serif text-lg font-bold mb-2 text-text-main">

@@ -5,6 +5,7 @@ import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { toastService } from '../services/toastService';
 import { DashboardLayout, StatCard, LessonCard } from '../components/dashboard';
+import { Icon, Ui } from '../lib/icons';
 
 export function CoursePage() {
   const { user } = useAuth();
@@ -107,32 +108,19 @@ export function CoursePage() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <StatCard
-          icon={
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-5 h-5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          }
+          icon={<Ui.Check className="w-5 h-5" stroke={2.5} />}
           value={`${Math.round(completionPercentage)}%`}
           label="Fortschritt"
         />
         <StatCard
-          icon={
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-5 h-5">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-          }
+          icon={<Icon.Clock className="w-5 h-5" stroke={2.5} />}
           value={`${completedLessons}/${totalLessons}`}
           label="Abgeschlossen"
           iconBgColor="#E6F0FF"
           iconColor="#4A90E2"
         />
         <StatCard
-          icon={
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-5 h-5">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-            </svg>
-          }
+          icon={<Icon.Bolt className="w-5 h-5" stroke={2.5} />}
           value={`Tag ${currentDay}`}
           label="Aktueller Tag"
           iconBgColor="#FFF4E6"

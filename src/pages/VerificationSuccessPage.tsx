@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Icon } from '../lib/icons';
 
 export function VerificationSuccessPage() {
   const { t } = useTranslation('auth');
@@ -32,19 +33,7 @@ export function VerificationSuccessPage() {
       <div className="w-full max-w-[520px] bg-surface rounded-[24px] shadow-[0_10px_40px_rgba(62,54,48,0.08)] p-12 text-center">
         {/* Success Icon with Animation */}
         <div className="w-20 h-20 bg-[#F0F7F1] rounded-full flex items-center justify-center mx-auto mb-6 animate-[scaleIn_0.5s_ease-out]">
-          <svg
-            className="h-10 w-10 text-success"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <Icon.Success className="h-10 w-10 text-success" stroke={2.5} />
         </div>
 
         {/* Message */}

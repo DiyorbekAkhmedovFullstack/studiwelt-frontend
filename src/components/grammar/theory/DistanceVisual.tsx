@@ -1,3 +1,5 @@
+import { Ui } from '../../../lib/icons';
+
 export function DistanceVisual() {
   return (
     <section className="mb-8 sm:mb-12 md:mb-16">
@@ -14,17 +16,7 @@ export function DistanceVisual() {
 
         {/* Arrow Connector */}
         <div className="text-text-muted text-xs sm:text-sm md:text-base flex flex-col items-center gap-1">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="sm:w-6 sm:h-6"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          <Ui.ArrowRight width={20} height={20} className="sm:w-6 sm:h-6" />
           Distanz
         </div>
 
