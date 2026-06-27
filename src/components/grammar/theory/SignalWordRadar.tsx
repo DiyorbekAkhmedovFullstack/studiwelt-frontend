@@ -18,19 +18,39 @@ export function SignalWordRadar() {
 
   const infoCards: InfoCard[] = [
     {
-      title: 'Strukturierung',
+      title: 'Strukturierung / Reihenfolge',
       description:
-        '"Zunächst", "Als nächstes", "Abschließend". Diese Wörter sagen dir, wo im Fragenbogen du sein musst.',
+        '"Zunächst", "Als Nächstes", "Im Folgenden", "Abschließend". Sie zeigen dir, an welcher Stelle der Vorlesung (und des Fragenbogens) du dich befindest.',
     },
     {
-      title: 'Widerspruch',
+      title: 'Widerspruch / Einschränkung',
       description:
-        '"Allerdings", "Jedoch", "Demgegenüber". Hier kommt oft die eigentliche Prüfungsantwort (die "Falle" wird aufgelöst).',
+        '"Allerdings", "Jedoch", "Demgegenüber", "Gleichwohl". Hier kommt oft die eigentliche Prüfungsantwort — die "Falle" wird aufgelöst.',
     },
     {
       title: 'Begründung',
       description:
-        '"Dies ist darauf zurückzuführen", "Ursächlich hierfür". Achte auf Kausalitäten.',
+        '"Dies liegt daran, dass", "Dies ist darauf zurückzuführen", "Ursächlich hierfür ist". Achte auf Ursache und Wirkung.',
+    },
+    {
+      title: 'Beispiel / Veranschaulichung',
+      description:
+        '"Veranschaulichen lässt sich dies am Beispiel", "So etwa", "Man denke an". Illustrationen sind meist nicht die Kernantwort, sondern Belege.',
+    },
+    {
+      title: 'Schlussfolgerung / Fazit',
+      description:
+        '"Daraus folgt, dass", "Somit", "Es lässt sich festhalten", "Zusammenfassend". Hier wird die Kernaussage gebündelt.',
+    },
+    {
+      title: 'Betonung / Wichtigkeit',
+      description:
+        '"Entscheidend ist", "Hervorzuheben ist", "Besonders wichtig". Oft zusätzlich durch langsameres, lauteres Sprechen markiert — unbedingt notieren.',
+    },
+    {
+      title: 'Umformulierung / Präzisierung',
+      description:
+        '"Mit anderen Worten", "Anders gesagt", "Genauer gesagt". Dieselbe Aussage neu formuliert — deine zweite Chance, wenn du etwas verpasst hast.',
     },
   ];
 
