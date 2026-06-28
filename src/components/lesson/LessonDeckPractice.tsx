@@ -300,8 +300,8 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
         </div>
       )}
 
-      {/* Keyboard Shortcuts */}
-      <div className="flex justify-center">
+      {/* Keyboard Shortcuts — only on devices that may have a keyboard (≥ md / iPad and up) */}
+      <div className="hidden md:flex justify-center">
         <div className="text-center text-[13px] text-text-muted bg-[rgba(255,255,255,0.5)] px-4 py-2 rounded-full">
           <span className="inline-flex items-center bg-surface px-2 py-1 rounded border border-[#ccc] font-mono text-[14px] shadow-[0_2px_0_rgba(0,0,0,0.1)] mx-1">
             Space
