@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { LoadingSpinner } from "../components/common/LoadingSpinner";
 import { DashboardLayout } from "../components/dashboard";
-import { paymentService } from "../services/paymentService";
+import {
+  paymentService,
+  type StudentUpgradePrice,
+} from "../services/paymentService";
 import { toastService } from "../services/toastService";
 import { Ui } from "../lib/icons";
+
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+};
 
 export function UpgradeToStudentPage() {
   const { t } = useTranslation("upgrade");
   const [loading, setLoading] = useState(false);
+  const [price, setPrice] = useState<StudentUpgradePrice | null>(null);
+
+  useEffect(() => {
+    paymentService
+      .getStudentUpgradePrice()
+      .then((res) => setPrice(res.price))
+      .catch(() => setPrice(null));
+  }, []);
 
   const handleUpgrade = async () => {
     setLoading(true);
@@ -60,14 +77,21 @@ export function UpgradeToStudentPage() {
               </span>
             </div>
 
-            {/* Price */}
+            {/* Price — sourced from the Dodo product (single source of truth) */}
             <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-[64px] font-serif font-bold leading-none tracking-tight">
-                {t("pricing.price")}
-              </span>
-              <span className="text-2xl text-text-muted font-serif">
-                {t("pricing.priceCents")}
-              </span>
+              {price ? (
+                <>
+                  <span className="text-[64px] font-serif font-bold leading-none tracking-tight">
+                    {CURRENCY_SYMBOLS[price.currency] ?? `${price.currency} `}
+                    {Math.floor(price.amountCents / 100)}
+                  </span>
+                  <span className="text-2xl text-text-muted font-serif">
+                    .{String(price.amountCents % 100).padStart(2, "0")}
+                  </span>
+                </>
+              ) : (
+                <span className="inline-block h-[56px] w-28 rounded-lg bg-border/40 animate-pulse" />
+              )}
             </div>
 
             <p className="text-text-muted text-sm mb-6">{t("pricing.terms")}</p>

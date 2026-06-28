@@ -27,7 +27,19 @@ export type HasStudentAccessResponse = {
   hasPaid: boolean;
 };
 
+export type StudentUpgradePrice = {
+  amountCents: number;
+  currency: string;
+};
+
+export type StudentUpgradePriceResponse = {
+  price: StudentUpgradePrice;
+};
+
 export const paymentService = {
+  getStudentUpgradePrice: () =>
+    api.get<StudentUpgradePriceResponse>('/api/payments/student-upgrade-price'),
+
   createStudentUpgradeSession: () =>
     api.post<CheckoutSessionResponse>('/api/payments/create-student-upgrade-session', {}),
 
