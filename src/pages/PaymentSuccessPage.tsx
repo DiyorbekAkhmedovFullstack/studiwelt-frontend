@@ -13,9 +13,11 @@ export function PaymentSuccessPage() {
   const [verified, setVerified] = useState(false);
 
   useEffect(() => {
-    const sessionId = searchParams.get('session_id');
+    // Dodo appends ?status=...&payment_id=... to the return URL.
+    const paymentId = searchParams.get('payment_id');
+    const status = searchParams.get('status');
 
-    if (!sessionId) {
+    if (!paymentId && !status) {
       toastService.error('Invalid payment session');
       navigate('/course');
       return;

@@ -17,10 +17,10 @@
         "readySubtitle": "Schließe dich Studenten an, die sich auf die Studienkolleg-Aufnahmeprüfung vorbereiten."
     },
     "trust": {
-        "securePayment": "Sichere Zahlung via Stripe",
+        "securePayment": "Sichere Zahlung via Dodo Payments",
         "instantAccess": "Sofortiger Zugang nach Zahlung",
         "guarantee": "7 Tage Geld-zurück-Garantie",
-        "stripe": "Gesichert durch Stripe"
+        "provider": "Gesichert durch Dodo Payments"
     },
     "features": {
         "title": "Was du bekommst",

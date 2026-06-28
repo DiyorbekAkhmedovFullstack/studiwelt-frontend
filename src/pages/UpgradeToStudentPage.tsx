@@ -105,7 +105,7 @@ export function UpgradeToStudentPage() {
           {/* Trust badge */}
           <div className="px-8 pb-6 flex items-center justify-center gap-2 text-xs text-text-muted">
             <Ui.Lock className="w-4 h-4" />
-            {t("trust.stripe")}
+            {t("trust.provider")}
           </div>
         </div>
 

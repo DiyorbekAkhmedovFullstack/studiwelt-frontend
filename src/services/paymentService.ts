@@ -10,7 +10,7 @@ export type CheckoutSessionResponse = {
 export type Payment = {
   id: number;
   userId: number;
-  stripeSessionId: string;
+  providerSessionId: string;
   status: string;
   amount: number;
   currency: string;

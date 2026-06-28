@@ -17,10 +17,10 @@
         "readySubtitle": "Join students preparing for their Studienkolleg entrance exam."
     },
     "trust": {
-        "securePayment": "Secure payment via Stripe",
+        "securePayment": "Secure payment via Dodo Payments",
         "instantAccess": "Instant access after payment",
         "guarantee": "7-day money-back guarantee",
-        "stripe": "Secured by Stripe"
+        "provider": "Secured by Dodo Payments"
     },
     "features": {
         "title": "What you get",
