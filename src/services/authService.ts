@@ -60,6 +60,16 @@ export const authService = {
     };
   },
 
+  verifyAccountWithCode: (email: string, code: string) =>
+    api.post<{ user: User }>(
+      "/user/verify/account/code",
+      { email, code },
+      UserResponseSchema,
+    ),
+
+  resendVerificationCode: (email: string) =>
+    api.post<unknown>("/user/verify/account/resend", { email }),
+
   login: (payload: LoginPayload) =>
     api.post<{ user: User; requiresMfa?: boolean }>(
       "/user/login",

@@ -41,7 +41,7 @@ export function RegisterPage() {
     setSubmitting(true);
     try {
       await authService.register(data);
-      navigate('/registration-success');
+      navigate('/verify-email', { state: { email: data.email } });
     } catch (err) {
       const msg =
         err instanceof Error ? err.message : t('register.failed');

@@ -21,6 +21,7 @@ const PageLoader = () => (
 // Lazy load all other pages (code splitting)
 const RegistrationSuccessPage = lazy(() => import('../pages/RegistrationSuccessPage').then(m => ({ default: m.RegistrationSuccessPage })));
 const VerifyAccountPage = lazy(() => import('../pages/VerifyAccountPage').then(m => ({ default: m.VerifyAccountPage })));
+const VerifyEmailPage = lazy(() => import('../pages/VerifyEmailPage').then(m => ({ default: m.VerifyEmailPage })));
 const VerificationSuccessPage = lazy(() => import('../pages/VerificationSuccessPage').then(m => ({ default: m.VerificationSuccessPage })));
 const AlreadyVerifiedPage = lazy(() => import('../pages/AlreadyVerifiedPage').then(m => ({ default: m.AlreadyVerifiedPage })));
 const MfaVerifyPage = lazy(() => import('../pages/MfaVerifyPage').then(m => ({ default: m.MfaVerifyPage })));
@@ -67,6 +68,7 @@ export function AppRoutes() {
         {/* Email verification links: support both /verify/account (email) and /verify-account (internal) */}
         <Route path="/verify/account" element={<VerifyAccountPage />} />
         <Route path="/verify-account" element={<VerifyAccountPage />} />
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
         <Route path="/verification-success" element={<VerificationSuccessPage />} />
         <Route path="/already-verified" element={<AlreadyVerifiedPage />} />
         <Route path="/mfa" element={<MfaVerifyPage />} />
