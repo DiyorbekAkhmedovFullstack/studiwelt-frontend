@@ -5,7 +5,7 @@ import { authService } from '../services/authService';
 import { useAuth } from '../contexts/AuthContext';
 import { toastService } from '../services/toastService';
 import { OtpInput } from '../components/common/OtpInput';
-import { Ui } from '../lib/icons';
+import { Icon } from '../lib/icons';
 
 type LocationState = {
   email?: string;
@@ -91,7 +91,7 @@ export function VerifyEmailPage() {
       <div className="w-full max-w-[480px] bg-surface rounded-[24px] shadow-[0_10px_40px_rgba(62,54,48,0.08)] p-12 text-center">
         {/* Mail Icon */}
         <div className="w-16 h-16 bg-[#FAF6F3] text-primary rounded-full flex items-center justify-center mx-auto mb-6">
-          <Ui.Mail size={32} />
+          <Icon.Mail size={32} />
         </div>
 
         <h1 className="text-[28px] font-serif font-bold mb-3 text-text-main">{t('verifyEmail.title')}</h1>
