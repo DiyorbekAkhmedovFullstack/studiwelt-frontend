@@ -174,6 +174,52 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
     },
   },
 
+  'fu-berlin': {
+    id: 'fu-berlin',
+    slug: 'fu-berlin',
+    name: 'Studienkolleg der FU Berlin',
+    location: 'Berlin',
+    city: 'Berlin',
+    state: 'Berlin',
+    badge: 'Berlin',
+    institutionType: 'Public University',
+
+    cityInfo: {
+      description:
+        "Berlin is Germany's capital and largest city, celebrated for its layered history, diverse culture and thriving research scene. The Freie Universität — one of Germany's Excellence-status universities — sits in the leafy south-western district of Dahlem, offering a green campus and vibrant student life while remaining far more affordable than Munich or Frankfurt.",
+      costOfLiving: '~€1,000 / Month',
+      transit: 'BVG Network',
+    },
+
+    courses: [
+      COURSE_TYPES.T,
+      COURSE_TYPES.M,
+      COURSE_TYPES.W,
+      COURSE_TYPES.G,
+    ],
+
+    application: {
+      method: 'assist',
+      methodDisplay: 'Uni-Assist',
+      status: 'open',
+      statusText: 'Accepting Applications (WS 2026/27)',
+      winterDeadline: 'Jul 15, 2026',
+      summerDeadline: 'No summer intake',
+      applicationUrl:
+        'https://www.fu-berlin.de/en/sites/studienkolleg/bewerbung/index.html',
+      websiteUrl: 'https://www.fu-berlin.de/en/sites/studienkolleg/index.html',
+    },
+
+    exam: {
+      required: true,
+      description:
+        'The Aufnahmetest is mandatory for every applicant — there is no exemption, and its results form the ranking used to allocate the limited places. All courses sit a German C-Test (a 75-gap complementary test, 30 min); the T-, M- and W-Kurs add a Mathematics test (45 min), while the G-Kurs takes a chart-evaluation test instead. The full test lasts about 90 minutes and is held once a year in late August at the Freie Universität Berlin (Dahlem), on a separate day for each course. It may be repeated once. Applications run 1 June – 15 July for the winter semester only (no summer intake) and go exclusively through uni-assist.',
+      nextDate: 'Aug 25–28, 2026',
+      exampleTestsUrl:
+        'https://www.fu-berlin.de/sites/studienkolleg/musterklausuren/index.html',
+    },
+  },
+
   hamburg: {
     id: 'hamburg',
     slug: 'hamburg',
