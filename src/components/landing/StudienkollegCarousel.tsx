@@ -4,170 +4,23 @@ import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { OptimizedImage } from '../common/OptimizedImage';
 import { Icon, Ui } from '../../lib/icons';
-
-type Course = {
-  name: string;
-  isMain?: boolean;
-};
-
-type Studienkolleg = {
-  id: string;
-  slug: string;
-  name: string;
-  location: string;
-  imageUrl: string;
-  badge: string;
-  courses: Course[];
-  applicationMethod: 'assist' | 'direct';
-};
+import { getAllStudienkollegs } from '../../data/studienkollegData';
 
 // Helper function to get image path with fallback
 const getImagePath = (cityName: string): string => {
   return `/studienkollegs/${cityName}.png`;
 };
 
-// Static data moved outside component to avoid recreating on each render
-const studienkollegs: Studienkolleg[] = [
-  {
-    id: '1',
-    slug: 'munich',
-    name: 'Studienkolleg München',
-    location: 'München',
-    imageUrl: getImagePath('munich'),
-    badge: 'Bayern',
-    courses: [
-      { name: 'T-Kurs', isMain: true },
-      { name: 'M-Kurs', isMain: true },
-      { name: 'W-Kurs' },
-      { name: 'S/G-Kurs' },
-    ],
-    applicationMethod: 'direct',
-  },
-  {
-    id: '2',
-    slug: 'berlin',
-    name: 'Studienkolleg der TU Berlin',
-    location: 'Berlin',
-    imageUrl: getImagePath('berlin'),
-    badge: 'Berlin',
-    courses: [
-      { name: 'T-Kurs', isMain: true },
-      { name: 'W-Kurs', isMain: true },
-    ],
-    applicationMethod: 'assist',
-  },
-  {
-    id: '3',
-    slug: 'hamburg',
-    name: 'Studienkolleg Hamburg',
-    location: 'Hamburg',
-    imageUrl: getImagePath('hamburg'),
-    badge: 'Hamburg',
-    courses: [
-      { name: 'G-Kurs' },
-      { name: 'M-Kurs', isMain: true },
-      { name: 'T-Kurs', isMain: true },
-      { name: 'W-Kurs' },
-    ],
-    applicationMethod: 'direct',
-  },
-  {
-    id: '4',
-    slug: 'karlsruhe',
-    name: 'Studienkolleg am KIT',
-    location: 'Karlsruhe',
-    imageUrl: getImagePath('karlsruhe'),
-    badge: 'Baden-Württemberg',
-    courses: [{ name: 'T-Kurs', isMain: true }],
-    applicationMethod: 'direct',
-  },
-  {
-    id: '5',
-    slug: 'leipzig',
-    name: 'Studienkolleg Sachsen',
-    location: 'Leipzig',
-    imageUrl: getImagePath('leipzig'),
-    badge: 'Sachsen',
-    courses: [
-      { name: 'T-Kurs', isMain: true },
-      { name: 'M-Kurs', isMain: true },
-      { name: 'W-Kurs' },
-      { name: 'G/S-Kurs' },
-    ],
-    applicationMethod: 'assist',
-  },
-  {
-    id: '6',
-    slug: 'heidelberg',
-    name: 'Studienkolleg Heidelberg',
-    location: 'Heidelberg',
-    imageUrl: getImagePath('heidelberg'),
-    badge: 'Baden-Württemberg',
-    courses: [
-      { name: 'G-Kurs' },
-      { name: 'M-Kurs', isMain: true },
-      { name: 'S-Kurs' },
-      { name: 'T-Kurs', isMain: true },
-      { name: 'W-Kurs' },
-    ],
-    applicationMethod: 'direct',
-  },
-  {
-    id: '7',
-    slug: 'halle',
-    name: 'Landesstudienkolleg Halle',
-    location: 'Halle(Saale)',
-    imageUrl: getImagePath('halle'),
-    badge: 'Sachsen-Anhalt',
-    courses: [
-      { name: 'M-Kurs', isMain: true },
-      { name: 'T-Kurs', isMain: true },
-      { name: 'W-Kurs' },
-      { name: 'S/G-Kurs' },
-    ],
-    applicationMethod: 'assist',
-  },
-  {
-    id: '8',
-    slug: 'darmstadt',
-    name: 'Studienkolleg Darmstadt',
-    location: 'Darmstadt',
-    imageUrl: getImagePath('darmstadt'),
-    badge: 'Hessen',
-    courses: [{ name: 'T-Kurs', isMain: true }, { name: 'G-Kurs', isMain: true }],
-    applicationMethod: 'direct',
-  },
-  {
-    id: '9',
-    slug: 'frankfurt',
-    name: 'Studienkolleg Frankfurt',
-    location: 'Frankfurt am Main',
-    imageUrl: getImagePath('frankfurt'),
-    badge: 'Hessen',
-    courses: [
-      { name: 'G-Kurs' },
-      { name: 'M-Kurs', isMain: true },
-      { name: 'T-Kurs', isMain: true },
-      { name: 'W-Kurs' },
-    ],
-    applicationMethod: 'assist',
-  },
-  {
-    id: '10',
-    slug: 'hannover',
-    name: 'Niedersächsisches Studienkolleg',
-    location: 'Hannover',
-    imageUrl: getImagePath('hannover'),
-    badge: 'Niedersachsen',
-    courses: [
-      { name: 'M-Kurs', isMain: true },
-      { name: 'T-Kurs', isMain: true },
-      { name: 'W-Kurs' },
-      { name: 'G/S-Kurs' },
-    ],
-    applicationMethod: 'assist',
-  },
-];
+// Derive carousel data from the single source of truth in studienkollegData.ts
+const studienkollegs = getAllStudienkollegs().map((stk) => ({
+  slug: stk.slug,
+  name: stk.name,
+  location: stk.location,
+  badge: stk.badge,
+  courses: stk.courses,
+  applicationMethod: stk.application.method,
+  imageUrl: getImagePath(stk.slug),
+}));
 
 export function StudienkollegCarousel() {
   const { t } = useTranslation('landing');
@@ -292,7 +145,7 @@ export function StudienkollegCarousel() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 py-5">
             {visibleCards.map((stk, index) => (
               <div
-                key={stk.id}
+                key={stk.slug}
                 className={`transition-all duration-500 ${isAnimating
                   ? 'opacity-0 scale-95'
                   : sectionVisible
@@ -339,7 +192,7 @@ export function StudienkollegCarousel() {
                           key={idx}
                           className="text-[0.7rem] md:text-[0.75rem] px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg bg-primary-subtle text-text-main font-semibold border border-[rgba(0,0,0,0.03)]"
                         >
-                          {course.name}
+                          {course.code}
                         </span>
                       ))}
                     </div>
