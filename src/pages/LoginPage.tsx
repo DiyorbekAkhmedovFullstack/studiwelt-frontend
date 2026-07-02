@@ -6,15 +6,17 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
-import { AuthLayout, FormInput, PasswordInput } from '../components/auth';
+import { TestimonialAuthLayout, FormInput, PasswordInput } from '../components/auth';
 import { loginSchema, type LoginFormData } from '../lib/validations';
 import { SEO, seoConfig } from '../components/common/SEO';
+import { useRandomTestimonial } from '../hooks';
 
 export function LoginPage() {
   const { t } = useTranslation('auth');
   const { login, user, loading } = useAuth();
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
+  const testimonial = useRandomTestimonial();
 
   const {
     register,
@@ -62,15 +64,12 @@ export function LoginPage() {
   return (
     <>
       <SEO {...seoConfig.login} />
-      <AuthLayout
+      <TestimonialAuthLayout
         title={t('login.title')}
         subtitle={t('login.subtitle')}
-        brandSubtitle={t('login.brandSubtitle')}
-        features={[
-          t('login.features.sync'),
-          t('login.features.resume'),
-          t('login.features.track'),
-        ]}
+        testimonialText={testimonial.text}
+        testimonialRole={testimonial.role}
+        testimonialAvatar={testimonial.avatar}
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormInput
@@ -116,7 +115,7 @@ export function LoginPage() {
             {t('login.registerLink')}
           </Link>
         </div>
-      </AuthLayout>
+      </TestimonialAuthLayout>
     </>
   );
 }

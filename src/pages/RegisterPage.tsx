@@ -8,21 +8,13 @@ import { toastService } from '../services/toastService';
 import { TestimonialAuthLayout, FormInput, PasswordInput } from '../components/auth';
 import { registerSchema, type RegisterFormData } from '../lib/validations';
 import { SEO, seoConfig } from '../components/common/SEO';
-
-type Testimonial = { text: string; role: string };
+import { useRandomTestimonial } from '../hooks';
 
 export function RegisterPage() {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
-
-  // Pick a random testimonial + avatar once per page load (stable across re-renders).
-  const testimonials = t('register.testimonials', { returnObjects: true }) as Testimonial[];
-  const [testimonialIndex] = useState(() =>
-    Math.floor(Math.random() * (Array.isArray(testimonials) ? testimonials.length : 1)),
-  );
-  const [avatarSeed] = useState(() => Math.random().toString(36).slice(2, 10));
-  const testimonial = testimonials?.[testimonialIndex] ?? testimonials?.[0];
+  const testimonial = useRandomTestimonial();
 
   const {
     register,
@@ -67,9 +59,9 @@ export function RegisterPage() {
       <TestimonialAuthLayout
         title={t('register.title')}
         subtitle={t('register.subtitle')}
-        testimonialText={testimonial?.text}
-        testimonialRole={testimonial?.role}
-        testimonialAvatar={`https://api.dicebear.com/9.x/notionists/svg?seed=${encodeURIComponent(avatarSeed)}`}
+        testimonialText={testimonial.text}
+        testimonialRole={testimonial.role}
+        testimonialAvatar={testimonial.avatar}
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-2 gap-4 mb-5">
