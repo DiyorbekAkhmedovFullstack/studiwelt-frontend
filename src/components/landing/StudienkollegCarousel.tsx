@@ -186,11 +186,11 @@ export function StudienkollegCarousel() {
                       {stk.name}
                     </h3>
 
-                    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-auto">
+                    <div className="flex flex-wrap gap-1 md:gap-1.5 mb-auto">
                       {stk.courses.map((course, idx) => (
                         <span
                           key={idx}
-                          className="text-[0.7rem] md:text-[0.75rem] px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg bg-primary-subtle text-text-main font-semibold border border-[rgba(0,0,0,0.03)]"
+                          className="text-[0.6rem] md:text-[0.65rem] px-2 py-0.5 md:py-1 rounded-md bg-primary-subtle text-text-main font-semibold border border-[rgba(0,0,0,0.03)] whitespace-nowrap"
                         >
                           {course.code}
                         </span>
