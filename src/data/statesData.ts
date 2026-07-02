@@ -7,10 +7,8 @@ export interface University {
   type: 'university' | 'technical' | 'applied' | 'arts' | 'music';
   city: string;
   students: number;
-  foundingYear?: number;
   description: string;
-  highlights?: string[];
-  notableAlumni?: string[];
+  programs?: string[];
   website?: string;
 }
 
@@ -84,24 +82,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Munich',
         students: 54000,
-        foundingYear: 1472,
         description:
-          'One of Germany\'s most prestigious universities and a University of Excellence. With over 50 Nobel laureates among its alumni and faculty, LMU is renowned for its strength in humanities, law, physics, and medicine.',
-        highlights: [
-          'University of Excellence (Excellence Strategy)',
-          '50+ Nobel Prize laureates',
-          'Broadest subject spectrum of any German university',
-          '16 faculties spanning humanities to natural sciences',
-        ],
-        notableAlumni: [
-          'Pope Benedict XVI',
-          'Thomas Mann (Nobel Literature 1929)',
-          'Werner Heisenberg (Nobel Physics 1932)',
-          'Max Planck (Nobel Physics 1918)',
-          'Wilhelm Conrad Röntgen (Nobel Physics 1901)',
-          'Bertolt Brecht (playwright)',
-          'Werner Herzog (film director)',
-        ],
+          'One of Germany\'s most prestigious universities and a University of Excellence. LMU is renowned for its strength in physics, medicine, law, and business — with over 50 Nobel laureates among its alumni and faculty.',
+        programs: ['Computer Science', 'Business Administration', 'Medicine', 'Physics', 'Psychology', 'Law'],
         website: 'https://www.lmu.de/en',
       },
       {
@@ -109,22 +92,9 @@ export const statesData: Record<string, StateData> = {
         type: 'technical',
         city: 'Munich',
         students: 50000,
-        foundingYear: 1868,
         description:
-          'Founded by King Ludwig II, TUM is Germany\'s #1 technical university and a University of Excellence. It ranks among the top universities in Europe for engineering, computer science, and natural sciences, with campuses in Munich, Garching, Freising, and Heilbronn.',
-        highlights: [
-          'University of Excellence (4 consecutive terms)',
-          '#1 in Engineering & Technology in Germany (THE ranking)',
-          '19 Nobel laureates',
-          'Founded by King Ludwig II of Bavaria',
-          'Strong industry partnerships with BMW, Siemens, MAN',
-        ],
-        notableAlumni: [
-          'Rudolf Diesel (inventor of the diesel engine)',
-          'Claude Dornier (aircraft designer)',
-          'Karl Ferdinand Braun (Nobel Physics 1909)',
-          'Ernst Otto Fischer (Nobel Chemistry 1973)',
-        ],
+          'Germany\'s #1 technical university and a University of Excellence. TUM ranks among the top in Europe for engineering, computer science, and natural sciences, with strong industry partnerships with BMW, Siemens, and Audi.',
+        programs: ['Mechanical Engineering', 'Computer Science', 'Electrical Engineering', 'Aerospace', 'Information Engineering', 'Management & Technology'],
         website: 'https://www.tum.de/en',
       },
       {
@@ -132,23 +102,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Erlangen & Nuremberg',
         students: 40000,
-        foundingYear: 1743,
         description:
-          'One of Germany\'s most innovative universities, FAU offers the full spectrum of academic disciplines across five faculties. It is renowned for its pioneering spirit and strong ties to industry, with particular strength in medical engineering, AI, and materials science.',
-        highlights: [
-          'Second most innovative university in Europe (Reuters ranking)',
-          '260+ degree programs across 5 faculties',
-          'Strong in Medical Engineering, AI, and Materials Science',
-          'Home of the Emmy Noether Programme (DFG)',
-          'Locations in Erlangen, Nuremberg, and Fürth',
-        ],
-        notableAlumni: [
-          'Emmy Noether (mathematician, abstract algebra pioneer)',
-          'Ludwig Feuerbach (philosopher)',
-          'Georg Simon Ohm (physicist, Ohm\'s Law)',
-          'Justus von Liebig (chemist, father of agricultural chemistry)',
-          'Samuel Hahnemann (founder of homeopathy)',
-        ],
+          'One of Germany\'s most innovative universities, FAU offers 260+ degree programs across five faculties. It is renowned for its strong ties to industry, with particular strength in medical engineering, AI, and materials science.',
+        programs: ['Computer Science (AI)', 'Medical Engineering', 'Materials Science', 'International Business', 'Business Administration', 'Data Science'],
         website: 'https://www.fau.eu',
       },
       {
@@ -156,20 +112,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Würzburg',
         students: 26000,
-        foundingYear: 1402,
         description:
-          'One of the oldest universities in the German-speaking world, founded in 1402. JMU is renowned for its medical faculty and interdisciplinary research centers, with 14 Nobel laureates among its alumni and faculty. Wilhelm Conrad Röntgen discovered X-rays here in 1895.',
-        highlights: [
-          'Founded 1402 — one of the oldest universities in Germany',
-          '14 Nobel laureates',
-          'Wilhelm Conrad Röntgen discovered X-rays here (1895)',
-          'Cluster of Excellence ct.qmat (Quantum Materials)',
-          'Helmholtz Institute for RNA-based Infection Research (HIRI)',
-        ],
-        notableAlumni: [
-          'Wilhelm Conrad Röntgen (Nobel Physics 1901 — discovered X-rays)',
-          'Klaus von Klitzing (Nobel Physics 1985 — Quantum Hall Effect)',
-        ],
+          'One of the oldest universities in the German-speaking world (1402). JMU is renowned for its medical faculty and interdisciplinary research centers, including the Helmholtz Institute for RNA-based Infection Research.',
+        programs: ['Medicine', 'AI & Data Science', 'Psychology', 'Biomedicine', 'Chemistry', 'Pharmacy'],
         website: 'https://www.uni-wuerzburg.de/en/',
       },
       {
@@ -177,21 +122,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Regensburg',
         students: 20000,
-        foundingYear: 1962,
         description:
-          'A modern campus university in a UNESCO World Heritage city. With 12 faculties and 380 international partner universities, UR is the largest and best-performing university in Eastern Bavaria, excelling in law, medicine, and the new Faculty of Informatics and Data Science.',
-        highlights: [
-          '380 international partner universities',
-          'Pope Benedict XVI taught theology here (1969–1977)',
-          '12 faculties including Informatics & Data Science (founded 2020)',
-          'Located in a UNESCO World Heritage city',
-          '4 Collaborative Research Centers funded by DFG',
-        ],
-        notableAlumni: [
-          'Pope Benedict XVI (faculty member 1969–1977)',
-          'Edmund Stoiber (former Minister-President of Bavaria)',
-          'Hans Joachim Schellnhuber (climate scientist)',
-        ],
+          'A modern campus university in a UNESCO World Heritage city. With 12 faculties and 380 international partner universities, UR is the largest university in Eastern Bavaria, excelling in informatics, medicine, and business.',
+        programs: ['Informatics & Data Science', 'Business Administration', 'Medicine', 'International Economics', 'Law'],
         website: 'https://www.uni-regensburg.de/en/',
       },
       {
@@ -199,21 +132,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Augsburg',
         students: 19000,
-        foundingYear: 1970,
         description:
-          'Founded as a reform university in 1970, the University of Augsburg has grown into a comprehensive research university with eight faculties. Its newest addition is the Medical Faculty, established in 2016, completing its full academic spectrum.',
-        highlights: [
-          'Reform university with modern interdisciplinary approach',
-          '8 faculties including new Medical Faculty (2016)',
-          'Strong in Applied Computer Science and Economics',
-          '240+ international researchers from 60+ countries',
-          'Park campus with its own lake',
-        ],
-        notableAlumni: [
-          'Andreas Voßkuhle (President of the Federal Constitutional Court)',
-          'Barbara Schöneberger (TV presenter)',
-          'Hans-Peter Friedrich (former Federal Minister of the Interior)',
-        ],
+          'A comprehensive research university with eight faculties, including a new Medical Faculty (2016). The university maintains strong international connections with 240+ researchers from 60+ countries.',
+        programs: ['Applied Computer Science', 'Business Administration', 'Medicine', 'International Management', 'Physics'],
         website: 'https://www.uni-augsburg.de/en/',
       },
       {
@@ -221,21 +142,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Bamberg',
         students: 13000,
-        foundingYear: 1647,
         description:
-          'One of Bavaria\'s oldest universities, specializing in humanities, cultural studies, social sciences, and applied computer science. Bamberg has the highest percentage of students studying abroad among Bavarian universities, with 300 partner universities in 60 countries.',
-        highlights: [
-          'Founded 1647 — one of the oldest in Bavaria',
-          'Highest study-abroad rate in Bavaria (40% of graduates)',
-          '300 partner universities in 60 countries',
-          'Specializes in humanities and cultural studies',
-          'UNESCO World Heritage city setting',
-        ],
-        notableAlumni: [
-          'Johann Baptist von Spix (biologist, Amazon expedition leader)',
-          'Nora Gomringer (poet and writer)',
-          'Brigitte Mohn (businesswoman, Bertelsmann Foundation)',
-        ],
+          'Specializes in international business, applied computer science, and European studies. Bamberg has the highest study-abroad rate in Bavaria (40% of graduates), with 300 partner universities in 60 countries.',
+        programs: ['International Business', 'Applied Computer Science', 'European Economic Studies', 'International Information Systems Management', 'Software Systems Science'],
         website: 'https://www.uni-bamberg.de/en/',
       },
       {
@@ -243,21 +152,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Bayreuth',
         students: 13000,
-        foundingYear: 1975,
         description:
-          'A young research university known for its unique interdisciplinary programs. Bayreuth is a global leader in African Studies and offers distinctive programs in Global Change Ecology, Health Economics, and Polymer Chemistry. It is a member of the Elite Network of Bavaria.',
-        highlights: [
-          'Cluster of Excellence "Africa Multiple" — world-leading African Studies',
-          'Unique programs: Global Change Ecology, Theatre & Media, Health Economics',
-          'Member of the Elite Network of Bavaria',
-          'BIGSAS: international graduate school for African Studies',
-          'Strong in Polymer and Colloidal Chemistry',
-        ],
-        notableAlumni: [
-          'Auma Obama (half-sister of U.S. President Barack Obama)',
-          'Andreas Voßkuhle (President of the Federal Constitutional Court)',
-          'Damian Boeselager (co-founder of Volt Europa, MEP)',
-        ],
+          'A young research university known for unique interdisciplinary programs. Bayreuth is a global leader in African Studies and offers distinctive programs in Global Change Ecology, Health Economics, and Polymer Chemistry.',
+        programs: ['Computer Science', 'International Economy & Development', 'Health Economics', 'Global Change Ecology', 'Polymer Chemistry', 'Sport & Media'],
         website: 'https://www.uni-bayreuth.de/en/',
       },
       {
@@ -265,20 +162,9 @@ export const statesData: Record<string, StateData> = {
         type: 'university',
         city: 'Passau',
         students: 11000,
-        foundingYear: 1978,
         description:
-          'One of Bavaria\'s youngest universities, Passau is renowned for its exceptional international orientation. With 327+ partner universities and nearly 19% international students, it offers unique programs in European Studies, Development Studies, and International Cultural and Business Studies.',
-        highlights: [
-          '327+ international partner universities',
-          '18.76% international students (highest in Bavaria)',
-          'Unique programs: Development Studies, European Studies, Int\'l Cultural & Business Studies',
-          'Language courses in 14 languages',
-          'Multiple double-degree options with partner universities worldwide',
-        ],
-        notableAlumni: [
-          'Michael Miebach (CEO of Mastercard)',
-          'Andreas Scheuer (former Federal Minister of Transport)',
-        ],
+          'Renowned for its exceptional international orientation — 19% international students, 327+ partner universities. Passau offers unique programs in European Studies, Development Studies, and International Cultural and Business Studies.',
+        programs: ['Computer Science', 'International Cultural & Business Studies', 'European Studies', 'Business Administration', 'Development Studies', 'Governance & Public Policy'],
         website: 'https://www.uni-passau.de/en/',
       },
       // ── Universities of Applied Sciences (Hochschulen für angewandte Wissenschaften) ──
@@ -287,16 +173,9 @@ export const statesData: Record<string, StateData> = {
         type: 'applied',
         city: 'Munich',
         students: 18000,
-        foundingYear: 1971,
         description:
-          'Bavaria\'s second largest university of applied sciences, formed from seven engineering schools with roots tracing back 200 years. HM offers 80+ programs across 14 departments, covering technology, engineering, business, social sciences, and design.',
-        highlights: [
-          '2nd largest UAS in Bavaria',
-          '80+ Bachelor\'s and Master\'s programs',
-          '14 departments covering MINT, business, social sciences, and design',
-          'Roots in 7 predecessor institutions dating to 1821',
-          'Strong industry partnerships with BMW, Siemens, and MTU',
-        ],
+          'Bavaria\'s second largest university of applied sciences. HM offers 80+ programs across 14 departments, covering technology, engineering, business, social sciences, and design — with strong industry partnerships with BMW and Siemens.',
+        programs: ['Mechanical Engineering', 'Computer Science', 'Business Administration', 'Electrical Engineering', 'Industrial Engineering', 'Aviation'],
         website: 'https://hm.edu/en/',
       },
       {
@@ -304,16 +183,9 @@ export const statesData: Record<string, StateData> = {
         type: 'applied',
         city: 'Nuremberg',
         students: 13000,
-        foundingYear: 1971,
         description:
-          'Named after physicist Georg Simon Ohm who taught here, the Ohm is one of Germany\'s largest universities of applied sciences. It offers programs across engineering, business, social sciences, and design with 160+ international partnerships.',
-        highlights: [
-          'Named after Georg Simon Ohm (Ohm\'s Law)',
-          '160+ international partnerships',
-          '13 faculties + Ohm Professional School',
-          'One of the most research-intensive Bavarian UAS',
-          'Roots trace to 1823 (Municipal Polytechnical School)',
-        ],
+          'One of Germany\'s largest universities of applied sciences, named after physicist Georg Simon Ohm. Offers programs across engineering, business, social sciences, and design with 160+ international partnerships.',
+        programs: ['Computer Science', 'Business Administration', 'Mechanical Engineering', 'Electrical Engineering', 'Architecture', 'Applied Chemistry'],
         website: 'https://www.th-nuernberg.de/en/',
       },
       {
@@ -321,16 +193,9 @@ export const statesData: Record<string, StateData> = {
         type: 'applied',
         city: 'Ingolstadt',
         students: 6000,
-        foundingYear: 1994,
         description:
-          'A dynamic technical university in the heart of Audi\'s home city. TH Ingolstadt is renowned for its automotive engineering program and close industry ties with Audi, Continental, and other automotive giants, offering a unique blend of applied research and industry practice.',
-        highlights: [
-          'World-class Automotive Engineering program',
-          'Close partnership with Audi (HQ in Ingolstadt)',
-          'Strong in International Business and Mechanical Engineering',
-          'Audi Konzeptphase: joint design project with Audi',
-          'International Faculty of Electrical Engineering and IT',
-        ],
+          'A dynamic technical university in Audi\'s home city. TH Ingolstadt is renowned for its automotive engineering program and close industry ties with Audi, Continental, and other automotive giants.',
+        programs: ['Automotive Engineering', 'International Business', 'Mechanical Engineering', 'Electrical Engineering', 'Computer Science', 'Aviation Engineering'],
         website: 'https://www.thi.de/',
       },
       {
@@ -338,15 +203,9 @@ export const statesData: Record<string, StateData> = {
         type: 'applied',
         city: 'Augsburg',
         students: 6000,
-        foundingYear: 1971,
         description:
-          'A technical university of applied sciences with strong industry connections. TH Augsburg excels in engineering, computer science, and business, with particular strength in additive manufacturing and industrial digitalization.',
-        highlights: [
-          'Strong in Mechanical Engineering and Computer Science',
-          'Pioneer in Additive Manufacturing (3D printing)',
-          'Close ties to KUKA (robotics) and MAN Energy Solutions',
-          '41 degree programs across 6 faculties',
-        ],
+          'A technical university of applied sciences with strong industry connections. TH Augsburg excels in engineering, computer science, and additive manufacturing, with close ties to KUKA (robotics) and MAN Energy Solutions.',
+        programs: ['Mechanical Engineering', 'Computer Science', 'Additive Manufacturing', 'Industrial Engineering', 'Electrical Engineering'],
         website: 'https://www.th-augsburg.de/',
       },
       {
@@ -354,15 +213,9 @@ export const statesData: Record<string, StateData> = {
         type: 'applied',
         city: 'Regensburg',
         students: 11000,
-        foundingYear: 1971,
         description:
-          'One of Bavaria\'s largest universities of applied sciences, OTH Regensburg offers 69+ degree programs. It is particularly strong in engineering, social sciences, and architecture, with excellent industry connections in the Nuremberg Metropolitan Region.',
-        highlights: [
-          '69+ degree programs',
-          'Strong in Industrial Engineering and Architecture',
-          'Excellent industry ties in the Nuremberg Metropolitan Region',
-          'Leading in applied research and technology transfer',
-        ],
+          'One of Bavaria\'s largest universities of applied sciences, offering 69+ degree programs. OTH Regensburg is particularly strong in engineering, architecture, and business, with excellent industry connections.',
+        programs: ['Industrial Engineering', 'Computer Science', 'Architecture', 'Business Administration', 'Mechanical Engineering', 'Social Work'],
         website: 'https://www.oth-regensburg.de/',
       },
       // ── Art & Music Academies ──
@@ -371,20 +224,9 @@ export const statesData: Record<string, StateData> = {
         type: 'music',
         city: 'Munich',
         students: 800,
-        foundingYear: 1846,
         description:
-          'One of Germany\'s most prestigious music and performing arts academies. HMTM offers programs in music, theatre, dance, and music education, counting many world-renowned musicians and actors among its alumni. It maintains close connections to the Bavarian State Opera and Orchestra.',
-        highlights: [
-          'One of Germany\'s top music academies',
-          'Programs in music, theatre, dance, and music education',
-          'Home of the Munich Competition (international music competition)',
-          'Strong connections to Bavarian State Opera and Orchestra',
-        ],
-        notableAlumni: [
-          'Hans Werner Henze (composer)',
-          'Klaus Maria Brandauer (actor)',
-          'Christoph Eschenbach (conductor)',
-        ],
+          'One of Germany\'s most prestigious music and performing arts academies. HMTM offers programs in music, theatre, and dance, with close connections to the Bavarian State Opera and Orchestra.',
+        programs: ['Instrumental Performance', 'Vocal Performance', 'Theatre Acting', 'Conducting', 'Music Education', 'Jazz'],
         website: 'https://www.mmt.mhn.de/',
       },
     ],
@@ -457,10 +299,10 @@ export const statesData: Record<string, StateData> = {
       'Baden-Württemberg is Germany\'s innovation powerhouse, home to global automotive giants, world-renowned universities, and the enchanting Black Forest. The state combines cutting-edge technology with deep-rooted Swabian traditions.',
     image: '/states/baden-wurtemberg.jpg',
     universities: [
-      { name: 'Heidelberg University', type: 'university', city: 'Heidelberg', students: 29000, foundingYear: 1386, description: 'Germany\'s oldest university (1386), Excellence in Medicine & Life Sciences' },
+      { name: 'Heidelberg University', type: 'university', city: 'Heidelberg', students: 29000, description: 'Germany\'s oldest university (1386), Excellence in Medicine & Life Sciences' },
       { name: 'Karlsruhe Institute of Technology (KIT)', type: 'technical', city: 'Karlsruhe', students: 22500, description: 'University of Excellence, leading in Engineering & Natural Sciences' },
       { name: 'University of Tübingen', type: 'university', city: 'Tübingen', students: 27000, description: 'Excellence in Theology, Medicine, Law & Humanities' },
-      { name: 'University of Freiburg', type: 'university', city: 'Freiburg', students: 25000, foundingYear: 1457, description: 'Founded 1457, strong international orientation & research profile' },
+      { name: 'University of Freiburg', type: 'university', city: 'Freiburg', students: 25000, description: 'Founded 1457, strong international orientation & research profile' },
       { name: 'University of Stuttgart', type: 'technical', city: 'Stuttgart', students: 24000, description: 'Top engineering school with Mercedes-Benz & Bosch partnerships' },
       { name: 'University of Mannheim', type: 'university', city: 'Mannheim', students: 12000, description: 'Germany\'s leading business school' },
     ],
@@ -591,7 +433,7 @@ export const statesData: Record<string, StateData> = {
       { name: 'Goethe University Frankfurt', type: 'university', city: 'Frankfurt', students: 45000, description: 'Strong in Finance, Law, and Economics (House of Finance)' },
       { name: 'Technical University of Darmstadt', type: 'technical', city: 'Darmstadt', students: 25000, description: 'First autonomous university in Germany, specialized in engineering' },
       { name: 'Justus Liebig University Giessen', type: 'university', city: 'Giessen', students: 28000, description: 'Famous for Life Sciences and Cultural Studies' },
-      { name: 'University of Marburg', type: 'university', city: 'Marburg', students: 22000, foundingYear: 1527, description: 'World\'s oldest Protestant university, founded in 1527' },
+      { name: 'University of Marburg', type: 'university', city: 'Marburg', students: 22000, description: 'World\'s oldest Protestant university, founded in 1527' },
     ],
     culture: [
       { title: 'Mainhattan', description: 'Frankfurt is the only German city with a massive skyline. It is the financial heart of the Eurozone, home to the ECB and the Stock Exchange.', icon: 'skyline' },
@@ -677,9 +519,9 @@ export const statesData: Record<string, StateData> = {
     image: '/states/saxony.jpg',
     universities: [
       { name: 'TU Dresden', type: 'technical', city: 'Dresden', students: 32000, description: 'University of Excellence, one of the largest technical universities in Germany' },
-      { name: 'Leipzig University', type: 'university', city: 'Leipzig', students: 31000, foundingYear: 1409, description: 'Second oldest university in Germany (1409), alma mater of Goethe and Nietzsche' },
+      { name: 'Leipzig University', type: 'university', city: 'Leipzig', students: 31000, description: 'Second oldest university in Germany (1409), alma mater of Goethe and Nietzsche' },
       { name: 'Chemnitz University of Technology', type: 'technical', city: 'Chemnitz', students: 10000, description: 'Strong focus on automotive and mechanical engineering' },
-      { name: 'TU Bergakademie Freiberg', type: 'technical', city: 'Freiberg', students: 4000, foundingYear: 1765, description: 'World\'s oldest university of mining and metallurgy' },
+      { name: 'TU Bergakademie Freiberg', type: 'technical', city: 'Freiberg', students: 4000, description: 'World\'s oldest university of mining and metallurgy' },
     ],
     culture: [
       { title: 'Silicon Saxony', description: 'Europe\'s largest microelectronics cluster is based in Dresden. One in every three chips produced in Europe is made here, driving global innovation.', icon: 'laptop' },
@@ -722,7 +564,7 @@ export const statesData: Record<string, StateData> = {
     universities: [
       { name: 'RWTH Aachen University', type: 'technical', city: 'Aachen', students: 47000, description: 'Germany\'s largest technical university, a global leader in engineering' },
       { name: 'University of Bonn', type: 'university', city: 'Bonn', students: 38000, description: 'University of Excellence, produced multiple Nobel Prize winners' },
-      { name: 'University of Cologne', type: 'university', city: 'Cologne', students: 50000, foundingYear: 1388, description: 'One of the oldest (1388) and largest universities in Germany' },
+      { name: 'University of Cologne', type: 'university', city: 'Cologne', students: 50000, description: 'One of the oldest (1388) and largest universities in Germany' },
       { name: 'University of Münster', type: 'university', city: 'Münster', students: 45000, description: 'Famous for its high quality of life and bicycle-friendly campus' },
       { name: 'Ruhr University Bochum', type: 'university', city: 'Bochum', students: 43000, description: 'First new university founded in West Germany after WWII' },
     ],
@@ -983,7 +825,7 @@ export const statesData: Record<string, StateData> = {
       'Mecklenburg-Vorpommern is a coastal paradise with over 2,000 lakes and islands like Rügen and Usedom. It combines a relaxed lifestyle with historic Hanseatic cities and cutting-edge research in marine biology and renewable energy.',
     image: '/states/mecklenburg-vorpommern.jpg',
     universities: [
-      { name: 'University of Rostock', type: 'university', city: 'Rostock', students: 13000, foundingYear: 1419, description: 'Oldest university in the Baltic Sea region (1419), strong in interdisciplinary research' },
+      { name: 'University of Rostock', type: 'university', city: 'Rostock', students: 13000, description: 'Oldest university in the Baltic Sea region (1419), strong in interdisciplinary research' },
       { name: 'University of Greifswald', type: 'university', city: 'Greifswald', students: 10000, description: 'Internationally oriented research university, strong in life sciences and plasma physics' },
       { name: 'Hochschule Wismar', type: 'applied', city: 'Wismar', students: 8000, description: 'Technology, Business, and Design with a strong maritime focus' },
       { name: 'Hochschule Stralsund', type: 'applied', city: 'Stralsund', students: 2500, description: 'Young campus university focusing on renewable energy and tourism' },

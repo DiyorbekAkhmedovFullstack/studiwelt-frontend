@@ -11,7 +11,6 @@ const LocationIcon = () => <Icon.Location size={18} />;
 const UsersIcon = () => <Icon.Population size={18} />;
 const AreaIcon = () => <Icon.Area size={20} />;
 const BookIcon = () => <Icon.University size={20} />;
-const CalendarIcon = () => <Icon.Timeline size={18} />;
 const ArrowLeftIcon = () => <Ui.ArrowLeft size={20} />;
 
 // === Helpers ===
@@ -246,12 +245,6 @@ export function StatePage() {
                               <LocationIcon />
                               {uni.city}
                             </span>
-                            {uni.foundingYear && (
-                              <span className="flex items-center gap-1.5">
-                                <CalendarIcon />
-                                Founded {uni.foundingYear}
-                              </span>
-                            )}
                             <span className="flex items-center gap-1.5">
                               <UsersIcon />
                               {uni.students.toLocaleString()} students
@@ -263,41 +256,21 @@ export function StatePage() {
                             {uni.description}
                           </p>
 
-                          {/* Highlights — 2-column checklist */}
-                          {uni.highlights && uni.highlights.length > 0 && (
-                            <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-6">
-                              {uni.highlights.map((h) => (
-                                <div key={h} className="flex items-start gap-2">
-                                  <Ui.Check size={16} className="text-primary mt-0.5 flex-shrink-0" />
-                                  <span className="text-sm text-text leading-snug">{h}</span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-
-                          {/* Notable Alumni callout */}
-                          {uni.notableAlumni && uni.notableAlumni.length > 0 && (
-                            <div className="bg-page rounded-xl p-4 mb-5 border border-border/30">
-                              <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2">
-                                Notable Alumni
+                          {/* Programs */}
+                          {uni.programs && uni.programs.length > 0 && (
+                            <div className="mb-5">
+                              <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2.5">
+                                Key Programs
                               </p>
-                              <div className="flex flex-wrap gap-x-4 gap-y-1.5">
-                                {uni.notableAlumni.map((a) => {
-                                  const match = a.match(/^(.+?)\s\((.+)\)$/);
-                                  if (match) {
-                                    return (
-                                      <span key={a} className="text-sm text-text">
-                                        <span className="font-semibold">{match[1]}</span>{' '}
-                                        <span className="text-text-muted">({match[2]})</span>
-                                      </span>
-                                    );
-                                  }
-                                  return (
-                                    <span key={a} className="text-sm text-text font-semibold">
-                                      {a}
-                                    </span>
-                                  );
-                                })}
+                              <div className="flex flex-wrap gap-2">
+                                {uni.programs.map((p) => (
+                                  <span
+                                    key={p}
+                                    className="px-3 py-1.5 bg-primary-light text-primary text-sm font-medium rounded-lg"
+                                  >
+                                    {p}
+                                  </span>
+                                ))}
                               </div>
                             </div>
                           )}
