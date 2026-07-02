@@ -188,11 +188,10 @@ export function StatePage() {
       {/* Universities Section */}
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div
-            ref={uniRef}
-            className={`transition-all duration-700 ${uniVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-          >
-            <div className="text-center mb-12">
+            <div
+              ref={uniRef}
+              className={`text-center mb-12 transition-all duration-700 ${uniVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+            >
               <span className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold mb-4 tracking-wider">
                 HIGHER EDUCATION
               </span>
@@ -204,6 +203,7 @@ export function StatePage() {
               </p>
             </div>
 
+          <div>
             {UNIVERSITY_GROUPS.map((group) => {
               const groupUnis = state.universities.filter((u) =>
                 group.types.includes(u.type)
