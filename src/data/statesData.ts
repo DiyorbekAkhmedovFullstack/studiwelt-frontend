@@ -85,7 +85,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'One of Germany\'s most prestigious universities and a University of Excellence. LMU is renowned for its strength in physics, medicine, law, and business — with over 50 Nobel laureates among its alumni and faculty.',
         programs: ['Computer Science', 'Business Administration', 'Medicine', 'Physics', 'Psychology', 'Law'],
-        website: 'https://www.lmu.de/en',
+        website: 'https://www.lmu.de',
       },
       {
         name: 'Technical University of Munich (TUM)',
@@ -95,7 +95,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'Germany\'s #1 technical university and a University of Excellence. TUM ranks among the top in Europe for engineering, computer science, and natural sciences, with strong industry partnerships with BMW, Siemens, and Audi.',
         programs: ['Mechanical Engineering', 'Computer Science', 'Electrical Engineering', 'Aerospace', 'Information Engineering', 'Management & Technology'],
-        website: 'https://www.tum.de/en',
+        website: 'https://www.tum.de',
       },
       {
         name: 'Friedrich-Alexander University Erlangen-Nuremberg (FAU)',
@@ -115,7 +115,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'One of the oldest universities in the German-speaking world (1402). JMU is renowned for its medical faculty and interdisciplinary research centers, including the Helmholtz Institute for RNA-based Infection Research.',
         programs: ['Medicine', 'AI & Data Science', 'Psychology', 'Biomedicine', 'Chemistry', 'Pharmacy'],
-        website: 'https://www.uni-wuerzburg.de/en/',
+        website: 'https://www.uni-wuerzburg.de',
       },
       {
         name: 'University of Regensburg',
@@ -125,7 +125,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'A modern campus university in a UNESCO World Heritage city. With 12 faculties and 380 international partner universities, UR is the largest university in Eastern Bavaria, excelling in informatics, medicine, and business.',
         programs: ['Informatics & Data Science', 'Business Administration', 'Medicine', 'International Economics', 'Law'],
-        website: 'https://www.uni-regensburg.de/en/',
+        website: 'https://www.uni-regensburg.de',
       },
       {
         name: 'University of Augsburg',
@@ -135,7 +135,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'A comprehensive research university with eight faculties, including a new Medical Faculty (2016). The university maintains strong international connections with 240+ researchers from 60+ countries.',
         programs: ['Applied Computer Science', 'Business Administration', 'Medicine', 'International Management', 'Physics'],
-        website: 'https://www.uni-augsburg.de/en/',
+        website: 'https://www.uni-augsburg.de',
       },
       {
         name: 'University of Bamberg (Otto-Friedrich-Universität)',
@@ -145,7 +145,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'Specializes in international business, applied computer science, and European studies. Bamberg has the highest study-abroad rate in Bavaria (40% of graduates), with 300 partner universities in 60 countries.',
         programs: ['International Business', 'Applied Computer Science', 'European Economic Studies', 'International Information Systems Management', 'Software Systems Science'],
-        website: 'https://www.uni-bamberg.de/en/',
+        website: 'https://www.uni-bamberg.de',
       },
       {
         name: 'University of Bayreuth',
@@ -155,7 +155,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'A young research university known for unique interdisciplinary programs. Bayreuth is a global leader in African Studies and offers distinctive programs in Global Change Ecology, Health Economics, and Polymer Chemistry.',
         programs: ['Computer Science', 'International Economy & Development', 'Health Economics', 'Global Change Ecology', 'Polymer Chemistry', 'Sport & Media'],
-        website: 'https://www.uni-bayreuth.de/en/',
+        website: 'https://www.uni-bayreuth.de',
       },
       {
         name: 'University of Passau',
@@ -165,7 +165,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'Renowned for its exceptional international orientation — 19% international students, 327+ partner universities. Passau offers unique programs in European Studies, Development Studies, and International Cultural and Business Studies.',
         programs: ['Computer Science', 'International Cultural & Business Studies', 'European Studies', 'Business Administration', 'Development Studies', 'Governance & Public Policy'],
-        website: 'https://www.uni-passau.de/en/',
+        website: 'https://www.uni-passau.de',
       },
       // ── Universities of Applied Sciences (Hochschulen für angewandte Wissenschaften) ──
       {
@@ -176,7 +176,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'Bavaria\'s second largest university of applied sciences. HM offers 80+ programs across 14 departments, covering technology, engineering, business, social sciences, and design — with strong industry partnerships with BMW and Siemens.',
         programs: ['Mechanical Engineering', 'Computer Science', 'Business Administration', 'Electrical Engineering', 'Industrial Engineering', 'Aviation'],
-        website: 'https://hm.edu/en/',
+        website: 'https://hm.edu',
       },
       {
         name: 'Technische Hochschule Nürnberg Georg Simon Ohm',
@@ -186,7 +186,7 @@ export const statesData: Record<string, StateData> = {
         description:
           'One of Germany\'s largest universities of applied sciences, named after physicist Georg Simon Ohm. Offers programs across engineering, business, social sciences, and design with 160+ international partnerships.',
         programs: ['Computer Science', 'Business Administration', 'Mechanical Engineering', 'Electrical Engineering', 'Architecture', 'Applied Chemistry'],
-        website: 'https://www.th-nuernberg.de/en/',
+        website: 'https://www.th-nuernberg.de',
       },
       {
         name: 'Technische Hochschule Ingolstadt',
@@ -299,12 +299,12 @@ export const statesData: Record<string, StateData> = {
       'Baden-Württemberg is Germany\'s innovation powerhouse, home to global automotive giants, world-renowned universities, and the enchanting Black Forest. The state combines cutting-edge technology with deep-rooted Swabian traditions.',
     image: '/states/baden-wurtemberg.jpg',
     universities: [
-      { name: 'Heidelberg University', type: 'university', city: 'Heidelberg', students: 29000, description: 'Germany\'s oldest university (1386), Excellence in Medicine & Life Sciences', programs: ['Medicine', 'Computer Science', 'Physics', 'Molecular Biology', 'Data Science', 'International Business'], website: 'https://www.uni-heidelberg.de/en' },
-      { name: 'Karlsruhe Institute of Technology (KIT)', type: 'technical', city: 'Karlsruhe', students: 22500, description: 'University of Excellence, leading in Engineering & Natural Sciences', programs: ['Computer Science', 'Mechanical Engineering', 'Industrial Engineering', 'Electrical Engineering', 'Materials Science', 'Data Science'], website: 'https://www.kit.edu/english' },
-      { name: 'University of Tübingen', type: 'university', city: 'Tübingen', students: 27000, description: 'Excellence in Theology, Medicine, Law & Humanities', programs: ['Medicine', 'Computer Science', 'Psychology', 'Neuroscience', 'International Business', 'Law'], website: 'https://www.uni-tuebingen.de/en' },
-      { name: 'University of Freiburg', type: 'university', city: 'Freiburg', students: 25000, description: 'Founded 1457, strong international orientation & research profile', programs: ['Computer Science', 'Medicine', 'Environmental Sciences', 'Physics', 'Economics', 'Biology'], website: 'https://www.uni-freiburg.de/en' },
-      { name: 'University of Stuttgart', type: 'technical', city: 'Stuttgart', students: 24000, description: 'Top engineering school with Mercedes-Benz & Bosch partnerships', programs: ['Mechanical Engineering', 'Computer Science', 'Information Technology', 'Civil Engineering', 'Automotive Engineering', 'Electrical Engineering'], website: 'https://www.uni-stuttgart.de/en' },
-      { name: 'University of Mannheim', type: 'university', city: 'Mannheim', students: 12000, description: 'Germany\'s leading business school', programs: ['Business Administration', 'Economics', 'International Business', 'Finance', 'Management', 'Psychology'], website: 'https://www.uni-mannheim.de/en' },
+      { name: 'Heidelberg University', type: 'university', city: 'Heidelberg', students: 29000, description: 'Germany\'s oldest university (1386), Excellence in Medicine & Life Sciences', programs: ['Medicine', 'Computer Science', 'Physics', 'Molecular Biology', 'Data Science', 'International Business'], website: 'https://www.uni-heidelberg.de' },
+      { name: 'Karlsruhe Institute of Technology (KIT)', type: 'technical', city: 'Karlsruhe', students: 22500, description: 'University of Excellence, leading in Engineering & Natural Sciences', programs: ['Computer Science', 'Mechanical Engineering', 'Industrial Engineering', 'Electrical Engineering', 'Materials Science', 'Data Science'], website: 'https://www.kit.edu' },
+      { name: 'University of Tübingen', type: 'university', city: 'Tübingen', students: 27000, description: 'Excellence in Theology, Medicine, Law & Humanities', programs: ['Medicine', 'Computer Science', 'Psychology', 'Neuroscience', 'International Business', 'Law'], website: 'https://www.uni-tuebingen.de' },
+      { name: 'University of Freiburg', type: 'university', city: 'Freiburg', students: 25000, description: 'Founded 1457, strong international orientation & research profile', programs: ['Computer Science', 'Medicine', 'Environmental Sciences', 'Physics', 'Economics', 'Biology'], website: 'https://www.uni-freiburg.de' },
+      { name: 'University of Stuttgart', type: 'technical', city: 'Stuttgart', students: 24000, description: 'Top engineering school with Mercedes-Benz & Bosch partnerships', programs: ['Mechanical Engineering', 'Computer Science', 'Information Technology', 'Civil Engineering', 'Automotive Engineering', 'Electrical Engineering'], website: 'https://www.uni-stuttgart.de' },
+      { name: 'University of Mannheim', type: 'university', city: 'Mannheim', students: 12000, description: 'Germany\'s leading business school', programs: ['Business Administration', 'Economics', 'International Business', 'Finance', 'Management', 'Psychology'], website: 'https://www.uni-mannheim.de' },
     ],
     culture: [
       { title: 'Black Forest', description: 'Germany\'s largest continuous forest, known for cuckoo clocks, cherry gâteau, and 17 Michelin-starred restaurants. A region of dark woods, healing spas, and ancient traditions.', icon: 'evergreen' },
@@ -345,7 +345,7 @@ export const statesData: Record<string, StateData> = {
       'Saarland is a hidden gem in southwestern Germany, bordering France and Luxembourg. Known for its "savoir-vivre" lifestyle, it combines industrial heritage with lush nature and a rapidly growing IT research sector centered around the CISPA Helmholtz Center.',
     image: '/states/saarland.jpg',
     universities: [
-      { name: 'Saarland University (UdS)', type: 'university', city: 'Saarbrücken', students: 17000, description: 'Leading in Computer Science (Max Planck Institutes) & European Law', programs: ['Computer Science', 'Cybersecurity', 'Data Science & AI', 'International Business', 'Bioinformatics', 'Materials Science'], website: 'https://www.uni-saarland.de/en' },
+      { name: 'Saarland University (UdS)', type: 'university', city: 'Saarbrücken', students: 17000, description: 'Leading in Computer Science (Max Planck Institutes) & European Law', programs: ['Computer Science', 'Cybersecurity', 'Data Science & AI', 'International Business', 'Bioinformatics', 'Materials Science'], website: 'https://www.uni-saarland.de' },
     ],
     culture: [
       { title: 'Saarschleife', description: 'The Great Loop of the Saar river at Mettlach. A breathtaking natural wonder and the state\'s most iconic landmark, best viewed from the Cloef viewpoint.', icon: 'nature' },
@@ -386,10 +386,10 @@ export const statesData: Record<string, StateData> = {
       'Rhineland-Palatinate is the land of vineyards and forests. Home to the romantic Rhine Valley, Germany\'s oldest city Trier, and global chemical giant BASF, it offers a perfect balance of high-tech industry and relaxed lifestyle.',
     image: '/states/Rhineland-Palatinate.jpg',
     universities: [
-      { name: 'Johannes Gutenberg University Mainz', type: 'university', city: 'Mainz', students: 31000, description: 'One of Germany\'s largest and most diverse universities', programs: ['Computer Science', 'Medicine', 'Physics', 'International Business', 'Chemistry', 'Biology'], website: 'https://www.uni-mainz.de/en' },
-      { name: 'RPTU Kaiserslautern-Landau', type: 'technical', city: 'Kaiserslautern', students: 20000, description: 'Leading in AI and Computer Science (DFKI headquarters)', programs: ['Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Data Science', 'Mathematics', 'Industrial Engineering'], website: 'https://rptu.de/en' },
-      { name: 'University of Trier', type: 'university', city: 'Trier', students: 11000, description: 'Strong focus on humanities and social sciences', programs: ['International Business', 'Computer Science', 'Environmental Sciences', 'Economics', 'Law'], website: 'https://www.uni-trier.de/en' },
-      { name: 'University of Koblenz', type: 'university', city: 'Koblenz', students: 9000, description: 'Young university with strong regional integration', programs: ['Computer Science', 'Business Administration', 'Environmental Sciences', 'Psychology', 'Education'], website: 'https://www.uni-koblenz.de/en' },
+      { name: 'Johannes Gutenberg University Mainz', type: 'university', city: 'Mainz', students: 31000, description: 'One of Germany\'s largest and most diverse universities', programs: ['Computer Science', 'Medicine', 'Physics', 'International Business', 'Chemistry', 'Biology'], website: 'https://www.uni-mainz.de' },
+      { name: 'RPTU Kaiserslautern-Landau', type: 'technical', city: 'Kaiserslautern', students: 20000, description: 'Leading in AI and Computer Science (DFKI headquarters)', programs: ['Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Data Science', 'Mathematics', 'Industrial Engineering'], website: 'https://rptu.de' },
+      { name: 'University of Trier', type: 'university', city: 'Trier', students: 11000, description: 'Strong focus on humanities and social sciences', programs: ['International Business', 'Computer Science', 'Environmental Sciences', 'Economics', 'Law'], website: 'https://www.uni-trier.de' },
+      { name: 'University of Koblenz', type: 'university', city: 'Koblenz', students: 9000, description: 'Young university with strong regional integration', programs: ['Computer Science', 'Business Administration', 'Environmental Sciences', 'Psychology', 'Education'], website: 'https://www.uni-koblenz.de' },
     ],
     culture: [
       { title: 'Wine Country', description: 'Produces 70% of Germany\'s wine. The Deutsche Weinstraße (German Wine Route) offers picturesque villages, world-class Riesling, and endless autumn festivals.', icon: 'grapes' },
@@ -430,10 +430,10 @@ export const statesData: Record<string, StateData> = {
       'Hesse is the heart of Germany and Europe\'s financial capital. With Frankfurt\'s skyline, the dense forests of the Taunus, and the historic charm of towns like Marburg, it offers a dynamic mix of global business and rich tradition.',
     image: '/states/hesse.jpg',
     universities: [
-      { name: 'Goethe University Frankfurt', type: 'university', city: 'Frankfurt', students: 45000, description: 'Strong in Finance, Law, and Economics (House of Finance)', programs: ['Finance', 'Business Administration', 'Computer Science', 'Medicine', 'International Economics', 'Law'], website: 'https://www.uni-frankfurt.de/en' },
-      { name: 'Technical University of Darmstadt', type: 'technical', city: 'Darmstadt', students: 25000, description: 'First autonomous university in Germany, specialized in engineering', programs: ['Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Industrial Engineering', 'Materials Science', 'Civil Engineering'], website: 'https://www.tu-darmstadt.de/en' },
-      { name: 'Justus Liebig University Giessen', type: 'university', city: 'Giessen', students: 28000, description: 'Famous for Life Sciences and Cultural Studies', programs: ['Medicine', 'Veterinary Medicine', 'Business Administration', 'Psychology', 'Agricultural Sciences', 'Nutritional Sciences'], website: 'https://www.uni-giessen.de/en' },
-      { name: 'University of Marburg', type: 'university', city: 'Marburg', students: 22000, description: 'World\'s oldest Protestant university, founded in 1527', programs: ['Medicine', 'Computer Science', 'Business Administration', 'Psychology', 'Chemistry', 'International Business'], website: 'https://www.uni-marburg.de/en' },
+      { name: 'Goethe University Frankfurt', type: 'university', city: 'Frankfurt', students: 45000, description: 'Strong in Finance, Law, and Economics (House of Finance)', programs: ['Finance', 'Business Administration', 'Computer Science', 'Medicine', 'International Economics', 'Law'], website: 'https://www.uni-frankfurt.de' },
+      { name: 'Technical University of Darmstadt', type: 'technical', city: 'Darmstadt', students: 25000, description: 'First autonomous university in Germany, specialized in engineering', programs: ['Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Industrial Engineering', 'Materials Science', 'Civil Engineering'], website: 'https://www.tu-darmstadt.de' },
+      { name: 'Justus Liebig University Giessen', type: 'university', city: 'Giessen', students: 28000, description: 'Famous for Life Sciences and Cultural Studies', programs: ['Medicine', 'Veterinary Medicine', 'Business Administration', 'Psychology', 'Agricultural Sciences', 'Nutritional Sciences'], website: 'https://www.uni-giessen.de' },
+      { name: 'University of Marburg', type: 'university', city: 'Marburg', students: 22000, description: 'World\'s oldest Protestant university, founded in 1527', programs: ['Medicine', 'Computer Science', 'Business Administration', 'Psychology', 'Chemistry', 'International Business'], website: 'https://www.uni-marburg.de' },
     ],
     culture: [
       { title: 'Mainhattan', description: 'Frankfurt is the only German city with a massive skyline. It is the financial heart of the Eurozone, home to the ECB and the Stock Exchange.', icon: 'skyline' },
@@ -474,10 +474,10 @@ export const statesData: Record<string, StateData> = {
       'Thuringia is known as the "Green Heart of Germany" due to its vast forests. It is a state of immense cultural significance, home to Weimar Classicism, the Bauhaus movement, and Martin Luther\'s Wartburg, blending history with modern optical and tech industries.',
     image: '/states/thuringia.jpg',
     universities: [
-      { name: 'Friedrich Schiller University Jena', type: 'university', city: 'Jena', students: 17500, description: 'Historic university associated with Goethe, Schiller, and Hegel', programs: ['Medicine', 'Computer Science', 'Business Administration', 'Optics & Photonics', 'Physics', 'Molecular Biology'], website: 'https://www.uni-jena.de/en' },
-      { name: 'Ilmenau University of Technology', type: 'technical', city: 'Ilmenau', students: 5000, description: 'Strong focus on media technology and engineering', programs: ['Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'Media Technology', 'Information Systems', 'Automotive Engineering'], website: 'https://www.tu-ilmenau.de/en' },
-      { name: 'Bauhaus University Weimar', type: 'university', city: 'Weimar', students: 4000, description: 'World-renowned for architecture, art, and design', programs: ['Architecture', 'Computer Science (Media)', 'Urban Planning', 'Media Arts', 'Civil Engineering', 'Product Design'], website: 'https://www.uni-weimar.de/en' },
-      { name: 'University of Erfurt', type: 'university', city: 'Erfurt', students: 6000, description: 'Specialized in humanities and social sciences', programs: ['International Relations', 'Public Policy', 'Education', 'Psychology', 'Economics'], website: 'https://www.uni-erfurt.de/en' },
+      { name: 'Friedrich Schiller University Jena', type: 'university', city: 'Jena', students: 17500, description: 'Historic university associated with Goethe, Schiller, and Hegel', programs: ['Medicine', 'Computer Science', 'Business Administration', 'Optics & Photonics', 'Physics', 'Molecular Biology'], website: 'https://www.uni-jena.de' },
+      { name: 'Ilmenau University of Technology', type: 'technical', city: 'Ilmenau', students: 5000, description: 'Strong focus on media technology and engineering', programs: ['Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'Media Technology', 'Information Systems', 'Automotive Engineering'], website: 'https://www.tu-ilmenau.de' },
+      { name: 'Bauhaus University Weimar', type: 'university', city: 'Weimar', students: 4000, description: 'World-renowned for architecture, art, and design', programs: ['Architecture', 'Computer Science (Media)', 'Urban Planning', 'Media Arts', 'Civil Engineering', 'Product Design'], website: 'https://www.uni-weimar.de' },
+      { name: 'University of Erfurt', type: 'university', city: 'Erfurt', students: 6000, description: 'Specialized in humanities and social sciences', programs: ['International Relations', 'Public Policy', 'Education', 'Psychology', 'Economics'], website: 'https://www.uni-erfurt.de' },
     ],
     culture: [
       { title: 'Weimar Classicism', description: 'Home to Goethe and Schiller, Weimar was the intellectual center of Europe in the 18th century. The city boasts multiple UNESCO World Heritage sites.', icon: 'theater' },
@@ -518,10 +518,10 @@ export const statesData: Record<string, StateData> = {
       'Saxony is the dynamic cultural and economic center of Eastern Germany. From the "Silicon Saxony" tech hub in Dresden to the trendy creative scene in Leipzig and the natural wonders of the Elbe Sandstone Mountains, it offers a unique blend of innovation and history.',
     image: '/states/saxony.jpg',
     universities: [
-      { name: 'TU Dresden', type: 'technical', city: 'Dresden', students: 32000, description: 'University of Excellence, one of the largest technical universities in Germany', programs: ['Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'International Management', 'Physics', 'Civil Engineering'], website: 'https://tu-dresden.de/en' },
-      { name: 'Leipzig University', type: 'university', city: 'Leipzig', students: 31000, description: 'Second oldest university in Germany (1409), alma mater of Goethe and Nietzsche', programs: ['Business Administration', 'Computer Science', 'Medicine', 'Psychology', 'Physics', 'International Relations'], website: 'https://www.uni-leipzig.de/en' },
-      { name: 'Chemnitz University of Technology', type: 'technical', city: 'Chemnitz', students: 10000, description: 'Strong focus on automotive and mechanical engineering', programs: ['Automotive Engineering', 'Computer Science', 'Mechanical Engineering', 'Industrial Engineering', 'Electrical Engineering', 'Management'], website: 'https://www.tu-chemnitz.de/en' },
-      { name: 'TU Bergakademie Freiberg', type: 'technical', city: 'Freiberg', students: 4000, description: 'World\'s oldest university of mining and metallurgy', programs: ['Mining Engineering', 'Materials Science', 'Environmental Engineering', 'Geology', 'International Business & Resources', 'Mechanical Engineering'], website: 'https://tu-freiberg.de/en' },
+      { name: 'TU Dresden', type: 'technical', city: 'Dresden', students: 32000, description: 'University of Excellence, one of the largest technical universities in Germany', programs: ['Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'International Management', 'Physics', 'Civil Engineering'], website: 'https://tu-dresden.de' },
+      { name: 'Leipzig University', type: 'university', city: 'Leipzig', students: 31000, description: 'Second oldest university in Germany (1409), alma mater of Goethe and Nietzsche', programs: ['Business Administration', 'Computer Science', 'Medicine', 'Psychology', 'Physics', 'International Relations'], website: 'https://www.uni-leipzig.de' },
+      { name: 'Chemnitz University of Technology', type: 'technical', city: 'Chemnitz', students: 10000, description: 'Strong focus on automotive and mechanical engineering', programs: ['Automotive Engineering', 'Computer Science', 'Mechanical Engineering', 'Industrial Engineering', 'Electrical Engineering', 'Management'], website: 'https://www.tu-chemnitz.de' },
+      { name: 'TU Bergakademie Freiberg', type: 'technical', city: 'Freiberg', students: 4000, description: 'World\'s oldest university of mining and metallurgy', programs: ['Mining Engineering', 'Materials Science', 'Environmental Engineering', 'Geology', 'International Business & Resources', 'Mechanical Engineering'], website: 'https://tu-freiberg.de' },
     ],
     culture: [
       { title: 'Silicon Saxony', description: 'Europe\'s largest microelectronics cluster is based in Dresden. One in every three chips produced in Europe is made here, driving global innovation.', icon: 'laptop' },
@@ -563,10 +563,10 @@ export const statesData: Record<string, StateData> = {
     image: '/states/nrw.jpg',
     universities: [
       { name: 'RWTH Aachen University', type: 'technical', city: 'Aachen', students: 47000, description: 'Germany\'s largest technical university, a global leader in engineering', programs: ['Computer Science', 'Mechanical Engineering', 'Automotive Engineering', 'Electrical Engineering', 'Industrial Engineering', 'Software Systems Engineering'], website: 'https://www.rwth-aachen.de' },
-      { name: 'University of Bonn', type: 'university', city: 'Bonn', students: 38000, description: 'University of Excellence, produced multiple Nobel Prize winners', programs: ['Computer Science', 'Economics', 'Medicine', 'Physics', 'Agricultural Sciences', 'Law'], website: 'https://www.uni-bonn.de/en' },
-      { name: 'University of Cologne', type: 'university', city: 'Cologne', students: 50000, description: 'One of the oldest (1388) and largest universities in Germany', programs: ['Business Administration', 'Economics', 'Computer Science', 'Medicine', 'Psychology', 'International Business'], website: 'https://www.uni-koeln.de/en' },
-      { name: 'University of Münster', type: 'university', city: 'Münster', students: 45000, description: 'Famous for its high quality of life and bicycle-friendly campus', programs: ['Business Administration', 'Computer Science', 'Medicine', 'Psychology', 'Law', 'Economics'], website: 'https://www.uni-muenster.de/en' },
-      { name: 'Ruhr University Bochum', type: 'university', city: 'Bochum', students: 43000, description: 'First new university founded in West Germany after WWII', programs: ['Computer Science', 'Mechanical Engineering', 'Medicine', 'Psychology', 'Economics', 'Electrical Engineering'], website: 'https://www.ruhr-uni-bochum.de/en' },
+      { name: 'University of Bonn', type: 'university', city: 'Bonn', students: 38000, description: 'University of Excellence, produced multiple Nobel Prize winners', programs: ['Computer Science', 'Economics', 'Medicine', 'Physics', 'Agricultural Sciences', 'Law'], website: 'https://www.uni-bonn.de' },
+      { name: 'University of Cologne', type: 'university', city: 'Cologne', students: 50000, description: 'One of the oldest (1388) and largest universities in Germany', programs: ['Business Administration', 'Economics', 'Computer Science', 'Medicine', 'Psychology', 'International Business'], website: 'https://www.uni-koeln.de' },
+      { name: 'University of Münster', type: 'university', city: 'Münster', students: 45000, description: 'Famous for its high quality of life and bicycle-friendly campus', programs: ['Business Administration', 'Computer Science', 'Medicine', 'Psychology', 'Law', 'Economics'], website: 'https://www.uni-muenster.de' },
+      { name: 'Ruhr University Bochum', type: 'university', city: 'Bochum', students: 43000, description: 'First new university founded in West Germany after WWII', programs: ['Computer Science', 'Mechanical Engineering', 'Medicine', 'Psychology', 'Economics', 'Electrical Engineering'], website: 'https://www.ruhr-uni-bochum.de' },
     ],
     culture: [
       { title: 'Cologne Cathedral', description: 'The Kölner Dom is a Gothic masterpiece and Germany\'s most visited landmark. A UNESCO World Heritage site that took 632 years to complete.', icon: 'church' },
@@ -607,8 +607,8 @@ export const statesData: Record<string, StateData> = {
       'Saxony-Anhalt is a region of cultural awakening and modern innovation. From the cradle of the Reformation in Wittenberg to the birthplace of the Bauhaus movement in Dessau, it offers a rich history alongside a growing high-tech and renewable energy sector.',
     image: '/states/saxony-anhalt.jpg',
     universities: [
-      { name: 'Martin Luther University Halle-Wittenberg', type: 'university', city: 'Halle (Saale)', students: 20000, description: 'One of the oldest universities in Germany, rich in tradition and research', programs: ['Medicine', 'Computer Science', 'Business Administration', 'Pharmacy', 'Law', 'Agricultural Sciences'], website: 'https://www.uni-halle.de/en' },
-      { name: 'Otto von Guericke University Magdeburg', type: 'university', city: 'Magdeburg', students: 14000, description: 'Strong focus on engineering, computer science, and medicine', programs: ['Computer Science', 'Industrial Engineering', 'Medicine', 'Mechanical Engineering', 'Electrical Engineering', 'Business Administration'], website: 'https://www.ovgu.de/en' },
+      { name: 'Martin Luther University Halle-Wittenberg', type: 'university', city: 'Halle (Saale)', students: 20000, description: 'One of the oldest universities in Germany, rich in tradition and research', programs: ['Medicine', 'Computer Science', 'Business Administration', 'Pharmacy', 'Law', 'Agricultural Sciences'], website: 'https://www.uni-halle.de' },
+      { name: 'Otto von Guericke University Magdeburg', type: 'university', city: 'Magdeburg', students: 14000, description: 'Strong focus on engineering, computer science, and medicine', programs: ['Computer Science', 'Industrial Engineering', 'Medicine', 'Mechanical Engineering', 'Electrical Engineering', 'Business Administration'], website: 'https://www.ovgu.de' },
     ],
     culture: [
       { title: 'Bauhaus Dessau', description: 'The iconic Bauhaus building in Dessau is a UNESCO World Heritage site. It was the center of modern design and architecture in the 1920s.', icon: 'construction' },
@@ -649,10 +649,10 @@ export const statesData: Record<string, StateData> = {
       'Lower Saxony stretches from the North Sea coast to the Harz mountains. It is a land of wide horizons, automotive giants like Volkswagen, and world-class research universities, offering a high quality of life and diverse landscapes.',
     image: '/states/lower_saxony.jpg',
     universities: [
-      { name: 'University of Göttingen', type: 'university', city: 'Göttingen', students: 28000, description: 'Produced over 40 Nobel Prize winners, highly prestigious', programs: ['Computer Science', 'International Business', 'Medicine', 'Physics', 'Molecular Biology', 'Agricultural Sciences'], website: 'https://www.uni-goettingen.de/en' },
-      { name: 'Leibniz University Hannover', type: 'university', city: 'Hanover', students: 29000, description: 'Member of TU9, leading in engineering and technology', programs: ['Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Civil Engineering', 'Industrial Engineering', 'International Business'], website: 'https://www.uni-hannover.de/en' },
-      { name: 'TU Braunschweig', type: 'technical', city: 'Braunschweig', students: 17000, description: 'Oldest technical university in Germany, focus on mobility and aviation', programs: ['Automotive Engineering', 'Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Architecture', 'Aviation Engineering'], website: 'https://www.tu-braunschweig.de/en' },
-      { name: 'Clausthal University of Technology', type: 'technical', city: 'Clausthal-Zellerfeld', students: 4000, description: 'Unique focus on energy, raw materials, and material science', programs: ['Mining Engineering', 'Materials Science', 'Petroleum Engineering', 'Computer Science', 'Environmental Engineering', 'Mechanical Engineering'], website: 'https://www.tu-clausthal.de/en' },
+      { name: 'University of Göttingen', type: 'university', city: 'Göttingen', students: 28000, description: 'Produced over 40 Nobel Prize winners, highly prestigious', programs: ['Computer Science', 'International Business', 'Medicine', 'Physics', 'Molecular Biology', 'Agricultural Sciences'], website: 'https://www.uni-goettingen.de' },
+      { name: 'Leibniz University Hannover', type: 'university', city: 'Hanover', students: 29000, description: 'Member of TU9, leading in engineering and technology', programs: ['Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Civil Engineering', 'Industrial Engineering', 'International Business'], website: 'https://www.uni-hannover.de' },
+      { name: 'TU Braunschweig', type: 'technical', city: 'Braunschweig', students: 17000, description: 'Oldest technical university in Germany, focus on mobility and aviation', programs: ['Automotive Engineering', 'Computer Science', 'Mechanical Engineering', 'Electrical Engineering', 'Architecture', 'Aviation Engineering'], website: 'https://www.tu-braunschweig.de' },
+      { name: 'Clausthal University of Technology', type: 'technical', city: 'Clausthal-Zellerfeld', students: 4000, description: 'Unique focus on energy, raw materials, and material science', programs: ['Mining Engineering', 'Materials Science', 'Petroleum Engineering', 'Computer Science', 'Environmental Engineering', 'Mechanical Engineering'], website: 'https://www.tu-clausthal.de' },
     ],
     culture: [
       { title: 'Autostadt Wolfsburg', description: 'A massive automotive theme park and museum adjacent to the Volkswagen factory. A pilgrimage site for car enthusiasts from around the world.', icon: 'car' },
@@ -693,10 +693,10 @@ export const statesData: Record<string, StateData> = {
       'Brandenburg surrounds Berlin and is a land of lakes, forests, and Prussian history. From the palaces of Potsdam to the Spreewald canals and the new Tesla Gigafactory, it offers a high quality of life with easy access to the capital.',
     image: '/states/brandenburg.jpg',
     universities: [
-      { name: 'University of Potsdam', type: 'university', city: 'Potsdam', students: 22000, description: 'Largest university in the state, strong in humanities and science', programs: ['Computer Science', 'Business Administration', 'International Relations', 'Psychology', 'Public Administration', 'Data Science'], website: 'https://www.uni-potsdam.de/en' },
-      { name: 'BTU Cottbus-Senftenberg', type: 'technical', city: 'Cottbus', students: 7000, description: 'Leading in energy, environment, and materials research', programs: ['Environmental Engineering', 'Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'Industrial Engineering', 'Architecture'], website: 'https://www.b-tu.de/en' },
-      { name: 'European University Viadrina', type: 'university', city: 'Frankfurt (Oder)', students: 5000, description: 'Focus on international relations, law, and economics', programs: ['International Business', 'Law', 'European Studies', 'International Relations', 'Economics'], website: 'https://www.europa-uni.de/en' },
-      { name: 'Film University Babelsberg', type: 'university', city: 'Potsdam', students: 1000, description: 'Germany\'s oldest and largest film school', programs: ['Film Production', 'Screenwriting', 'Animation', 'Media Studies', 'Producing', 'Cinematography'], website: 'https://www.filmuniversitaet.de/en' },
+      { name: 'University of Potsdam', type: 'university', city: 'Potsdam', students: 22000, description: 'Largest university in the state, strong in humanities and science', programs: ['Computer Science', 'Business Administration', 'International Relations', 'Psychology', 'Public Administration', 'Data Science'], website: 'https://www.uni-potsdam.de' },
+      { name: 'BTU Cottbus-Senftenberg', type: 'technical', city: 'Cottbus', students: 7000, description: 'Leading in energy, environment, and materials research', programs: ['Environmental Engineering', 'Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'Industrial Engineering', 'Architecture'], website: 'https://www.b-tu.de' },
+      { name: 'European University Viadrina', type: 'university', city: 'Frankfurt (Oder)', students: 5000, description: 'Focus on international relations, law, and economics', programs: ['International Business', 'Law', 'European Studies', 'International Relations', 'Economics'], website: 'https://www.europa-uni.de' },
+      { name: 'Film University Babelsberg', type: 'university', city: 'Potsdam', students: 1000, description: 'Germany\'s oldest and largest film school', programs: ['Film Production', 'Screenwriting', 'Animation', 'Media Studies', 'Producing', 'Cinematography'], website: 'https://www.filmuniversitaet.de' },
     ],
     culture: [
       { title: 'Sanssouci Palace', description: 'Frederick the Great\'s summer palace in Potsdam is a Rococo masterpiece. The park and palace complex is a UNESCO World Heritage site.', icon: 'castle' },
@@ -737,10 +737,10 @@ export const statesData: Record<string, StateData> = {
       'Berlin is the capital of Germany and a global hub for culture, politics, and science. Known for its vibrant start-up scene, diverse international community, and rich history, it is one of the most exciting cities in Europe to live and study.',
     image: '/states/berlin.jpg',
     universities: [
-      { name: 'Freie Universität Berlin', type: 'university', city: 'Berlin', students: 33000, description: 'University of Excellence, strong in humanities and social sciences', programs: ['Computer Science', 'Business Administration', 'International Relations', 'Political Science', 'Psychology', 'Law'], website: 'https://www.fu-berlin.de/en' },
-      { name: 'Humboldt-Universität zu Berlin', type: 'university', city: 'Berlin', students: 36000, description: 'The mother of all modern universities, alma mater of 29 Nobel laureates', programs: ['Computer Science', 'Business Administration', 'Medicine', 'Economics', 'Psychology', 'Materials Science'], website: 'https://www.hu-berlin.de/en' },
-      { name: 'Technische Universität Berlin', type: 'technical', city: 'Berlin', students: 34000, description: 'Member of TU9, leading in engineering and computer science', programs: ['Computer Science', 'Mechanical Engineering', 'Industrial Engineering', 'Electrical Engineering', 'Civil Engineering', 'Innovation Management'], website: 'https://www.tu.berlin/en' },
-      { name: 'Charité - Universitätsmedizin Berlin', type: 'university', city: 'Berlin', students: 8000, description: 'One of the largest and most prestigious university hospitals in Europe', programs: ['Medicine', 'Molecular Medicine', 'Epidemiology', 'International Health', 'Medical Neuroscience', 'Dentistry'], website: 'https://www.charite.de/en' },
+      { name: 'Freie Universität Berlin', type: 'university', city: 'Berlin', students: 33000, description: 'University of Excellence, strong in humanities and social sciences', programs: ['Computer Science', 'Business Administration', 'International Relations', 'Political Science', 'Psychology', 'Law'], website: 'https://www.fu-berlin.de' },
+      { name: 'Humboldt-Universität zu Berlin', type: 'university', city: 'Berlin', students: 36000, description: 'The mother of all modern universities, alma mater of 29 Nobel laureates', programs: ['Computer Science', 'Business Administration', 'Medicine', 'Economics', 'Psychology', 'Materials Science'], website: 'https://www.hu-berlin.de' },
+      { name: 'Technische Universität Berlin', type: 'technical', city: 'Berlin', students: 34000, description: 'Member of TU9, leading in engineering and computer science', programs: ['Computer Science', 'Mechanical Engineering', 'Industrial Engineering', 'Electrical Engineering', 'Civil Engineering', 'Innovation Management'], website: 'https://www.tu.berlin' },
+      { name: 'Charité - Universitätsmedizin Berlin', type: 'university', city: 'Berlin', students: 8000, description: 'One of the largest and most prestigious university hospitals in Europe', programs: ['Medicine', 'Molecular Medicine', 'Epidemiology', 'International Health', 'Medical Neuroscience', 'Dentistry'], website: 'https://www.charite.de' },
     ],
     culture: [
       { title: 'Brandenburg Gate', description: 'The city\'s most famous landmark and a symbol of German reunification. It stands at the heart of the capital, witnessing centuries of history.', icon: 'monument' },
@@ -781,10 +781,10 @@ export const statesData: Record<string, StateData> = {
       'Bremen is a Hanseatic city with a proud maritime history and a future in aerospace. Known for the Town Musicians and its UNESCO World Heritage market square, it combines tradition with cutting-edge research in space technology and polar science.',
     image: '/states/bremen.jpg',
     universities: [
-      { name: 'University of Bremen', type: 'university', city: 'Bremen', students: 19000, description: 'Strong in climate research, marine sciences, and engineering', programs: ['Computer Science', 'International Business', 'Marine Sciences', 'Engineering', 'Physics', 'Economics'], website: 'https://www.uni-bremen.de/en' },
+      { name: 'University of Bremen', type: 'university', city: 'Bremen', students: 19000, description: 'Strong in climate research, marine sciences, and engineering', programs: ['Computer Science', 'International Business', 'Marine Sciences', 'Engineering', 'Physics', 'Economics'], website: 'https://www.uni-bremen.de' },
       { name: 'Constructor University', type: 'university', city: 'Bremen', students: 1500, description: 'Private, English-speaking campus university with a global student body', programs: ['Computer Science', 'Software & Data Technology', 'International Business', 'Data Science', 'Psychology', 'Biochemistry'], website: 'https://constructor.university' },
-      { name: 'Hochschule Bremen', type: 'applied', city: 'Bremen', students: 8700, description: 'City University of Applied Sciences with strong international networks', programs: ['International Business', 'Global Management', 'Aviation Management', 'Tourism Management', 'Logistics', 'Computer Science'], website: 'https://www.hs-bremen.de/en' },
-      { name: 'Hochschule Bremerhaven', type: 'applied', city: 'Bremerhaven', students: 3000, description: 'Focus on maritime technologies and wind energy', programs: ['Maritime Engineering', 'Renewable Energy', 'Tourism Management', 'Computer Science', 'Logistics', 'Wind Energy'], website: 'https://www.hs-bremerhaven.de/en' },
+      { name: 'Hochschule Bremen', type: 'applied', city: 'Bremen', students: 8700, description: 'City University of Applied Sciences with strong international networks', programs: ['International Business', 'Global Management', 'Aviation Management', 'Tourism Management', 'Logistics', 'Computer Science'], website: 'https://www.hs-bremen.de' },
+      { name: 'Hochschule Bremerhaven', type: 'applied', city: 'Bremerhaven', students: 3000, description: 'Focus on maritime technologies and wind energy', programs: ['Maritime Engineering', 'Renewable Energy', 'Tourism Management', 'Computer Science', 'Logistics', 'Wind Energy'], website: 'https://www.hs-bremerhaven.de' },
     ],
     culture: [
       { title: 'Town Musicians', description: 'The bronze statue of the donkey, dog, cat, and rooster from the Brothers Grimm fairy tale. Touching the donkey\'s legs is said to bring good luck.', icon: 'horse' },
@@ -825,10 +825,10 @@ export const statesData: Record<string, StateData> = {
       'Mecklenburg-Vorpommern is a coastal paradise with over 2,000 lakes and islands like Rügen and Usedom. It combines a relaxed lifestyle with historic Hanseatic cities and cutting-edge research in marine biology and renewable energy.',
     image: '/states/mecklenburg-vorpommern.jpg',
     universities: [
-      { name: 'University of Rostock', type: 'university', city: 'Rostock', students: 13000, description: 'Oldest university in the Baltic Sea region (1419), strong in interdisciplinary research', programs: ['Medicine', 'Computer Science', 'Marine Biology', 'Mechanical Engineering', 'Renewable Energy', 'Business Administration'], website: 'https://www.uni-rostock.de/en' },
-      { name: 'University of Greifswald', type: 'university', city: 'Greifswald', students: 10000, description: 'Internationally oriented research university, strong in life sciences and plasma physics', programs: ['Medicine', 'Computer Science', 'Physics', 'Biology', 'Business Administration', 'Law'], website: 'https://www.uni-greifswald.de/en' },
-      { name: 'Hochschule Wismar', type: 'applied', city: 'Wismar', students: 8000, description: 'Technology, Business, and Design with a strong maritime focus', programs: ['Computer Science', 'Business Administration', 'Maritime Engineering', 'Architecture', 'Electrical Engineering', 'Design'], website: 'https://www.hs-wismar.de/en' },
-      { name: 'Hochschule Stralsund', type: 'applied', city: 'Stralsund', students: 2500, description: 'Young campus university focusing on renewable energy and tourism', programs: ['Renewable Energy', 'Computer Science', 'International Management', 'Tourism Management', 'Maritime Engineering', 'Electrical Engineering'], website: 'https://www.hochschule-stralsund.de/en' },
+      { name: 'University of Rostock', type: 'university', city: 'Rostock', students: 13000, description: 'Oldest university in the Baltic Sea region (1419), strong in interdisciplinary research', programs: ['Medicine', 'Computer Science', 'Marine Biology', 'Mechanical Engineering', 'Renewable Energy', 'Business Administration'], website: 'https://www.uni-rostock.de' },
+      { name: 'University of Greifswald', type: 'university', city: 'Greifswald', students: 10000, description: 'Internationally oriented research university, strong in life sciences and plasma physics', programs: ['Medicine', 'Computer Science', 'Physics', 'Biology', 'Business Administration', 'Law'], website: 'https://www.uni-greifswald.de' },
+      { name: 'Hochschule Wismar', type: 'applied', city: 'Wismar', students: 8000, description: 'Technology, Business, and Design with a strong maritime focus', programs: ['Computer Science', 'Business Administration', 'Maritime Engineering', 'Architecture', 'Electrical Engineering', 'Design'], website: 'https://www.hs-wismar.de' },
+      { name: 'Hochschule Stralsund', type: 'applied', city: 'Stralsund', students: 2500, description: 'Young campus university focusing on renewable energy and tourism', programs: ['Renewable Energy', 'Computer Science', 'International Management', 'Tourism Management', 'Maritime Engineering', 'Electrical Engineering'], website: 'https://www.hochschule-stralsund.de' },
     ],
     culture: [
       { title: 'Schwerin Castle', description: 'Located on an island in Lake Schwerin, this romantic palace is nicknamed the "Neuschwanstein of the North" and houses the state parliament.', icon: 'castle' },
@@ -869,10 +869,10 @@ export const statesData: Record<string, StateData> = {
       'The "True North" of Germany, situated between the North Sea and the Baltic Sea. Schleswig-Holstein is known for its maritime heritage, wind energy leadership, and the UNESCO World Heritage Wadden Sea.',
     image: '/states/schleswig-holstein.jpg',
     universities: [
-      { name: 'Kiel University (CAU)', type: 'university', city: 'Kiel', students: 27000, description: 'Strong focus on marine sciences, nano science, and life sciences', programs: ['Computer Science', 'Medicine', 'Marine Sciences', 'International Business', 'Physics', 'Sustainability Studies'], website: 'https://www.uni-kiel.de/en' },
-      { name: 'University of Lübeck', type: 'university', city: 'Lübeck', students: 5000, description: 'Ranked #1 for Medicine in CHE ranking, research-intensive', programs: ['Medicine', 'Computer Science', 'Biomedicine', 'Medical Informatics', 'Psychology', 'Mathematics'], website: 'https://www.uni-luebeck.de/en' },
-      { name: 'Flensburg University of Applied Sciences', type: 'applied', city: 'Flensburg', students: 4000, description: 'Located on a shared campus near the Danish border, focus on energy', programs: ['International Business', 'Renewable Energy', 'Computer Science', 'Tourism Management', 'Engineering'], website: 'https://www.hs-flensburg.de/en' },
-      { name: 'FH Kiel', type: 'applied', city: 'Kiel', students: 7500, description: 'Largest university of applied sciences in the state', programs: ['Computer Science', 'Business Administration', 'Mechanical Engineering', 'Electrical Engineering', 'International Business', 'Renewable Energy'], website: 'https://www.fh-kiel.de/en' },
+      { name: 'Kiel University (CAU)', type: 'university', city: 'Kiel', students: 27000, description: 'Strong focus on marine sciences, nano science, and life sciences', programs: ['Computer Science', 'Medicine', 'Marine Sciences', 'International Business', 'Physics', 'Sustainability Studies'], website: 'https://www.uni-kiel.de' },
+      { name: 'University of Lübeck', type: 'university', city: 'Lübeck', students: 5000, description: 'Ranked #1 for Medicine in CHE ranking, research-intensive', programs: ['Medicine', 'Computer Science', 'Biomedicine', 'Medical Informatics', 'Psychology', 'Mathematics'], website: 'https://www.uni-luebeck.de' },
+      { name: 'Flensburg University of Applied Sciences', type: 'applied', city: 'Flensburg', students: 4000, description: 'Located on a shared campus near the Danish border, focus on energy', programs: ['International Business', 'Renewable Energy', 'Computer Science', 'Tourism Management', 'Engineering'], website: 'https://www.hs-flensburg.de' },
+      { name: 'FH Kiel', type: 'applied', city: 'Kiel', students: 7500, description: 'Largest university of applied sciences in the state', programs: ['Computer Science', 'Business Administration', 'Mechanical Engineering', 'Electrical Engineering', 'International Business', 'Renewable Energy'], website: 'https://www.fh-kiel.de' },
     ],
     culture: [
       { title: 'Wadden Sea', description: 'A UNESCO World Heritage site and the largest unbroken system of intertidal sand and mud flats in the world. A unique ecosystem teeming with life.', icon: 'seafood' },
@@ -913,10 +913,10 @@ export const statesData: Record<string, StateData> = {
       'Hamburg is Germany\'s "Gateway to the World" — a city of bridges, water, and trade. As a major European port and media hub, it offers a cosmopolitan atmosphere, a high standard of living, and a thriving scene for science and innovation.',
     image: '/states/hamburg.jpg',
     universities: [
-      { name: 'University of Hamburg', type: 'university', city: 'Hamburg', students: 43000, description: 'University of Excellence, renowned for climate research and manuscript cultures', programs: ['Computer Science', 'International Business', 'Medicine', 'Physics', 'Law', 'Economics'], website: 'https://www.uni-hamburg.de/en' },
+      { name: 'University of Hamburg', type: 'university', city: 'Hamburg', students: 43000, description: 'University of Excellence, renowned for climate research and manuscript cultures', programs: ['Computer Science', 'International Business', 'Medicine', 'Physics', 'Law', 'Economics'], website: 'https://www.uni-hamburg.de' },
       { name: 'Hamburg University of Technology (TUHH)', type: 'technical', city: 'Hamburg', students: 7800, description: 'Highly specialized in engineering, aviation, and logistics', programs: ['Computer Science', 'Aerospace Engineering', 'Mechanical Engineering', 'Materials Science', 'Information Systems', 'Logistics'], website: 'https://www.tuhh.de' },
-      { name: 'HAW Hamburg', type: 'applied', city: 'Hamburg', students: 17000, description: 'Second largest university in Hamburg, strong focus on design and media', programs: ['Computer Science', 'Business Administration', 'Mechanical Engineering', 'Automotive Engineering', 'Aeronautical Engineering', 'Media Design'], website: 'https://www.haw-hamburg.de/en' },
-      { name: 'HafenCity University', type: 'university', city: 'Hamburg', students: 2400, description: 'Specialized in architecture and metropolitan development', programs: ['Architecture', 'Urban Planning', 'Civil Engineering', 'Real Estate', 'Metropolitan Culture', 'Resource Efficiency'], website: 'https://www.hcu-hamburg.de/en' },
+      { name: 'HAW Hamburg', type: 'applied', city: 'Hamburg', students: 17000, description: 'Second largest university in Hamburg, strong focus on design and media', programs: ['Computer Science', 'Business Administration', 'Mechanical Engineering', 'Automotive Engineering', 'Aeronautical Engineering', 'Media Design'], website: 'https://www.haw-hamburg.de' },
+      { name: 'HafenCity University', type: 'university', city: 'Hamburg', students: 2400, description: 'Specialized in architecture and metropolitan development', programs: ['Architecture', 'Urban Planning', 'Civil Engineering', 'Real Estate', 'Metropolitan Culture', 'Resource Efficiency'], website: 'https://www.hcu-hamburg.de' },
     ],
     culture: [
       { title: 'Elbphilharmonie', description: 'A dazzling concert hall built on top of an old warehouse. Its wave-like glass facade has become the new symbol of the city.', icon: 'note' },
