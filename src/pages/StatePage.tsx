@@ -211,93 +211,110 @@ export function StatePage() {
               if (groupUnis.length === 0) return null;
 
               return (
-                <div key={group.label} className="mb-14 last:mb-0">
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-text uppercase tracking-wide mb-1">
+                <div key={group.label} className="mb-16 last:mb-0">
+                  {/* Group header */}
+                  <div className="mb-8 pb-4 border-b border-border">
+                    <h3 className="text-xl font-bold text-text mb-1">
                       {group.label}
                     </h3>
                     <p className="text-sm text-text-muted">{group.description}</p>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-6">
+                  {/* Each university as its own full-width section */}
+                  <div className="space-y-6">
                     {groupUnis.map((uni) => (
                       <div
                         key={uni.name}
-                        className="bg-surface rounded-xl p-6 shadow-soft hover:shadow-card transition-all hover:-translate-y-0.5 border border-border/50"
+                        className="bg-surface rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-card transition-shadow"
                       >
-                        {/* Header */}
-                        <div className="flex items-start justify-between gap-3 mb-3">
-                          <h4 className="font-semibold text-lg leading-tight flex-1">
-                            {uni.name}
-                          </h4>
-                          <span
-                            className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap ${getTypeBadgeColor(uni.type)}`}
-                          >
-                            {getTypeLabel(uni.type)}
-                          </span>
-                        </div>
-
-                        {/* Meta */}
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-text-muted mb-3">
-                          <span className="flex items-center gap-1">
-                            <LocationIcon />
-                            {uni.city}
-                          </span>
-                          {uni.foundingYear && (
-                            <span className="flex items-center gap-1">
-                              <CalendarIcon />
-                              Founded {uni.foundingYear}
+                        <div className="p-6 md:p-8">
+                          {/* Header */}
+                          <div className="flex items-start justify-between gap-4 mb-4">
+                            <h4 className="text-xl font-bold text-text leading-tight flex-1">
+                              {uni.name}
+                            </h4>
+                            <span
+                              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap flex-shrink-0 ${getTypeBadgeColor(uni.type)}`}
+                            >
+                              {getTypeLabel(uni.type)}
                             </span>
-                          )}
-                          <span className="flex items-center gap-1">
-                            <UsersIcon />
-                            {uni.students.toLocaleString()} students
-                          </span>
-                        </div>
+                          </div>
 
-                        {/* Description */}
-                        <p className="text-sm text-text leading-relaxed mb-4">
-                          {uni.description}
-                        </p>
-
-                        {/* Highlights */}
-                        {uni.highlights && uni.highlights.length > 0 && (
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {uni.highlights.map((h) => (
-                              <span
-                                key={h}
-                                className="px-2.5 py-1 bg-primary-light/50 text-primary text-xs font-medium rounded-md"
-                              >
-                                {h}
+                          {/* Stats row */}
+                          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-muted mb-5 pb-5 border-b border-border/40">
+                            <span className="flex items-center gap-1.5">
+                              <LocationIcon />
+                              {uni.city}
+                            </span>
+                            {uni.foundingYear && (
+                              <span className="flex items-center gap-1.5">
+                                <CalendarIcon />
+                                Founded {uni.foundingYear}
                               </span>
-                            ))}
+                            )}
+                            <span className="flex items-center gap-1.5">
+                              <UsersIcon />
+                              {uni.students.toLocaleString()} students
+                            </span>
                           </div>
-                        )}
 
-                        {/* Notable Alumni */}
-                        {uni.notableAlumni && uni.notableAlumni.length > 0 && (
-                          <div className="mb-3">
-                            <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-1.5">
-                              Notable Alumni
-                            </p>
-                            <p className="text-sm text-text">
-                              {uni.notableAlumni.map((a) => a.split(' (')[0]).join(' · ')}
-                            </p>
-                          </div>
-                        )}
+                          {/* Description */}
+                          <p className="text-base text-text leading-relaxed mb-6 max-w-[800px]">
+                            {uni.description}
+                          </p>
 
-                        {/* Website */}
-                        {uni.website && (
-                          <a
-                            href={uni.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
-                          >
-                            <Ui.ExternalLink size={14} />
-                            Visit website
-                          </a>
-                        )}
+                          {/* Highlights — 2-column checklist */}
+                          {uni.highlights && uni.highlights.length > 0 && (
+                            <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-6">
+                              {uni.highlights.map((h) => (
+                                <div key={h} className="flex items-start gap-2">
+                                  <Ui.Check size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                                  <span className="text-sm text-text leading-snug">{h}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Notable Alumni callout */}
+                          {uni.notableAlumni && uni.notableAlumni.length > 0 && (
+                            <div className="bg-page rounded-xl p-4 mb-5 border border-border/30">
+                              <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2">
+                                Notable Alumni
+                              </p>
+                              <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+                                {uni.notableAlumni.map((a) => {
+                                  const match = a.match(/^(.+?)\s\((.+)\)$/);
+                                  if (match) {
+                                    return (
+                                      <span key={a} className="text-sm text-text">
+                                        <span className="font-semibold">{match[1]}</span>{' '}
+                                        <span className="text-text-muted">({match[2]})</span>
+                                      </span>
+                                    );
+                                  }
+                                  return (
+                                    <span key={a} className="text-sm text-text font-semibold">
+                                      {a}
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Website button */}
+                          {uni.website && (
+                            <a
+                              href={uni.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-hover transition-colors"
+                            >
+                              <Ui.ExternalLink size={14} />
+                              Visit website
+                            </a>
+                          )}
+                        </div>
                       </div>
                     ))}
                   </div>
