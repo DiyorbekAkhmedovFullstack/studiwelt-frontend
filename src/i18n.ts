@@ -12,7 +12,7 @@ i18n
         fallbackLng: 'en',
 
         // Supported languages
-        supportedLngs: ['de', 'en'],
+        supportedLngs: ['de', 'en', 'ru'],
 
         // Default namespace
         defaultNS: 'common',

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon, Ui } from '../../lib/icons';
 
-const SUPPORTED_LANGUAGES = ['de', 'en'];
+const SUPPORTED_LANGUAGES = ['de', 'en', 'ru'];
 const STORAGE_KEY = 'i18nextLng';
 
 interface LanguageOption {
@@ -14,6 +14,7 @@ interface LanguageOption {
 const languages: LanguageOption[] = [
   { code: 'de', label: 'Deutsch', nativeName: 'German' },
   { code: 'en', label: 'English', nativeName: 'English' },
+  { code: 'ru', label: 'Русский', nativeName: 'Russian' },
 ];
 
 export function LanguagePromptBanner() {

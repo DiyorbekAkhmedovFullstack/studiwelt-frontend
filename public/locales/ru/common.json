@@ -1,0 +1,73 @@
+{
+    "nav": {
+        "home": "Главная",
+        "method": "Методика",
+        "login": "Войти",
+        "getStarted": "Начать",
+        "learnMore": "Подробнее",
+        "currentCourse": "Текущий курс",
+        "germanLanguage": "Немецкий язык",
+        "profileAccount": "Профиль и аккаунт",
+        "upgradeToStudent": "Перейти на тариф «Студент»",
+        "adminPanel": "Панель администратора",
+        "logOut": "Выйти",
+        "welcomeTitle": "Добро пожаловать в Studiwelt",
+        "welcomeSubtitle": "Высшее образование в Германии — просто",
+        "createAccount": "Создать аккаунт",
+        "freeToStart": "Начать бесплатно",
+        "alreadyHaveAccount": "Уже есть аккаунт? Войдите",
+        "aboutStudienkolleg": "О Studienkolleg",
+        "application": "Подача заявки",
+        "entranceExam": "Вступительный экзамен",
+        "fsp": "FSP"
+    },
+    "buttons": {
+        "startPlan": "Начать 30-дневный план",
+        "learnMore": "Подробнее",
+        "viewAll": "Показать все"
+    },
+    "profile": {
+        "title": "Ваш профиль",
+        "subtitle": "Управляйте внешним видом и настройками безопасности.",
+        "avatar": {
+            "currentLook": "Текущий вид",
+            "chooseAvatar": "Выберите аватар",
+            "hint": "Подсказка: можно выбрать случайный",
+            "random": "Случайный",
+            "saveAvatar": "Сохранить аватар",
+            "savingAvatar": "Сохранение аватара...",
+            "updateSuccess": "Аватар обновлён.",
+            "updateFailed": "Не удалось обновить аватар."
+        },
+        "security": {
+            "title": "Безопасность",
+            "subtitle": "Управляйте паролем и двухэтапной проверкой.",
+            "mfaEnabled": "MFA включена",
+            "mfaEnabledDescription": "Многофакторная аутентификация сейчас <strong>включена</strong> для вашего аккаунта. Ваш аккаунт защищён дополнительным уровнем безопасности.",
+            "mfaDisabledDescription": "MFA сейчас <strong>отключена</strong> для вашего аккаунта. Добавьте дополнительный уровень защиты с помощью приложения для одноразовых паролей (TOTP), например Google Authenticator или 1Password.",
+            "disableMfa": "Отключить MFA",
+            "setupMfa": "Настроить MFA",
+            "updating": "Обновление...",
+            "startingSetup": "Запуск настройки...",
+            "disableConfirm": "Вы уверены, что хотите отключить MFA для своего аккаунта?",
+            "setupStarted": "Настройка MFA начата.",
+            "setupFailed": "Не удалось настроить MFA.",
+            "mfaEnabledToast": "MFA включена.",
+            "mfaEnableFailed": "Не удалось включить MFA.",
+            "mfaDisabled": "MFA отключена.",
+            "mfaDisableFailed": "Не удалось отключить MFA.",
+            "enterAllDigits": "Введите все 6 цифр.",
+            "userInfoMissing": "Отсутствуют данные пользователя.",
+            "step1": "Шаг 1 из 2",
+            "step2": "Шаг 2 из 2",
+            "setupAuthenticator": "Настройте приложение-аутентификатор",
+            "setupInstructions": "Используйте приложение-аутентификатор (Google Authenticator, Authy и т. п.), чтобы отсканировать QR-код ниже. Это привяжет ваш аккаунт STUDIWELT к вашему устройству.",
+            "qrCodeAlt": "QR-код MFA",
+            "qrCodePlaceholder": "QR-код",
+            "verifyCode": "Подтвердите код",
+            "verifyInstructions": "Введите 6-значный код из приложения, чтобы завершить.",
+            "verifying": "Проверка...",
+            "verifyAndEnable": "Подтвердить и включить"
+        }
+    }
+}
