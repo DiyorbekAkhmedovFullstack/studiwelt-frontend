@@ -7,7 +7,6 @@ interface TestimonialAuthLayoutProps {
   title: string;
   subtitle: string;
   testimonialText?: string;
-  testimonialAuthor?: string;
   testimonialRole?: string;
   testimonialAvatar?: string;
 }
@@ -16,10 +15,9 @@ export function TestimonialAuthLayout({
   children,
   title,
   subtitle,
-  testimonialText = "I used to stress-study for hours with zero retention. The structured approach and progress tracking completely changed my learning journey.",
-  testimonialAuthor = "Sarah Jenkins",
-  testimonialRole = "Student • Passed Studienkolleg 2024",
-  testimonialAvatar = "https://api.dicebear.com/7.x/notionists/svg?seed=Sarah",
+  testimonialText = "The daily lessons kept me consistent. Instead of cramming the night before, I actually walked into the Aufnahmeprüfung feeling ready.",
+  testimonialRole = "Passed the entrance exam",
+  testimonialAvatar = "https://api.dicebear.com/9.x/notionists/svg?seed=studiwelt",
 }: TestimonialAuthLayoutProps) {
   return (
     <div className="min-h-screen flex bg-surface overflow-hidden">
@@ -50,10 +48,7 @@ export function TestimonialAuthLayout({
               className="w-12 h-12 rounded-full bg-[#ddd] bg-cover bg-center"
               style={{ backgroundImage: `url(${testimonialAvatar})` }}
             ></div>
-            <div>
-              <h4 className="text-base font-bold text-text-main">{testimonialAuthor}</h4>
-              <span className="text-[13px] text-text-muted">{testimonialRole}</span>
-            </div>
+            <span className="text-[14px] font-medium text-text-muted">{testimonialRole}</span>
           </div>
         </div>
 
