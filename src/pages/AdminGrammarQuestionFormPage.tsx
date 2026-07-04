@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { LoadingSpinner } from "../components/common/LoadingSpinner";
 import { DashboardLayout } from "../components/dashboard/DashboardLayout";
 import {
@@ -26,6 +27,7 @@ type OptionForm = {
 };
 
 export function AdminGrammarQuestionFormPage() {
+  const { t } = useTranslation();
   const { lessonNumber, questionId } = useParams<Params>();
   const navigate = useNavigate();
   const isEdit = Boolean(questionId);
@@ -104,7 +106,7 @@ export function AdminGrammarQuestionFormPage() {
         if (!active) return;
         const message = err instanceof Error ? err.message : "Load failed.";
         setError(message);
-        toastService.error(message);
+        toastService.error(t('toast.loadFailed'));
       } finally {
         if (active) {
           setLoading(false);
@@ -136,22 +138,20 @@ export function AdminGrammarQuestionFormPage() {
 
   const validate = (): boolean => {
     if (!questionText.trim()) {
-      toastService.error("Please enter the question text.");
+      toastService.error(t("toast.grammarQuestionTextRequired"));
       return false;
     }
 
     for (let i = 0; i < options.length; i++) {
       if (!options[i].optionText.trim()) {
-        toastService.error(
-          `Option ${options[i].optionLetter}: Please enter option text.`,
-        );
+        toastService.error(t("toast.grammarOptionTextRequired", { letter: options[i].optionLetter }));
         return false;
       }
     }
 
     const correctCount = options.filter((opt) => opt.isCorrect).length;
     if (correctCount !== 1) {
-      toastService.error("Please mark exactly one option as correct.");
+      toastService.error(t("toast.grammarCorrectOptionRequired"));
       return false;
     }
 
@@ -178,10 +178,10 @@ export function AdminGrammarQuestionFormPage() {
     try {
       if (isEdit && questionId) {
         await grammarService.updateQuestion(questionId, payload);
-        toastService.success("Grammar question updated successfully.");
+        toastService.success(t("toast.grammarQuestionUpdated"));
       } else {
         await grammarService.createQuestion(topic.topicKey, payload);
-        toastService.success("Grammar question created successfully.");
+        toastService.success(t("toast.grammarQuestionCreated"));
       }
 
       navigate(`/admin/lessons/${lesson.lessonNumber}/grammar`);
@@ -190,7 +190,7 @@ export function AdminGrammarQuestionFormPage() {
         err instanceof Error
           ? err.message
           : "Failed to save grammar question. Please try again.";
-      toastService.error(message);
+      toastService.error(t("toast.grammarQuestionSaveFailed"));
     } finally {
       setSubmitting(false);
     }

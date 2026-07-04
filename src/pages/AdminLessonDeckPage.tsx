@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { lessonService, type LessonResponse } from '../services/lessonService';
 import { deckService } from '../services/deckService';
 import type { Deck } from '../types/api';
@@ -14,6 +15,7 @@ type Params = {
 };
 
 export function AdminLessonDeckPage() {
+  const { t } = useTranslation();
   const { lessonNumber } = useParams<Params>();
 
   const [lesson, setLesson] = useState<LessonResponse['lesson'] | null>(null);
@@ -67,7 +69,7 @@ export function AdminLessonDeckPage() {
             ? err.message
             : 'Load failed.';
         setError(message);
-        toastService.error('Load failed.');
+        toastService.error(t('toast.loadFailed'));
       } finally {
         if (active) {
           setLoading(false);
@@ -86,7 +88,7 @@ export function AdminLessonDeckPage() {
     event.preventDefault();
     if (!lesson) return;
     if (!createName.trim()) {
-      toastService.error('Deck name cannot be empty.');
+      toastService.error(t('toast.deckNameRequired'));
       return;
     }
 
@@ -100,12 +102,12 @@ export function AdminLessonDeckPage() {
       setDeck(created);
       setCreateName('');
       setCreateDescription('');
-      toastService.success('Deck created successfully.');
+      toastService.success(t('toast.deckCreated'));
     } catch (err) {
       const message =
         err instanceof Error ? err.message : 'Failed to create deck.';
       setError(message);
-      toastService.error('Failed to create deck. Please try again.');
+      toastService.error(t('toast.deckCreateFailed'));
     } finally {
       setCreating(false);
     }
@@ -127,7 +129,7 @@ export function AdminLessonDeckPage() {
   const saveDeck = async () => {
     if (!lesson || !deck) return;
     if (!editName.trim()) {
-      toastService.error('Deck name cannot be empty.');
+      toastService.error(t('toast.deckNameRequired'));
       return;
     }
 
@@ -138,13 +140,13 @@ export function AdminLessonDeckPage() {
         lessonId: lesson.id,
       });
       setDeck(updated);
-      toastService.success('Deck updated.');
+      toastService.success(t('toast.deckUpdated'));
       cancelEditDeck();
     } catch (err) {
       const message =
         err instanceof Error ? err.message : 'Failed to update deck.';
       setError(message);
-      toastService.error('Failed to update deck. Please try again.');
+      toastService.error(t('toast.deckUpdateFailed'));
     }
   };
 
@@ -152,7 +154,7 @@ export function AdminLessonDeckPage() {
     event.preventDefault();
     if (!deck) return;
     if (!cardFront.trim() || !cardBack.trim()) {
-      toastService.error('Both front and back are required.');
+      toastService.error(t('toast.cardFieldsRequired'));
       return;
     }
 
@@ -168,12 +170,12 @@ export function AdminLessonDeckPage() {
       });
       setCardFront('');
       setCardBack('');
-      toastService.success('Card added.');
+      toastService.success(t('toast.cardAdded'));
     } catch (err) {
       const message =
         err instanceof Error ? err.message : 'Failed to add card.';
       setError(message);
-      toastService.error('Failed to add card. Please try again.');
+      toastService.error(t('toast.cardAddFailed'));
     } finally {
       setSavingCard(false);
     }
@@ -194,7 +196,7 @@ export function AdminLessonDeckPage() {
   const saveCard = async (cardId: string) => {
     if (!deck) return;
     if (!editCardFront.trim() || !editCardBack.trim()) {
-      toastService.error('Both front and back are required.');
+      toastService.error(t('toast.cardFieldsRequired'));
       return;
     }
 
@@ -210,13 +212,13 @@ export function AdminLessonDeckPage() {
           card.id === updated.id ? { ...card, ...updated } : card,
         ),
       });
-      toastService.success('Card updated.');
+      toastService.success(t('toast.cardUpdated'));
       cancelEditCard();
     } catch (err) {
       const message =
         err instanceof Error ? err.message : 'Failed to update card.';
       setError(message);
-      toastService.error('Failed to update card. Please try again.');
+      toastService.error(t('toast.cardUpdateFailed'));
     } finally {
       setSavingCard(false);
     }
@@ -233,12 +235,12 @@ export function AdminLessonDeckPage() {
         ...deck,
         cards: deck.cards.filter((card) => card.id !== cardId),
       });
-      toastService.success('Card deleted.');
+      toastService.success(t('toast.cardDeleted'));
     } catch (err) {
       const message =
         err instanceof Error ? err.message : 'Failed to delete card.';
       setError(message);
-      toastService.error('Failed to delete card. Please try again.');
+      toastService.error(t('toast.cardDeleteFailed'));
     }
   };
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { lessonService, type LessonResponse } from '../services/lessonService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
@@ -11,6 +12,7 @@ type Params = {
 };
 
 export function AdminLessonDetailPage() {
+  const { t } = useTranslation();
   const { lessonNumber } = useParams<Params>();
   const [lesson, setLesson] = useState<LessonResponse['lesson'] | null>(null);
   const [loading, setLoading] = useState(true);
@@ -39,7 +41,7 @@ export function AdminLessonDetailPage() {
             ? err.message
             : 'Load failed.';
         setError(message);
-        toastService.error('Load failed.');
+        toastService.error(t('toast.loadFailed'));
       } finally {
         if (active) {
           setLoading(false);

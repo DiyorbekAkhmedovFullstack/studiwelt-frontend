@@ -6,6 +6,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { useTranslation } from "react-i18next";
 import { authService } from "../services/authService";
 import { toastService } from "../services/toastService";
 import type { User } from "../types/api";
@@ -47,6 +48,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [loading, setLoading] = useState(true);
   const [isHydrated, setIsHydrated] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     let active = true;
@@ -142,7 +144,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const logout: AuthContextValue["logout"] = async () => {
     try {
       await authService.logout();
-      toastService.success("Successfully logged out.");
+      toastService.success(t('toast.logoutSuccess'));
     } finally {
       // Always clear local state; cookies are removed by backend.
       setUser(null);

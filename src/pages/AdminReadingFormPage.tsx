@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { readingService } from '../services/readingService';
 import { lessonService } from '../services/lessonService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
@@ -23,6 +24,7 @@ type QuestionForm = {
 };
 
 export function AdminReadingFormPage() {
+  const { t } = useTranslation();
   const { lessonNumber, readingId } = useParams<Params>();
   const navigate = useNavigate();
   const isEdit = Boolean(readingId);
@@ -81,7 +83,7 @@ export function AdminReadingFormPage() {
             ? err.message
             : 'Load failed.';
         setError(message);
-        toastService.error(message);
+      toastService.error(t('toast.loadFailed'));
       } finally {
         if (active) {
           setLoading(false);
@@ -150,38 +152,34 @@ export function AdminReadingFormPage() {
 
   const validate = (): boolean => {
     if (!title.trim()) {
-      toastService.error('Please enter a title.');
+      toastService.error(t('toast.readingTitleRequired'));
       return false;
     }
     if (!text.trim()) {
-      toastService.error('Please enter the reading passage text.');
+      toastService.error(t('toast.readingTextRequired'));
       return false;
     }
     if (questions.length === 0) {
-      toastService.error('Please add at least one question.');
+      toastService.error(t('toast.readingQuestionRequired'));
       return false;
     }
 
     for (let i = 0; i < questions.length; i++) {
       const q = questions[i];
       if (!q.questionText.trim()) {
-        toastService.error(`Question ${i + 1}: Please enter question text.`);
+        toastService.error(t('toast.readingQuestionTextRequired', { n: i + 1 }));
         return false;
       }
 
       const hasCorrect = q.options.some((opt) => opt.isCorrect);
       if (!hasCorrect) {
-        toastService.error(
-          `Question ${i + 1}: Please mark one option as correct.`,
-        );
+        toastService.error(t('toast.readingCorrectOptionRequired', { n: i + 1 }));
         return false;
       }
 
       for (let j = 0; j < q.options.length; j++) {
         if (!q.options[j].optionText.trim()) {
-          toastService.error(
-            `Question ${i + 1}, Option ${q.options[j].optionLetter}: Please enter option text.`,
-          );
+          toastService.error(t('toast.readingOptionTextRequired', { n: i + 1, letter: q.options[j].optionLetter }));
           return false;
         }
       }
@@ -214,10 +212,10 @@ export function AdminReadingFormPage() {
 
       if (isEdit && readingId) {
         await readingService.updateReading(readingId, payload);
-        toastService.success('Reading updated successfully!');
+        toastService.success(t('toast.readingUpdated'));
       } else {
         await readingService.createReading(payload);
-        toastService.success('Reading created successfully!');
+        toastService.success(t('toast.readingCreated'));
       }
 
       navigate(`/admin/lessons/${lessonNumber}/readings`);
@@ -226,7 +224,7 @@ export function AdminReadingFormPage() {
         err instanceof Error
           ? err.message
           : 'Failed to save reading. Please try again.';
-      toastService.error(message);
+      toastService.error(t('toast.readingSaveFailed'));
     } finally {
       setSubmitting(false);
     }

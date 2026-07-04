@@ -1,5 +1,6 @@
 import { toast as hotToast, Toaster, type Toast } from 'react-hot-toast';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Icon, Ui } from '../../lib/icons';
 
 type ToastType = 'success' | 'error' | 'info' | 'warning';
@@ -11,13 +12,6 @@ const icons: Record<ToastType, ReactElement> = {
   warning: <Icon.Warning size={24} stroke={2.5} />,
 };
 
-const titles: Record<ToastType, string> = {
-  success: 'Success',
-  error: 'Error',
-  info: 'Info',
-  warning: 'Warning',
-};
-
 interface CustomToastProps {
   t: Toast;
   type: ToastType;
@@ -25,6 +19,8 @@ interface CustomToastProps {
 }
 
 function CustomToastComponent({ t, type, message }: CustomToastProps) {
+  const { t: translate } = useTranslation();
+  const title = translate(`toast.${type}`);
   return (
     <div
       role="alert"
@@ -36,7 +32,7 @@ function CustomToastComponent({ t, type, message }: CustomToastProps) {
     >
       <div className="toast-icon">{icons[type]}</div>
       <div className="toast-content">
-        <div className="toast-title">{titles[type]}</div>
+        <div className="toast-title">{title}</div>
         <div className="toast-msg">{message}</div>
       </div>
       <button

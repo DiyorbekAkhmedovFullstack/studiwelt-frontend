@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { type LessonsResponse } from '../services/lessonService';
 import { LoadingScreen, ErrorState } from '../components/common';
 import { toastService } from '../services/toastService';
@@ -9,6 +10,7 @@ import { useAdminLessons, useUpdateLesson, usePublishLesson, useUnpublishLesson 
 type EditableLesson = LessonsResponse['lessons'][number];
 
 export function AdminLessonsPage() {
+  const { t } = useTranslation();
   // Fetch lessons using React Query
   const {
     data: lessons = [],
@@ -45,7 +47,7 @@ export function AdminLessonsPage() {
 
   const saveEdit = (lesson: EditableLesson) => {
     if (!editTitle.trim()) {
-      toastService.error('Title cannot be empty.');
+      toastService.error(t('toast.titleRequired'));
       return;
     }
 
@@ -60,11 +62,11 @@ export function AdminLessonsPage() {
       },
       {
         onSuccess: () => {
-          toastService.success('Lesson updated.');
+          toastService.success(t('toast.lessonUpdated'));
           cancelEdit();
         },
         onError: () => {
-          toastService.error('Failed to update lesson. Please try again.');
+          toastService.error(t('toast.lessonUpdateFailed'));
         },
       }
     );
@@ -74,19 +76,19 @@ export function AdminLessonsPage() {
     if (lesson.published) {
       unpublishMutation.mutate(lesson.lessonNumber, {
         onSuccess: () => {
-          toastService.success('Lesson unpublished.');
+          toastService.success(t('toast.lessonUnpublished'));
         },
         onError: () => {
-          toastService.error('Failed to update publish state. Please try again.');
+          toastService.error(t('toast.publishStateFailed'));
         },
       });
     } else {
       publishMutation.mutate(lesson.lessonNumber, {
         onSuccess: () => {
-          toastService.success('Lesson published.');
+          toastService.success(t('toast.lessonPublished'));
         },
         onError: () => {
-          toastService.error('Failed to update publish state. Please try again.');
+          toastService.error(t('toast.publishStateFailed'));
         },
       });
     }

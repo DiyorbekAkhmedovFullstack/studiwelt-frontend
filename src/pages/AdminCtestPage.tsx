@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
@@ -238,6 +239,7 @@ function getGappedWord(word: string): string {
 }
 
 export function AdminCtestPage() {
+  const { t } = useTranslation();
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
 
@@ -331,22 +333,20 @@ export function AdminCtestPage() {
     if (!lesson) return;
 
     if (!title.trim()) {
-      toastService.error('Title is required.');
+      toastService.error(t('toast.ctestTitleRequired'));
       return;
     }
     if (!originalText.trim()) {
-      toastService.error('Original text is required.');
+      toastService.error(t('toast.ctestOriginalRequired'));
       return;
     }
     if (!gapText.trim()) {
-      toastService.error('Gap text is required.');
+      toastService.error(t('toast.ctestGapRequired'));
       return;
     }
 
     if (originalText.length !== gapText.length) {
-      toastService.error(
-        'Original text and gap text must have the same length. Replace missing characters with "*".',
-      );
+      toastService.error(t('toast.ctestLengthMismatch'));
       return;
     }
 
@@ -363,7 +363,7 @@ export function AdminCtestPage() {
         { testId: ctest.id, payload },
         {
           onSuccess: () => {
-            toastService.success('C‑Test updated successfully.');
+            toastService.success(t('toast.ctestUpdated'));
             setEditing(false);
           },
           onError: (err) => {
@@ -371,14 +371,14 @@ export function AdminCtestPage() {
               err instanceof Error
                 ? err.message
                 : 'Failed to save C‑Test. Please try again.';
-            toastService.error(message);
+            toastService.error(t('toast.ctestSaveFailed'));
           },
         }
       );
     } else {
       createMutation.mutate(payload, {
         onSuccess: () => {
-          toastService.success('C‑Test created successfully.');
+            toastService.success(t('toast.ctestCreated'));
           setEditing(false);
         },
         onError: (err) => {
@@ -386,7 +386,7 @@ export function AdminCtestPage() {
             err instanceof Error
               ? err.message
               : 'Failed to save C‑Test. Please try again.';
-          toastService.error(message);
+          toastService.error(t('toast.ctestSaveFailed'));
         },
       });
     }
@@ -404,14 +404,14 @@ export function AdminCtestPage() {
         setOriginalText('');
         setGapText('');
         setInitialized(false);
-        toastService.success('C‑Test deleted.');
+        toastService.success(t('toast.ctestDeleted'));
       },
       onError: (err) => {
         const message =
           err instanceof Error
             ? err.message
             : 'Failed to delete C‑Test. Please try again.';
-        toastService.error(message);
+        toastService.error(t('toast.ctestDeleteFailed'));
       },
     });
   };
@@ -612,7 +612,7 @@ export function AdminCtestPage() {
                       if (originalText.trim()) {
                         const generated = generateCtestGapText(originalText);
                         setGapText(generated);
-                        toastService.success('Gap text regenerated.');
+                        toastService.success(t('toast.ctestGapRegenerated'));
                       }
                     }}
                     disabled={!originalText.trim()}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { paymentService } from '../services/paymentService';
 import { toastService } from '../services/toastService';
@@ -6,6 +7,7 @@ import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { Icon } from '../lib/icons';
 
 export function PaymentSuccessPage() {
+  const { t } = useTranslation('common');
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [verifying, setVerifying] = useState(true);
@@ -17,7 +19,7 @@ export function PaymentSuccessPage() {
     const status = searchParams.get('status');
 
     if (!paymentId && !status) {
-      toastService.error('Invalid payment session');
+      toastService.error(t('toast.paymentInvalid'));
       navigate('/course');
       return;
     }
@@ -28,12 +30,12 @@ export function PaymentSuccessPage() {
         const response = await paymentService.hasStudentAccess();
         setVerified(response.hasPaid);
         if (response.hasPaid) {
-          toastService.success('Payment successful! You now have full access to all lessons.', { duration: 5000 });
+          toastService.success(t('toast.paymentSuccess'), { duration: 5000 });
         } else {
-          toastService.info('Payment is being processed. Please refresh in a moment.', { duration: 5000 });
+          toastService.info(t('toast.paymentProcessing'), { duration: 5000 });
         }
       } catch {
-        toastService.error('Failed to verify payment status');
+        toastService.error(t('toast.paymentVerifyFailed'));
       } finally {
         setVerifying(false);
       }

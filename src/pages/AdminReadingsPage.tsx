@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
@@ -11,6 +12,7 @@ type Params = {
 };
 
 export function AdminReadingsPage() {
+  const { t } = useTranslation();
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
 
@@ -53,7 +55,7 @@ export function AdminReadingsPage() {
     setDeletingId(readingId);
     deleteMutation.mutate(readingId, {
       onSuccess: () => {
-        toastService.success('Reading deleted successfully!');
+        toastService.success(t('toast.readingDeleted'));
         setDeletingId(null);
       },
       onError: (err) => {
@@ -61,7 +63,7 @@ export function AdminReadingsPage() {
           err instanceof Error
             ? err.message
             : 'Failed to delete reading. Please try again.';
-        toastService.error(message);
+        toastService.error(t('toast.readingDeleteFailed'));
         setDeletingId(null);
       },
     });

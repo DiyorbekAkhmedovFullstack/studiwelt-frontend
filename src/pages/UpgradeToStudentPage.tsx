@@ -37,7 +37,7 @@ export function UpgradeToStudentPage() {
       const message =
         error instanceof Error
           ? error.message
-          : "Failed to create checkout session";
+          : t('common:toast.checkoutFailed');
       toastService.error(message);
       setLoading(false);
     }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { lessonService } from '../services/lessonService';
 import {
   grammarService,
@@ -15,6 +16,7 @@ type Params = {
 };
 
 export function AdminGrammarQuestionsPage() {
+  const { t } = useTranslation();
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
 
@@ -68,7 +70,7 @@ export function AdminGrammarQuestionsPage() {
             ? err.message
             : 'Load failed.';
         setError(message);
-        toastService.error('Load failed.');
+        toastService.error(t('toast.loadFailed'));
       } finally {
         if (active) {
           setLoading(false);
@@ -98,13 +100,13 @@ export function AdminGrammarQuestionsPage() {
       setQuestions((prev) =>
         prev.filter((q) => q.questionId !== question.questionId),
       );
-      toastService.success('Grammar question deleted.');
+      toastService.success(t('toast.grammarQuestionDeleted'));
     } catch (err) {
       const message =
         err instanceof Error
           ? err.message
           : 'Failed to delete grammar question. Please try again.';
-      toastService.error(message);
+      toastService.error(t('toast.grammarQuestionDeleteFailed'));
     } finally {
       setDeletingId(null);
     }
