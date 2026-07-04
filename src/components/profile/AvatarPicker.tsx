@@ -91,8 +91,8 @@ export function AvatarPicker({
           </div>
 
           {onSave && (
-            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3">
-              <span className="hidden sm:block text-[12px] text-text-muted whitespace-nowrap">
+            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3 flex-wrap">
+              <span className="hidden sm:block text-[12px] text-text-muted">
                 {t('profile.avatar.hint')}
               </span>
               <button
