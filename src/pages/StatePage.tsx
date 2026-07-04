@@ -306,7 +306,7 @@ export function StatePage() {
             className={`transition-all duration-700 ${cultureVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1 bg-highlight text-text-main rounded-full text-xs font-semibold mb-4 tracking-wider">
+              <span className="inline-block px-4 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold mb-4 tracking-wider">
                 CULTURE & TRADITIONS
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
@@ -343,7 +343,7 @@ export function StatePage() {
               className={`transition-all duration-700 ${kollegVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             >
               <div className="text-center mb-12">
-                <span className="inline-block px-4 py-1 bg-success/10 text-success rounded-full text-xs font-semibold mb-4 tracking-wider">
+                <span className="inline-block px-4 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold mb-4 tracking-wider">
                   FOR INTERNATIONAL STUDENTS
                 </span>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">

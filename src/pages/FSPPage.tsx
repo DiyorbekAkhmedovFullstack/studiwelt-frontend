@@ -14,7 +14,6 @@ const PenIcon = () => <Icon.EntranceExam size={24} />;
 const LightbulbIcon = () => <Icon.Tip size={24} />;
 const TrophyIcon = () => <Icon.Trophy size={24} />;
 const CheckIcon = () => <Ui.Check className="w-5 h-5 text-success flex-shrink-0" />;
-const XIcon = () => <Ui.Close className="w-5 h-5 text-danger flex-shrink-0" />;
 const AlertIcon = () => <Icon.Info className="w-5 h-5 flex-shrink-0 mt-0.5" />;
 
 type CourseType = 'T' | 'M' | 'W' | 'G' | 'S';
@@ -36,11 +35,11 @@ const courseBorderColors: Record<CourseType, string> = {
 };
 
 const gradingColors = [
-    { pass: true, color: 'bg-success/10 text-success' },
-    { pass: true, color: 'bg-success/5 text-success' },
-    { pass: true, color: 'bg-primary-light text-primary' },
-    { pass: true, color: 'bg-highlight text-text-main' },
-    { pass: false, color: 'bg-danger/10 text-danger' },
+    { pass: true, color: 'bg-page' },
+    { pass: true, color: 'bg-page' },
+    { pass: true, color: 'bg-page' },
+    { pass: true, color: 'bg-page' },
+    { pass: false, color: 'bg-page' },
 ];
 
 export function FSPPage() {
@@ -281,14 +280,14 @@ export function FSPPage() {
                                                 <span className="font-bold text-lg w-24">{grade.range}</span>
                                                 <span className="text-[14px]">{grade.meaning}</span>
                                             </div>
-                                            {gradingColors[index].pass ? <CheckIcon /> : <XIcon />}
+                                            <Ui.Check className="w-5 h-5 text-success flex-shrink-0" />
                                         </div>
                                     ))}
                                 </div>
 
                                 <div className="space-y-3 pt-4 border-t border-border">
-                                    <div className="p-4 bg-primary-light/60 rounded-xl border border-primary/20">
-                                        <p className="text-sm text-primary flex items-start gap-2">
+                                    <div className="p-4 bg-page rounded-xl border border-border">
+                                        <p className="text-sm text-text-main flex items-start gap-2">
                                             <AlertIcon />
                                             <span><strong>{t('grading.rules.german.label')}</strong> {t('grading.rules.german.text')}</span>
                                         </p>
@@ -299,8 +298,8 @@ export function FSPPage() {
                                             <span><strong>{t('grading.rules.compensation.label')}</strong> {t('grading.rules.compensation.text')}</span>
                                         </p>
                                     </div>
-                                    <div className="p-4 bg-highlight rounded-xl border border-highlight">
-                                        <p className="text-sm text-text-muted flex items-start gap-2">
+                                    <div className="p-4 bg-page rounded-xl border border-border">
+                                        <p className="text-sm text-text-main flex items-start gap-2">
                                             <AlertIcon />
                                             <span><strong>{t('grading.rules.betterGrades.label')}</strong> {t('grading.rules.betterGrades.text')}</span>
                                         </p>

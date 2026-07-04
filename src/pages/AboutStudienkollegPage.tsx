@@ -84,23 +84,23 @@ const whyCards = [
 ] as const;
 
 const courseTypes = [
-  { letter: 'T', accent: 'bg-primary text-white' },
-  { letter: 'M', accent: 'bg-text-main text-white' },
-  { letter: 'W', accent: 'bg-success text-white' },
-  { letter: 'G', accent: 'bg-highlight text-text-main' },
-  { letter: 'S', accent: 'bg-primary-light text-primary' },
+  { letter: 'T' },
+  { letter: 'M' },
+  { letter: 'W' },
+  { letter: 'G' },
+  { letter: 'S' },
 ] as const;
 
 const eligibilityTiers = [
-  { key: 'direct', dot: 'bg-success', tag: 'bg-success/10 text-success' },
-  { key: 'restricted', dot: 'bg-primary', tag: 'bg-primary-light text-primary' },
-  { key: 'kolleg', dot: 'bg-text-main', tag: 'bg-highlight text-text-main' },
+  { key: 'direct' },
+  { key: 'restricted' },
+  { key: 'kolleg' },
 ] as const;
 
 const requirementBlocks = [
-  { key: 'language', accent: 'bg-primary-light text-primary', icon: Icon.LanguageReq },
-  { key: 'documents', accent: 'bg-highlight text-text-muted', icon: Icon.Documents },
-  { key: 'finances', accent: 'bg-success/10 text-success', icon: Icon.Finances },
+  { key: 'language', icon: Icon.LanguageReq },
+  { key: 'documents', icon: Icon.Documents },
+  { key: 'finances', icon: Icon.Finances },
 ] as const;
 
 /* -------------------------------------------------------------------------- */
@@ -281,7 +281,7 @@ export function AboutStudienkollegPage() {
 
                   <div className="relative flex items-center gap-3 mb-4">
                     <div
-                      className={`w-11 h-11 rounded-xl flex items-center justify-center font-serif font-bold text-lg ${course.accent}`}
+                      className={`w-11 h-11 rounded-xl flex items-center justify-center font-serif font-bold text-lg bg-primary-light text-primary`}
                     >
                       {course.letter}
                     </div>
@@ -332,11 +332,11 @@ export function AboutStudienkollegPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {eligibilityTiers.map((tier, i) => (
               <Reveal key={tier.key} delay={i * 80}>
-                <div className="bg-surface p-7 rounded-[20px] shadow-card border border-transparent transition-all duration-300 hover:-translate-y-1 hover:border-primary-light h-full">
+                  <div className="bg-surface p-7 rounded-[20px] shadow-card border border-transparent transition-all duration-300 hover:-translate-y-1 hover:border-primary-light h-full">
                   <div className="flex items-center gap-2.5 mb-5">
-                    <span className={`w-3 h-3 rounded-full ${tier.dot}`} />
+                    <span className="w-3 h-3 rounded-full bg-primary" />
                     <span
-                      className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full ${tier.tag}`}
+                      className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary-light text-primary"
                     >
                       {t(`eligibility.tiers.${tier.key}.tag`)}
                     </span>
@@ -375,7 +375,7 @@ export function AboutStudienkollegPage() {
                   <div className="bg-page p-6 sm:p-7 rounded-[20px] h-full">
                     <div className="flex items-center gap-3 mb-5">
                       <div
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center ${block.accent}`}
+                        className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary-light text-primary"
                       >
                         <BlockIcon size={20} stroke={2} />
                       </div>

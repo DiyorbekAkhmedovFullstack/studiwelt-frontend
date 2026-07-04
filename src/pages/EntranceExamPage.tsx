@@ -410,8 +410,8 @@ export function EntranceExamPage() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
-                            <div className="p-5 bg-primary-light/60 rounded-xl border border-primary/20">
-                                <p className="text-sm text-primary flex items-start gap-2">
+                            <div className="p-5 bg-page rounded-xl border border-border">
+                                <p className="text-sm text-text-main flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
                                         <strong>{t('info.items.retakes.label')}</strong> {t('info.items.retakes.text')}
@@ -428,8 +428,8 @@ export function EntranceExamPage() {
                                 </p>
                             </div>
 
-                            <div className="p-5 bg-highlight rounded-xl border border-highlight">
-                                <p className="text-sm text-text-muted flex items-start gap-2">
+                            <div className="p-5 bg-page rounded-xl border border-border">
+                                <p className="text-sm text-text-main flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
                                         <strong>{t('info.items.variations.label')}</strong> {t('info.items.variations.text')}
@@ -437,8 +437,8 @@ export function EntranceExamPage() {
                                 </p>
                             </div>
 
-                            <div className="p-5 bg-surface rounded-xl border border-border">
-                                <p className="text-sm text-text-muted flex items-start gap-2">
+                            <div className="p-5 bg-page rounded-xl border border-border">
+                                <p className="text-sm text-text-main flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
                                         <strong>{t('info.items.samples.label')}</strong> {t('info.items.samples.text')}
