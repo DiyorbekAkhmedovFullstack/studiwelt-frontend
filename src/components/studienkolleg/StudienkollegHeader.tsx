@@ -25,7 +25,7 @@ export function StudienkollegHeader({
       {/* Header Content */}
       <div className="flex flex-col md:flex-row justify-between items-start gap-6">
         <div className="flex-1">
-          <h1 className="font-serif text-5xl font-bold text-text-main mb-4 leading-tight">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl font-bold text-text-main mb-4 leading-tight break-words">
             {name}
           </h1>
           <div className="flex flex-wrap gap-4 text-text-muted text-sm font-medium">
