@@ -24,6 +24,7 @@ const studienkollegs = getAllStudienkollegs().map((stk) => ({
 
 export function StudienkollegCarousel() {
   const { t } = useTranslation('landing');
+  const { t: tk } = useTranslation('studienkolleg');
   const [sectionRef, sectionVisible] = useScrollAnimation();
   const navigate = useNavigate();
 
@@ -128,7 +129,7 @@ export function StudienkollegCarousel() {
             onClick={handlePrev}
             disabled={!canGoPrev}
             className="flex absolute left-0 md:left-2 lg:-translate-x-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-gray-200 items-center justify-center transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-50 shadow-md"
-            aria-label="Previous"
+            aria-label={tk('previous')}
           >
             <Ui.ChevronLeft size={18} />
           </button>
@@ -136,7 +137,7 @@ export function StudienkollegCarousel() {
             onClick={handleNext}
             disabled={!canGoNext}
             className="flex absolute right-0 md:right-2 lg:translate-x-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-gray-200 items-center justify-center transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-50 shadow-md"
-            aria-label="Next"
+            aria-label={tk('next')}
           >
             <Ui.ChevronRight size={18} />
           </button>
@@ -205,7 +206,7 @@ export function StudienkollegCarousel() {
                             : 'bg-[#6B8C6E] shadow-[0_0_0_3px_rgba(107,140,110,0.15)]'
                             }`}
                         />
-                        {stk.applicationMethod === 'assist' ? 'Uni-Assist' : 'Direkt'}
+                        {stk.applicationMethod === 'assist' ? tk('viaUniAssist') : tk('directApplication')}
                       </div>
                       <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-page text-text-main flex items-center justify-center transition-all duration-200 text-sm md:text-base">
                         →

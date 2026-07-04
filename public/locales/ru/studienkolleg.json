@@ -13,5 +13,13 @@
     "officialWebsite": "Официальный сайт",
     "entranceExam": "Вступительный экзамен",
     "nextDate": "Ближайшая дата",
-    "exampleTests": "Примеры тестов"
+    "exampleTests": "Примеры тестов",
+    "previous": "Назад",
+    "next": "Далее",
+    "viaUniAssist": "Uni-Assist",
+    "directApplication": "Прямая подача",
+    "publicInstitution": "Государственное учреждение",
+    "publicUniversity": "Государственный университет",
+    "technicalUniversity": "Технический университет",
+    "technicalInstitute": "Технический институт"
 }

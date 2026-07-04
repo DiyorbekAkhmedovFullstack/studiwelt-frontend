@@ -13,5 +13,13 @@
     "officialWebsite": "Offizielle Website",
     "entranceExam": "Aufnahmeprüfung",
     "nextDate": "Nächster Termin",
-    "exampleTests": "Beispielprüfungen"
+    "exampleTests": "Beispielprüfungen",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "viaUniAssist": "Uni-Assist",
+    "directApplication": "Direktbewerbung",
+    "publicInstitution": "Öffentliche Einrichtung",
+    "publicUniversity": "Öffentliche Universität",
+    "technicalUniversity": "Technische Universität",
+    "technicalInstitute": "Technische Hochschule"
 }

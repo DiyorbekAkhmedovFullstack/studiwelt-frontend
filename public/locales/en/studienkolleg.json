@@ -13,5 +13,13 @@
     "officialWebsite": "Official Website",
     "entranceExam": "Entrance Exam",
     "nextDate": "Next Date",
-    "exampleTests": "Example Tests"
+    "exampleTests": "Example Tests",
+    "previous": "Previous",
+    "next": "Next",
+    "viaUniAssist": "Uni-Assist",
+    "directApplication": "Direct Application",
+    "publicInstitution": "Public Institution",
+    "publicUniversity": "Public University",
+    "technicalUniversity": "Technical University",
+    "technicalInstitute": "Technical Institute"
 }

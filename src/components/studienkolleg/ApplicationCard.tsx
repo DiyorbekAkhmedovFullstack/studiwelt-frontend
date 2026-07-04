@@ -10,6 +10,8 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
   const { t } = useTranslation('studienkolleg');
   const isOpen = application.status === 'open';
 
+  const methodLabel = application.method === 'assist' ? t('viaUniAssist') : t('directApplication');
+
   return (
     <div className="bg-surface rounded-[24px] shadow-card p-8 mb-8 border border-[rgba(0,0,0,0.02)]">
       <h2 className="font-serif text-2xl font-bold text-text-main mb-5">{t('application')}</h2>
@@ -35,7 +37,7 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
               application.method === 'assist' ? 'text-[#D9A441]' : 'text-text-main'
             }`}
           >
-            {application.methodDisplay}
+            {methodLabel}
           </span>
         </div>
         <div className="flex justify-between items-center py-3 border-b border-dashed border-[rgba(0,0,0,0.1)] text-sm">

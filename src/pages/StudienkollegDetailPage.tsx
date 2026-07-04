@@ -28,6 +28,14 @@ export function StudienkollegDetailPage() {
     return null;
   }
 
+  const typeLabels: Record<string, string> = {
+    'Public Institution': t('publicInstitution'),
+    'Public University': t('publicUniversity'),
+    'Technical University': t('technicalUniversity'),
+    'Technical Institute': t('technicalInstitute'),
+  };
+  const translatedType = typeLabels[studienkolleg.institutionType] ?? studienkolleg.institutionType;
+
   const seoProps = getStudienkollegSEO(
     studienkolleg.name,
     studienkolleg.city,
@@ -56,7 +64,7 @@ export function StudienkollegDetailPage() {
           <StudienkollegHeader
             name={studienkolleg.name}
             location={studienkolleg.location}
-            institutionType={studienkolleg.institutionType}
+            institutionType={translatedType}
             badge={studienkolleg.badge}
           />
         </div>
