@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { CourseType } from '../../data/studienkollegData';
 
 type CoursesCardProps = {
@@ -5,14 +6,14 @@ type CoursesCardProps = {
 };
 
 export function CoursesCard({ courses }: CoursesCardProps) {
+  const { t } = useTranslation('studienkolleg');
   return (
     <div className="bg-surface rounded-[24px] shadow-card p-8 mb-8 border border-[rgba(0,0,0,0.02)]">
       <h2 className="font-serif text-2xl font-bold text-text-main mb-5">
-        Academic Tracks
+        {t('academicTracks')}
       </h2>
       <p className="text-text-muted leading-relaxed mb-5">
-        This institution offers the following specialized courses. All instruction is in
-        German.
+        {t('academicTracksDescription')}
       </p>
 
       <div className="space-y-4">

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { StudienkollegData } from '../../data/studienkollegData';
 import { Ui } from '../../lib/icons';
 
@@ -6,11 +7,12 @@ type ApplicationCardProps = {
 };
 
 export function ApplicationCard({ application }: ApplicationCardProps) {
+  const { t } = useTranslation('studienkolleg');
   const isOpen = application.status === 'open';
 
   return (
     <div className="bg-surface rounded-[24px] shadow-card p-8 mb-8 border border-[rgba(0,0,0,0.02)]">
-      <h2 className="font-serif text-2xl font-bold text-text-main mb-5">Application</h2>
+      <h2 className="font-serif text-2xl font-bold text-text-main mb-5">{t('application')}</h2>
 
       {/* Status Badge */}
       <div
@@ -27,7 +29,7 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
       {/* Application Details */}
       <div className="space-y-3 mb-6">
         <div className="flex justify-between items-center py-3 border-b border-dashed border-[rgba(0,0,0,0.1)] text-sm">
-          <span className="text-text-muted">Method</span>
+          <span className="text-text-muted">{t('method')}</span>
           <span
             className={`font-semibold ${
               application.method === 'assist' ? 'text-[#D9A441]' : 'text-text-main'
@@ -37,27 +39,26 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
           </span>
         </div>
         <div className="flex justify-between items-center py-3 border-b border-dashed border-[rgba(0,0,0,0.1)] text-sm">
-          <span className="text-text-muted">Deadline (Winter)</span>
+          <span className="text-text-muted">{t('deadlineWinter')}</span>
           <span className="font-semibold text-text-main">
             {application.winterDeadline}
           </span>
         </div>
         <div className="flex justify-between items-center py-3 text-sm">
-          <span className="text-text-muted">Deadline (Summer)</span>
+          <span className="text-text-muted">{t('deadlineSummer')}</span>
           <span className="font-semibold text-text-main">
             {application.summerDeadline}
           </span>
         </div>
       </div>
 
-      {/* Action Buttons */}
       <a
         href={application.applicationUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="w-full py-3.5 px-4 bg-text-main text-white rounded-xl font-semibold text-center transition-all duration-200 hover:bg-primary hover:-translate-y-0.5 shadow-[0_4px_12px_rgba(62,54,48,0.2)] flex items-center justify-center gap-2 mb-3"
       >
-        Start Application
+        {t('startApplication')}
         <Ui.ExternalLink size={16} />
       </a>
       <a
@@ -66,7 +67,7 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
         rel="noopener noreferrer"
         className="w-full py-3.5 px-4 bg-surface border border-[rgba(0,0,0,0.1)] text-text-main rounded-xl font-semibold text-center transition-all duration-200 hover:border-text-main flex items-center justify-center gap-2"
       >
-        Official Website
+        {t('officialWebsite')}
       </a>
     </div>
   );

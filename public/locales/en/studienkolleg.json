@@ -1,0 +1,17 @@
+{
+    "backToDirectory": "Back to Directory",
+    "lifeIn": "Life in {{city}}",
+    "costOfLiving": "Cost of Living",
+    "publicTransit": "Public Transit",
+    "academicTracks": "Academic Tracks",
+    "academicTracksDescription": "This institution offers the following specialized courses. All instruction is in German.",
+    "application": "Application",
+    "method": "Method",
+    "deadlineWinter": "Deadline (Winter)",
+    "deadlineSummer": "Deadline (Summer)",
+    "startApplication": "Start Application",
+    "officialWebsite": "Official Website",
+    "entranceExam": "Entrance Exam",
+    "nextDate": "Next Date",
+    "exampleTests": "Example Tests"
+}

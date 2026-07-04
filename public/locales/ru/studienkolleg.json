@@ -1,0 +1,17 @@
+{
+    "backToDirectory": "Назад к списку",
+    "lifeIn": "Жизнь в {{city}}",
+    "costOfLiving": "Стоимость жизни",
+    "publicTransit": "Общественный транспорт",
+    "academicTracks": "Учебные направления",
+    "academicTracksDescription": "Это учреждение предлагает следующие специализированные курсы. Всё обучение проходит на немецком языке.",
+    "application": "Подача заявки",
+    "method": "Способ",
+    "deadlineWinter": "Срок (зимний семестр)",
+    "deadlineSummer": "Срок (летний семестр)",
+    "startApplication": "Начать подачу заявки",
+    "officialWebsite": "Официальный сайт",
+    "entranceExam": "Вступительный экзамен",
+    "nextDate": "Ближайшая дата",
+    "exampleTests": "Примеры тестов"
+}

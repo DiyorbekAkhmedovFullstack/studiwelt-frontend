@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getStudienkollegBySlug } from '../data/studienkollegData';
 import { StudienkollegHeader } from '../components/studienkolleg/StudienkollegHeader';
 import { CityInfoCard } from '../components/studienkolleg/CityInfoCard';
@@ -10,6 +11,7 @@ import { Ui } from '../lib/icons';
 import { SEO, getStudienkollegSEO } from '../components/common/SEO';
 
 export function StudienkollegDetailPage() {
+  const { t } = useTranslation('studienkolleg');
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -43,7 +45,7 @@ export function StudienkollegDetailPage() {
           className="flex items-center gap-2 text-text-muted hover:text-text-main font-semibold text-sm transition-all duration-200 hover:-translate-x-1"
         >
           <Ui.ArrowLeft size={20} />
-          Back to Directory
+          {t('backToDirectory')}
         </button>
       </nav>
 
