@@ -180,7 +180,7 @@ export function StudienkollegCarousel() {
 
                   {/* Content */}
                   <div className="p-5 md:p-7 flex flex-col flex-1">
-                    <div className="flex items-center gap-1.5 text-[0.75rem] md:text-[0.85rem] text-text-muted font-semibold uppercase tracking-wide mb-2">
+                    <div className="flex items-center gap-1.5 text-[0.75rem] md:text-[0.85rem] text-text-muted font-semibold mb-2">
                       <Icon.Location size={12} stroke={2.5} />
                       {stk.location}
                     </div>
