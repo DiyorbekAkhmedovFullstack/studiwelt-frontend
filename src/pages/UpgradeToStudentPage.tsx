@@ -8,7 +8,7 @@ import {
   type StudentUpgradePrice,
 } from "../services/paymentService";
 import { toastService } from "../services/toastService";
-import { Ui } from "../lib/icons";
+import { Ui, Icon } from "../lib/icons";
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   USD: "$",
@@ -133,6 +133,11 @@ export function UpgradeToStudentPage() {
           </div>
         </div>
 
+        {/* Activation Code Section */}
+        <div className="mt-8 w-full max-w-[420px]">
+          <ActivationCodeSection />
+        </div>
+
         {/* Back Link */}
         <div className="mt-8">
           <Link
@@ -145,6 +150,87 @@ export function UpgradeToStudentPage() {
         </div>
       </div>
     </DashboardLayout>
+  );
+}
+
+function ActivationCodeSection() {
+  const [expanded, setExpanded] = useState(false);
+  const [code, setCode] = useState("");
+  const [redeeming, setRedeeming] = useState(false);
+
+  const handleRedeem = async () => {
+    const trimmed = code.trim();
+    if (!trimmed) {
+      toastService.error("Please enter an activation code");
+      return;
+    }
+    if (!/^[a-zA-Z0-9]+$/.test(trimmed)) {
+      toastService.error("Code must contain only letters and numbers");
+      return;
+    }
+
+    setRedeeming(true);
+    try {
+      await paymentService.redeemActivationCode(trimmed);
+      toastService.success("Activation code redeemed! You now have full access.", { duration: 5000 });
+      setCode("");
+      setExpanded(false);
+      window.location.href = "/course";
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to redeem code";
+      toastService.error(message);
+    } finally {
+      setRedeeming(false);
+    }
+  };
+
+  return (
+    <div className="bg-surface rounded-[24px] shadow-card border border-border/40 overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setExpanded(!expanded)}
+        className="w-full px-6 py-4 flex items-center justify-between gap-3 hover:bg-highlight/50 transition-colors text-left"
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+            <Icon.News className="w-4 h-4 text-primary" stroke={2} />
+          </div>
+          <div>
+            <span className="text-sm font-semibold text-text-main">Have an activation code?</span>
+            <p className="text-xs text-text-muted mt-0.5">Redeem a code for free access</p>
+          </div>
+        </div>
+        {expanded ? <Ui.ChevronUp size={18} className="text-text-muted shrink-0" /> : <Ui.ChevronDown size={18} className="text-text-muted shrink-0" />}
+      </button>
+
+      {expanded && (
+        <div className="px-6 pb-5 pt-1 border-t border-border/40">
+          <div className="flex gap-2 mt-3">
+            <input
+              type="text"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleRedeem(); }}
+              placeholder="Enter your code"
+              maxLength={100}
+              disabled={redeeming}
+              className="flex-1 rounded-lg border border-border-soft bg-surface px-4 py-2.5 text-[14px] outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors disabled:opacity-50"
+            />
+            <button
+              type="button"
+              onClick={handleRedeem}
+              disabled={redeeming || !code.trim()}
+              className="px-5 py-2.5 bg-primary text-white rounded-lg text-[14px] font-semibold hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors shrink-0"
+            >
+              {redeeming ? "Redeeming..." : "Redeem"}
+            </button>
+          </div>
+          <p className="mt-2 text-xs text-text-muted">
+            Enter an activation code you received to unlock full student access for free.
+          </p>
+        </div>
+      )}
+    </div>
   );
 }
 

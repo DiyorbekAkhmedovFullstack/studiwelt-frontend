@@ -219,14 +219,24 @@ function AuthenticatedMobileMenu({
       )}
 
       {user.role === "ADMIN" && (
-        <Link
-          to="/admin/lessons"
-          onClick={onClose}
-          className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
-        >
-          <AdminIcon />
-          {t('nav.adminPanel')}
-        </Link>
+        <>
+          <Link
+            to="/admin/lessons"
+            onClick={onClose}
+            className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+          >
+            <AdminIcon />
+            {t('nav.adminPanel')}
+          </Link>
+          <Link
+            to="/admin/activation-codes"
+            onClick={onClose}
+            className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+          >
+            <Icon.News className="text-text-muted w-[18px] h-[18px]" />
+            Activation Codes
+          </Link>
+        </>
       )}
 
       <div className="h-px bg-border-soft mx-4 my-2"></div>

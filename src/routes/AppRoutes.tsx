@@ -45,6 +45,7 @@ const AdminGrammarQuestionsPage = lazy(() => import('../pages/AdminGrammarQuesti
 const AdminGrammarQuestionFormPage = lazy(() => import('../pages/AdminGrammarQuestionFormPage').then(m => ({ default: m.AdminGrammarQuestionFormPage })));
 const CtestResultsPage = lazy(() => import('../pages/CtestResultsPage').then(m => ({ default: m.CtestResultsPage })));
 const AdminCtestPage = lazy(() => import('../pages/AdminCtestPage').then(m => ({ default: m.AdminCtestPage })));
+const AdminActivationCodesPage = lazy(() => import('../pages/AdminActivationCodesPage').then(m => ({ default: m.AdminActivationCodesPage })));
 const DeckResultsPage = lazy(() => import('../pages/DeckResultsPage').then(m => ({ default: m.DeckResultsPage })));
 const ProfilePage = lazy(() => import('../pages/ProfilePage').then(m => ({ default: m.ProfilePage })));
 const StudienkollegDetailPage = lazy(() => import('../pages/StudienkollegDetailPage').then(m => ({ default: m.StudienkollegDetailPage })));
@@ -227,6 +228,13 @@ export function AppRoutes() {
           path="/admin/lessons/:lessonNumber/ctest"
           element={
             <ProtectedRoute requiredRole="ADMIN" element={<AdminCtestPage />} />
+          }
+        />
+
+        <Route
+          path="/admin/activation-codes"
+          element={
+            <ProtectedRoute requiredRole="ADMIN" element={<AdminActivationCodesPage />} />
           }
         />
 

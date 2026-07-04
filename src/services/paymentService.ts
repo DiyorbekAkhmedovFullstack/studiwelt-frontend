@@ -36,6 +36,14 @@ export type StudentUpgradePriceResponse = {
   price: StudentUpgradePrice;
 };
 
+export type ActivationCode = {
+  id: number;
+  code: string;
+  createdAt: string;
+  usedByUserId: number | null;
+  usedAt: string | null;
+};
+
 export const paymentService = {
   getStudentUpgradePrice: () =>
     api.get<StudentUpgradePriceResponse>('/api/payments/student-upgrade-price'),
@@ -48,4 +56,17 @@ export const paymentService = {
 
   hasStudentAccess: () =>
     api.get<HasStudentAccessResponse>('/api/payments/has-student-access'),
+
+  // Activation codes
+  redeemActivationCode: (code: string) =>
+    api.post<{ hasPaid: boolean }>('/api/payments/redeem-activation-code', { code }),
+
+  getActivationCodes: () =>
+    api.get<{ codes: ActivationCode[] }>('/api/admin/activation-codes'),
+
+  addActivationCode: (code: string) =>
+    api.post<{ code: ActivationCode }>('/api/admin/activation-codes', { code }),
+
+  deleteActivationCode: (id: number) =>
+    api.delete<never>(`/api/admin/activation-codes/${id}`),
 };

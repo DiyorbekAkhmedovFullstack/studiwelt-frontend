@@ -125,14 +125,24 @@ export function ProfileDropdown() {
         )}
 
         {user?.role === 'ADMIN' && (
-          <Link
-            to="/admin/lessons"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
-          >
-            <Icon.Settings className="text-text-muted w-[18px] h-[18px]" />
-            {t('nav.adminPanel')}
-          </Link>
+          <>
+            <Link
+              to="/admin/lessons"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+            >
+              <Icon.Settings className="text-text-muted w-[18px] h-[18px]" />
+              {t('nav.adminPanel')}
+            </Link>
+            <Link
+              to="/admin/activation-codes"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+            >
+              <Icon.News className="text-text-muted w-[18px] h-[18px]" />
+              Activation Codes
+            </Link>
+          </>
         )}
 
         <div className="h-px bg-[rgba(0,0,0,0.05)] mx-4 my-2"></div>
