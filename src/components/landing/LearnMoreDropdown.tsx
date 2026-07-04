@@ -69,7 +69,7 @@ export function LearnMoreDropdown() {
           />
 
           <div
-            className="absolute top-[125%] right-0 w-[240px] bg-white rounded-2xl p-2 z-[100] transition-all duration-200 opacity-100 translate-y-0"
+            className="absolute top-[125%] right-0 w-[280px] bg-white rounded-2xl p-2 z-[100] transition-all duration-200 opacity-100 translate-y-0"
             style={{
               boxShadow: '0 10px 25px -5px rgba(160, 120, 92, 0.25), 0 8px 10px -6px rgba(160, 120, 92, 0.1)'
             }}
@@ -88,7 +88,7 @@ export function LearnMoreDropdown() {
             <Link
               to="/application"
               onClick={close}
-              className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group"
+              className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group whitespace-nowrap"
               role="menuitem"
             >
               <ApplicationIcon />
@@ -98,7 +98,7 @@ export function LearnMoreDropdown() {
             <Link
               to="/entrance-exam"
               onClick={close}
-              className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group"
+              className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group whitespace-nowrap"
               role="menuitem"
             >
               <EntranceExamIcon />
@@ -108,7 +108,7 @@ export function LearnMoreDropdown() {
             <Link
               to="/fsp"
               onClick={close}
-              className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group"
+              className="flex items-center gap-3 px-4 py-3 mt-1 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group whitespace-nowrap"
               role="menuitem"
             >
               <FSPIcon />
