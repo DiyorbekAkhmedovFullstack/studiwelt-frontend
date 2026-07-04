@@ -102,10 +102,6 @@ export function AdminGrammarQuestionsPage() {
       );
       toastService.success(t('toast.grammarQuestionDeleted'));
     } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Failed to delete grammar question. Please try again.';
       toastService.error(t('toast.grammarQuestionDeleteFailed'));
     } finally {
       setDeletingId(null);

@@ -186,10 +186,6 @@ export function AdminGrammarQuestionFormPage() {
 
       navigate(`/admin/lessons/${lesson.lessonNumber}/grammar`);
     } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : "Failed to save grammar question. Please try again.";
       toastService.error(t("toast.grammarQuestionSaveFailed"));
     } finally {
       setSubmitting(false);

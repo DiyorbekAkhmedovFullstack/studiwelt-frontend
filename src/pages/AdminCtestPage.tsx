@@ -366,11 +366,7 @@ export function AdminCtestPage() {
             toastService.success(t('toast.ctestUpdated'));
             setEditing(false);
           },
-          onError: (err) => {
-            const message =
-              err instanceof Error
-                ? err.message
-                : 'Failed to save C‑Test. Please try again.';
+          onError: () => {
             toastService.error(t('toast.ctestSaveFailed'));
           },
         }
@@ -381,11 +377,7 @@ export function AdminCtestPage() {
             toastService.success(t('toast.ctestCreated'));
           setEditing(false);
         },
-        onError: (err) => {
-          const message =
-            err instanceof Error
-              ? err.message
-              : 'Failed to save C‑Test. Please try again.';
+        onError: () => {
           toastService.error(t('toast.ctestSaveFailed'));
         },
       });
@@ -407,11 +399,7 @@ export function AdminCtestPage() {
         toastService.success(t('toast.ctestDeleted'));
       },
       onError: (err) => {
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Failed to delete C‑Test. Please try again.';
-        toastService.error(t('toast.ctestDeleteFailed'));
+      toastService.error(t('toast.ctestDeleteFailed'));
       },
     });
   };

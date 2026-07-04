@@ -58,11 +58,7 @@ export function AdminReadingsPage() {
         toastService.success(t('toast.readingDeleted'));
         setDeletingId(null);
       },
-      onError: (err) => {
-        const message =
-          err instanceof Error
-            ? err.message
-            : 'Failed to delete reading. Please try again.';
+      onError: () => {
         toastService.error(t('toast.readingDeleteFailed'));
         setDeletingId(null);
       },

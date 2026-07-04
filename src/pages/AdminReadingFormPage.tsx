@@ -220,10 +220,6 @@ export function AdminReadingFormPage() {
 
       navigate(`/admin/lessons/${lessonNumber}/readings`);
     } catch (err) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'Failed to save reading. Please try again.';
       toastService.error(t('toast.readingSaveFailed'));
     } finally {
       setSubmitting(false);
