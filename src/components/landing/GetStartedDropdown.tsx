@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Icon, Ui } from '../../lib/icons';
 
 const itemIconClass =
@@ -17,6 +18,7 @@ const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
 );
 
 export function GetStartedDropdown() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +54,7 @@ export function GetStartedDropdown() {
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        Get Started
+        {t('nav.getStarted')}
         <ChevronIcon isOpen={isOpen} />
       </button>
 
@@ -78,7 +80,7 @@ export function GetStartedDropdown() {
               role="menuitem"
             >
               <SignUpIcon />
-              Sign Up
+              {t('nav.signUp')}
             </Link>
 
             <Link
@@ -88,7 +90,7 @@ export function GetStartedDropdown() {
               role="menuitem"
             >
               <LoginIcon />
-              Log In
+              {t('nav.login')}
             </Link>
           </div>
         </>
