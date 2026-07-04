@@ -1,15 +1,26 @@
 import { Component, type ReactNode, type ErrorInfo } from 'react';
 import { Icon } from '../../lib/icons';
+import { useAuth } from '../../contexts/AuthContext';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
   fallback?: ReactNode;
   onError?: (error: Error, errorInfo: ErrorInfo) => void;
+  isAdmin?: boolean;
 }
 
 interface ErrorBoundaryState {
   hasError: boolean;
   error: Error | null;
+}
+
+export function ErrorBoundaryWithAuth({ children }: { children: ReactNode }) {
+  const { user } = useAuth();
+  return (
+    <ErrorBoundary isAdmin={user?.role === 'ADMIN'}>
+      {children}
+    </ErrorBoundary>
+  );
 }
 
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -51,7 +62,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
             <p className="mb-8 text-[16px] text-text-muted leading-relaxed max-w-[400px] mx-auto">
               We're sorry, but something unexpected happened. Please try again.
             </p>
-            {this.state.error && (
+            {this.state.error && this.props.isAdmin && (
               <details className="mb-8 text-left rounded-xl bg-highlight p-4 border border-border">
                 <summary className="cursor-pointer text-sm font-medium text-text-muted hover:text-text-main">
                   Technical details

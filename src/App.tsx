@@ -2,20 +2,20 @@ import { Suspense } from 'react';
 import { AppRoutes } from './routes/AppRoutes';
 import { CustomToaster } from './components/common/CustomToast';
 import { NavbarSkeleton } from './components/common/NavbarSkeleton';
-import { ErrorBoundary } from './components/common/ErrorBoundary';
+import { ErrorBoundaryWithAuth } from './components/common/ErrorBoundary';
 import { SkipLink } from './components/common/SkipLink';
 import { LanguagePromptBanner } from './components/common/LanguagePromptBanner';
 
 function App() {
   return (
-    <ErrorBoundary>
+    <ErrorBoundaryWithAuth>
       <SkipLink />
       <Suspense fallback={<NavbarSkeleton />}>
         <AppRoutes />
       </Suspense>
       <CustomToaster />
       <LanguagePromptBanner />
-    </ErrorBoundary>
+    </ErrorBoundaryWithAuth>
   );
 }
 

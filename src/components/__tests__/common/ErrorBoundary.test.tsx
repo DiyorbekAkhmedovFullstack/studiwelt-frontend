@@ -42,18 +42,27 @@ describe('ErrorBoundary', () => {
     ).toBeInTheDocument();
   });
 
-  it('displays error message in technical details', () => {
+  it('hides technical details from non-admin users', () => {
     render(
       <ErrorBoundary>
         <ThrowError shouldThrow={true} />
       </ErrorBoundary>,
     );
 
-    // Open the details
+    expect(screen.queryByText('Technical details')).not.toBeInTheDocument();
+    expect(screen.queryByText('Test error message')).not.toBeInTheDocument();
+  });
+
+  it('displays error message in technical details for admin', () => {
+    render(
+      <ErrorBoundary isAdmin={true}>
+        <ThrowError shouldThrow={true} />
+      </ErrorBoundary>,
+    );
+
     const detailsSummary = screen.getByText('Technical details');
     expect(detailsSummary).toBeInTheDocument();
 
-    // Error message should be visible
     expect(screen.getByText('Test error message')).toBeInTheDocument();
   });
 
