@@ -27,6 +27,24 @@ function localizeDate(dateStr: string, lang: string, t: (key: string) => string)
   }
 }
 
+function localizeStatusText(statusText: string, lang: string, t: (key: string) => string): string {
+  // "Accepting Applications" or "Accepting Applications (SS 2027)"
+  const acceptingMatch = statusText.match(/^Accepting Applications(?:\s*\((.*)\))?$/);
+  if (acceptingMatch) {
+    const semester = acceptingMatch[1];
+    return semester ? `${t('acceptingApplications')} (${semester})` : t('acceptingApplications');
+  }
+
+  // "Reopens Nov 1, 2026 (SS 2027)" or "Reopens ~Sep 25, 2026 (SS 2027)"
+  const reopensMatch = statusText.match(/^Reopens\s+~?([A-Z][a-z]{2}\s\d{1,2},\s\d{4})\s*\((.*)\)$/);
+  if (reopensMatch) {
+    const date = localizeDate(reopensMatch[1], lang, t);
+    return `${t('reopens')} ${date} (${reopensMatch[2]})`;
+  }
+
+  return statusText;
+}
+
 type ApplicationCardProps = {
   application: StudienkollegData['application'];
 };
@@ -50,7 +68,7 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
         }`}
       >
         {isOpen && <div className="w-2 h-2 bg-current rounded-full animate-pulse" />}
-        {application.statusText}
+        {localizeStatusText(application.statusText, i18n.language, t)}
       </div>
 
       {/* Application Details */}
