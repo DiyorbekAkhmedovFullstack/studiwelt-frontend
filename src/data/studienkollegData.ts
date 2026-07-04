@@ -603,12 +603,12 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
     ],
 
     application: {
-      method: 'assist',
-      methodDisplay: 'Uni-Assist',
+      method: 'direct',
+      methodDisplay: 'Direct Application',
       status: 'open',
       statusText: 'Accepting Applications (WiSe 2026/27)',
       winterDeadline: 'Jun 15, 2026',
-      summerDeadline: 'Dec 15, 2026',
+      summerDeadline: 'Nov 15, 2026',
       applicationUrl: 'https://www.hs-anhalt.de/en/international/application-for-international-students/studienkolleg/application.html',
       websiteUrl: 'https://www.hs-anhalt.de/en/international/application-for-international-students/studienkolleg/home.html',
     },
