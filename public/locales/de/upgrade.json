@@ -60,5 +60,16 @@
             "description": "Unser Support-Team ist für dich da. Schreib uns an support@studiwelt.com"
         }
     },
-    "backToCourse": "Zurück zum Kurs"
+    "backToCourse": "Zurück zum Kurs",
+    "activationCode": {
+        "title": "Aktivierungscode vorhanden?",
+        "subtitle": "Code einlösen für kostenlosen Zugang",
+        "placeholder": "Code eingeben",
+        "button": "Einlösen",
+        "redeeming": "Wird eingelöst...",
+        "success": "Aktivierungscode eingelöst! Du hast jetzt vollen Zugang.",
+        "emptyError": "Bitte gib einen Aktivierungscode ein",
+        "formatError": "Der Code darf nur Buchstaben und Zahlen enthalten",
+        "hint": "Gib einen erhaltenen Aktivierungscode ein, um vollen Studenten-Zugang zu erhalten."
+    }
 }

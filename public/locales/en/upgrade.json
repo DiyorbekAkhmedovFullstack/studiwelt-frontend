@@ -60,5 +60,16 @@
             "description": "Our support team is here for you. Email us at support@studiwelt.com"
         }
     },
-    "backToCourse": "Back to course"
+    "backToCourse": "Back to course",
+    "activationCode": {
+        "title": "Have an activation code?",
+        "subtitle": "Redeem a code for free access",
+        "placeholder": "Enter your code",
+        "button": "Redeem",
+        "redeeming": "Redeeming...",
+        "success": "Activation code redeemed! You now have full access.",
+        "emptyError": "Please enter an activation code",
+        "formatError": "Code must contain only letters and numbers",
+        "hint": "Enter an activation code you received to unlock full student access for free."
+    }
 }

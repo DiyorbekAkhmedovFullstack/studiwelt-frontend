@@ -154,25 +154,28 @@ export function UpgradeToStudentPage() {
 }
 
 function ActivationCodeSection() {
+  const { t } = useTranslation("upgrade");
   const [expanded, setExpanded] = useState(false);
   const [code, setCode] = useState("");
   const [redeeming, setRedeeming] = useState(false);
 
+  const a = t("activationCode", { returnObjects: true }) as Record<string, string>;
+
   const handleRedeem = async () => {
     const trimmed = code.trim();
     if (!trimmed) {
-      toastService.error("Please enter an activation code");
+      toastService.error(a.emptyError);
       return;
     }
     if (!/^[a-zA-Z0-9]+$/.test(trimmed)) {
-      toastService.error("Code must contain only letters and numbers");
+      toastService.error(a.formatError);
       return;
     }
 
     setRedeeming(true);
     try {
       await paymentService.redeemActivationCode(trimmed);
-      toastService.success("Activation code redeemed! You now have full access.", { duration: 5000 });
+      toastService.success(a.success, { duration: 5000 });
       setCode("");
       setExpanded(false);
       window.location.href = "/course";
@@ -196,8 +199,8 @@ function ActivationCodeSection() {
             <Icon.News className="w-4 h-4 text-primary" stroke={2} />
           </div>
           <div>
-            <span className="text-sm font-semibold text-text-main">Have an activation code?</span>
-            <p className="text-xs text-text-muted mt-0.5">Redeem a code for free access</p>
+            <span className="text-sm font-semibold text-text-main">{a.title}</span>
+            <p className="text-xs text-text-muted mt-0.5">{a.subtitle}</p>
           </div>
         </div>
         {expanded ? <Ui.ChevronUp size={18} className="text-text-muted shrink-0" /> : <Ui.ChevronDown size={18} className="text-text-muted shrink-0" />}
@@ -211,7 +214,7 @@ function ActivationCodeSection() {
               value={code}
               onChange={(e) => setCode(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter') handleRedeem(); }}
-              placeholder="Enter your code"
+              placeholder={a.placeholder}
               maxLength={100}
               disabled={redeeming}
               className="flex-1 rounded-lg border border-border-soft bg-surface px-4 py-2.5 text-[14px] outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors disabled:opacity-50"
@@ -222,12 +225,10 @@ function ActivationCodeSection() {
               disabled={redeeming || !code.trim()}
               className="px-5 py-2.5 bg-primary text-white rounded-lg text-[14px] font-semibold hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors shrink-0"
             >
-              {redeeming ? "Redeeming..." : "Redeem"}
+              {redeeming ? a.redeeming : a.button}
             </button>
           </div>
-          <p className="mt-2 text-xs text-text-muted">
-            Enter an activation code you received to unlock full student access for free.
-          </p>
+          <p className="mt-2 text-xs text-text-muted">{a.hint}</p>
         </div>
       )}
     </div>
