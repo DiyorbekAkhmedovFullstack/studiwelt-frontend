@@ -578,6 +578,50 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
         'https://www.stk.uni-hannover.de/kursteilnahme/aufnahmetest',
     },
   },
+
+  koethen: {
+    id: 'koethen',
+    slug: 'koethen',
+    name: 'Landesstudienkolleg Köthen',
+    location: 'Köthen, Saxony-Anhalt',
+    city: 'Köthen',
+    state: 'Sachsen-Anhalt',
+    badge: 'Sachsen-Anhalt',
+    institutionType: 'Public Institution',
+
+    cityInfo: {
+      description:
+        "Köthen is a charming small city in Saxony-Anhalt, known as the 'World Capital of Homeopathy' for its history with Samuel Hahnemann, and as the city where Johann Sebastian Bach composed his Brandenburg Concertos. Home to the Anhalt University of Applied Sciences, it offers an intimate, bike-friendly campus atmosphere with the lowest cost of living among German Studienkolleg cities, while being just 50 km from Leipzig and Halle.",
+      costOfLiving: '~€700 / Month',
+      transit: 'MDV / NAH.Sachsen-Anhalt',
+    },
+
+    courses: [
+      COURSE_TYPES.T,
+      COURSE_TYPES.W,
+      COURSE_TYPES.G,
+    ],
+
+    application: {
+      method: 'assist',
+      methodDisplay: 'Uni-Assist',
+      status: 'open',
+      statusText: 'Accepting Applications (WiSe 2026/27)',
+      winterDeadline: 'Jun 15, 2026',
+      summerDeadline: 'Dec 15, 2026',
+      applicationUrl: 'https://www.hs-anhalt.de/en/international/application-for-international-students/studienkolleg/application.html',
+      websiteUrl: 'https://www.hs-anhalt.de/en/international/application-for-international-students/studienkolleg/home.html',
+    },
+
+    exam: {
+      required: true,
+      description:
+        'The Aufnahmetest is mandatory for all applicants (€30 cash fee). It consists of a German C-Test for all courses, plus Mathematics for T- and W-Kurs applicants. The G-Kurs tests German only. Held in February (summer semester) and August (winter semester) about one week before classes start, at the Studienkolleg in Köthen. Aids such as dictionaries, calculators, and phones are not permitted. Admission is by ranking — higher scores earn the limited spots. After passing, enrolment happens the following Monday, and students receive their timetable and can apply for dorm housing.',
+      nextDate: 'Aug 18, 2026',
+      exampleTestsUrl:
+        'https://www.hs-anhalt.de/en/international/application-for-international-students/studienkolleg/acceptance-test.html',
+    },
+  },
 };
 
 // Helper function to get studienkolleg by slug
