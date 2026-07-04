@@ -172,13 +172,13 @@ export function FSPPage() {
                         <div className="max-w-[600px] mx-auto">
                             {/* Written Exams */}
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
-                                <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center">
+                                <div className="flex items-start gap-3 mb-6">
+                                <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center flex-shrink-0">
                                     <PenIcon />
                                 </div>
                                     <div>
                                         <h3 className="text-xl font-bold">{t('structure.writtenExams.title')}</h3>
-                                        <span className="text-sm text-text-muted">{t('structure.writtenExams.duration')}</span>
+                                        <span className="inline-block mt-2 px-3 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold">{t('structure.writtenExams.duration')}</span>
                                     </div>
                                 </div>
 
