@@ -8,16 +8,42 @@ const languages = [
     { code: 'ru', label: 'RU', name: 'Русский' },
 ];
 
-export function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+    variant?: 'dropdown' | 'inline';
+}
+
+export function LanguageSwitcher({ variant = 'dropdown' }: LanguageSwitcherProps) {
     const { i18n } = useTranslation();
 
     const currentLang = i18n.language?.substring(0, 2) || 'de';
     const currentLanguage = languages.find(l => l.code === currentLang) || languages[0];
 
+    const handleChange = (code: string) => i18n.changeLanguage(code);
+
+    if (variant === 'inline') {
+        return (
+            <div className="flex items-center gap-1">
+                {languages.map(lang => (
+                    <button
+                        key={lang.code}
+                        onClick={() => handleChange(lang.code)}
+                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                            lang.code === currentLanguage.code
+                                ? 'bg-primary/10 text-primary'
+                                : 'text-text-muted hover:bg-page hover:text-text-main'
+                        }`}
+                    >
+                        {lang.label}
+                    </button>
+                ))}
+            </div>
+        );
+    }
+
     const items: DropdownItem[] = languages.map(lang => ({
         label: lang.name,
         icon: lang.code === currentLanguage.code ? <Ui.Check className="w-[18px] h-[18px]" /> : undefined,
-        onClick: () => i18n.changeLanguage(lang.code),
+        onClick: () => handleChange(lang.code),
     }));
 
     const trigger = (

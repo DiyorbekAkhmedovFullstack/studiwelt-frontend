@@ -287,7 +287,7 @@ function AuthenticatedMobileMenu({
 
       {/* Language Switcher */}
       <div className="px-4 py-2">
-        <LanguageSwitcher />
+        <LanguageSwitcher variant="inline" />
       </div>
 
       <div className="h-px bg-border-soft mx-4 my-2"></div>
@@ -402,7 +402,7 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
 
       {/* Language Switcher */}
       <div className="px-4 py-2">
-        <LanguageSwitcher />
+        <LanguageSwitcher variant="inline" />
       </div>
     </>
   );
