@@ -1,5 +1,4 @@
 import { useEffect, useState, type FormEvent } from "react";
-import { useTranslation } from "react-i18next";
 import { LoadingSpinner } from "../components/common/LoadingSpinner";
 import { toastService } from "../services/toastService";
 import { DashboardLayout } from "../components/dashboard";
@@ -10,7 +9,6 @@ import {
 import { Ui, Icon } from "../lib/icons";
 
 export function AdminActivationCodesPage() {
-  const { t } = useTranslation();
   const [codes, setCodes] = useState<ActivationCode[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
