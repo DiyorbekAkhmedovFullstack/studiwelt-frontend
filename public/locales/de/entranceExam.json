@@ -6,7 +6,7 @@
         "description": "Die wettbewerbsfähige Aufnahmeprüfung für öffentliche Studienkollegs. Deine Leistung entscheidet über die Zulassung — bereite dich strategisch vor, um deinen Platz zu sichern.",
         "tags": {
             "twoPartExam": "2-teilige Prüfung",
-            "germanLevel": "Deutsch B1-B2",
+            "germanLevel": "Deutsch B2",
             "competitive": "Wettbewerbszulassung"
         }
     },
@@ -33,17 +33,16 @@
             "title": "Deutschtest",
             "duration": "60-90 Minuten",
             "items": [
-                { "title": "C-Test / Lückentest", "description": "Lückenübungen zur Prüfung von Grammatik und Wortschatz" },
-                { "title": "Leseverstehen", "description": "Verstehen von Sach- und literarischen Texten" },
-                { "title": "Hörverstehen", "description": "Verstehen von Vorträgen, Gesprächen, Nachrichten" },
-                { "title": "Schriftlicher Ausdruck", "description": "Zusammenfassungen, Kurztexte, Erörterungen schreiben" },
-                { "title": "Grammatik & Wortschatz", "description": "Satzumformung, Fehlerkorrektur" }
+                { "title": "C-Test / Lückentest", "description": "Lückentexte zur Prüfung von Grammatik, Wortschatz und Leseverständnis" },
+                { "title": "Leseverstehen", "description": "Verstehen von Sachtexten und akademischen Texten" },
+                { "title": "Schriftlicher Ausdruck", "description": "Zusammenfassungen, Kurztexte oder Erörterungen schreiben" },
+                { "title": "Grammatik & Wortschatz", "description": "Satzumformung, Fehlerkorrektur, Deklinationen" }
             ]
         },
         "subjectTest": {
             "title": "Fachspezifischer Test",
             "duration": "45-60 Minuten",
-            "description": "Variiert je nach Kursschwerpunkt. Die meisten erfordern Mathematik, mit zusätzlichen Fächern je nach Fachrichtung:",
+            "description": "Nur für T-, M- und W-Kurse erforderlich. G- und S-Kurse absolvieren stattdessen einen erweiterten Deutschtest:",
             "courses": {
                 "T": "Mathe + Physik",
                 "M": "Mathe + Biologie + Chemie",
@@ -66,7 +65,7 @@
                 "name": "T-Kurs",
                 "fullName": "Technik & Ingenieurwesen",
                 "subjects": ["Mathematik", "Physik (manchmal Chemie)"],
-                "mathTopics": ["Funktionen & Algebra", "Lineare & quadratische Gleichungen", "Geometrie", "Binomische Formeln", "Potenzen"],
+                "mathTopics": ["Lineare & quadratische Gleichungen und Ungleichungen", "Funktionen & Graphen", "Algebra & Termumformungen", "Geometrie (Flächen, Umfang, Satz des Pythagoras)", "Strahlensätze & Koordinatensysteme", "Prozentrechnung & Potenzen"],
                 "otherTopics": ["Mechanik", "Elektrizität", "Optik"]
             },
             "M": {
@@ -102,15 +101,15 @@
         "description": "Aufnahmeprüfungen finden zweimal jährlich statt, jeweils vor Semesterbeginn.",
         "winter": {
             "title": "Wintersemester",
-            "date": "Juli",
-            "note": "Vorlesungsbeginn im Oktober"
+            "date": "August–Oktober",
+            "note": "Vorlesungsbeginn im September–November"
         },
         "summer": {
             "title": "Sommersemester",
-            "date": "Januar/Februar",
-            "note": "Vorlesungsbeginn im April"
+            "date": "Februar–April",
+            "note": "Vorlesungsbeginn im März–April"
         },
-        "disclaimer": "Genaue Termine variieren je nach Institution. Überprüfe immer bei deinem Ziel-Studienkolleg."
+        "disclaimer": "Genaue Termine variieren stark je nach Institution. Überprüfe immer bei deinem Ziel-Studienkolleg."
     },
     "tips": {
         "title": "Vorbereitungstipps",

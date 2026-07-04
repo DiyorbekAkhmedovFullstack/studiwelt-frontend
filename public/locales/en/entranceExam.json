@@ -6,7 +6,7 @@
         "description": "The competitive entrance exam required by public Studienkollegs. Your performance determines admission — prepare strategically to secure your place.",
         "tags": {
             "twoPartExam": "2-Part Exam",
-            "germanLevel": "German B1-B2",
+            "germanLevel": "German B2",
             "competitive": "Competitive Admission"
         }
     },
@@ -33,17 +33,16 @@
             "title": "German Language Test",
             "duration": "60-90 minutes",
             "items": [
-                { "title": "C-Test / Lückentest", "description": "Gap-filling exercises testing grammar and vocabulary" },
-                { "title": "Reading Comprehension", "description": "Understanding factual and literary texts" },
-                { "title": "Listening Comprehension", "description": "Understanding lectures, conversations, news" },
-                { "title": "Written Expression", "description": "Writing summaries, short texts, discussions" },
-                { "title": "Grammar & Vocabulary", "description": "Sentence restructuring, error correction" }
+                { "title": "C-Test / Lückentest", "description": "Gap-fill exercises testing grammar, vocabulary and reading comprehension" },
+                { "title": "Reading Comprehension", "description": "Understanding factual and academic texts" },
+                { "title": "Written Expression", "description": "Writing summaries, short texts, or discussions" },
+                { "title": "Grammar & Vocabulary", "description": "Sentence restructuring, error correction, declensions" }
             ]
         },
         "subjectTest": {
             "title": "Subject-Specific Test",
             "duration": "45-60 minutes",
-            "description": "Varies by course track. Most require mathematics, with additional subjects based on your field:",
+            "description": "Only required for T, M and W courses. G and S courses take an extended German test instead:",
             "courses": {
                 "T": "Math + Physics",
                 "M": "Math + Biology + Chemistry",
@@ -66,7 +65,7 @@
                 "name": "T-Kurs",
                 "fullName": "Technical & Engineering",
                 "subjects": ["Mathematics", "Physics (sometimes Chemistry)"],
-                "mathTopics": ["Functions & algebra", "Linear & quadratic equations", "Geometry", "Binomial formulas", "Exponents & powers"],
+                "mathTopics": ["Linear & quadratic equations and inequalities", "Functions & graphs", "Algebra & term transformations", "Geometry (area, perimeter, Pythagorean theorem)", "Intercept theorem & coordinate systems", "Percentages & powers"],
                 "otherTopics": ["Mechanics", "Electricity", "Optics"]
             },
             "M": {
@@ -102,15 +101,15 @@
         "description": "Entrance exams are held twice a year, before each semester begins.",
         "winter": {
             "title": "Winter Semester",
-            "date": "July",
-            "note": "Classes start in October"
+            "date": "August–October",
+            "note": "Classes start in September–November"
         },
         "summer": {
             "title": "Summer Semester",
-            "date": "January/February",
-            "note": "Classes start in April"
+            "date": "February–April",
+            "note": "Classes start in March–April"
         },
-        "disclaimer": "Exact dates vary by institution. Always verify with your target Studienkolleg."
+        "disclaimer": "Exact dates vary significantly by institution. Always verify with your target Studienkolleg."
     },
     "tips": {
         "title": "Preparation Tips",
