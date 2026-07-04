@@ -2,12 +2,33 @@ import { useTranslation } from 'react-i18next';
 import type { StudienkollegData } from '../../data/studienkollegData';
 import { Ui } from '../../lib/icons';
 
+const localeMap: Record<string, string> = {
+  en: 'en-US',
+  de: 'de-DE',
+  ru: 'ru-RU',
+};
+
+function localizeDate(dateStr: string, lang: string): string {
+  if (!/^[A-Z][a-z]{2}\s\d{1,2},\s\d{4}$/.test(dateStr)) return dateStr;
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return dateStr;
+  try {
+    return d.toLocaleDateString(localeMap[lang] || 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch {
+    return dateStr;
+  }
+}
+
 type ApplicationCardProps = {
   application: StudienkollegData['application'];
 };
 
 export function ApplicationCard({ application }: ApplicationCardProps) {
-  const { t } = useTranslation('studienkolleg');
+  const { t, i18n } = useTranslation('studienkolleg');
   const isOpen = application.status === 'open';
 
   const methodLabel = application.method === 'assist' ? t('viaUniAssist') : t('directApplication');
@@ -43,13 +64,13 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
         <div className="flex justify-between items-center py-3 border-b border-dashed border-[rgba(0,0,0,0.1)] text-sm">
           <span className="text-text-muted">{t('deadlineWinter')}</span>
           <span className="font-semibold text-text-main">
-            {application.winterDeadline}
+            {localizeDate(application.winterDeadline, i18n.language)}
           </span>
         </div>
         <div className="flex justify-between items-center py-3 text-sm">
           <span className="text-text-muted">{t('deadlineSummer')}</span>
           <span className="font-semibold text-text-main">
-            {application.summerDeadline}
+            {localizeDate(application.summerDeadline, i18n.language)}
           </span>
         </div>
       </div>
