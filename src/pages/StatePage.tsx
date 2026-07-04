@@ -70,8 +70,6 @@ export function StatePage() {
   const stateStudienkollegs = getStateStudienkollegs(state.id);
 
   const localizedName = tc(`${state.id}.name`) || state.name;
-  const localizedNameGen = tc(`${state.id}.nameGen`) || localizedName;
-  const localizedNamePrep = tc(`${state.id}.namePrep`) || localizedName;
 
   const translatedPrograms = (uniIndex: number): string[] => {
     const result = tc(`${state.id}.universities.${uniIndex}.programs`, { returnObjects: true });
@@ -180,10 +178,10 @@ export function StatePage() {
                 {t('higherEducation')}
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-                {t('universitiesIn', { state: localizedName, stateGen: localizedNameGen, statePrep: localizedNamePrep })}
+                {t('universitiesIn', { state: localizedName })}
               </h2>
               <p className="text-text-muted max-w-[600px] mx-auto">
-                {t('universitiesDescription', { state: localizedName, stateGen: localizedNameGen, statePrep: localizedNamePrep })}
+                {t('universitiesDescription', { state: localizedName })}
               </p>
             </div>
 
@@ -302,10 +300,10 @@ export function StatePage() {
                 {t('cultureTraditions')}
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-                {t('discoverCulture', { state: localizedName, stateGen: localizedNameGen, statePrep: localizedNamePrep })}
+                {t('discoverCulture', { state: localizedName })}
               </h2>
               <p className="text-text-muted max-w-[600px] mx-auto">
-                {t('cultureDescription', { state: localizedName, stateGen: localizedNameGen, statePrep: localizedNamePrep })}
+                {t('cultureDescription', { state: localizedName })}
               </p>
             </div>
 
@@ -339,7 +337,7 @@ export function StatePage() {
                   {t('forInternationalStudents')}
                 </span>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-                  {t('studienkollegsIn', { state: localizedName, stateGen: localizedNameGen, statePrep: localizedNamePrep })}
+                  {t('studienkollegsIn', { state: localizedName })}
                 </h2>
                 <p className="text-text-muted max-w-[600px] mx-auto">
                   {t('studienkollegsDescription', { count: stateStudienkollegs.length, state: localizedName })}
@@ -466,7 +464,7 @@ export function StatePage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[800px] mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-            {t('readyToStudy', { state: localizedName, stateGen: localizedNameGen, statePrep: localizedNamePrep })}
+            {t('readyToStudy', { state: localizedName })}
           </h2>
           <p className="text-text-muted mb-8 max-w-[500px] mx-auto">
             {t('ctaDescription')}
