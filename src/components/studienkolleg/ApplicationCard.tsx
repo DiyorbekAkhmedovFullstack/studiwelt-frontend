@@ -8,7 +8,11 @@ const localeMap: Record<string, string> = {
   ru: 'ru-RU',
 };
 
-function localizeDate(dateStr: string, lang: string): string {
+function localizeDate(dateStr: string, lang: string, t: (key: string) => string): string {
+  const nonDateMap: Record<string, string> = {
+    'No summer intake': t('noSummerIntake'),
+  };
+  if (nonDateMap[dateStr]) return nonDateMap[dateStr];
   if (!/^[A-Z][a-z]{2}\s\d{1,2},\s\d{4}$/.test(dateStr)) return dateStr;
   const d = new Date(dateStr);
   if (isNaN(d.getTime())) return dateStr;
@@ -64,13 +68,13 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
         <div className="flex justify-between items-center py-3 border-b border-dashed border-[rgba(0,0,0,0.1)] text-sm">
           <span className="text-text-muted">{t('deadlineWinter')}</span>
           <span className="font-semibold text-text-main">
-            {localizeDate(application.winterDeadline, i18n.language)}
+            {localizeDate(application.winterDeadline, i18n.language, t)}
           </span>
         </div>
         <div className="flex justify-between items-center py-3 text-sm">
           <span className="text-text-muted">{t('deadlineSummer')}</span>
           <span className="font-semibold text-text-main">
-            {localizeDate(application.summerDeadline, i18n.language)}
+            {localizeDate(application.summerDeadline, i18n.language, t)}
           </span>
         </div>
       </div>

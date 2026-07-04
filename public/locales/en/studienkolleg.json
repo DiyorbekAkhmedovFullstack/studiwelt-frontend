@@ -21,5 +21,7 @@
     "publicInstitution": "Public Institution",
     "publicUniversity": "Public University",
     "technicalUniversity": "Technical University",
-    "technicalInstitute": "Technical Institute"
+    "technicalInstitute": "Technical Institute",
+    "noSummerIntake": "No summer intake",
+    "acceptingApplications": "Accepting Applications"
 }

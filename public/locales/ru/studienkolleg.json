@@ -22,6 +22,8 @@
     "publicUniversity": "Государственный университет",
     "technicalUniversity": "Технический университет",
     "technicalInstitute": "Технический институт",
+    "noSummerIntake": "Летний набор отсутствует",
+    "acceptingApplications": "Принимает заявки",
 
     "data": {
         "munich": {

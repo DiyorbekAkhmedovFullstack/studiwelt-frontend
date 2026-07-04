@@ -21,5 +21,7 @@
     "publicInstitution": "Öffentliche Einrichtung",
     "publicUniversity": "Öffentliche Universität",
     "technicalUniversity": "Technische Universität",
-    "technicalInstitute": "Technische Hochschule"
+    "technicalInstitute": "Technische Hochschule",
+    "noSummerIntake": "Keine Sommeraufnahme",
+    "acceptingApplications": "Annahme von Bewerbungen"
 }
