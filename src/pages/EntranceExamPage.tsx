@@ -205,23 +205,23 @@ export function EntranceExamPage() {
 
                                 <div className="space-y-2 text-[14px]">
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-primary w-16">T-Kurs</span>
+                                        <span className="font-bold w-16">T-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.T')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-text-main w-16">M-Kurs</span>
+                                        <span className="font-bold w-16">M-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.M')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-success w-16">W-Kurs</span>
+                                        <span className="font-bold w-16">W-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.W')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-text-muted w-16">G-Kurs</span>
+                                        <span className="font-bold w-16">G-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.G')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-primary/60 w-16">S-Kurs</span>
+                                        <span className="font-bold w-16">S-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.S')}</span>
                                     </div>
                                 </div>
