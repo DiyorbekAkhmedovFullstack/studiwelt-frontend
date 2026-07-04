@@ -69,6 +69,11 @@ export function StatePage() {
   const seoProps = getStateSEO(state.name, state.germanName);
   const stateStudienkollegs = getStateStudienkollegs(state.id);
 
+  const translatedPrograms = (uniIndex: number): string[] => {
+    const result = tc(`${state.id}.universities.${uniIndex}.programs`, { returnObjects: true });
+    return Array.isArray(result) ? result as string[] : state.universities[uniIndex]?.programs ?? [];
+  };
+
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
       <SEO {...seoProps} />
@@ -235,13 +240,16 @@ export function StatePage() {
                           </p>
 
                           {/* Programs */}
-                          {uni.programs && uni.programs.length > 0 && (
+                          {(() => {
+                            const progs = translatedPrograms(globalUniIdx);
+                            if (progs.length === 0) return null;
+                            return (
                             <div className="mb-5">
                               <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2.5">
                                 {t('keyPrograms')}
                               </p>
                               <div className="flex flex-wrap gap-2">
-                                {(tc(`${state.id}.universities.${globalUniIdx}.programs`, { returnObjects: true }) as string[]).map((p) => (
+                                {progs.map((p) => (
                                   <span
                                     key={p}
                                     className="px-3 py-1.5 bg-primary-light text-primary text-sm font-medium rounded-lg"
@@ -251,7 +259,8 @@ export function StatePage() {
                                 ))}
                               </div>
                             </div>
-                          )}
+                            );
+                          })()}
 
                           {/* Website button */}
                           {uni.website && (
