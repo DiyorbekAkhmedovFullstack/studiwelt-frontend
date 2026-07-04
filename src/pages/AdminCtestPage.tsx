@@ -398,7 +398,7 @@ export function AdminCtestPage() {
         setInitialized(false);
         toastService.success(t('toast.ctestDeleted'));
       },
-      onError: (err) => {
+      onError: () => {
       toastService.error(t('toast.ctestDeleteFailed'));
       },
     });
