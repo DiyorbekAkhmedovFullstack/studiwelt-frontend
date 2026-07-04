@@ -117,7 +117,7 @@ export function StatePage() {
                 {t('germanState')}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                {state.name}
+                {localizedName}
               </h1>
               <p className="text-lg text-text-muted mb-6 leading-relaxed">
                 {tc(`${state.id}.description`)}
