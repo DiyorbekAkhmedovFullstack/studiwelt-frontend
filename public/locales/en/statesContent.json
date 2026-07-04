@@ -1,0 +1,742 @@
+{
+  "bavaria": {
+    "description": "Bavaria is Germany's largest state by area and a global economic powerhouse. Home to world-class universities, cutting-edge research institutions, and global industry leaders like BMW, Siemens, and Audi, it offers international students an exceptional blend of Alpine tradition and high-tech innovation. With 33 higher education institutions — including two Universities of Excellence — Bavaria is one of Europe's premier study destinations.",
+    "motto": "Freistaat Bayern",
+    "universities": {
+      "0": {
+        "description": "One of Germany's most prestigious universities and a University of Excellence. LMU is renowned for its strength in physics, medicine, law, and business — with over 50 Nobel laureates among its alumni and faculty.",
+        "programs": ["Computer Science", "Business Administration", "Medicine", "Physics", "Psychology", "Law"]
+      },
+      "1": {
+        "description": "Germany's #1 technical university and a University of Excellence. TUM ranks among the top in Europe for engineering, computer science, and natural sciences, with strong industry partnerships with BMW, Siemens, and Audi.",
+        "programs": ["Mechanical Engineering", "Computer Science", "Electrical Engineering", "Aerospace", "Information Engineering", "Management & Technology"]
+      },
+      "2": {
+        "description": "One of Germany's most innovative universities, FAU offers 260+ degree programs across five faculties. It is renowned for its strong ties to industry, with particular strength in medical engineering, AI, and materials science.",
+        "programs": ["Computer Science (AI)", "Medical Engineering", "Materials Science", "International Business", "Business Administration", "Data Science"]
+      },
+      "3": {
+        "description": "One of the oldest universities in the German-speaking world (1402). JMU is renowned for its medical faculty and interdisciplinary research centers, including the Helmholtz Institute for RNA-based Infection Research.",
+        "programs": ["Medicine", "AI & Data Science", "Psychology", "Biomedicine", "Chemistry", "Pharmacy"]
+      },
+      "4": {
+        "description": "A modern campus university in a UNESCO World Heritage city. With 12 faculties and 380 international partner universities, UR is the largest university in Eastern Bavaria, excelling in informatics, medicine, and business.",
+        "programs": ["Informatics & Data Science", "Business Administration", "Medicine", "International Economics", "Law"]
+      },
+      "5": {
+        "description": "A comprehensive research university with eight faculties, including a new Medical Faculty (2016). The university maintains strong international connections with 240+ researchers from 60+ countries.",
+        "programs": ["Applied Computer Science", "Business Administration", "Medicine", "International Management", "Physics"]
+      },
+      "6": {
+        "description": "Specializes in international business, applied computer science, and European studies. Bamberg has the highest study-abroad rate in Bavaria (40% of graduates), with 300 partner universities in 60 countries.",
+        "programs": ["International Business", "Applied Computer Science", "European Economic Studies", "International Information Systems Management", "Software Systems Science"]
+      },
+      "7": {
+        "description": "A young research university known for unique interdisciplinary programs. Bayreuth is a global leader in African Studies and offers distinctive programs in Global Change Ecology, Health Economics, and Polymer Chemistry.",
+        "programs": ["Computer Science", "International Economy & Development", "Health Economics", "Global Change Ecology", "Polymer Chemistry", "Sport & Media"]
+      },
+      "8": {
+        "description": "Renowned for its exceptional international orientation — 19% international students, 327+ partner universities. Passau offers unique programs in European Studies, Development Studies, and International Cultural and Business Studies.",
+        "programs": ["Computer Science", "International Cultural & Business Studies", "European Studies", "Business Administration", "Development Studies", "Governance & Public Policy"]
+      },
+      "9": {
+        "description": "Bavaria's second largest university of applied sciences. HM offers 80+ programs across 14 departments, covering technology, engineering, business, social sciences, and design — with strong industry partnerships with BMW and Siemens.",
+        "programs": ["Mechanical Engineering", "Computer Science", "Business Administration", "Electrical Engineering", "Industrial Engineering", "Aviation"]
+      },
+      "10": {
+        "description": "One of Germany's largest universities of applied sciences, named after physicist Georg Simon Ohm. Offers programs across engineering, business, social sciences, and design with 160+ international partnerships.",
+        "programs": ["Computer Science", "Business Administration", "Mechanical Engineering", "Electrical Engineering", "Architecture", "Applied Chemistry"]
+      },
+      "11": {
+        "description": "A dynamic technical university in Audi's home city. TH Ingolstadt is renowned for its automotive engineering program and close industry ties with Audi, Continental, and other automotive giants.",
+        "programs": ["Automotive Engineering", "International Business", "Mechanical Engineering", "Electrical Engineering", "Computer Science", "Aviation Engineering"]
+      },
+      "12": {
+        "description": "A technical university of applied sciences with strong industry connections. TH Augsburg excels in engineering, computer science, and additive manufacturing, with close ties to KUKA (robotics) and MAN Energy Solutions.",
+        "programs": ["Mechanical Engineering", "Computer Science", "Additive Manufacturing", "Industrial Engineering", "Electrical Engineering"]
+      },
+      "13": {
+        "description": "One of Bavaria's largest universities of applied sciences, offering 69+ degree programs. OTH Regensburg is particularly strong in engineering, architecture, and business, with excellent industry connections.",
+        "programs": ["Industrial Engineering", "Computer Science", "Architecture", "Business Administration", "Mechanical Engineering", "Social Work"]
+      },
+      "14": {
+        "description": "One of Germany's most prestigious music and performing arts academies. HMTM offers programs in music, theatre, and dance, with close connections to the Bavarian State Opera and Orchestra.",
+        "programs": ["Instrumental Performance", "Vocal Performance", "Theatre Acting", "Conducting", "Music Education", "Jazz"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Oktoberfest", "description": "The world's largest folk festival, held annually in Munich since 1810. Over 6 million visitors celebrate with traditional beer, food, and Bavarian music on the Theresienwiese." },
+      "1": { "title": "Neuschwanstein Castle", "description": "The fairy-tale castle built by King Ludwig II that inspired Disney's Sleeping Beauty Castle. It welcomes 1.3 million visitors annually and is one of the most photographed landmarks in Germany." },
+      "2": { "title": "Traditional Dress", "description": "Lederhosen for men and Dirndl for women are still worn at festivals and celebrations. This traditional clothing represents Bavarian identity and pride, and has become a global symbol of German culture." },
+      "3": { "title": "Alpine Culture", "description": "Yodeling, Schuhplattler dancing, and the greeting 'Servus' are unique to Bavaria. The region's Catholic traditions and distinctive Bairisch dialect set it apart from the rest of Germany." },
+      "4": { "title": "Beer Gardens", "description": "Biergärten are outdoor areas where people enjoy beer, food, and socializing under chestnut trees. A cornerstone of Bavarian social life, especially during the warm summer months." },
+      "5": { "title": "Culinary Traditions", "description": "Famous for Weisswurst (white sausage eaten before noon), Brezen (pretzels), Schweinshaxe, and world-renowned beer brewing traditions dating back centuries. Bavaria has the highest density of breweries in the world." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "2nd largest state" },
+      "1": { "label": "Unemployment", "context": "Lowest in Germany" },
+      "2": { "label": "GDP", "context": "Would be EU's 7th economy" },
+      "3": { "label": "Int'l Students", "context": "Per year" }
+    },
+    "employers": {
+      "0": { "sector": "Automotive", "hq": "Munich" },
+      "1": { "sector": "Engineering", "hq": "Munich" },
+      "2": { "sector": "Insurance", "hq": "Munich" },
+      "3": { "sector": "Automotive", "hq": "Ingolstadt" },
+      "4": { "sector": "Sportswear", "hq": "Herzogenaurach" },
+      "5": { "sector": "Semiconductors", "hq": "Neubiberg" }
+    }
+  },
+  "baden-wurttemberg": {
+    "description": "Baden-Württemberg is Germany's innovation powerhouse, home to global automotive giants, world-renowned universities, and the enchanting Black Forest. The state combines cutting-edge technology with deep-rooted Swabian traditions.",
+    "motto": "Wir können alles. Außer Hochdeutsch.",
+    "universities": {
+      "0": {
+        "description": "Germany's oldest university (1386), Excellence in Medicine & Life Sciences",
+        "programs": ["Medicine", "Computer Science", "Physics", "Molecular Biology", "Data Science", "International Business"]
+      },
+      "1": {
+        "description": "University of Excellence, leading in Engineering & Natural Sciences",
+        "programs": ["Computer Science", "Mechanical Engineering", "Industrial Engineering", "Electrical Engineering", "Materials Science", "Data Science"]
+      },
+      "2": {
+        "description": "Excellence in Theology, Medicine, Law & Humanities",
+        "programs": ["Medicine", "Computer Science", "Psychology", "Neuroscience", "International Business", "Law"]
+      },
+      "3": {
+        "description": "Founded 1457, strong international orientation & research profile",
+        "programs": ["Computer Science", "Medicine", "Environmental Sciences", "Physics", "Economics", "Biology"]
+      },
+      "4": {
+        "description": "Top engineering school with Mercedes-Benz & Bosch partnerships",
+        "programs": ["Mechanical Engineering", "Computer Science", "Information Technology", "Civil Engineering", "Automotive Engineering", "Electrical Engineering"]
+      },
+      "5": {
+        "description": "Germany's leading business school",
+        "programs": ["Business Administration", "Economics", "International Business", "Finance", "Management", "Psychology"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Black Forest", "description": "Germany's largest continuous forest, known for cuckoo clocks, cherry gâteau, and 17 Michelin-starred restaurants. A region of dark woods, healing spas, and ancient traditions." },
+      "1": { "title": "Swabian Cuisine", "description": "Home of Spätzle (egg noodles) and Maultaschen (Swabian ravioli). The region's hearty dishes reflect centuries of farming tradition and culinary creativity." },
+      "2": { "title": "Bollenhut", "description": "The iconic Black Forest hat with large red (unmarried) or black (married) pompoms. A symbol of regional identity still worn during festivals and special occasions." },
+      "3": { "title": "Fastnacht Carnival", "description": "The Swabian-Alemannic carnival tradition with elaborate wooden masks, colorful costumes, and centuries-old customs distinct from Rhineland Karneval." },
+      "4": { "title": "Dialects", "description": "Four distinct dialects: Schwäbisch, Badisch, Alemannisch, and Fränkisch. The locals affectionately call their state 'Ländle' (little land)." },
+      "5": { "title": "Craftsmanship", "description": "Traditional Black Forest clockmaking, precision instruments, and jewelry. The region produces the majority of Germany's clocks, watches, and custom jewelry." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "3rd largest state" },
+      "1": { "label": "Unemployment", "context": "2nd lowest in Germany" },
+      "2": { "label": "GDP", "context": "3rd highest in Germany" },
+      "3": { "label": "Tuition/Semester", "context": "For non-EU students" }
+    },
+    "employers": {
+      "0": { "sector": "Automotive", "hq": "Stuttgart" },
+      "1": { "sector": "Automotive", "hq": "Stuttgart" },
+      "2": { "sector": "Engineering", "hq": "Gerlingen" },
+      "3": { "sector": "Software", "hq": "Walldorf" },
+      "4": { "sector": "Retail (Lidl)", "hq": "Neckarsulm" },
+      "5": { "sector": "Optics", "hq": "Oberkochen" }
+    }
+  },
+  "saarland": {
+    "description": "Saarland is a hidden gem in southwestern Germany, bordering France and Luxembourg. Known for its 'savoir-vivre' lifestyle, it combines industrial heritage with lush nature and a rapidly growing IT research sector centered around the CISPA Helmholtz Center.",
+    "motto": "Großes entsteht immer im Kleinen.",
+    "universities": {
+      "0": {
+        "description": "Leading in Computer Science (Max Planck Institutes) & European Law",
+        "programs": ["Computer Science", "Cybersecurity", "Data Science & AI", "International Business", "Bioinformatics", "Materials Science"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Saarschleife", "description": "The Great Loop of the Saar river at Mettlach. A breathtaking natural wonder and the state's most iconic landmark, best viewed from the Cloef viewpoint." },
+      "1": { "title": "Savoir Vivre", "description": "A unique French-influenced lifestyle. Saarlanders enjoy good food ('Hauptsach gudd gess'), wine, and a relaxed pace of life unlike anywhere else in Germany." },
+      "2": { "title": "Völklinger Hütte", "description": "A UNESCO World Heritage site. This massive former ironworks plant has been preserved as a fascinating cultural center, exhibition space, and industrial museum." },
+      "3": { "title": "Schwenken", "description": "The local art of grilling on a swinging grill (Schwenker). It is more than just cooking; it is a social religion and the center of summer gatherings." },
+      "4": { "title": "Silicon Saarland", "description": "Home to the CISPA Helmholtz Center and Max Planck Institutes, the state is a global hotspot for cybersecurity and AI research, attracting talent worldwide." },
+      "5": { "title": "Three-Country Corner", "description": "Bordering France and Luxembourg, the region offers a truly European experience. You can hike across borders and experience three cultures in one day." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Smallest area state" },
+      "1": { "label": "Unemployment", "context": "Transitioning economy" },
+      "2": { "label": "GDP", "context": "High per capita" },
+      "3": { "label": "Int'l Students", "context": "At Saarland Univ." }
+    },
+    "employers": {
+      "0": { "sector": "Automotive", "hq": "Saarbrücken" },
+      "1": { "sector": "Engineering", "hq": "Homburg" },
+      "2": { "sector": "Ceramics", "hq": "Mettlach" },
+      "3": { "sector": "Steel", "hq": "Dillingen" },
+      "4": { "sector": "Research", "hq": "Saarbrücken" },
+      "5": { "sector": "Retail", "hq": "St. Wendel" }
+    }
+  },
+  "rhineland-palatinate": {
+    "description": "Rhineland-Palatinate is the land of vineyards and forests. Home to the romantic Rhine Valley, Germany's oldest city Trier, and global chemical giant BASF, it offers a perfect balance of high-tech industry and relaxed lifestyle.",
+    "motto": "Wir machen es einfach.",
+    "universities": {
+      "0": {
+        "description": "One of Germany's largest and most diverse universities",
+        "programs": ["Computer Science", "Medicine", "Physics", "International Business", "Chemistry", "Biology"]
+      },
+      "1": {
+        "description": "Leading in AI and Computer Science (DFKI headquarters)",
+        "programs": ["Computer Science", "Mechanical Engineering", "Electrical Engineering", "Data Science", "Mathematics", "Industrial Engineering"]
+      },
+      "2": {
+        "description": "Strong focus on humanities and social sciences",
+        "programs": ["International Business", "Computer Science", "Environmental Sciences", "Economics", "Law"]
+      },
+      "3": {
+        "description": "Young university with strong regional integration",
+        "programs": ["Computer Science", "Business Administration", "Environmental Sciences", "Psychology", "Education"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Wine Country", "description": "Produces 70% of Germany's wine. The Deutsche Weinstraße (German Wine Route) offers picturesque villages, world-class Riesling, and endless autumn festivals." },
+      "1": { "title": "Roman Legacy", "description": "Trier, founded by Romans in 16 BC, is Germany's oldest city. The Porta Nigra and other monuments stand as UNESCO World Heritage sites." },
+      "2": { "title": "Romantic Rhine", "description": "The Middle Rhine Valley with its steep vineyards, the legendary Lorelei rock, and the highest density of castles in the world." },
+      "3": { "title": "Mainzer Fastnacht", "description": "One of the largest carnival celebrations in Germany. A 'fifth season' of parades, political satire, and street parties starting every November." },
+      "4": { "title": "Palatinate Forest", "description": "Germany's largest contiguous forest area and a UNESCO Biosphere Reserve. A paradise for hikers, climbers, and nature lovers." },
+      "5": { "title": "Chemical Valley", "description": "Home to Ludwigshafen and BASF, the world's largest chemical plant. The region is a global powerhouse for chemistry and pharmaceuticals." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "6th largest state" },
+      "1": { "label": "Unemployment", "context": "Below national average" },
+      "2": { "label": "GDP", "context": "Export-strong economy" },
+      "3": { "label": "Tuition Fees", "context": "For all students" }
+    },
+    "employers": {
+      "0": { "sector": "Chemicals", "hq": "Ludwigshafen" },
+      "1": { "sector": "Pharma", "hq": "Ingelheim" },
+      "2": { "sector": "Insurance", "hq": "Koblenz" },
+      "3": { "sector": "Biotech", "hq": "Mainz" },
+      "4": { "sector": "Glass", "hq": "Mainz" },
+      "5": { "sector": "Automotive", "hq": "Wörth" }
+    }
+  },
+  "hesse": {
+    "description": "Hesse is the heart of Germany and Europe's financial capital. With Frankfurt's skyline, the dense forests of the Taunus, and the historic charm of towns like Marburg, it offers a dynamic mix of global business and rich tradition.",
+    "motto": "An Hessen führt kein Weg vorbei.",
+    "universities": {
+      "0": {
+        "description": "Strong in Finance, Law, and Economics (House of Finance)",
+        "programs": ["Finance", "Business Administration", "Computer Science", "Medicine", "International Economics", "Law"]
+      },
+      "1": {
+        "description": "First autonomous university in Germany, specialized in engineering",
+        "programs": ["Computer Science", "Mechanical Engineering", "Electrical Engineering", "Industrial Engineering", "Materials Science", "Civil Engineering"]
+      },
+      "2": {
+        "description": "Famous for Life Sciences and Cultural Studies",
+        "programs": ["Medicine", "Veterinary Medicine", "Business Administration", "Psychology", "Agricultural Sciences", "Nutritional Sciences"]
+      },
+      "3": {
+        "description": "World's oldest Protestant university, founded in 1527",
+        "programs": ["Medicine", "Computer Science", "Business Administration", "Psychology", "Chemistry", "International Business"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Mainhattan", "description": "Frankfurt is the only German city with a massive skyline. It is the financial heart of the Eurozone, home to the ECB and the Stock Exchange." },
+      "1": { "title": "Apfelwein", "description": "The state's national drink. 'Ebbelwoi' is a tart cider traditionally served in a Bembel (stone jug) and drunk from a ribbed glass (Geripptes)." },
+      "2": { "title": "Brothers Grimm", "description": "Jacob and Wilhelm Grimm lived and worked in Kassel and Hanau. Their world-famous fairy tales (Cinderella, Hansel & Gretel) originate here." },
+      "3": { "title": "Rheingau", "description": "One of Germany's most prestigious wine regions, known globally for its Riesling. A landscape of rolling vineyards, castles, and the Rhine river." },
+      "4": { "title": "Documenta", "description": "The world's most important exhibition of modern art, taking place every five years in Kassel. It transforms the entire city into a living museum." },
+      "5": { "title": "Spa Towns", "description": "Wiesbaden and Bad Homburg are famous historic spa towns. Their thermal springs and casinos have attracted royalty and visitors for centuries." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "5th largest state" },
+      "1": { "label": "Unemployment", "context": "Strong job market" },
+      "2": { "label": "GDP", "context": "Highest GDP per capita" },
+      "3": { "label": "Int'l Students", "context": "Global hub" }
+    },
+    "employers": {
+      "0": { "sector": "Aviation", "hq": "Frankfurt" },
+      "1": { "sector": "Finance", "hq": "Frankfurt" },
+      "2": { "sector": "Pharma", "hq": "Darmstadt" },
+      "3": { "sector": "Logistics", "hq": "Frankfurt" },
+      "4": { "sector": "Automotive", "hq": "Rüsselsheim" },
+      "5": { "sector": "Healthcare", "hq": "Bad Homburg" }
+    }
+  },
+  "thuringia": {
+    "description": "Thuringia is known as the 'Green Heart of Germany' due to its vast forests. It is a state of immense cultural significance, home to Weimar Classicism, the Bauhaus movement, and Martin Luther's Wartburg, blending history with modern optical and tech industries.",
+    "motto": "Das ist Thüringen.",
+    "universities": {
+      "0": {
+        "description": "Historic university associated with Goethe, Schiller, and Hegel",
+        "programs": ["Medicine", "Computer Science", "Business Administration", "Optics & Photonics", "Physics", "Molecular Biology"]
+      },
+      "1": {
+        "description": "Strong focus on media technology and engineering",
+        "programs": ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Media Technology", "Information Systems", "Automotive Engineering"]
+      },
+      "2": {
+        "description": "World-renowned for architecture, art, and design",
+        "programs": ["Architecture", "Computer Science (Media)", "Urban Planning", "Media Arts", "Civil Engineering", "Product Design"]
+      },
+      "3": {
+        "description": "Specialized in humanities and social sciences",
+        "programs": ["International Relations", "Public Policy", "Education", "Psychology", "Economics"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Weimar Classicism", "description": "Home to Goethe and Schiller, Weimar was the intellectual center of Europe in the 18th century. The city boasts multiple UNESCO World Heritage sites." },
+      "1": { "title": "Bauhaus", "description": "The revolutionary Bauhaus art school was founded in Weimar in 1919 by Walter Gropius, shaping modern architecture and design worldwide." },
+      "2": { "title": "Wartburg Castle", "description": "Located in Eisenach, this is where Martin Luther translated the New Testament into German. A symbol of German unity and a UNESCO site." },
+      "3": { "title": "Thuringian Bratwurst", "description": "The 'Rostbratwurst' is a protected regional specialty with a 600-year history. Grilling it over charcoal is a beloved local tradition." },
+      "4": { "title": "Green Heart", "description": "The Thuringian Forest offers endless hiking trails, including the famous Rennsteig, and transforms into a winter sports paradise in snowy months." },
+      "5": { "title": "Erfurt's Merchants' Bridge", "description": "The Krämerbrücke is the longest inhabited bridge in Europe, lined with charming half-timbered houses, artisan shops, and cafes." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Centrally located" },
+      "1": { "label": "Unemployment", "context": "Stable economy" },
+      "2": { "label": "GDP", "context": "Growing tech sector" },
+      "3": { "label": "Tuition Fees", "context": "Low cost of living" }
+    },
+    "employers": {
+      "0": { "sector": "Optics/MedTech", "hq": "Jena" },
+      "1": { "sector": "Photonics", "hq": "Jena" },
+      "2": { "sector": "Energy", "hq": "Erfurt" },
+      "3": { "sector": "Logistics", "hq": "Erfurt" },
+      "4": { "sector": "Utilities", "hq": "Erfurt" },
+      "5": { "sector": "Media", "hq": "Erfurt" }
+    }
+  },
+  "saxony": {
+    "description": "Saxony is the dynamic cultural and economic center of Eastern Germany. From the 'Silicon Saxony' tech hub in Dresden to the trendy creative scene in Leipzig and the natural wonders of the Elbe Sandstone Mountains, it offers a unique blend of innovation and history.",
+    "motto": "So geht sächsisch.",
+    "universities": {
+      "0": {
+        "description": "University of Excellence, one of the largest technical universities in Germany",
+        "programs": ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "International Management", "Physics", "Civil Engineering"]
+      },
+      "1": {
+        "description": "Second oldest university in Germany (1409), alma mater of Goethe and Nietzsche",
+        "programs": ["Business Administration", "Computer Science", "Medicine", "Psychology", "Physics", "International Relations"]
+      },
+      "2": {
+        "description": "Strong focus on automotive and mechanical engineering",
+        "programs": ["Automotive Engineering", "Computer Science", "Mechanical Engineering", "Industrial Engineering", "Electrical Engineering", "Management"]
+      },
+      "3": {
+        "description": "World's oldest university of mining and metallurgy",
+        "programs": ["Mining Engineering", "Materials Science", "Environmental Engineering", "Geology", "International Business & Resources", "Mechanical Engineering"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Silicon Saxony", "description": "Europe's largest microelectronics cluster is based in Dresden. One in every three chips produced in Europe is made here, driving global innovation." },
+      "1": { "title": "Saxon Switzerland", "description": "The Elbe Sandstone Mountains offer dramatic rock formations and the famous Bastei Bridge. A paradise for climbers and hikers just south of Dresden." },
+      "2": { "title": "Baroque Splendor", "description": "Dresden, known as 'Florence on the Elbe,' features world-class architecture like the Frauenkirche, Zwinger Palace, and Semperoper." },
+      "3": { "title": "City of Music", "description": "Leipzig is the city of Bach, Mendelssohn, and Wagner. The St. Thomas Boys Choir and the Gewandhaus Orchestra are world-renowned." },
+      "4": { "title": "Christmas Markets", "description": "The Dresden Striezelmarkt is Germany's oldest Christmas market (1434). The region is famous for Ore Mountain wood crafts and Nutcrackers." },
+      "5": { "title": "Meissen Porcelain", "description": "Europe's first hard-paste porcelain was invented here. The 'White Gold' from Meissen remains a symbol of ultimate luxury and craftsmanship." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Most populous in East" },
+      "1": { "label": "Unemployment", "context": "Leading Eastern state" },
+      "2": { "label": "GDP", "context": "Strong industrial base" },
+      "3": { "label": "Int'l Students", "context": "At TU Dresden" }
+    },
+    "employers": {
+      "0": { "sector": "Automotive", "hq": "Zwickau" },
+      "1": { "sector": "Logistics", "hq": "Leipzig" },
+      "2": { "sector": "Semiconductors", "hq": "Dresden" },
+      "3": { "sector": "Automotive", "hq": "Leipzig" },
+      "4": { "sector": "Semiconductors", "hq": "Dresden" },
+      "5": { "sector": "Automotive", "hq": "Leipzig" }
+    }
+  },
+  "north-rhine-westphalia": {
+    "description": "NRW is Germany's most populous state, a unique fusion of industrial heritage and modern innovation. From the vibrant Rhine cities of Cologne and Düsseldorf to the transformed Ruhr region, it offers a dense network of universities and career opportunities.",
+    "motto": "Germany's Economic Powerhouse",
+    "universities": {
+      "0": {
+        "description": "Germany's largest technical university, a global leader in engineering",
+        "programs": ["Computer Science", "Mechanical Engineering", "Automotive Engineering", "Electrical Engineering", "Industrial Engineering", "Software Systems Engineering"]
+      },
+      "1": {
+        "description": "University of Excellence, produced multiple Nobel Prize winners",
+        "programs": ["Computer Science", "Economics", "Medicine", "Physics", "Agricultural Sciences", "Law"]
+      },
+      "2": {
+        "description": "One of the oldest (1388) and largest universities in Germany",
+        "programs": ["Business Administration", "Economics", "Computer Science", "Medicine", "Psychology", "International Business"]
+      },
+      "3": {
+        "description": "Famous for its high quality of life and bicycle-friendly campus",
+        "programs": ["Business Administration", "Computer Science", "Medicine", "Psychology", "Law", "Economics"]
+      },
+      "4": {
+        "description": "First new university founded in West Germany after WWII",
+        "programs": ["Computer Science", "Mechanical Engineering", "Medicine", "Psychology", "Economics", "Electrical Engineering"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Cologne Cathedral", "description": "The Kölner Dom is a Gothic masterpiece and Germany's most visited landmark. A UNESCO World Heritage site that took 632 years to complete." },
+      "1": { "title": "Carnival", "description": "The 'Fifth Season' sees millions celebrating on the streets of Cologne, Düsseldorf, and Mainz. A time of parades, costumes, and pure joy." },
+      "2": { "title": "Industrial Culture", "description": "The Ruhr area transformed from coal mines to culture. Sites like Zeche Zollverein in Essen show how industry became art and leisure." },
+      "3": { "title": "Düsseldorf Fashion", "description": "Known as Germany's fashion capital, Düsseldorf boasts the elegant Königsallee ('Kö') shopping boulevard and a vibrant art scene." },
+      "4": { "title": "Beethoven's City", "description": "Bonn is the birthplace of Ludwig van Beethoven. His legacy is celebrated in museums, festivals, and the historic atmosphere of the former capital." },
+      "5": { "title": "Football Passion", "description": "Football is a religion here. Home to legendary clubs like Borussia Dortmund and Schalke 04, the region has the highest density of stadiums in Europe." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Most populous state" },
+      "1": { "label": "Unemployment", "context": "Diverse economy" },
+      "2": { "label": "GDP", "context": "Highest in Germany" },
+      "3": { "label": "Int'l Background", "context": "Multicultural society" }
+    },
+    "employers": {
+      "0": { "sector": "Telecommunications", "hq": "Bonn" },
+      "1": { "sector": "Logistics", "hq": "Bonn" },
+      "2": { "sector": "Energy", "hq": "Essen" },
+      "3": { "sector": "Pharma/Chem", "hq": "Leverkusen" },
+      "4": { "sector": "Industrial", "hq": "Essen" },
+      "5": { "sector": "Automotive", "hq": "Cologne" }
+    }
+  },
+  "saxony-anhalt": {
+    "description": "Saxony-Anhalt is a region of cultural awakening and modern innovation. From the cradle of the Reformation in Wittenberg to the birthplace of the Bauhaus movement in Dessau, it offers a rich history alongside a growing high-tech and renewable energy sector.",
+    "motto": "#moderndenken",
+    "universities": {
+      "0": {
+        "description": "One of the oldest universities in Germany, rich in tradition and research",
+        "programs": ["Medicine", "Computer Science", "Business Administration", "Pharmacy", "Law", "Agricultural Sciences"]
+      },
+      "1": {
+        "description": "Strong focus on engineering, computer science, and medicine",
+        "programs": ["Computer Science", "Industrial Engineering", "Medicine", "Mechanical Engineering", "Electrical Engineering", "Business Administration"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Bauhaus Dessau", "description": "The iconic Bauhaus building in Dessau is a UNESCO World Heritage site. It was the center of modern design and architecture in the 1920s." },
+      "1": { "title": "Lutherstadt Wittenberg", "description": "The birthplace of the Reformation. Martin Luther nailed his 95 Theses to the door of the Castle Church here, changing history forever." },
+      "2": { "title": "Harz Mountains", "description": "A mountain range full of legends, witches, and the Brocken peak. The Harz Narrow Gauge Railways offer a nostalgic steam train ride through the forests." },
+      "3": { "title": "Quedlinburg", "description": "A remarkably preserved medieval town with over 1,300 half-timbered houses. Walking through its streets feels like stepping back in time." },
+      "4": { "title": "Halle (Saale)", "description": "A cultural capital known for the composer George Frideric Handel and the Nebra Sky Disc, the world's oldest known depiction of the cosmos." },
+      "5": { "title": "Garden Kingdom", "description": "The Dessau-Wörlitz Garden Realm is a stunning cultural landscape of English-style parks and palaces, recognized by UNESCO." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Rich cultural heritage" },
+      "1": { "label": "Unemployment", "context": "Improving economy" },
+      "2": { "label": "GDP", "context": "Strong chemical industry" },
+      "3": { "label": "Tuition Fees", "context": "Low living costs" }
+    },
+    "employers": {
+      "0": { "sector": "Transport", "hq": "Regional Hub" },
+      "1": { "sector": "Logistics", "hq": "Leipzig/Halle" },
+      "2": { "sector": "Healthcare", "hq": "Halle" },
+      "3": { "sector": "Healthcare", "hq": "Aschersleben" },
+      "4": { "sector": "Utilities", "hq": "Halle" },
+      "5": { "sector": "Chemicals", "hq": "Leuna" }
+    }
+  },
+  "lower-saxony": {
+    "description": "Lower Saxony stretches from the North Sea coast to the Harz mountains. It is a land of wide horizons, automotive giants like Volkswagen, and world-class research universities, offering a high quality of life and diverse landscapes.",
+    "motto": "Klar.",
+    "universities": {
+      "0": {
+        "description": "Produced over 40 Nobel Prize winners, highly prestigious",
+        "programs": ["Computer Science", "International Business", "Medicine", "Physics", "Molecular Biology", "Agricultural Sciences"]
+      },
+      "1": {
+        "description": "Member of TU9, leading in engineering and technology",
+        "programs": ["Computer Science", "Mechanical Engineering", "Electrical Engineering", "Civil Engineering", "Industrial Engineering", "International Business"]
+      },
+      "2": {
+        "description": "Oldest technical university in Germany, focus on mobility and aviation",
+        "programs": ["Automotive Engineering", "Computer Science", "Mechanical Engineering", "Electrical Engineering", "Architecture", "Aviation Engineering"]
+      },
+      "3": {
+        "description": "Unique focus on energy, raw materials, and material science",
+        "programs": ["Mining Engineering", "Materials Science", "Petroleum Engineering", "Computer Science", "Environmental Engineering", "Mechanical Engineering"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Autostadt Wolfsburg", "description": "A massive automotive theme park and museum adjacent to the Volkswagen factory. A pilgrimage site for car enthusiasts from around the world." },
+      "1": { "title": "Lüneburg Heath", "description": "A unique landscape of purple heather blooming in late summer. Historic towns like Lüneburg offer medieval charm and salt-mining history." },
+      "2": { "title": "East Frisian Islands", "description": "The seven islands in the Wadden Sea UNESCO World Heritage site are famous for their sandy beaches, lighthouses, and traditional tea culture." },
+      "3": { "title": "Goslar Old Town", "description": "A UNESCO World Heritage site with over 1,500 half-timbered houses and the Imperial Palace (Kaiserpfalz), reflecting its wealth from mining." },
+      "4": { "title": "Hanover Fair", "description": "The world's largest industrial trade fair takes place here every year, showcasing the latest innovations in technology and engineering." },
+      "5": { "title": "Meyer Werft", "description": "Located in Papenburg, this shipyard builds the world's largest cruise ships. Seeing these giants navigate the narrow Ems river is a spectacle." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "4th largest state" },
+      "1": { "label": "Unemployment", "context": "Stable market" },
+      "2": { "label": "GDP", "context": "Strong auto sector" },
+      "3": { "label": "Tuition Fees", "context": "Semester contribution only" }
+    },
+    "employers": {
+      "0": { "sector": "Automotive", "hq": "Wolfsburg" },
+      "1": { "sector": "Automotive", "hq": "Hanover" },
+      "2": { "sector": "Insurance", "hq": "Hanover" },
+      "3": { "sector": "Steel", "hq": "Salzgitter" },
+      "4": { "sector": "Retail", "hq": "Burgwedel" },
+      "5": { "sector": "Pharma/Bio", "hq": "Göttingen" }
+    }
+  },
+  "brandenburg": {
+    "description": "Brandenburg surrounds Berlin and is a land of lakes, forests, and Prussian history. From the palaces of Potsdam to the Spreewald canals and the new Tesla Gigafactory, it offers a high quality of life with easy access to the capital.",
+    "motto": "Es kann so einfach sein.",
+    "universities": {
+      "0": {
+        "description": "Largest university in the state, strong in humanities and science",
+        "programs": ["Computer Science", "Business Administration", "International Relations", "Psychology", "Public Administration", "Data Science"]
+      },
+      "1": {
+        "description": "Leading in energy, environment, and materials research",
+        "programs": ["Environmental Engineering", "Computer Science", "Electrical Engineering", "Mechanical Engineering", "Industrial Engineering", "Architecture"]
+      },
+      "2": {
+        "description": "Focus on international relations, law, and economics",
+        "programs": ["International Business", "Law", "European Studies", "International Relations", "Economics"]
+      },
+      "3": {
+        "description": "Germany's oldest and largest film school",
+        "programs": ["Film Production", "Screenwriting", "Animation", "Media Studies", "Producing", "Cinematography"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Sanssouci Palace", "description": "Frederick the Great's summer palace in Potsdam is a Rococo masterpiece. The park and palace complex is a UNESCO World Heritage site." },
+      "1": { "title": "Spreewald", "description": "A UNESCO biosphere reserve where the Spree river branches into hundreds of small canals. Famous for punt boat rides and Spreewald gherkins." },
+      "2": { "title": "Babelsberg Studio", "description": "The oldest large-scale film studio in the world. Masterpieces like 'Metropolis' and modern blockbusters like 'Inglourious Basterds' were filmed here." },
+      "3": { "title": "Tropical Islands", "description": "Housed in a former airship hangar, this is the world's largest indoor water park, featuring a rainforest, beach, and lagoon." },
+      "4": { "title": "Cecilienhof", "description": "The site of the Potsdam Conference in 1945, where Truman, Churchill, and Stalin decided the future of Germany and Europe." },
+      "5": { "title": "3000 Lakes", "description": "Brandenburg is one of the most water-rich states in Germany, with over 3,000 lakes offering endless opportunities for swimming and sailing." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Surrounds Berlin" },
+      "1": { "label": "Unemployment", "context": "Growing tech sector" },
+      "2": { "label": "GDP", "context": "Driven by new industry" },
+      "3": { "label": "Tuition Fees", "context": "Semester contribution only" }
+    },
+    "employers": {
+      "0": { "sector": "Automotive", "hq": "Grünheide" },
+      "1": { "sector": "Automotive", "hq": "Brandenburg a.d.H." },
+      "2": { "sector": "Aerospace", "hq": "Dahlewitz" },
+      "3": { "sector": "Chemicals", "hq": "Schwarzheide" },
+      "4": { "sector": "Insurance", "hq": "Potsdam" },
+      "5": { "sector": "Retail", "hq": "Schönefeld" }
+    }
+  },
+  "berlin": {
+    "description": "Berlin is the capital of Germany and a global hub for culture, politics, and science. Known for its vibrant start-up scene, diverse international community, and rich history, it is one of the most exciting cities in Europe to live and study.",
+    "motto": "Arm, aber sexy.",
+    "universities": {
+      "0": {
+        "description": "University of Excellence, strong in humanities and social sciences",
+        "programs": ["Computer Science", "Business Administration", "International Relations", "Political Science", "Psychology", "Law"]
+      },
+      "1": {
+        "description": "The mother of all modern universities, alma mater of 29 Nobel laureates",
+        "programs": ["Computer Science", "Business Administration", "Medicine", "Economics", "Psychology", "Materials Science"]
+      },
+      "2": {
+        "description": "Member of TU9, leading in engineering and computer science",
+        "programs": ["Computer Science", "Mechanical Engineering", "Industrial Engineering", "Electrical Engineering", "Civil Engineering", "Innovation Management"]
+      },
+      "3": {
+        "description": "One of the largest and most prestigious university hospitals in Europe",
+        "programs": ["Medicine", "Molecular Medicine", "Epidemiology", "International Health", "Medical Neuroscience", "Dentistry"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Brandenburg Gate", "description": "The city's most famous landmark and a symbol of German reunification. It stands at the heart of the capital, witnessing centuries of history." },
+      "1": { "title": "Start-up Capital", "description": "Berlin is Europe's Silicon Valley, home to unicorns like Zalando and N26. The city attracts entrepreneurs and digital nomads from all over the world." },
+      "2": { "title": "Museum Island", "description": "A UNESCO World Heritage site in the Spree river, hosting five world-class museums including the Pergamon and the Altes Museum." },
+      "3": { "title": "Club Culture", "description": "Berlin's nightlife is legendary. Clubs like Berghain and the diverse techno scene have made the city a global destination for music lovers." },
+      "4": { "title": "East Side Gallery", "description": "The longest remaining section of the Berlin Wall, now an open-air gallery featuring murals by artists from around the world." },
+      "5": { "title": "Currywurst", "description": "Berlin's signature street food. Steamed and fried pork sausage seasoned with curry ketchup, best enjoyed at a local 'Imbiss'." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Germany's largest city" },
+      "1": { "label": "Unemployment", "context": "Dynamic job market" },
+      "2": { "label": "GDP", "context": "Service-driven economy" },
+      "3": { "label": "Int'l Students", "context": "Highly international" }
+    },
+    "employers": {
+      "0": { "sector": "Transport", "hq": "Berlin" },
+      "1": { "sector": "Healthcare", "hq": "Berlin" },
+      "2": { "sector": "Healthcare", "hq": "Berlin" },
+      "3": { "sector": "Transport", "hq": "Berlin" },
+      "4": { "sector": "Tech/Fashion", "hq": "Berlin" },
+      "5": { "sector": "Energy", "hq": "Berlin" }
+    }
+  },
+  "bremen": {
+    "description": "Bremen is a Hanseatic city with a proud maritime history and a future in aerospace. Known for the Town Musicians and its UNESCO World Heritage market square, it combines tradition with cutting-edge research in space technology and polar science.",
+    "motto": "Drei Worte: Hanseatisch, herzlich, hippen.",
+    "universities": {
+      "0": {
+        "description": "Strong in climate research, marine sciences, and engineering",
+        "programs": ["Computer Science", "International Business", "Marine Sciences", "Engineering", "Physics", "Economics"]
+      },
+      "1": {
+        "description": "Private, English-speaking campus university with a global student body",
+        "programs": ["Computer Science", "Software & Data Technology", "International Business", "Data Science", "Psychology", "Biochemistry"]
+      },
+      "2": {
+        "description": "City University of Applied Sciences with strong international networks",
+        "programs": ["International Business", "Global Management", "Aviation Management", "Tourism Management", "Logistics", "Computer Science"]
+      },
+      "3": {
+        "description": "Focus on maritime technologies and wind energy",
+        "programs": ["Maritime Engineering", "Renewable Energy", "Tourism Management", "Computer Science", "Logistics", "Wind Energy"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Town Musicians", "description": "The bronze statue of the donkey, dog, cat, and rooster from the Brothers Grimm fairy tale. Touching the donkey's legs is said to bring good luck." },
+      "1": { "title": "Schnoor Quarter", "description": "Bremen's oldest district. A maze of narrow cobblestone streets and tiny houses dating back to the 15th century, now filled with arts and crafts." },
+      "2": { "title": "UNESCO Town Hall", "description": "The Gothic Town Hall and the Roland Statue are symbols of civic autonomy and freedom, recognized as a UNESCO World Heritage site." },
+      "3": { "title": "Aerospace Hub", "description": "Bremen is the 'City of Space'. The European Service Module for the NASA Orion spacecraft is built here at Airbus." },
+      "4": { "title": "Beck's Brewery", "description": "Home to one of the world's most famous beers. The brewery on the river Weser has been exporting its green bottles since 1873." },
+      "5": { "title": "Maritime Mile", "description": "The Schlachte embankment along the Weser river is a popular promenade with beer gardens, restaurants, and historic ships." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Two cities (HB & BHV)" },
+      "1": { "label": "Unemployment", "context": "Industrial transition" },
+      "2": { "label": "GDP", "context": "Strong logistics/space" },
+      "3": { "label": "Int'l Students", "context": "Diverse community" }
+    },
+    "employers": {
+      "0": { "sector": "Automotive", "hq": "Bremen" },
+      "1": { "sector": "Aerospace", "hq": "Bremen" },
+      "2": { "sector": "Logistics", "hq": "Bremen" },
+      "3": { "sector": "Steel", "hq": "Bremen" },
+      "4": { "sector": "Beverages", "hq": "Bremen" },
+      "5": { "sector": "Space Tech", "hq": "Bremen" }
+    }
+  },
+  "mecklenburg-vorpommern": {
+    "description": "Mecklenburg-Vorpommern is a coastal paradise with over 2,000 lakes and islands like Rügen and Usedom. It combines a relaxed lifestyle with historic Hanseatic cities and cutting-edge research in marine biology and renewable energy.",
+    "motto": "MV tut gut.",
+    "universities": {
+      "0": {
+        "description": "Oldest university in the Baltic Sea region (1419), strong in interdisciplinary research",
+        "programs": ["Medicine", "Computer Science", "Marine Biology", "Mechanical Engineering", "Renewable Energy", "Business Administration"]
+      },
+      "1": {
+        "description": "Internationally oriented research university, strong in life sciences and plasma physics",
+        "programs": ["Medicine", "Computer Science", "Physics", "Biology", "Business Administration", "Law"]
+      },
+      "2": {
+        "description": "Technology, Business, and Design with a strong maritime focus",
+        "programs": ["Computer Science", "Business Administration", "Maritime Engineering", "Architecture", "Electrical Engineering", "Design"]
+      },
+      "3": {
+        "description": "Young campus university focusing on renewable energy and tourism",
+        "programs": ["Renewable Energy", "Computer Science", "International Management", "Tourism Management", "Maritime Engineering", "Electrical Engineering"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Schwerin Castle", "description": "Located on an island in Lake Schwerin, this romantic palace is nicknamed the 'Neuschwanstein of the North' and houses the state parliament." },
+      "1": { "title": "Baltic Coast", "description": "With islands like Rügen and Usedom, the state boasts Germany's most beautiful beaches and the iconic chalk cliffs painted by Caspar David Friedrich." },
+      "2": { "title": "Hanseatic Heritage", "description": "The historic centers of Stralsund and Wismar are UNESCO World Heritage sites, reflecting the wealth and power of the Hanseatic League." },
+      "3": { "title": "Müritz National Park", "description": "A land of a thousand lakes. The largest terrestrial national park in Germany offers pristine nature, canoeing, and eagle watching." },
+      "4": { "title": "Hanse Sail", "description": "One of the world's largest maritime festivals, bringing hundreds of tall ships and millions of visitors to Rostock every summer." },
+      "5": { "title": "Backsteingotik", "description": "The distinctive 'Brick Gothic' architecture characterizes the region, with massive red-brick churches and city gates dominating the skylines." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Lowest density" },
+      "1": { "label": "Unemployment", "context": "Tourism driven" },
+      "2": { "label": "GDP", "context": "Growing renewables" },
+      "3": { "label": "Tuition Fees", "context": "High quality of life" }
+    },
+    "employers": {
+      "0": { "sector": "Tourism", "hq": "Rostock" },
+      "1": { "sector": "Wind Energy", "hq": "Rostock" },
+      "2": { "sector": "Healthcare", "hq": "Greifswald" },
+      "3": { "sector": "Manufacturing", "hq": "Rostock" },
+      "4": { "sector": "Shipbuilding", "hq": "Rostock" },
+      "5": { "sector": "Life Science", "hq": "Greifswald" }
+    }
+  },
+  "schleswig-holstein": {
+    "description": "The 'True North' of Germany, situated between the North Sea and the Baltic Sea. Schleswig-Holstein is known for its maritime heritage, wind energy leadership, and the UNESCO World Heritage Wadden Sea.",
+    "motto": "Der echte Norden.",
+    "universities": {
+      "0": {
+        "description": "Strong focus on marine sciences, nano science, and life sciences",
+        "programs": ["Computer Science", "Medicine", "Marine Sciences", "International Business", "Physics", "Sustainability Studies"]
+      },
+      "1": {
+        "description": "Ranked #1 for Medicine in CHE ranking, research-intensive",
+        "programs": ["Medicine", "Computer Science", "Biomedicine", "Medical Informatics", "Psychology", "Mathematics"]
+      },
+      "2": {
+        "description": "Located on a shared campus near the Danish border, focus on energy",
+        "programs": ["International Business", "Renewable Energy", "Computer Science", "Tourism Management", "Engineering"]
+      },
+      "3": {
+        "description": "Largest university of applied sciences in the state",
+        "programs": ["Computer Science", "Business Administration", "Mechanical Engineering", "Electrical Engineering", "International Business", "Renewable Energy"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Wadden Sea", "description": "A UNESCO World Heritage site and the largest unbroken system of intertidal sand and mud flats in the world. A unique ecosystem teeming with life." },
+      "1": { "title": "Holstentor", "description": "The iconic Brick Gothic city gate of Lübeck, a symbol of the Hanseatic League and a UNESCO World Heritage site." },
+      "2": { "title": "Kiel Week", "description": "The largest sailing event in the world and a massive summer festival (Kieler Woche) that attracts millions of visitors." },
+      "3": { "title": "Lübeck Marzipan", "description": "A world-famous sweet treat protected by EU law. Niederegger is the most famous producer, founded in 1806." },
+      "4": { "title": "Sylt", "description": "Germany's 'Hamptons'. An island in the North Sea known for its distinctive shape, long sandy beaches, and thatched-roof houses." },
+      "5": { "title": "Viking Heritage", "description": "Haithabu (Hedeby) was a major Viking trading settlement. Today, a museum and reconstructed village showcase this fascinating history." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Between two seas" },
+      "1": { "label": "Unemployment", "context": "Strong SME sector" },
+      "2": { "label": "GDP", "context": "Green energy leader" },
+      "3": { "label": "Tuition Fees", "context": "High standard of living" }
+    },
+    "employers": {
+      "0": { "sector": "Healthcare", "hq": "Kiel/Lübeck" },
+      "1": { "sector": "Medical Tech", "hq": "Lübeck" },
+      "2": { "sector": "Shipbuilding", "hq": "Kiel" },
+      "3": { "sector": "Retail", "hq": "Kiel" },
+      "4": { "sector": "Conglomerate", "hq": "Lübeck" },
+      "5": { "sector": "Telecom", "hq": "Büdelsdorf" }
+    }
+  },
+  "hamburg": {
+    "description": "Hamburg is Germany's 'Gateway to the World' — a city of bridges, water, and trade. As a major European port and media hub, it offers a cosmopolitan atmosphere, a high standard of living, and a thriving scene for science and innovation.",
+    "motto": "Tor zur Welt.",
+    "universities": {
+      "0": {
+        "description": "University of Excellence, renowned for climate research and manuscript cultures",
+        "programs": ["Computer Science", "International Business", "Medicine", "Physics", "Law", "Economics"]
+      },
+      "1": {
+        "description": "Highly specialized in engineering, aviation, and logistics",
+        "programs": ["Computer Science", "Aerospace Engineering", "Mechanical Engineering", "Materials Science", "Information Systems", "Logistics"]
+      },
+      "2": {
+        "description": "Second largest university in Hamburg, strong focus on design and media",
+        "programs": ["Computer Science", "Business Administration", "Mechanical Engineering", "Automotive Engineering", "Aeronautical Engineering", "Media Design"]
+      },
+      "3": {
+        "description": "Specialized in architecture and metropolitan development",
+        "programs": ["Architecture", "Urban Planning", "Civil Engineering", "Real Estate", "Metropolitan Culture", "Resource Efficiency"]
+      }
+    },
+    "culture": {
+      "0": { "title": "Elbphilharmonie", "description": "A dazzling concert hall built on top of an old warehouse. Its wave-like glass facade has become the new symbol of the city." },
+      "1": { "title": "Speicherstadt", "description": "The world's largest warehouse district and a UNESCO World Heritage site. Red-brick Gothic buildings crisscrossed by narrow canals." },
+      "2": { "title": "Port of Hamburg", "description": "Germany's largest port. Boat tours offer close-up views of massive container ships, historic vessels, and the busy container terminals." },
+      "3": { "title": "Miniatur Wunderland", "description": "The world's largest model railway system. A magical world that attracts more visitors than any other tourist attraction in Germany." },
+      "4": { "title": "Reeperbahn", "description": "The famous entertainment mile in the St. Pauli district. Known for its nightlife, theaters, and musical history (The Beatles started here)." },
+      "5": { "title": "Alster Lakes", "description": "Two artificial lakes in the heart of the city (Binnenalster and Außenalster). Popular for sailing, rowing, and relaxing on the banks." }
+    },
+    "keyNumbers": {
+      "0": { "label": "Population", "context": "Second largest city" },
+      "1": { "label": "Unemployment", "context": "Strong trade hub" },
+      "2": { "label": "GDP", "context": "High per capita" },
+      "3": { "label": "Int'l Students", "context": "Global connections" }
+    },
+    "employers": {
+      "0": { "sector": "Aerospace", "hq": "Hamburg-Finkenwerder" },
+      "1": { "sector": "Aviation", "hq": "Hamburg" },
+      "2": { "sector": "Healthcare", "hq": "Hamburg" },
+      "3": { "sector": "Logistics", "hq": "Hamburg" },
+      "4": { "sector": "Consumer Goods", "hq": "Hamburg" },
+      "5": { "sector": "E-commerce", "hq": "Hamburg" }
+    }
+  }
+}
