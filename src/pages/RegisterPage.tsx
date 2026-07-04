@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslation } from 'react-i18next';
+import i18n from '../i18n';
 import { authService } from '../services/authService';
 import { toastService } from '../services/toastService';
 import { TestimonialAuthLayout, FormInput, PasswordInput } from '../components/auth';
@@ -42,7 +43,7 @@ export function RegisterPage() {
   const onSubmit = async (data: RegisterFormData) => {
     setSubmitting(true);
     try {
-      await authService.register(data);
+      await authService.register({ ...data, language: i18n.language });
       navigate('/verify-email', { state: { email: data.email } });
     } catch (err) {
       const msg =

@@ -11,6 +11,7 @@ type RegisterPayload = {
   lastName: string;
   email: string;
   password: string;
+  language: string;
 };
 
 type LoginPayload = {
