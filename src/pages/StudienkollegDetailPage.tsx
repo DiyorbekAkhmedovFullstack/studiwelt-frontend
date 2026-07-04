@@ -28,6 +28,10 @@ export function StudienkollegDetailPage() {
     return null;
   }
 
+  const skId = studienkolleg.slug;
+  const prefix = `data.${skId}`;
+  const td = (key: string, fallback: string) => t(`${prefix}.${key}`, { defaultValue: fallback });
+
   const typeLabels: Record<string, string> = {
     'Public Institution': t('publicInstitution'),
     'Public University': t('publicUniversity'),
@@ -62,8 +66,8 @@ export function StudienkollegDetailPage() {
         {/* Header - Full Width */}
         <div className="lg:col-span-3">
           <StudienkollegHeader
-            name={studienkolleg.name}
-            location={studienkolleg.location}
+            name={td('name', studienkolleg.name)}
+            location={td('location', studienkolleg.location)}
             institutionType={translatedType}
             badge={studienkolleg.badge}
           />
@@ -72,10 +76,11 @@ export function StudienkollegDetailPage() {
         {/* Left Column - Main Content */}
         <div className="lg:col-span-2">
           <CityInfoCard
-            cityName={studienkolleg.city}
-            description={studienkolleg.cityInfo.description}
-            costOfLiving={studienkolleg.cityInfo.costOfLiving}
-            transit={studienkolleg.cityInfo.transit}
+            cityName={td('city', studienkolleg.city)}
+            description={td('cityDescription', studienkolleg.cityInfo.description)}
+            costOfLiving={td('costOfLiving', studienkolleg.cityInfo.costOfLiving)}
+            transit={td('transit', studienkolleg.cityInfo.transit)}
+            lifeInLabel={td('lifeIn', '') || undefined}
           />
 
           <CoursesCard courses={studienkolleg.courses} />
@@ -85,7 +90,12 @@ export function StudienkollegDetailPage() {
         <div className="lg:col-span-1">
           <div className="sticky top-6">
             <ApplicationCard application={studienkolleg.application} />
-            <ExamCard exam={studienkolleg.exam} />
+            <ExamCard
+              exam={{
+                ...studienkolleg.exam,
+                description: td('examDescription', studienkolleg.exam.description),
+              }}
+            />
           </div>
         </div>
       </div>

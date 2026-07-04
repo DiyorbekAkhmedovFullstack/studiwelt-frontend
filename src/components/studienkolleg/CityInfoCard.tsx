@@ -6,6 +6,7 @@ type CityInfoCardProps = {
   description: string;
   costOfLiving: string;
   transit: string;
+  lifeInLabel?: string;
 };
 
 export function CityInfoCard({
@@ -13,12 +14,13 @@ export function CityInfoCard({
   description,
   costOfLiving,
   transit,
+  lifeInLabel,
 }: CityInfoCardProps) {
   const { t } = useTranslation('studienkolleg');
   return (
     <div className="bg-surface rounded-[24px] shadow-card p-8 mb-8 border border-[rgba(0,0,0,0.02)]">
       <h2 className="font-serif text-2xl font-bold text-text-main mb-5 flex items-center gap-3">
-        {t('lifeIn', { city: cityName })}
+        {lifeInLabel || t('lifeIn', { city: cityName })}
       </h2>
       <p className="text-text-muted leading-relaxed mb-5">{description}</p>
 

@@ -11,22 +11,24 @@ const getImagePath = (cityName: string): string => {
   return `/studienkollegs/${cityName}.png`;
 };
 
-// Derive carousel data from the single source of truth in studienkollegData.ts
-const studienkollegs = getAllStudienkollegs().map((stk) => ({
-  slug: stk.slug,
-  name: stk.name,
-  location: stk.location,
-  badge: stk.badge,
-  courses: stk.courses,
-  applicationMethod: stk.application.method,
-  imageUrl: getImagePath(stk.slug),
-}));
-
 export function StudienkollegCarousel() {
   const { t } = useTranslation('landing');
   const { t: tk } = useTranslation('studienkolleg');
   const [sectionRef, sectionVisible] = useScrollAnimation();
   const navigate = useNavigate();
+
+  const td = (slug: string, key: string, fallback: string) =>
+    tk(`data.${slug}.${key}`, { defaultValue: fallback });
+
+  const studienkollegs = getAllStudienkollegs().map((stk) => ({
+    slug: stk.slug,
+    name: td(stk.slug, 'name', stk.name),
+    location: td(stk.slug, 'location', stk.location),
+    badge: stk.badge,
+    courses: stk.courses,
+    applicationMethod: stk.application.method,
+    imageUrl: getImagePath(stk.slug),
+  }));
 
   // Handle card click navigation
   const handleCardClick = (slug: string) => {
