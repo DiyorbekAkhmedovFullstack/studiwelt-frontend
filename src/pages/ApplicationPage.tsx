@@ -71,7 +71,7 @@ export function ApplicationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* uni-assist Route */}
               <div className="bg-page p-6 sm:p-8 rounded-[20px] border-2 border-transparent hover:border-primary/20 transition-all duration-300">
-                <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-5">
+                <div className="w-14 h-14 bg-primary-light text-primary rounded-xl flex items-center justify-center mb-5">
                   <UniAssistIcon />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('routes.uniAssist.title')}</h3>
@@ -90,7 +90,7 @@ export function ApplicationPage() {
 
               {/* Direct Route */}
               <div className="bg-page p-6 sm:p-8 rounded-[20px] border-2 border-transparent hover:border-primary/20 transition-all duration-300">
-                <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-5">
+                <div className="w-14 h-14 bg-highlight text-text-muted rounded-xl flex items-center justify-center mb-5">
                   <DirectIcon />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('routes.direct.title')}</h3>
@@ -183,8 +183,8 @@ export function ApplicationPage() {
                 ))}
               </div>
 
-              <div className="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200">
-                <p className="text-sm text-amber-800 flex items-start gap-2">
+              <div className="mt-6 p-4 bg-primary-light/60 rounded-xl border border-primary/20">
+                <p className="text-sm text-primary flex items-start gap-2">
                   <Icon.Warning className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>{t('documents.warningLabel')}</strong> {t('documents.warningText')}
@@ -213,7 +213,7 @@ export function ApplicationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[800px] mx-auto">
               {/* Winter Semester */}
               <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card text-center">
-                <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <CalendarIcon />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{t('deadlines.winter.title')}</h3>
@@ -223,7 +223,7 @@ export function ApplicationPage() {
 
               {/* Summer Semester */}
               <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card text-center">
-                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-highlight text-text-muted rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <CalendarIcon />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{t('deadlines.summer.title')}</h3>
@@ -299,7 +299,7 @@ export function ApplicationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
               {/* Blocked Account */}
               <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
-                <div className="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-success/10 text-success rounded-xl flex items-center justify-center mb-4">
                   <Icon.Finances size={24} />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{t('visa.blockedAccount.title')}</h3>
@@ -311,7 +311,7 @@ export function ApplicationPage() {
 
               {/* Health Insurance */}
               <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
-                <div className="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-danger/10 text-danger rounded-xl flex items-center justify-center mb-4">
                   <Icon.Health size={24} />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{t('visa.healthInsurance.title')}</h3>
@@ -324,7 +324,7 @@ export function ApplicationPage() {
               {/* Student Visa */}
               <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card md:col-span-2">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center">
                     <VisaIcon />
                   </div>
                   <h3 className="text-lg font-bold">{t('visa.studentVisa.title')}</h3>

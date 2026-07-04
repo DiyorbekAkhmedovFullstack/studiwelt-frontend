@@ -20,11 +20,19 @@ const AlertIcon = () => <Icon.Info className="w-5 h-5 flex-shrink-0 mt-0.5" />;
 type CourseType = 'T' | 'M' | 'W' | 'G' | 'S';
 
 const courseColors: Record<CourseType, string> = {
-    T: 'bg-blue-100 text-blue-600 border-blue-200',
-    M: 'bg-red-100 text-red-600 border-red-200',
-    W: 'bg-green-100 text-green-600 border-green-200',
-    G: 'bg-purple-100 text-purple-600 border-purple-200',
-    S: 'bg-amber-100 text-amber-600 border-amber-200',
+    T: 'bg-primary text-white',
+    M: 'bg-text-main text-white',
+    W: 'bg-success text-white',
+    G: 'bg-highlight text-text-main',
+    S: 'bg-primary-light text-primary',
+};
+
+const courseBorderColors: Record<CourseType, string> = {
+    T: 'border-primary',
+    M: 'border-text-main',
+    W: 'border-success',
+    G: 'border-highlight',
+    S: 'border-primary-light',
 };
 
 export function EntranceExamPage() {
@@ -157,7 +165,7 @@ export function EntranceExamPage() {
                             {/* German Language Test */}
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                                    <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center">
                                         <GermanIcon />
                                     </div>
                                     <div>
@@ -182,7 +190,7 @@ export function EntranceExamPage() {
                             {/* Subject-Specific Test */}
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center">
+                                    <div className="w-12 h-12 bg-highlight text-text-muted rounded-xl flex items-center justify-center">
                                         <MathIcon />
                                     </div>
                                     <div>
@@ -197,23 +205,23 @@ export function EntranceExamPage() {
 
                                 <div className="space-y-2 text-[14px]">
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-blue-600 w-16">T-Kurs</span>
+                                        <span className="font-bold text-primary w-16">T-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.T')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-red-600 w-16">M-Kurs</span>
+                                        <span className="font-bold text-text-main w-16">M-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.M')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-green-600 w-16">W-Kurs</span>
+                                        <span className="font-bold text-success w-16">W-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.W')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-purple-600 w-16">G-Kurs</span>
+                                        <span className="font-bold text-text-muted w-16">G-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.G')}</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-page p-3 rounded-lg">
-                                        <span className="font-bold text-amber-600 w-16">S-Kurs</span>
+                                        <span className="font-bold text-primary/60 w-16">S-Kurs</span>
                                         <span className="text-text-muted">{t('components.subjectTest.courses.S')}</span>
                                     </div>
                                 </div>
@@ -259,7 +267,7 @@ export function EntranceExamPage() {
                         </div>
 
                         {/* Course Details Card */}
-                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${courseColors[selectedCourse].split(' ')[0].replace('bg-', 'border-').replace('-100', '-400')}`}>
+                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${courseBorderColors[selectedCourse]}`}>
                             <div className="flex items-center gap-3 mb-6">
                                 <div className={`px-3 py-1.5 rounded-lg text-sm font-bold ${courseColors[selectedCourse]}`}>
                                     {currentCourse.name}
@@ -333,7 +341,7 @@ export function EntranceExamPage() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[800px] mx-auto">
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card text-center">
-                                <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <CalendarIcon />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">{t('timeline.winter.title')}</h3>
@@ -342,7 +350,7 @@ export function EntranceExamPage() {
                             </div>
 
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card text-center">
-                                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <div className="w-16 h-16 bg-highlight text-text-muted rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <CalendarIcon />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">{t('timeline.summer.title')}</h3>
@@ -402,8 +410,8 @@ export function EntranceExamPage() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
-                            <div className="p-5 bg-blue-50 rounded-xl border border-blue-200">
-                                <p className="text-sm text-blue-800 flex items-start gap-2">
+                            <div className="p-5 bg-primary-light/60 rounded-xl border border-primary/20">
+                                <p className="text-sm text-primary flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
                                         <strong>{t('info.items.retakes.label')}</strong> {t('info.items.retakes.text')}
@@ -411,8 +419,8 @@ export function EntranceExamPage() {
                                 </p>
                             </div>
 
-                            <div className="p-5 bg-green-50 rounded-xl border border-green-200">
-                                <p className="text-sm text-green-800 flex items-start gap-2">
+                            <div className="p-5 bg-page rounded-xl border border-border">
+                                <p className="text-sm text-text-main flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
                                         <strong>{t('info.items.private.label')}</strong> {t('info.items.private.text')}
@@ -420,8 +428,8 @@ export function EntranceExamPage() {
                                 </p>
                             </div>
 
-                            <div className="p-5 bg-amber-50 rounded-xl border border-amber-200">
-                                <p className="text-sm text-amber-800 flex items-start gap-2">
+                            <div className="p-5 bg-highlight rounded-xl border border-highlight">
+                                <p className="text-sm text-text-muted flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
                                         <strong>{t('info.items.variations.label')}</strong> {t('info.items.variations.text')}
@@ -429,8 +437,8 @@ export function EntranceExamPage() {
                                 </p>
                             </div>
 
-                            <div className="p-5 bg-purple-50 rounded-xl border border-purple-200">
-                                <p className="text-sm text-purple-800 flex items-start gap-2">
+                            <div className="p-5 bg-surface rounded-xl border border-border">
+                                <p className="text-sm text-text-muted flex items-start gap-2">
                                     <AlertIcon />
                                     <span>
                                         <strong>{t('info.items.samples.label')}</strong> {t('info.items.samples.text')}

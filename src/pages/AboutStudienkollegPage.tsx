@@ -84,23 +84,23 @@ const whyCards = [
 ] as const;
 
 const courseTypes = [
-  { letter: 'T', accent: 'bg-blue-100 text-blue-600' },
-  { letter: 'M', accent: 'bg-red-100 text-red-600' },
-  { letter: 'W', accent: 'bg-green-100 text-green-600' },
-  { letter: 'G', accent: 'bg-purple-100 text-purple-600' },
-  { letter: 'S', accent: 'bg-amber-100 text-amber-600' },
+  { letter: 'T', accent: 'bg-primary text-white' },
+  { letter: 'M', accent: 'bg-text-main text-white' },
+  { letter: 'W', accent: 'bg-success text-white' },
+  { letter: 'G', accent: 'bg-highlight text-text-main' },
+  { letter: 'S', accent: 'bg-primary-light text-primary' },
 ] as const;
 
 const eligibilityTiers = [
-  { key: 'direct', dot: 'bg-success', tag: 'bg-[#E6F0E7] text-success' },
-  { key: 'restricted', dot: 'bg-[#D9A441]', tag: 'bg-[#FBF1DC] text-[#9A7218]' },
-  { key: 'kolleg', dot: 'bg-primary', tag: 'bg-primary-light text-primary' },
+  { key: 'direct', dot: 'bg-success', tag: 'bg-success/10 text-success' },
+  { key: 'restricted', dot: 'bg-primary', tag: 'bg-primary-light text-primary' },
+  { key: 'kolleg', dot: 'bg-text-main', tag: 'bg-highlight text-text-main' },
 ] as const;
 
 const requirementBlocks = [
-  { key: 'language', accent: 'bg-blue-100 text-blue-600', icon: Icon.LanguageReq },
-  { key: 'documents', accent: 'bg-purple-100 text-purple-600', icon: Icon.Documents },
-  { key: 'finances', accent: 'bg-green-100 text-green-600', icon: Icon.Finances },
+  { key: 'language', accent: 'bg-primary-light text-primary', icon: Icon.LanguageReq },
+  { key: 'documents', accent: 'bg-highlight text-text-muted', icon: Icon.Documents },
+  { key: 'finances', accent: 'bg-success/10 text-success', icon: Icon.Finances },
 ] as const;
 
 /* -------------------------------------------------------------------------- */
@@ -401,7 +401,7 @@ export function AboutStudienkollegPage() {
           <Reveal delay={120}>
             <div className="bg-page p-6 sm:p-8 rounded-[20px]">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-primary-light text-primary rounded-lg flex items-center justify-center">
                   <Icon.Timeline size={20} stroke={2} />
                 </div>
                 <h3 className="font-bold text-lg">

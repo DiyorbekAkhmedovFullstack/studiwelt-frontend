@@ -133,7 +133,7 @@ export function RegisterPage() {
                         ? passwordStrength <= 2
                           ? 'bg-danger'
                           : passwordStrength === 3
-                            ? 'bg-yellow-500'
+                            ? 'bg-primary'
                             : 'bg-success'
                         : 'bg-gray-200'
                       }`}

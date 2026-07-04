@@ -20,19 +20,27 @@ const AlertIcon = () => <Icon.Info className="w-5 h-5 flex-shrink-0 mt-0.5" />;
 type CourseType = 'T' | 'M' | 'W' | 'G' | 'S';
 
 const courseColors: Record<CourseType, string> = {
-    T: 'bg-blue-100 text-blue-600 border-blue-200',
-    M: 'bg-red-100 text-red-600 border-red-200',
-    W: 'bg-green-100 text-green-600 border-green-200',
-    G: 'bg-purple-100 text-purple-600 border-purple-200',
-    S: 'bg-amber-100 text-amber-600 border-amber-200',
+    T: 'bg-primary text-white',
+    M: 'bg-text-main text-white',
+    W: 'bg-success text-white',
+    G: 'bg-highlight text-text-main',
+    S: 'bg-primary-light text-primary',
+};
+
+const courseBorderColors: Record<CourseType, string> = {
+    T: 'border-primary',
+    M: 'border-text-main',
+    W: 'border-success',
+    G: 'border-highlight',
+    S: 'border-primary-light',
 };
 
 const gradingColors = [
-    { pass: true, color: 'bg-green-100 text-green-700' },
-    { pass: true, color: 'bg-green-50 text-green-600' },
-    { pass: true, color: 'bg-amber-50 text-amber-600' },
-    { pass: true, color: 'bg-amber-100 text-amber-700' },
-    { pass: false, color: 'bg-red-50 text-red-600' },
+    { pass: true, color: 'bg-success/10 text-success' },
+    { pass: true, color: 'bg-success/5 text-success' },
+    { pass: true, color: 'bg-primary-light text-primary' },
+    { pass: true, color: 'bg-highlight text-text-main' },
+    { pass: false, color: 'bg-danger/10 text-danger' },
 ];
 
 export function FSPPage() {
@@ -166,9 +174,9 @@ export function FSPPage() {
                             {/* Written Exams */}
                             <div className="bg-surface p-6 sm:p-8 rounded-[20px] shadow-card">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-                                        <PenIcon />
-                                    </div>
+                                <div className="w-12 h-12 bg-primary-light text-primary rounded-xl flex items-center justify-center">
+                                    <PenIcon />
+                                </div>
                                     <div>
                                         <h3 className="text-xl font-bold">{t('structure.writtenExams.title')}</h3>
                                         <span className="text-sm text-text-muted">{t('structure.writtenExams.duration')}</span>
@@ -223,7 +231,7 @@ export function FSPPage() {
                         </div>
 
                         {/* Course Details Card */}
-                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${courseColors[selectedCourse].split(' ')[0].replace('bg-', 'border-').replace('-100', '-400')}`}>
+                        <div className={`bg-page p-6 sm:p-8 md:p-10 rounded-[24px] border-t-4 ${courseBorderColors[selectedCourse]}`}>
                             <div className="flex items-center gap-3 mb-6">
                                 <div className={`px-3 py-1.5 rounded-lg text-sm font-bold ${courseColors[selectedCourse]}`}>
                                     {currentCourse.name}
@@ -279,20 +287,20 @@ export function FSPPage() {
                                 </div>
 
                                 <div className="space-y-3 pt-4 border-t border-border">
-                                    <div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
-                                        <p className="text-sm text-amber-800 flex items-start gap-2">
+                                    <div className="p-4 bg-primary-light/60 rounded-xl border border-primary/20">
+                                        <p className="text-sm text-primary flex items-start gap-2">
                                             <AlertIcon />
                                             <span><strong>{t('grading.rules.german.label')}</strong> {t('grading.rules.german.text')}</span>
                                         </p>
                                     </div>
-                                    <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
-                                        <p className="text-sm text-blue-800 flex items-start gap-2">
+                                    <div className="p-4 bg-page rounded-xl border border-border">
+                                        <p className="text-sm text-text-main flex items-start gap-2">
                                             <AlertIcon />
                                             <span><strong>{t('grading.rules.compensation.label')}</strong> {t('grading.rules.compensation.text')}</span>
                                         </p>
                                     </div>
-                                    <div className="p-4 bg-green-50 rounded-xl border border-green-200">
-                                        <p className="text-sm text-green-800 flex items-start gap-2">
+                                    <div className="p-4 bg-highlight rounded-xl border border-highlight">
+                                        <p className="text-sm text-text-muted flex items-start gap-2">
                                             <AlertIcon />
                                             <span><strong>{t('grading.rules.betterGrades.label')}</strong> {t('grading.rules.betterGrades.text')}</span>
                                         </p>

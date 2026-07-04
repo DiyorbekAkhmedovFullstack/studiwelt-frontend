@@ -33,15 +33,15 @@ const getTypeLabel = (type: University['type']) => {
 const getTypeBadgeColor = (type: University['type']) => {
   switch (type) {
     case 'university':
-      return 'bg-blue-100 text-blue-700';
+      return 'bg-primary-light text-primary';
     case 'technical':
-      return 'bg-purple-100 text-purple-700';
+      return 'bg-highlight text-text-main';
     case 'applied':
-      return 'bg-green-100 text-green-700';
+      return 'bg-success/10 text-success';
     case 'arts':
-      return 'bg-amber-100 text-amber-700';
+      return 'bg-page text-text-muted';
     case 'music':
-      return 'bg-rose-100 text-rose-700';
+      return 'bg-primary/10 text-primary-hover';
   }
 };
 
@@ -191,7 +191,7 @@ export function StatePage() {
               ref={uniRef}
               className={`text-center mb-12 transition-all duration-700 ${uniVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             >
-              <span className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold mb-4 tracking-wider">
+              <span className="inline-block px-4 py-1 bg-primary-light text-primary rounded-full text-xs font-semibold mb-4 tracking-wider">
                 HIGHER EDUCATION
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
@@ -306,7 +306,7 @@ export function StatePage() {
             className={`transition-all duration-700 ${cultureVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           >
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-semibold mb-4 tracking-wider">
+              <span className="inline-block px-4 py-1 bg-highlight text-text-main rounded-full text-xs font-semibold mb-4 tracking-wider">
                 CULTURE & TRADITIONS
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
@@ -343,7 +343,7 @@ export function StatePage() {
               className={`transition-all duration-700 ${kollegVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             >
               <div className="text-center mb-12">
-                <span className="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold mb-4 tracking-wider">
+                <span className="inline-block px-4 py-1 bg-success/10 text-success rounded-full text-xs font-semibold mb-4 tracking-wider">
                   FOR INTERNATIONAL STUDENTS
                 </span>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
