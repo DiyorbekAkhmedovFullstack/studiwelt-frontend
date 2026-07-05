@@ -26,10 +26,5 @@
         "title": "Ready to start your journey?",
         "description": "Join the students preparing for their Studienkolleg entrance exam with a structured, daily plan.",
         "button": "Start your 30-day plan"
-    },
-    "teaser": {
-        "heading": "The person behind Studiwelt",
-        "text": "I built Studiwelt after facing Germany's application maze myself — so that studying here becomes a path anyone can follow, not a black box.",
-        "cta": "Read the story"
     }
 }

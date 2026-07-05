@@ -5,7 +5,6 @@ import { FeatureCard } from '../components/landing/FeatureCard';
 import { PlatformPreview } from '../components/landing/PlatformPreview';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { GermanyMapSection } from '../components/landing/GermanyMapSection';
-import { AboutTeaser } from '../components/landing/AboutTeaser';
 import { StudienkollegCarousel } from '../components/landing/StudienkollegCarousel';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useAuth } from '../contexts/AuthContext';
@@ -105,9 +104,6 @@ export function LandingPage() {
 
       {/* Germany Map Section */}
       <GermanyMapSection />
-
-      {/* About the Author teaser */}
-      <AboutTeaser />
 
     </div>
   );
