@@ -29,11 +29,11 @@ export function Footer() {
       <div className="max-w-[1100px] mx-auto px-6 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="lg:col-span-2 max-w-sm">
-            <Link to="/" className="flex items-center gap-2 mb-4">
+          <div className="sm:col-span-2 lg:col-span-2 min-w-0 max-w-md">
+            <Link to="/" className="inline-flex items-center gap-2 mb-4">
               <span className="font-serif text-xl font-bold text-text-main">Studiwelt</span>
             </Link>
-            <p className="text-sm text-text-muted leading-relaxed">
+            <p className="text-sm text-text-muted leading-relaxed text-balance">
               {t('footer:tagline')}
             </p>
           </div>
