@@ -33,9 +33,18 @@
             "title": "Written Exams",
             "duration": "3-4 hours per subject",
             "items": [
-                { "title": "German (DaF)", "description": "Mandatory for all courses, B2/C1 level" },
-                { "title": "Subject Exam 1", "description": "Core subject based on your course track" },
-                { "title": "Subject Exam 2", "description": "Additional subject for your track" }
+                {
+                    "title": "German (DaF)",
+                    "description": "Mandatory for all courses, B2/C1 level"
+                },
+                {
+                    "title": "Subject Exam 1",
+                    "description": "Core subject based on your course track"
+                },
+                {
+                    "title": "Subject Exam 2",
+                    "description": "Additional subject for your track"
+                }
             ]
         }
     },
@@ -47,27 +56,47 @@
             "T": {
                 "name": "T-Kurs",
                 "fullName": "Technical & Engineering",
-                "written": ["German (DaF)", "Mathematics", "Physics or Chemistry/IT"]
+                "written": [
+                    "German (DaF)",
+                    "Mathematics",
+                    "Physics or Chemistry/IT"
+                ]
             },
             "M": {
                 "name": "M-Kurs",
                 "fullName": "Medicine & Biology",
-                "written": ["German (DaF)", "Biology or Chemistry", "Mathematics or Physics"]
+                "written": [
+                    "German (DaF)",
+                    "Biology or Chemistry",
+                    "Mathematics or Physics"
+                ]
             },
             "W": {
                 "name": "W-Kurs",
                 "fullName": "Business & Economics",
-                "written": ["German (DaF)", "Mathematics", "Economics/Business Administration"]
+                "written": [
+                    "German (DaF)",
+                    "Mathematics",
+                    "Economics/Business Administration"
+                ]
             },
             "G": {
                 "name": "G-Kurs",
                 "fullName": "Humanities & Arts",
-                "written": ["German (DaF)", "History", "Social Sciences/Geography"]
+                "written": [
+                    "German (DaF)",
+                    "History",
+                    "Social Sciences/Geography"
+                ]
             },
             "S": {
                 "name": "S-Kurs",
                 "fullName": "Languages",
-                "written": ["German (DaF)", "German Literature", "Second Language"]
+                "written": [
+                    "German (DaF)",
+                    "German Literature",
+                    "Second Language"
+                ]
             }
         }
     },
@@ -75,16 +104,31 @@
         "title": "Grading System",
         "description": "Understanding how your FSP is graded.",
         "scale": [
-            { "range": "1.0 - 1.5", "meaning": "Very Good (Sehr gut)" },
-            { "range": "1.6 - 2.5", "meaning": "Good (Gut)" },
-            { "range": "2.6 - 3.5", "meaning": "Satisfactory (Befriedigend)" },
-            { "range": "3.6 - 4.0", "meaning": "Sufficient (Ausreichend)" },
-            { "range": "4.1 - 5.0", "meaning": "Fail (Nicht bestanden)" }
+            {
+                "range": "1.0 - 1.5",
+                "meaning": "Very Good (Sehr gut)"
+            },
+            {
+                "range": "1.6 - 2.5",
+                "meaning": "Good (Gut)"
+            },
+            {
+                "range": "2.6 - 3.5",
+                "meaning": "Satisfactory (Befriedigend)"
+            },
+            {
+                "range": "3.6 - 4.0",
+                "meaning": "Sufficient (Ausreichend)"
+            },
+            {
+                "range": "4.1 - 5.0",
+                "meaning": "Fail (Nicht bestanden)"
+            }
         ],
         "rules": {
             "german": {
                 "label": "German grade:",
-                "text": "Must be at least 4.0 — no compensation available."
+                "text": "Must be at least 4.0; no compensation available."
             },
             "compensation": {
                 "label": "Compensation:",
@@ -100,14 +144,38 @@
         "title": "Preparation Tips",
         "description": "Maximize your chances of passing with these strategies.",
         "items": [
-            { "title": "Attend All Classes", "description": "Consistent attendance is crucial for understanding material" },
-            { "title": "Structured Study Plan", "description": "Create a schedule covering all subjects systematically" },
-            { "title": "Form Study Groups", "description": "Collaborate with classmates to discuss and review" },
-            { "title": "Practice Past Exams", "description": "Familiarize yourself with question formats and timing" },
-            { "title": "Master Time Management", "description": "Practice completing tasks within time limits" },
-            { "title": "Use Professor Materials", "description": "Review all provided practice problems and guides" },
-            { "title": "Take Mock Exams", "description": "Simulate real exam conditions before the test" },
-            { "title": "Rest and Manage Stress", "description": "Maintain healthy sleep and stress management" }
+            {
+                "title": "Attend All Classes",
+                "description": "Consistent attendance is crucial for understanding material"
+            },
+            {
+                "title": "Structured Study Plan",
+                "description": "Create a schedule covering all subjects systematically"
+            },
+            {
+                "title": "Form Study Groups",
+                "description": "Collaborate with classmates to discuss and review"
+            },
+            {
+                "title": "Practice Past Exams",
+                "description": "Familiarize yourself with question formats and timing"
+            },
+            {
+                "title": "Master Time Management",
+                "description": "Practice completing tasks within time limits"
+            },
+            {
+                "title": "Use Professor Materials",
+                "description": "Review all provided practice problems and guides"
+            },
+            {
+                "title": "Take Mock Exams",
+                "description": "Simulate real exam conditions before the test"
+            },
+            {
+                "title": "Rest and Manage Stress",
+                "description": "Maintain healthy sleep and stress management"
+            }
         ]
     },
     "after": {

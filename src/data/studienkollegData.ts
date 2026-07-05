@@ -186,7 +186,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
 
     cityInfo: {
       description:
-        "Berlin is Germany's capital and largest city, celebrated for its layered history, diverse culture and thriving research scene. The Freie Universität — one of Germany's Excellence-status universities — sits in the leafy south-western district of Dahlem, offering a green campus and vibrant student life while remaining far more affordable than Munich or Frankfurt.",
+        "Berlin is Germany's capital and largest city, celebrated for its layered history, diverse culture and thriving research scene. The Freie Universität, one of Germany's Excellence-status universities, sits in the leafy south-western district of Dahlem, offering a green campus and vibrant student life while remaining far more affordable than Munich or Frankfurt.",
       costOfLiving: '~€1,000 / Month',
       transit: 'BVG Network',
     },
@@ -213,7 +213,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
     exam: {
       required: true,
       description:
-        'The Aufnahmetest is mandatory for every applicant — there is no exemption, and its results form the ranking used to allocate the limited places. All courses sit a German C-Test (a 75-gap complementary test, 30 min); the T-, M- and W-Kurs add a Mathematics test (45 min), while the G-Kurs takes a chart-evaluation test instead. The full test lasts about 90 minutes and is held once a year in late August at the Freie Universität Berlin (Dahlem), on a separate day for each course. It may be repeated once. Applications run 1 June – 15 July for the winter semester only (no summer intake) and go exclusively through uni-assist.',
+        'The Aufnahmetest is mandatory for every applicant: there is no exemption, and its results form the ranking used to allocate the limited places. All courses sit a German C-Test (a 75-gap complementary test, 30 min); the T-, M- and W-Kurs add a Mathematics test (45 min), while the G-Kurs takes a chart-evaluation test instead. The full test lasts about 90 minutes and is held once a year in late August at the Freie Universität Berlin (Dahlem), on a separate day for each course. It may be repeated once. Applications run 1 June – 15 July for the winter semester only (no summer intake) and go exclusively through uni-assist.',
       nextDate: 'Aug 25–28, 2026',
       exampleTestsUrl:
         'https://www.fu-berlin.de/sites/studienkolleg/musterklausuren/index.html',
@@ -390,7 +390,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
     exam: {
       required: true,
       description:
-        'The Aufnahmeprüfung is mandatory for all applicants (no exemption possible). It is identical for all five courses (G/M/S/T/W) and tests ONLY German — no subject-specific knowledge or mathematics. Format: Part I Grammar & Vocabulary (45 min, levels A1→C1, includes C-Tests) and Part II Writing (45 min), each weighted 50%. Requires German B2/C1. Held in person at the Neue Universität, Heidelberg. Apply via heiCO (Heidelberg University portal) for a Baden-Württemberg university, which issues the invitation.',
+        'The Aufnahmeprüfung is mandatory for all applicants (no exemption possible). It is identical for all five courses (G/M/S/T/W) and tests ONLY German, with no subject-specific knowledge or mathematics. Format: Part I Grammar & Vocabulary (45 min, levels A1→C1, includes C-Tests) and Part II Writing (45 min), each weighted 50%. Requires German B2/C1. Held in person at the Neue Universität, Heidelberg. Apply via heiCO (Heidelberg University portal) for a Baden-Württemberg university, which issues the invitation.',
       nextDate: 'Oct 5, 2026',
       exampleTestsUrl: 'https://www.isz.uni-heidelberg.de/en/entrance-stk-ksk',
     },
@@ -454,7 +454,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
 
     cityInfo: {
       description:
-        "Darmstadt is a center of science and technology in the Rhine-Main metropolitan region, home to TU Darmstadt, ESA's mission control centre (ESOC), and many research institutions. It offers a high quality of life at moderate costs — pricier than Halle but cheaper than Frankfurt or Munich.",
+        "Darmstadt is a center of science and technology in the Rhine-Main metropolitan region, home to TU Darmstadt, ESA's mission control centre (ESOC), and many research institutions. It offers a high quality of life at moderate costs, pricier than Halle but cheaper than Frankfurt or Munich.",
       costOfLiving: '~€900 / Month',
       transit: 'HEAG Network',
     },
@@ -499,7 +499,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
 
     cityInfo: {
       description:
-        "Frankfurt am Main is Germany's financial capital and most international city, home to the European Central Bank, Goethe-Universität, and a cosmopolitan community. It is one of Germany's most expensive student cities — pricier than Berlin or Hamburg, though cheaper than Munich.",
+        "Frankfurt am Main is Germany's financial capital and most international city, home to the European Central Bank, Goethe-Universität, and a cosmopolitan community. It is one of Germany's most expensive student cities, pricier than Berlin or Hamburg, though cheaper than Munich.",
       costOfLiving: '~€1,050 / Month',
       transit: 'RMV Network',
     },
@@ -526,7 +526,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
     exam: {
       required: true,
       description:
-        'The Aufnahmetest is mandatory for all applicants and tests ONLY German language skills (no subject-specific content). Since there are more applicants than places, admission is by ranking in this entrance exam — the higher your score, the better your chances. Held in January (for the summer semester) and June (for the winter semester). You apply via uni-assist to Goethe-Universität Frankfurt or Frankfurt UAS (the Studienkolleg is shared); the university then issues the exam invitation.',
+        'The Aufnahmetest is mandatory for all applicants and tests ONLY German language skills (no subject-specific content). Since there are more applicants than places, admission is by ranking in this entrance exam: the higher your score, the better your chances. Held in January (for the summer semester) and June (for the winter semester). You apply via uni-assist to Goethe-Universität Frankfurt or Frankfurt UAS (the Studienkolleg is shared); the university then issues the exam invitation.',
       nextDate: 'Jan 16, 2027',
       exampleTestsUrl:
         'https://www.uni-frankfurt.de/38294330/Studienkolleg___Feststellungspr%C3%BCfung',
@@ -572,7 +572,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
     exam: {
       required: true,
       description:
-        'The Aufnahmetest is mandatory for all Schwerpunktkurs applicants. It tests German (C-Test) for all courses, plus Mathematics for the T-, M- and W-Kurs, and Natural Sciences for the M-Kurs. Minimum German B1 required (applicants with higher certificates are invited first). Held twice yearly in Hannover: February (for the summer semester) and August/September (for the winter semester). You cannot apply directly to the Studienkolleg — apply to a Lower Saxony university (some via uni-assist), which forwards you to the Studienkolleg for the entrance test. Note: from 2026, the G/S-Kurs is only offered starting in the winter semester.',
+        'The Aufnahmetest is mandatory for all Schwerpunktkurs applicants. It tests German (C-Test) for all courses, plus Mathematics for the T-, M- and W-Kurs, and Natural Sciences for the M-Kurs. Minimum German B1 required (applicants with higher certificates are invited first). Held twice yearly in Hannover: February (for the summer semester) and August/September (for the winter semester). You cannot apply directly to the Studienkolleg; apply to a Lower Saxony university (some via uni-assist), which forwards you to the Studienkolleg for the entrance test. Note: from 2026, the G/S-Kurs is only offered starting in the winter semester.',
       nextDate: 'Aug 31, 2026',
       exampleTestsUrl:
         'https://www.stk.uni-hannover.de/kursteilnahme/aufnahmetest',
@@ -616,7 +616,7 @@ export const STUDIENKOLLEGS: Record<string, StudienkollegData> = {
     exam: {
       required: true,
       description:
-        'The Aufnahmetest is mandatory for all applicants (€30 cash fee). It consists of a German C-Test for all courses, plus Mathematics for T- and W-Kurs applicants. The G-Kurs tests German only. Held in February (summer semester) and August (winter semester) about one week before classes start, at the Studienkolleg in Köthen. Aids such as dictionaries, calculators, and phones are not permitted. Admission is by ranking — higher scores earn the limited spots. After passing, enrolment happens the following Monday, and students receive their timetable and can apply for dorm housing.',
+        'The Aufnahmetest is mandatory for all applicants (€30 cash fee). It consists of a German C-Test for all courses, plus Mathematics for T- and W-Kurs applicants. The G-Kurs tests German only. Held in February (summer semester) and August (winter semester) about one week before classes start, at the Studienkolleg in Köthen. Aids such as dictionaries, calculators, and phones are not permitted. Admission is by ranking: higher scores earn the limited spots. After passing, enrolment happens the following Monday, and students receive their timetable and can apply for dorm housing.',
       nextDate: 'Aug 18, 2026',
       exampleTestsUrl:
         'https://www.hs-anhalt.de/en/international/application-for-international-students/studienkolleg/acceptance-test.html',

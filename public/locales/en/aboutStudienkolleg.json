@@ -7,10 +7,22 @@
         "ctaPrimary": "Start preparing",
         "ctaSecondary": "Explore Studienkollegs",
         "stats": [
-            { "value": "1–2", "label": "Semesters" },
-            { "value": "B1 → C1", "label": "German level" },
-            { "value": "€0", "label": "Public tuition" },
-            { "value": "Nationwide", "label": "Recognition" }
+            {
+                "value": "1–2",
+                "label": "Semesters"
+            },
+            {
+                "value": "B1 → C1",
+                "label": "German level"
+            },
+            {
+                "value": "€0",
+                "label": "Public tuition"
+            },
+            {
+                "value": "Nationwide",
+                "label": "Recognition"
+            }
         ]
     },
     "journey": {
@@ -27,7 +39,7 @@
             {
                 "label": "Step 2",
                 "title": "Entrance exam",
-                "description": "Sit the Aufnahmeprüfung — a German test plus a subject test matched to your chosen track."
+                "description": "Sit the Aufnahmeprüfung: a German test plus a subject test matched to your chosen track."
             },
             {
                 "label": "Step 3",
@@ -37,7 +49,7 @@
             {
                 "label": "Step 4",
                 "title": "Feststellungsprüfung",
-                "description": "Take the final FSP assessment — the exam that certifies you are ready for German university study."
+                "description": "Take the final FSP assessment, the exam that certifies you are ready for German university study."
             },
             {
                 "label": "Step 5",
@@ -56,7 +68,7 @@
             },
             "german": {
                 "title": "Master academic German",
-                "description": "Subjects are taught in German, building the lecture, exam and academic-writing skills a degree demands — up to C1."
+                "description": "Subjects are taught in German, building the lecture, exam and academic-writing skills a degree demands, up to C1."
             },
             "path": {
                 "title": "A recognised path",
@@ -71,7 +83,7 @@
         "types": {
             "T": {
                 "fullName": "Technology & Sciences",
-                "description": "The largest track — for engineering, mathematics and the natural sciences.",
+                "description": "The largest track, for engineering, mathematics and the natural sciences.",
                 "examples": "Engineering, Physics, Chemistry, Mathematics, Computer Science"
             },
             "M": {
@@ -95,7 +107,7 @@
                 "examples": "Linguistics, Translation, Modern Languages"
             }
         },
-        "fhNote": "Heading for a University of Applied Sciences (Fachhochschule)? Those run their own, more practice-oriented tracks — TI (technical), WW (economics), GD (design & arts) and SW (social work)."
+        "fhNote": "Heading for a University of Applied Sciences (Fachhochschule)? Those run their own, more practice-oriented tracks: TI (technical), WW (economics), GD (design & arts) and SW (social work)."
     },
     "eligibility": {
         "badge": "DO YOU NEED ONE?",
@@ -125,7 +137,7 @@
         "language": {
             "title": "German language",
             "items": [
-                "Minimum <strong>B1</strong> to apply — <strong>B2 is strongly recommended</strong>",
+                "Minimum <strong>B1</strong> to apply; <strong>B2 is strongly recommended</strong>",
                 "Most public Studienkollegs require B2 for the entrance exam",
                 "Goethe, telc, TestDaF or DSH certificates are accepted"
             ]
@@ -149,7 +161,7 @@
         },
         "timeline": {
             "title": "Application windows",
-            "note": "Each Studienkolleg sets its own deadline — always confirm on its website.",
+            "note": "Each Studienkolleg sets its own deadline, so always confirm on its website.",
             "winter": "<strong>Winter semester:</strong> apply around mid-July",
             "summer": "<strong>Summer semester:</strong> apply around mid-January"
         }
@@ -157,11 +169,11 @@
     "fsp": {
         "badge": "THE FINAL STEP",
         "title": "The Feststellungsprüfung (FSP)",
-        "description": "The Studienkolleg ends with the FSP — the assessment that certifies you are ready for German university study and unlocks admission nationwide.",
+        "description": "The Studienkolleg ends with the FSP, the assessment that certifies you are ready for German university study and unlocks admission nationwide.",
         "cards": {
             "tested": {
                 "title": "What's tested",
-                "description": "German plus the core subjects of your track — exactly the knowledge your future degree builds on."
+                "description": "German plus the core subjects of your track: exactly the knowledge your future degree builds on."
             },
             "format": {
                 "title": "Format",

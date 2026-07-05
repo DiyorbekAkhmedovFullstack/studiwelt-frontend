@@ -73,7 +73,7 @@ export const statesData: Record<string, StateData> = {
     area: '70,550 km²',
     motto: 'Freistaat Bayern',
     description:
-      'Bavaria is Germany\'s largest state by area and a global economic powerhouse. Home to world-class universities, cutting-edge research institutions, and global industry leaders like BMW, Siemens, and Audi, it offers international students an exceptional blend of Alpine tradition and high-tech innovation. With 33 higher education institutions — including two Universities of Excellence — Bavaria is one of Europe\'s premier study destinations.',
+      'Bavaria is Germany\'s largest state by area and a global economic powerhouse. Home to world-class universities, cutting-edge research institutions, and global industry leaders like BMW, Siemens, and Audi, it offers international students an exceptional blend of Alpine tradition and high-tech innovation. With 33 higher education institutions, including two Universities of Excellence, Bavaria is one of Europe\'s premier study destinations.',
     image: '/states/bavaria.jpg',
     universities: [
       // ── Research Universities (Universitäten) ──
@@ -83,7 +83,7 @@ export const statesData: Record<string, StateData> = {
         city: 'Munich',
         students: 54000,
         description:
-          'One of Germany\'s most prestigious universities and a University of Excellence. LMU is renowned for its strength in physics, medicine, law, and business — with over 50 Nobel laureates among its alumni and faculty.',
+          'One of Germany\'s most prestigious universities and a University of Excellence. LMU is renowned for its strength in physics, medicine, law, and business, with over 50 Nobel laureates among its alumni and faculty.',
         programs: ['Computer Science', 'Business Administration', 'Medicine', 'Physics', 'Psychology', 'Law'],
         website: 'https://www.lmu.de',
       },
@@ -163,7 +163,7 @@ export const statesData: Record<string, StateData> = {
         city: 'Passau',
         students: 11000,
         description:
-          'Renowned for its exceptional international orientation — 19% international students, 327+ partner universities. Passau offers unique programs in European Studies, Development Studies, and International Cultural and Business Studies.',
+          'Renowned for its exceptional international orientation: 19% international students, 327+ partner universities. Passau offers unique programs in European Studies, Development Studies, and International Cultural and Business Studies.',
         programs: ['Computer Science', 'International Cultural & Business Studies', 'European Studies', 'Business Administration', 'Development Studies', 'Governance & Public Policy'],
         website: 'https://www.uni-passau.de',
       },
@@ -174,7 +174,7 @@ export const statesData: Record<string, StateData> = {
         city: 'Munich',
         students: 18000,
         description:
-          'Bavaria\'s second largest university of applied sciences. HM offers 80+ programs across 14 departments, covering technology, engineering, business, social sciences, and design — with strong industry partnerships with BMW and Siemens.',
+          'Bavaria\'s second largest university of applied sciences. HM offers 80+ programs across 14 departments, covering technology, engineering, business, social sciences, and design, with strong industry partnerships with BMW and Siemens.',
         programs: ['Mechanical Engineering', 'Computer Science', 'Business Administration', 'Electrical Engineering', 'Industrial Engineering', 'Aviation'],
         website: 'https://hm.edu',
       },
@@ -910,7 +910,7 @@ export const statesData: Record<string, StateData> = {
     area: '755 km²',
     motto: 'Tor zur Welt.',
     description:
-      'Hamburg is Germany\'s "Gateway to the World" — a city of bridges, water, and trade. As a major European port and media hub, it offers a cosmopolitan atmosphere, a high standard of living, and a thriving scene for science and innovation.',
+      'Hamburg is Germany\'s "Gateway to the World", a city of bridges, water, and trade. As a major European port and media hub, it offers a cosmopolitan atmosphere, a high standard of living, and a thriving scene for science and innovation.',
     image: '/states/hamburg.jpg',
     universities: [
       { name: 'University of Hamburg', type: 'university', city: 'Hamburg', students: 43000, description: 'University of Excellence, renowned for climate research and manuscript cultures', programs: ['Computer Science', 'International Business', 'Medicine', 'Physics', 'Law', 'Economics'], website: 'https://www.uni-hamburg.de' },

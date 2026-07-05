@@ -21,7 +21,7 @@ export function ParticleWohl() {
     },
     {
       label: 'Zustimmung mit Einschränkung',
-      function: '"Ja, eigentlich schon, aber …" — signalisiert leichte Vorbehalte',
+      function: '"Ja, eigentlich schon, aber …": signalisiert leichte Vorbehalte',
       example: 'Das ist <strong>wohl</strong> richtig, aber nicht ganz präzise.',
       register: 'Gehoben / akademisch',
     },

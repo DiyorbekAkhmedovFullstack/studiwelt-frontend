@@ -74,7 +74,7 @@ export function PaymentSuccessPage() {
         <p className="mb-8 text-[16px] text-text-muted leading-relaxed max-w-[400px] mx-auto">
           {verified
             ? 'Your account has been upgraded to Student. You now have lifetime access to all 30 lessons!'
-            : 'Your payment is being processed. This may take a few moments — refresh if access is not active yet.'}
+            : 'Your payment is being processed. This may take a few moments; refresh if access is not active yet.'}
         </p>
 
         {/* What's next */}

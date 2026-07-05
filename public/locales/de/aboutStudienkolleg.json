@@ -7,10 +7,22 @@
         "ctaPrimary": "Vorbereitung starten",
         "ctaSecondary": "Studienkollegs entdecken",
         "stats": [
-            { "value": "1–2", "label": "Semester" },
-            { "value": "B1 → C1", "label": "Deutschniveau" },
-            { "value": "0 €", "label": "Öffentliche Gebühren" },
-            { "value": "Bundesweit", "label": "Anerkennung" }
+            {
+                "value": "1–2",
+                "label": "Semester"
+            },
+            {
+                "value": "B1 → C1",
+                "label": "Deutschniveau"
+            },
+            {
+                "value": "0 €",
+                "label": "Öffentliche Gebühren"
+            },
+            {
+                "value": "Bundesweit",
+                "label": "Anerkennung"
+            }
         ]
     },
     "journey": {
@@ -27,17 +39,17 @@
             {
                 "label": "Schritt 2",
                 "title": "Aufnahmeprüfung",
-                "description": "Lege die Aufnahmeprüfung ab — einen Deutschtest plus einen Fachtest passend zu deinem Schwerpunkt."
+                "description": "Lege die Aufnahmeprüfung ab: einen Deutschtest plus einen Fachtest passend zu deinem Schwerpunkt."
             },
             {
                 "label": "Schritt 3",
                 "title": "Zwei Semester",
-                "description": "Studiere deine Fächer komplett auf Deutsch — mit Sprachunterricht, der dich von B2 Richtung C1 bringt."
+                "description": "Studiere deine Fächer komplett auf Deutsch, mit Sprachunterricht, der dich von B2 Richtung C1 bringt."
             },
             {
                 "label": "Schritt 4",
                 "title": "Feststellungsprüfung",
-                "description": "Lege die abschließende FSP ab — die Prüfung, die deine Studierfähigkeit für die deutsche Hochschule bescheinigt."
+                "description": "Lege die abschließende FSP ab: die Prüfung, die deine Studierfähigkeit für die deutsche Hochschule bescheinigt."
             },
             {
                 "label": "Schritt 5",
@@ -52,15 +64,15 @@
         "cards": {
             "bridge": {
                 "title": "Bildungslücken schließen",
-                "description": "Es füllt die Lücke zwischen deinem Schulsystem und den deutschen akademischen Standards — so startest du dein Studium auf Augenhöhe."
+                "description": "Es füllt die Lücke zwischen deinem Schulsystem und den deutschen akademischen Standards, sodass du dein Studium auf Augenhöhe beginnst."
             },
             "german": {
                 "title": "Akademisches Deutsch meistern",
-                "description": "Die Fächer werden auf Deutsch unterrichtet und bauen die Fähigkeiten für Vorlesungen, Prüfungen und wissenschaftliches Schreiben auf — bis C1."
+                "description": "Die Fächer werden auf Deutsch unterrichtet und bauen die Fähigkeiten für Vorlesungen, Prüfungen und wissenschaftliches Schreiben auf, bis hin zu C1."
             },
             "path": {
                 "title": "Ein anerkannter Weg",
-                "description": "Bestehe die FSP und deine Qualifikation gilt an Hochschulen in ganz Deutschland — nicht nur dort, wo du das Kolleg besucht hast."
+                "description": "Bestehe die FSP und deine Qualifikation gilt an Hochschulen in ganz Deutschland, nicht nur dort, wo du das Kolleg besucht hast."
             }
         }
     },
@@ -71,7 +83,7 @@
         "types": {
             "T": {
                 "fullName": "Technik & Naturwissenschaften",
-                "description": "Der größte Schwerpunkt — für Ingenieurwesen, Mathematik und Naturwissenschaften.",
+                "description": "Der größte Schwerpunkt, gedacht für Ingenieurwesen, Mathematik und Naturwissenschaften.",
                 "examples": "Ingenieurwesen, Physik, Chemie, Mathematik, Informatik"
             },
             "M": {
@@ -95,7 +107,7 @@
                 "examples": "Linguistik, Übersetzung, moderne Sprachen"
             }
         },
-        "fhNote": "Du strebst eine Fachhochschule an? Diese haben eigene, praxisnähere Schwerpunkte — TI (Technik), WW (Wirtschaft), GD (Gestaltung & Kunst) und SW (Soziales)."
+        "fhNote": "Du strebst eine Fachhochschule an? Diese haben eigene, praxisnähere Schwerpunkte: TI (Technik), WW (Wirtschaft), GD (Gestaltung & Kunst) und SW (Soziales)."
     },
     "eligibility": {
         "badge": "BRAUCHST DU ÜBERHAUPT EINES?",
@@ -125,7 +137,7 @@
         "language": {
             "title": "Deutsche Sprache",
             "items": [
-                "Mindestens <strong>B1</strong> zur Bewerbung — <strong>B2 wird dringend empfohlen</strong>",
+                "Mindestens <strong>B1</strong> zur Bewerbung, <strong>B2 wird dringend empfohlen</strong>",
                 "Die meisten öffentlichen Kollegs verlangen B2 für die Aufnahmeprüfung",
                 "Zertifikate von Goethe, telc, TestDaF oder DSH werden akzeptiert"
             ]
@@ -149,7 +161,7 @@
         },
         "timeline": {
             "title": "Bewerbungszeiträume",
-            "note": "Jedes Studienkolleg legt eigene Fristen fest — prüfe sie immer auf dessen Website.",
+            "note": "Jedes Studienkolleg legt eigene Fristen fest. Prüfe sie immer auf dessen Website.",
             "winter": "<strong>Wintersemester:</strong> Bewerbung etwa Mitte Juli",
             "summer": "<strong>Sommersemester:</strong> Bewerbung etwa Mitte Januar"
         }
@@ -157,11 +169,11 @@
     "fsp": {
         "badge": "DER LETZTE SCHRITT",
         "title": "Die Feststellungsprüfung (FSP)",
-        "description": "Das Studienkolleg endet mit der FSP — der Prüfung, die deine Studierfähigkeit bescheinigt und den bundesweiten Hochschulzugang freischaltet.",
+        "description": "Das Studienkolleg endet mit der FSP, der Prüfung, die deine Studierfähigkeit bescheinigt und den bundesweiten Hochschulzugang freischaltet.",
         "cards": {
             "tested": {
                 "title": "Was geprüft wird",
-                "description": "Deutsch plus die Kernfächer deines Schwerpunkts — genau das Wissen, auf dem dein künftiges Studium aufbaut."
+                "description": "Deutsch plus die Kernfächer deines Schwerpunkts, genau das Wissen, auf dem dein künftiges Studium aufbaut."
             },
             "format": {
                 "title": "Format",

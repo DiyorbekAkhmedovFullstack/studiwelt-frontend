@@ -187,7 +187,7 @@ export function CtestResultsPage() {
                     <span className="text-xs sm:text-[13px] font-semibold text-text-muted">Deine Antwort:</span>
                     <span className={`text-sm sm:text-[14px] font-bold ${gap.isCorrect ? 'text-[#6B8C6E]' : 'text-[#C07766]'
                       }`}>
-                      {gap.userAnswer ?? '—'}
+                      {gap.userAnswer ?? '-'}
                     </span>
                   </div>
 
@@ -195,7 +195,7 @@ export function CtestResultsPage() {
                     <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg border-2 border-[#EBF5EC] bg-[#F5FAF6]">
                       <span className="text-xs sm:text-[13px] font-semibold text-text-muted">Richtige Antwort:</span>
                       <span className="text-sm sm:text-[14px] font-bold text-[#6B8C6E]">
-                        {gap.correctAnswer ?? '—'}
+                        {gap.correctAnswer ?? '-'}
                       </span>
                     </div>
                   )}

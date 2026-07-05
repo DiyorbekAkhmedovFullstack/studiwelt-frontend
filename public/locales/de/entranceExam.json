@@ -3,7 +3,7 @@
         "badge": "BEREITE DICH AUF DEN ERFOLG VOR",
         "title": "Die",
         "titleHighlight": "Aufnahmeprüfung verstehen",
-        "description": "Die wettbewerbsfähige Aufnahmeprüfung für öffentliche Studienkollegs. Deine Leistung entscheidet über die Zulassung — bereite dich strategisch vor, um deinen Platz zu sichern.",
+        "description": "Die wettbewerbsfähige Aufnahmeprüfung für öffentliche Studienkollegs. Deine Leistung entscheidet über die Zulassung, also bereite dich strategisch vor, um deinen Platz zu sichern.",
         "tags": {
             "twoPartExam": "2-teilige Prüfung",
             "germanLevel": "Deutsch B2",
@@ -23,7 +23,7 @@
         },
         "competitiveness": {
             "title": "Wettbewerb",
-            "description": "Begrenzte Plätze verfügbar. Bewerber werden nach Punktzahl eingestuft — je höher deine Punktzahl, desto besser deine Zulassungschancen."
+            "description": "Begrenzte Plätze verfügbar. Bewerber werden nach Punktzahl eingestuft: je höher deine Punktzahl, desto besser deine Zulassungschancen."
         }
     },
     "components": {
@@ -33,10 +33,22 @@
             "title": "Deutschtest",
             "duration": "60-90 Minuten",
             "items": [
-                { "title": "C-Test / Lückentest", "description": "Lückentexte zur Prüfung von Grammatik, Wortschatz und Leseverständnis" },
-                { "title": "Leseverstehen", "description": "Verstehen von Sachtexten und akademischen Texten" },
-                { "title": "Schriftlicher Ausdruck", "description": "Zusammenfassungen, Kurztexte oder Erörterungen schreiben" },
-                { "title": "Grammatik & Wortschatz", "description": "Satzumformung, Fehlerkorrektur, Deklinationen" }
+                {
+                    "title": "C-Test / Lückentest",
+                    "description": "Lückentexte zur Prüfung von Grammatik, Wortschatz und Leseverständnis"
+                },
+                {
+                    "title": "Leseverstehen",
+                    "description": "Verstehen von Sachtexten und akademischen Texten"
+                },
+                {
+                    "title": "Schriftlicher Ausdruck",
+                    "description": "Zusammenfassungen, Kurztexte oder Erörterungen schreiben"
+                },
+                {
+                    "title": "Grammatik & Wortschatz",
+                    "description": "Satzumformung, Fehlerkorrektur, Deklinationen"
+                }
             ]
         },
         "subjectTest": {
@@ -64,35 +76,82 @@
             "T": {
                 "name": "T-Kurs",
                 "fullName": "Technik & Ingenieurwesen",
-                "subjects": ["Mathematik", "Physik (manchmal Chemie)"],
-                "mathTopics": ["Lineare & quadratische Gleichungen und Ungleichungen", "Funktionen & Graphen", "Algebra & Termumformungen", "Geometrie (Flächen, Umfang, Satz des Pythagoras)", "Strahlensätze & Koordinatensysteme", "Prozentrechnung & Potenzen"],
-                "otherTopics": ["Mechanik", "Elektrizität", "Optik"]
+                "subjects": [
+                    "Mathematik",
+                    "Physik (manchmal Chemie)"
+                ],
+                "mathTopics": [
+                    "Lineare & quadratische Gleichungen und Ungleichungen",
+                    "Funktionen & Graphen",
+                    "Algebra & Termumformungen",
+                    "Geometrie (Flächen, Umfang, Satz des Pythagoras)",
+                    "Strahlensätze & Koordinatensysteme",
+                    "Prozentrechnung & Potenzen"
+                ],
+                "otherTopics": [
+                    "Mechanik",
+                    "Elektrizität",
+                    "Optik"
+                ]
             },
             "M": {
                 "name": "M-Kurs",
                 "fullName": "Medizin & Biologie",
-                "subjects": ["Mathematik", "Biologie", "Chemie"],
-                "mathTopics": ["Algebra", "Funktionen"],
-                "otherTopics": ["Biologische Grundprozesse", "Periodensystem", "Chemische Reaktionen"]
+                "subjects": [
+                    "Mathematik",
+                    "Biologie",
+                    "Chemie"
+                ],
+                "mathTopics": [
+                    "Algebra",
+                    "Funktionen"
+                ],
+                "otherTopics": [
+                    "Biologische Grundprozesse",
+                    "Periodensystem",
+                    "Chemische Reaktionen"
+                ]
             },
             "W": {
                 "name": "W-Kurs",
                 "fullName": "Wirtschaft & Ökonomie",
-                "subjects": ["Mathematik", "Wirtschaftsgrundlagen"],
-                "mathTopics": ["Prozentrechnung", "Zinsrechnung", "Algebra"],
-                "otherTopics": ["Marktdynamik", "Angebot & Nachfrage"]
+                "subjects": [
+                    "Mathematik",
+                    "Wirtschaftsgrundlagen"
+                ],
+                "mathTopics": [
+                    "Prozentrechnung",
+                    "Zinsrechnung",
+                    "Algebra"
+                ],
+                "otherTopics": [
+                    "Marktdynamik",
+                    "Angebot & Nachfrage"
+                ]
             },
             "G": {
                 "name": "G-Kurs",
                 "fullName": "Geisteswissenschaften & Kunst",
-                "subjects": ["Erweiterter Deutschtest", "Diagramm-/Dateninterpretation"],
-                "otherTopics": ["Analyse von Grafiken und Statistiken", "Schriftliche Argumentation"]
+                "subjects": [
+                    "Erweiterter Deutschtest",
+                    "Diagramm-/Dateninterpretation"
+                ],
+                "otherTopics": [
+                    "Analyse von Grafiken und Statistiken",
+                    "Schriftliche Argumentation"
+                ]
             },
             "S": {
                 "name": "S-Kurs",
                 "fullName": "Sprachen",
-                "subjects": ["Erweiterte Deutschkenntnisse", "Geisteswissenschaftliche Komponente"],
-                "otherTopics": ["Fortgeschrittenes Leseverstehen", "Akademisches Schreiben"]
+                "subjects": [
+                    "Erweiterte Deutschkenntnisse",
+                    "Geisteswissenschaftliche Komponente"
+                ],
+                "otherTopics": [
+                    "Fortgeschrittenes Leseverstehen",
+                    "Akademisches Schreiben"
+                ]
             }
         }
     },
@@ -115,14 +174,38 @@
         "title": "Vorbereitungstipps",
         "description": "Maximiere deine Chancen mit strategischer Vorbereitung.",
         "items": [
-            { "title": "Früh anfangen", "description": "Beginne die Vorbereitung 3-6 Monate vor dem Prüfungstermin" },
-            { "title": "B2-Niveau erreichen", "description": "Strebe mindestens B2-Deutschkenntnisse an" },
-            { "title": "C-Tests üben", "description": "Nutze \"Mut zur Lücke\"-Bücher für gezieltes Training" },
-            { "title": "Mathe-Grundlagen wiederholen", "description": "Konzentriere dich auf die Grundlagen für deinen Kurs" },
-            { "title": "Musterprüfungen nutzen", "description": "Übe mit Prüfungen von Studienkolleg-Webseiten" },
-            { "title": "Fehler analysieren", "description": "Lerne aus Fehlern, um Schwachstellen zu erkennen" },
-            { "title": "Eintauchen", "description": "Höre täglich deutsche Podcasts und Medien" },
-            { "title": "Anforderungen prüfen", "description": "Überprüfe die Besonderheiten deiner Zielinstitution" }
+            {
+                "title": "Früh anfangen",
+                "description": "Beginne die Vorbereitung 3-6 Monate vor dem Prüfungstermin"
+            },
+            {
+                "title": "B2-Niveau erreichen",
+                "description": "Strebe mindestens B2-Deutschkenntnisse an"
+            },
+            {
+                "title": "C-Tests üben",
+                "description": "Nutze \"Mut zur Lücke\"-Bücher für gezieltes Training"
+            },
+            {
+                "title": "Mathe-Grundlagen wiederholen",
+                "description": "Konzentriere dich auf die Grundlagen für deinen Kurs"
+            },
+            {
+                "title": "Musterprüfungen nutzen",
+                "description": "Übe mit Prüfungen von Studienkolleg-Webseiten"
+            },
+            {
+                "title": "Fehler analysieren",
+                "description": "Lerne aus Fehlern, um Schwachstellen zu erkennen"
+            },
+            {
+                "title": "Eintauchen",
+                "description": "Höre täglich deutsche Podcasts und Medien"
+            },
+            {
+                "title": "Anforderungen prüfen",
+                "description": "Überprüfe die Besonderheiten deiner Zielinstitution"
+            }
         ]
     },
     "info": {

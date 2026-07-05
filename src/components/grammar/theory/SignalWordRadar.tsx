@@ -46,12 +46,12 @@ export function SignalWordRadar() {
       title: 'Betonung / Wichtigkeit',
       note: 'Markiert Kerninfo, oft zusätzlich langsamer und lauter gesprochen: "Entscheidend ist".',
       example:
-        'Entscheidend ist dabei, dass die Maßnahmen frühzeitig greifen — sonst scheitert das gesamte Konzept.',
+        'Entscheidend ist dabei, dass die Maßnahmen frühzeitig greifen, sonst scheitert das gesamte Konzept.',
       highlight: 'Entscheidend ist',
     },
     {
       title: 'Umformulierung / Präzisierung',
-      note: 'Wiederholt dieselbe Aussage neu — deine zweite Chance: "Mit anderen Worten", "Anders gesagt".',
+      note: 'Wiederholt dieselbe Aussage neu, deine zweite Chance: "Mit anderen Worten", "Anders gesagt".',
       example:
         'Die Studie ist nicht repräsentativ. Mit anderen Worten: Ihre Ergebnisse lassen sich nicht verallgemeinern.',
       highlight: 'Mit anderen Worten',
@@ -79,7 +79,7 @@ export function SignalWordRadar() {
       </h3>
       <p className="text-text-muted text-xs sm:text-sm md:text-base mb-5 sm:mb-6">
         Höre nicht auf jedes Wort, sondern auf diese "Wegweiser". Jedes Signal kündigt an, was als
-        Nächstes kommt — hier jeweils mit einem Beispiel aus einer Vorlesung.
+        Nächstes kommt, hier jeweils mit einem Beispiel aus einer Vorlesung.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">

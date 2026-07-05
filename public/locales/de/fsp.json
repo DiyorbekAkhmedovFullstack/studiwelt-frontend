@@ -33,9 +33,18 @@
             "title": "Schriftliche Prüfungen",
             "duration": "3-4 Stunden pro Fach",
             "items": [
-                { "title": "Deutsch (DaF)", "description": "Pflicht für alle Kurse, B2/C1 Niveau" },
-                { "title": "Fachprüfung 1", "description": "Kernfach basierend auf deinem Kursschwerpunkt" },
-                { "title": "Fachprüfung 2", "description": "Zusätzliches Fach für deinen Schwerpunkt" }
+                {
+                    "title": "Deutsch (DaF)",
+                    "description": "Pflicht für alle Kurse, B2/C1 Niveau"
+                },
+                {
+                    "title": "Fachprüfung 1",
+                    "description": "Kernfach basierend auf deinem Kursschwerpunkt"
+                },
+                {
+                    "title": "Fachprüfung 2",
+                    "description": "Zusätzliches Fach für deinen Schwerpunkt"
+                }
             ]
         }
     },
@@ -47,27 +56,47 @@
             "T": {
                 "name": "T-Kurs",
                 "fullName": "Technik & Ingenieurwesen",
-                "written": ["Deutsch (DaF)", "Mathematik", "Physik oder Chemie/IT"]
+                "written": [
+                    "Deutsch (DaF)",
+                    "Mathematik",
+                    "Physik oder Chemie/IT"
+                ]
             },
             "M": {
                 "name": "M-Kurs",
                 "fullName": "Medizin & Biologie",
-                "written": ["Deutsch (DaF)", "Biologie oder Chemie", "Mathematik oder Physik"]
+                "written": [
+                    "Deutsch (DaF)",
+                    "Biologie oder Chemie",
+                    "Mathematik oder Physik"
+                ]
             },
             "W": {
                 "name": "W-Kurs",
                 "fullName": "Wirtschaft & Ökonomie",
-                "written": ["Deutsch (DaF)", "Mathematik", "VWL/BWL"]
+                "written": [
+                    "Deutsch (DaF)",
+                    "Mathematik",
+                    "VWL/BWL"
+                ]
             },
             "G": {
                 "name": "G-Kurs",
                 "fullName": "Geisteswissenschaften & Kunst",
-                "written": ["Deutsch (DaF)", "Geschichte", "Sozialkunde/Geographie"]
+                "written": [
+                    "Deutsch (DaF)",
+                    "Geschichte",
+                    "Sozialkunde/Geographie"
+                ]
             },
             "S": {
                 "name": "S-Kurs",
                 "fullName": "Sprachen",
-                "written": ["Deutsch (DaF)", "Deutsche Literatur", "Zweite Fremdsprache"]
+                "written": [
+                    "Deutsch (DaF)",
+                    "Deutsche Literatur",
+                    "Zweite Fremdsprache"
+                ]
             }
         }
     },
@@ -75,16 +104,31 @@
         "title": "Notensystem",
         "description": "Verstehe, wie deine FSP bewertet wird.",
         "scale": [
-            { "range": "1,0 - 1,5", "meaning": "Sehr gut" },
-            { "range": "1,6 - 2,5", "meaning": "Gut" },
-            { "range": "2,6 - 3,5", "meaning": "Befriedigend" },
-            { "range": "3,6 - 4,0", "meaning": "Ausreichend" },
-            { "range": "4,1 - 5,0", "meaning": "Nicht bestanden" }
+            {
+                "range": "1,0 - 1,5",
+                "meaning": "Sehr gut"
+            },
+            {
+                "range": "1,6 - 2,5",
+                "meaning": "Gut"
+            },
+            {
+                "range": "2,6 - 3,5",
+                "meaning": "Befriedigend"
+            },
+            {
+                "range": "3,6 - 4,0",
+                "meaning": "Ausreichend"
+            },
+            {
+                "range": "4,1 - 5,0",
+                "meaning": "Nicht bestanden"
+            }
         ],
         "rules": {
             "german": {
                 "label": "Deutschnote:",
-                "text": "Muss mindestens 4,0 sein — kein Ausgleich möglich."
+                "text": "Muss mindestens 4,0 sein; kein Ausgleich möglich."
             },
             "compensation": {
                 "label": "Notenausgleich:",
@@ -100,14 +144,38 @@
         "title": "Vorbereitungstipps",
         "description": "Maximiere deine Erfolgschancen mit diesen Strategien.",
         "items": [
-            { "title": "Alle Kurse besuchen", "description": "Regelmäßige Anwesenheit ist entscheidend für das Verständnis des Materials" },
-            { "title": "Strukturierter Lernplan", "description": "Erstelle einen Zeitplan, der alle Fächer systematisch abdeckt" },
-            { "title": "Lerngruppen bilden", "description": "Arbeite mit Kommilitonen zusammen, um zu diskutieren und zu wiederholen" },
-            { "title": "Alte Prüfungen üben", "description": "Mache dich mit Frageformaten und Zeitvorgaben vertraut" },
-            { "title": "Zeitmanagement beherrschen", "description": "Übe, Aufgaben innerhalb von Zeitlimits zu erledigen" },
-            { "title": "Dozentenmaterialien nutzen", "description": "Wiederhole alle bereitgestellten Übungsaufgaben und Leitfäden" },
-            { "title": "Probeprüfungen ablegen", "description": "Simuliere echte Prüfungsbedingungen vor dem Test" },
-            { "title": "Ausruhen und Stress managen", "description": "Achte auf gesunden Schlaf und Stressbewältigung" }
+            {
+                "title": "Alle Kurse besuchen",
+                "description": "Regelmäßige Anwesenheit ist entscheidend für das Verständnis des Materials"
+            },
+            {
+                "title": "Strukturierter Lernplan",
+                "description": "Erstelle einen Zeitplan, der alle Fächer systematisch abdeckt"
+            },
+            {
+                "title": "Lerngruppen bilden",
+                "description": "Arbeite mit Kommilitonen zusammen, um zu diskutieren und zu wiederholen"
+            },
+            {
+                "title": "Alte Prüfungen üben",
+                "description": "Mache dich mit Frageformaten und Zeitvorgaben vertraut"
+            },
+            {
+                "title": "Zeitmanagement beherrschen",
+                "description": "Übe, Aufgaben innerhalb von Zeitlimits zu erledigen"
+            },
+            {
+                "title": "Dozentenmaterialien nutzen",
+                "description": "Wiederhole alle bereitgestellten Übungsaufgaben und Leitfäden"
+            },
+            {
+                "title": "Probeprüfungen ablegen",
+                "description": "Simuliere echte Prüfungsbedingungen vor dem Test"
+            },
+            {
+                "title": "Ausruhen und Stress managen",
+                "description": "Achte auf gesunden Schlaf und Stressbewältigung"
+            }
         ]
     },
     "after": {

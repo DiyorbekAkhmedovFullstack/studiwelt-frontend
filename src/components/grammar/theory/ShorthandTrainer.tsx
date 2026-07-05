@@ -42,7 +42,7 @@ export function ShorthandTrainer() {
       <div className="mt-6 sm:mt-7 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 text-left">
         <div className="bg-white p-4 sm:p-5 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border-l-[3px] sm:border-l-4 border-[#E3D4C5]">
           <strong className="text-text-main text-sm sm:text-base block mb-1">Antizipieren</strong>
-          <p className="text-xs sm:text-sm md:text-base">Lies die Fragen <em>vor</em> dem Hören. Dann weißt du, worauf du achten musst, und hörst gezielt — nicht jedes Wort.</p>
+          <p className="text-xs sm:text-sm md:text-base">Lies die Fragen <em>vor</em> dem Hören. Dann weißt du, worauf du achten musst, und hörst gezielt, nicht jedes Wort.</p>
         </div>
         <div className="bg-white p-4 sm:p-5 rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border-l-[3px] sm:border-l-4 border-[#E3D4C5]">
           <strong className="text-text-main text-sm sm:text-base block mb-1">Abkürzen</strong>

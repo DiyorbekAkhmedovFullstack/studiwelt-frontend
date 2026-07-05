@@ -223,7 +223,7 @@ export function AdminActivationCodesPage() {
                         <td className="px-6 py-4 text-[14px] text-text-muted whitespace-nowrap">
                           {isUsed && code.usedAt
                             ? new Date(code.usedAt).toLocaleDateString()
-                            : "—"}
+                            : "-"}
                         </td>
                         <td className="px-6 py-4 text-right">
                           {!isUsed && (

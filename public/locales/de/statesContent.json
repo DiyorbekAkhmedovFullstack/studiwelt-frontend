@@ -1,2028 +1,2028 @@
 {
-  "bavaria": {
-    "name": "Bayern",
-    "description": "Bayern ist das flächenmäßig größte Bundesland Deutschlands und eine globale Wirtschaftsmacht. Mit erstklassigen Universitäten, modernsten Forschungseinrichtungen und globalen Industrieführern wie BMW, Siemens und Audi bietet es internationalen Studierenden eine außergewöhnliche Mischung aus alpiner Tradition und Hightech-Innovation. Mit 33 Hochschulen — darunter zwei Exzellenzuniversitäten — ist Bayern eines der führenden Studienziele in Europa.",
-    "motto": "Freistaat Bayern",
-    "universities": {
-      "0": {
-        "description": "Eine der prestigeträchtigsten Universitäten Deutschlands und eine Exzellenzuniversität. Die LMU ist bekannt für ihre Stärke in Physik, Medizin, Jura und Wirtschaft — mit über 50 Nobelpreisträgern unter ihren Alumni und Dozenten.",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Medizin",
-          "Physik",
-          "Psychologie",
-          "Rechtswissenschaften"
-        ]
-      },
-      "1": {
-        "description": "Die führende technische Universität Deutschlands und eine Exzellenzuniversität. Die TUM zählt zu den besten in Europa für Ingenieurwesen, Informatik und Naturwissenschaften, mit starken Industriepartnerschaften mit BMW, Siemens und Audi.",
-        "programs": [
-          "Maschinenbau",
-          "Informatik",
-          "Elektrotechnik",
-          "Luft- und Raumfahrttechnik",
-          "Information Engineering",
-          "Management & Technologie"
-        ]
-      },
-      "2": {
-        "description": "Eine der innovativsten Universitäten Deutschlands, die FAU bietet über 260 Studiengänge in fünf Fakultäten an. Sie ist bekannt für ihre starke Industrieanbindung, insbesondere in Medizintechnik, KI und Materialwissenschaften.",
-        "programs": [
-          "Informatik (KI)",
-          "Medizintechnik",
-          "Materialwissenschaften",
-          "International Business",
-          "Betriebswirtschaftslehre",
-          "Data Science"
-        ]
-      },
-      "3": {
-        "description": "Eine der ältesten Universitäten im deutschsprachigen Raum (1402). Die JMU ist bekannt für ihre medizinische Fakultät und interdisziplinäre Forschungszentren, darunter das Helmholtz-Institut für RNA-basierte Infektionsforschung.",
-        "programs": [
-          "Medizin",
-          "KI & Data Science",
-          "Psychologie",
-          "Biomedizin",
-          "Chemie",
-          "Pharmazie"
-        ]
-      },
-      "4": {
-        "description": "Eine moderne Campus-Universität in einer UNESCO-Welterbestadt. Mit 12 Fakultäten und 380 internationalen Partneruniversitäten ist die UR die größte Universität Ostbayerns und exzellent in Informatik, Medizin und Wirtschaft.",
-        "programs": [
-          "Informatik & Data Science",
-          "Betriebswirtschaftslehre",
-          "Medizin",
-          "Internationale Volkswirtschaftslehre",
-          "Rechtswissenschaften"
-        ]
-      },
-      "5": {
-        "description": "Eine umfassende Forschungsuniversität mit acht Fakultäten, darunter eine neue Medizinische Fakultät (2016). Die Universität pflegt starke internationale Verbindungen mit über 240 Forschern aus mehr als 60 Ländern.",
-        "programs": [
-          "Angewandte Informatik",
-          "Betriebswirtschaftslehre",
-          "Medizin",
-          "Internationales Management",
-          "Physik"
-        ]
-      },
-      "6": {
-        "description": "Spezialisiert auf internationales Management, angewandte Informatik und Europastudien. Bamberg hat die höchste Auslandsstudienquote Bayerns (40% der Absolventen) mit 300 Partneruniversitäten in 60 Ländern.",
-        "programs": [
-          "International Business",
-          "Angewandte Informatik",
-          "Europäische Wirtschaftsstudien",
-          "Internationales Informationssystemmanagement",
-          "Software-Systemwissenschaften"
-        ]
-      },
-      "7": {
-        "description": "Eine junge Forschungsuniversität, bekannt für einzigartige interdisziplinäre Studiengänge. Bayreuth ist weltweit führend in Afrikastudien und bietet besondere Programme in Global Change Ecology, Gesundheitsökonomie und Polymerchemie.",
-        "programs": [
-          "Informatik",
-          "Internationale Wirtschaft & Entwicklung",
-          "Gesundheitsökonomie",
-          "Global Change Ecology",
-          "Polymerchemie",
-          "Sport & Medien"
-        ]
-      },
-      "8": {
-        "description": "Bekannt für ihre außergewöhnliche internationale Ausrichtung — 19% internationale Studierende, über 327 Partneruniversitäten. Passau bietet einzigartige Programme in Europastudien, Entwicklungsstudien und Internationalen Kultur- und Wirtschaftsstudien.",
-        "programs": [
-          "Informatik",
-          "Internationale Kultur- & Wirtschaftsstudien",
-          "Europastudien",
-          "Betriebswirtschaftslehre",
-          "Entwicklungsstudien",
-          "Governance & Public Policy"
-        ]
-      },
-      "9": {
-        "description": "Bayerns zweitgrößte Hochschule für angewandte Wissenschaften. Die HM bietet über 80 Studiengänge in 14 Fachbereichen in Technik, Ingenieurwesen, Wirtschaft, Sozialwissenschaften und Design — mit starken Industriepartnerschaften mit BMW und Siemens.",
-        "programs": [
-          "Maschinenbau",
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Elektrotechnik",
-          "Wirtschaftsingenieurwesen",
-          "Aviation"
-        ]
-      },
-      "10": {
-        "description": "Eine der größten Hochschulen für angewandte Wissenschaften Deutschlands, benannt nach dem Physiker Georg Simon Ohm. Bietet Studiengänge in Ingenieurwesen, Wirtschaft, Sozialwissenschaften und Design mit über 160 internationalen Partnerschaften.",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "Architektur",
-          "Angewandte Chemie"
-        ]
-      },
-      "11": {
-        "description": "Eine dynamische technische Hochschule in Audis Heimatstadt. Die TH Ingolstadt ist bekannt für ihren Fahrzeugtechnik-Studiengang und enge Industriekontakte zu Audi, Continental und anderen Automobilgiganten.",
-        "programs": [
-          "Fahrzeugtechnik",
-          "International Business",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "Informatik",
-          "Luftfahrttechnik"
-        ]
-      },
-      "12": {
-        "description": "Eine technische Hochschule für angewandte Wissenschaften mit starken Industriekontakten. Die TH Augsburg exzelliert in Ingenieurwesen, Informatik und additiver Fertigung mit engen Verbindungen zu KUKA (Robotik) und MAN Energy Solutions.",
-        "programs": [
-          "Maschinenbau",
-          "Informatik",
-          "Additive Fertigung",
-          "Wirtschaftsingenieurwesen",
-          "Elektrotechnik"
-        ]
-      },
-      "13": {
-        "description": "Eine der größten Hochschulen für angewandte Wissenschaften Bayerns mit über 69 Studiengängen. Die OTH Regensburg ist besonders stark in Ingenieurwesen, Architektur und Wirtschaft mit hervorragenden Industriekontakten.",
-        "programs": [
-          "Wirtschaftsingenieurwesen",
-          "Informatik",
-          "Architektur",
-          "Betriebswirtschaftslehre",
-          "Maschinenbau",
-          "Soziale Arbeit"
-        ]
-      },
-      "14": {
-        "description": "Eine der renommiertesten Musik- und Theaterhochschulen Deutschlands. Die HMTM bietet Programme in Musik, Theater und Tanz mit engen Verbindungen zur Bayerischen Staatsoper und zum Bayerischen Staatsorchester.",
-        "programs": [
-          "Instrumentalperformance",
-          "Gesang",
-          "Schauspiel",
-          "Dirigieren",
-          "Musikpädagogik",
-          "Jazz"
-        ]
-      }
+    "bavaria": {
+        "name": "Bayern",
+        "description": "Bayern ist das flächenmäßig größte Bundesland Deutschlands und eine globale Wirtschaftsmacht. Mit erstklassigen Universitäten, modernsten Forschungseinrichtungen und globalen Industrieführern wie BMW, Siemens und Audi bietet es internationalen Studierenden eine außergewöhnliche Mischung aus alpiner Tradition und Hightech-Innovation. Mit 33 Hochschulen, darunter zwei Exzellenzuniversitäten, ist Bayern eines der führenden Studienziele in Europa.",
+        "motto": "Freistaat Bayern",
+        "universities": {
+            "0": {
+                "description": "Eine der prestigeträchtigsten Universitäten Deutschlands und eine Exzellenzuniversität. Die LMU ist bekannt für ihre Stärke in Physik, Medizin, Jura und Wirtschaft, mit über 50 Nobelpreisträgern unter ihren Alumni und Dozenten.",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Medizin",
+                    "Physik",
+                    "Psychologie",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "1": {
+                "description": "Die führende technische Universität Deutschlands und eine Exzellenzuniversität. Die TUM zählt zu den besten in Europa für Ingenieurwesen, Informatik und Naturwissenschaften, mit starken Industriepartnerschaften mit BMW, Siemens und Audi.",
+                "programs": [
+                    "Maschinenbau",
+                    "Informatik",
+                    "Elektrotechnik",
+                    "Luft- und Raumfahrttechnik",
+                    "Information Engineering",
+                    "Management & Technologie"
+                ]
+            },
+            "2": {
+                "description": "Eine der innovativsten Universitäten Deutschlands, die FAU bietet über 260 Studiengänge in fünf Fakultäten an. Sie ist bekannt für ihre starke Industrieanbindung, insbesondere in Medizintechnik, KI und Materialwissenschaften.",
+                "programs": [
+                    "Informatik (KI)",
+                    "Medizintechnik",
+                    "Materialwissenschaften",
+                    "International Business",
+                    "Betriebswirtschaftslehre",
+                    "Data Science"
+                ]
+            },
+            "3": {
+                "description": "Eine der ältesten Universitäten im deutschsprachigen Raum (1402). Die JMU ist bekannt für ihre medizinische Fakultät und interdisziplinäre Forschungszentren, darunter das Helmholtz-Institut für RNA-basierte Infektionsforschung.",
+                "programs": [
+                    "Medizin",
+                    "KI & Data Science",
+                    "Psychologie",
+                    "Biomedizin",
+                    "Chemie",
+                    "Pharmazie"
+                ]
+            },
+            "4": {
+                "description": "Eine moderne Campus-Universität in einer UNESCO-Welterbestadt. Mit 12 Fakultäten und 380 internationalen Partneruniversitäten ist die UR die größte Universität Ostbayerns und exzellent in Informatik, Medizin und Wirtschaft.",
+                "programs": [
+                    "Informatik & Data Science",
+                    "Betriebswirtschaftslehre",
+                    "Medizin",
+                    "Internationale Volkswirtschaftslehre",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "5": {
+                "description": "Eine umfassende Forschungsuniversität mit acht Fakultäten, darunter eine neue Medizinische Fakultät (2016). Die Universität pflegt starke internationale Verbindungen mit über 240 Forschern aus mehr als 60 Ländern.",
+                "programs": [
+                    "Angewandte Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Medizin",
+                    "Internationales Management",
+                    "Physik"
+                ]
+            },
+            "6": {
+                "description": "Spezialisiert auf internationales Management, angewandte Informatik und Europastudien. Bamberg hat die höchste Auslandsstudienquote Bayerns (40% der Absolventen) mit 300 Partneruniversitäten in 60 Ländern.",
+                "programs": [
+                    "International Business",
+                    "Angewandte Informatik",
+                    "Europäische Wirtschaftsstudien",
+                    "Internationales Informationssystemmanagement",
+                    "Software-Systemwissenschaften"
+                ]
+            },
+            "7": {
+                "description": "Eine junge Forschungsuniversität, bekannt für einzigartige interdisziplinäre Studiengänge. Bayreuth ist weltweit führend in Afrikastudien und bietet besondere Programme in Global Change Ecology, Gesundheitsökonomie und Polymerchemie.",
+                "programs": [
+                    "Informatik",
+                    "Internationale Wirtschaft & Entwicklung",
+                    "Gesundheitsökonomie",
+                    "Global Change Ecology",
+                    "Polymerchemie",
+                    "Sport & Medien"
+                ]
+            },
+            "8": {
+                "description": "Bekannt für ihre außergewöhnliche internationale Ausrichtung: 19% internationale Studierende, über 327 Partneruniversitäten. Passau bietet einzigartige Programme in Europastudien, Entwicklungsstudien und Internationalen Kultur- und Wirtschaftsstudien.",
+                "programs": [
+                    "Informatik",
+                    "Internationale Kultur- & Wirtschaftsstudien",
+                    "Europastudien",
+                    "Betriebswirtschaftslehre",
+                    "Entwicklungsstudien",
+                    "Governance & Public Policy"
+                ]
+            },
+            "9": {
+                "description": "Bayerns zweitgrößte Hochschule für angewandte Wissenschaften. Die HM bietet über 80 Studiengänge in 14 Fachbereichen in Technik, Ingenieurwesen, Wirtschaft, Sozialwissenschaften und Design, mit starken Industriepartnerschaften mit BMW und Siemens.",
+                "programs": [
+                    "Maschinenbau",
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Elektrotechnik",
+                    "Wirtschaftsingenieurwesen",
+                    "Aviation"
+                ]
+            },
+            "10": {
+                "description": "Eine der größten Hochschulen für angewandte Wissenschaften Deutschlands, benannt nach dem Physiker Georg Simon Ohm. Bietet Studiengänge in Ingenieurwesen, Wirtschaft, Sozialwissenschaften und Design mit über 160 internationalen Partnerschaften.",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "Architektur",
+                    "Angewandte Chemie"
+                ]
+            },
+            "11": {
+                "description": "Eine dynamische technische Hochschule in Audis Heimatstadt. Die TH Ingolstadt ist bekannt für ihren Fahrzeugtechnik-Studiengang und enge Industriekontakte zu Audi, Continental und anderen Automobilgiganten.",
+                "programs": [
+                    "Fahrzeugtechnik",
+                    "International Business",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "Informatik",
+                    "Luftfahrttechnik"
+                ]
+            },
+            "12": {
+                "description": "Eine technische Hochschule für angewandte Wissenschaften mit starken Industriekontakten. Die TH Augsburg exzelliert in Ingenieurwesen, Informatik und additiver Fertigung mit engen Verbindungen zu KUKA (Robotik) und MAN Energy Solutions.",
+                "programs": [
+                    "Maschinenbau",
+                    "Informatik",
+                    "Additive Fertigung",
+                    "Wirtschaftsingenieurwesen",
+                    "Elektrotechnik"
+                ]
+            },
+            "13": {
+                "description": "Eine der größten Hochschulen für angewandte Wissenschaften Bayerns mit über 69 Studiengängen. Die OTH Regensburg ist besonders stark in Ingenieurwesen, Architektur und Wirtschaft mit hervorragenden Industriekontakten.",
+                "programs": [
+                    "Wirtschaftsingenieurwesen",
+                    "Informatik",
+                    "Architektur",
+                    "Betriebswirtschaftslehre",
+                    "Maschinenbau",
+                    "Soziale Arbeit"
+                ]
+            },
+            "14": {
+                "description": "Eine der renommiertesten Musik- und Theaterhochschulen Deutschlands. Die HMTM bietet Programme in Musik, Theater und Tanz mit engen Verbindungen zur Bayerischen Staatsoper und zum Bayerischen Staatsorchester.",
+                "programs": [
+                    "Instrumentalperformance",
+                    "Gesang",
+                    "Schauspiel",
+                    "Dirigieren",
+                    "Musikpädagogik",
+                    "Jazz"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Oktoberfest",
+                "description": "Das größte Volksfest der Welt, das seit 1810 jährlich in München stattfindet. Über 6 Millionen Besucher feiern mit traditionellem Bier, Essen und bayerischer Musik auf der Theresienwiese."
+            },
+            "1": {
+                "title": "Schloss Neuschwanstein",
+                "description": "Das Märchenschloss von König Ludwig II., das Disneys Dornröschenschloss inspirierte. Es empfängt jährlich 1,3 Millionen Besucher und ist eines der meistfotografierten Wahrzeichen Deutschlands."
+            },
+            "2": {
+                "title": "Trachten",
+                "description": "Lederhosen für Männer und Dirndl für Frauen werden noch heute bei Festen und Feierlichkeiten getragen. Diese traditionelle Kleidung repräsentiert die bayerische Identität und ist zu einem globalen Symbol deutscher Kultur geworden."
+            },
+            "3": {
+                "title": "Alpine Kultur",
+                "description": "Jodeln, Schuhplattler und der Gruß 'Servus' sind einzigartig in Bayern. Die katholischen Traditionen und der unverwechselbare bairische Dialekt heben das Land vom Rest Deutschlands ab."
+            },
+            "4": {
+                "title": "Biergärten",
+                "description": "Biergärten sind im Freien gelegene Bereiche, in denen Menschen unter Kastanienbäumen Bier, Essen und Geselligkeit genießen. Ein Eckpfeiler des bayerischen Lebens, besonders in den warmen Sommermonaten."
+            },
+            "5": {
+                "title": "Kulinarische Traditionen",
+                "description": "Bekannt für Weisswurst, Brezen, Schweinshaxe und weltberühmte Bierbrautraditionen, die Jahrhunderte zurückreichen. Bayern hat die höchste Brauereidichte der Welt."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Zweitgrößtes Bundesland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Niedrigste in Deutschland"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Wäre die 7. EU-Volkswirtschaft"
+            },
+            "3": {
+                "label": "Internationale Studierende",
+                "context": "Pro Jahr"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Automobilindustrie",
+                "hq": "München"
+            },
+            "1": {
+                "sector": "Maschinenbau",
+                "hq": "München"
+            },
+            "2": {
+                "sector": "Versicherungen",
+                "hq": "München"
+            },
+            "3": {
+                "sector": "Automobilindustrie",
+                "hq": "Ingolstadt"
+            },
+            "4": {
+                "sector": "Sportbekleidung",
+                "hq": "Herzogenaurach"
+            },
+            "5": {
+                "sector": "Halbleiter",
+                "hq": "Neubiberg"
+            }
+        }
     },
-    "culture": {
-      "0": {
-        "title": "Oktoberfest",
-        "description": "Das größte Volksfest der Welt, das seit 1810 jährlich in München stattfindet. Über 6 Millionen Besucher feiern mit traditionellem Bier, Essen und bayerischer Musik auf der Theresienwiese."
-      },
-      "1": {
-        "title": "Schloss Neuschwanstein",
-        "description": "Das Märchenschloss von König Ludwig II., das Disneys Dornröschenschloss inspirierte. Es empfängt jährlich 1,3 Millionen Besucher und ist eines der meistfotografierten Wahrzeichen Deutschlands."
-      },
-      "2": {
-        "title": "Trachten",
-        "description": "Lederhosen für Männer und Dirndl für Frauen werden noch heute bei Festen und Feierlichkeiten getragen. Diese traditionelle Kleidung repräsentiert die bayerische Identität und ist zu einem globalen Symbol deutscher Kultur geworden."
-      },
-      "3": {
-        "title": "Alpine Kultur",
-        "description": "Jodeln, Schuhplattler und der Gruß 'Servus' sind einzigartig in Bayern. Die katholischen Traditionen und der unverwechselbare bairische Dialekt heben das Land vom Rest Deutschlands ab."
-      },
-      "4": {
-        "title": "Biergärten",
-        "description": "Biergärten sind im Freien gelegene Bereiche, in denen Menschen unter Kastanienbäumen Bier, Essen und Geselligkeit genießen. Ein Eckpfeiler des bayerischen Lebens, besonders in den warmen Sommermonaten."
-      },
-      "5": {
-        "title": "Kulinarische Traditionen",
-        "description": "Bekannt für Weisswurst, Brezen, Schweinshaxe und weltberühmte Bierbrautraditionen, die Jahrhunderte zurückreichen. Bayern hat die höchste Brauereidichte der Welt."
-      }
+    "baden-wurttemberg": {
+        "name": "Baden-Württemberg",
+        "description": "Baden-Württemberg ist das Innovationskraftwerk Deutschlands, Heimat globaler Automobilgiganten, weltbekannter Universitäten und des bezaubernden Schwarzwalds. Das Land verbindet Spitzentechnologie mit tief verwurzelten schwäbischen Traditionen.",
+        "motto": "Wir können alles. Außer Hochdeutsch.",
+        "universities": {
+            "0": {
+                "description": "Die älteste Universität Deutschlands (1386), Exzellenz in Medizin & Biowissenschaften",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Physik",
+                    "Molekularbiologie",
+                    "Data Science",
+                    "International Business"
+                ]
+            },
+            "1": {
+                "description": "Exzellenzuniversität, führend in Ingenieur- & Naturwissenschaften",
+                "programs": [
+                    "Informatik",
+                    "Maschinenbau",
+                    "Wirtschaftsingenieurwesen",
+                    "Elektrotechnik",
+                    "Materialwissenschaften",
+                    "Data Science"
+                ]
+            },
+            "2": {
+                "description": "Exzellenz in Theologie, Medizin, Jura & Geisteswissenschaften",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Psychologie",
+                    "Neurowissenschaften",
+                    "International Business",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "3": {
+                "description": "Gegründet 1457, starke internationale Ausrichtung & Forschungsprofil",
+                "programs": [
+                    "Informatik",
+                    "Medizin",
+                    "Umweltwissenschaften",
+                    "Physik",
+                    "Volkswirtschaftslehre",
+                    "Biologie"
+                ]
+            },
+            "4": {
+                "description": "Top-Ingenieurschule mit Partnerschaften zu Mercedes-Benz & Bosch",
+                "programs": [
+                    "Maschinenbau",
+                    "Informatik",
+                    "Informationstechnologie",
+                    "Bauingenieurwesen",
+                    "Fahrzeugtechnik",
+                    "Elektrotechnik"
+                ]
+            },
+            "5": {
+                "description": "Die führende Wirtschaftshochschule Deutschlands",
+                "programs": [
+                    "Betriebswirtschaftslehre",
+                    "Volkswirtschaftslehre",
+                    "International Business",
+                    "Finanzen",
+                    "Management",
+                    "Psychologie"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Schwarzwald",
+                "description": "Der größte zusammenhängende Wald Deutschlands, bekannt für Kuckucksuhren, Schwarzwälder Kirschtorte und 17 Michelin-Sterne-Restaurants. Eine Region aus dunklen Wäldern, Heilbädern und alten Traditionen."
+            },
+            "1": {
+                "title": "Schwäbische Küche",
+                "description": "Heimat von Spätzle und Maultaschen. Die herzhaften Gerichte der Region spiegeln jahrhundertelange bäuerliche Tradition und kulinarische Kreativität wider."
+            },
+            "2": {
+                "title": "Bollenhut",
+                "description": "Der ikonische Schwarzwaldhut mit großen roten (unverheiratet) oder schwarzen (verheiratet) Pompons. Ein Symbol regionaler Identität, das noch bei Festen und besonderen Anlässen getragen wird."
+            },
+            "3": {
+                "title": "Fastnacht",
+                "description": "Die schwäbisch-alemannische Fastnachtstradition mit aufwendigen Holzmasken, bunten Kostümen und jahrhundertealten Bräuchen, die sich vom rheinischen Karneval unterscheidet."
+            },
+            "4": {
+                "title": "Dialekte",
+                "description": "Vier verschiedene Dialekte: Schwäbisch, Badisch, Alemannisch und Fränkisch. Die Einheimischen nennen ihr Land liebevoll 'Ländle'."
+            },
+            "5": {
+                "title": "Handwerkskunst",
+                "description": "Traditionelle Schwarzwälder Uhrmacherei, Präzisionsinstrumente und Schmuck. Die Region produziert die Mehrheit der deutschen Uhren, Armbanduhren und Maßschmuckstücke."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Drittgrößtes Bundesland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Zweitniedrigste in Deutschland"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Dritthöchstes in Deutschland"
+            },
+            "3": {
+                "label": "Studiengebühren/Semester",
+                "context": "Für Nicht-EU-Studierende"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Automobilindustrie",
+                "hq": "Stuttgart"
+            },
+            "1": {
+                "sector": "Automobilindustrie",
+                "hq": "Stuttgart"
+            },
+            "2": {
+                "sector": "Maschinenbau",
+                "hq": "Gerlingen"
+            },
+            "3": {
+                "sector": "Software",
+                "hq": "Walldorf"
+            },
+            "4": {
+                "sector": "Einzelhandel (Lidl)",
+                "hq": "Neckarsulm"
+            },
+            "5": {
+                "sector": "Optik",
+                "hq": "Oberkochen"
+            }
+        }
     },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Zweitgrößtes Bundesland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Niedrigste in Deutschland"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Wäre die 7. EU-Volkswirtschaft"
-      },
-      "3": {
-        "label": "Internationale Studierende",
-        "context": "Pro Jahr"
-      }
+    "saarland": {
+        "name": "Saarland",
+        "description": "Das Saarland ist ein Geheimtipp im Südwesten Deutschlands, grenzt an Frankreich und Luxemburg. Bekannt für seinen 'Savoir-vivre'-Lebensstil, verbindet es industrielles Erbe mit üppiger Natur und einem schnell wachsenden IT-Forschungssektor rund um das CISPA Helmholtz-Zentrum.",
+        "motto": "Großes entsteht immer im Kleinen.",
+        "universities": {
+            "0": {
+                "description": "Führend in Informatik (Max-Planck-Institute) & Europäischem Recht",
+                "programs": [
+                    "Informatik",
+                    "Cybersicherheit",
+                    "Data Science & KI",
+                    "International Business",
+                    "Bioinformatik",
+                    "Materialwissenschaften"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Saarschleife",
+                "description": "Die große Schleife der Saar bei Mettlach. Ein atemberaubendes Naturwunder und das bekannteste Wahrzeichen des Landes, am besten vom Cloef-Aussichtspunkt zu sehen."
+            },
+            "1": {
+                "title": "Savoir Vivre",
+                "description": "Ein einzigartiger, französisch geprägter Lebensstil. Saarländer genießen gutes Essen ('Hauptsach gudd gess'), Wein und ein entspanntes Lebenstempo, das in Deutschland seinesgleichen sucht."
+            },
+            "2": {
+                "title": "Völklinger Hütte",
+                "description": "Ein UNESCO-Weltkulturerbe. Dieses massive ehemalige Eisenwerk wurde als faszinierendes Kulturzentrum, Ausstellungsraum und Industriemuseum erhalten."
+            },
+            "3": {
+                "title": "Schwenken",
+                "description": "Die lokale Kunst des Grillens auf einem Schwenker. Es ist mehr als nur Kochen; es ist eine soziale Religion und der Mittelpunkt sommerlicher Zusammenkünfte."
+            },
+            "4": {
+                "title": "Silicon Saarland",
+                "description": "Heimat des CISPA Helmholtz-Zentrums und der Max-Planck-Institute, ist das Saarland ein globaler Hotspot für Cybersicherheits- und KI-Forschung und zieht Talente aus aller Welt an."
+            },
+            "5": {
+                "title": "Dreiländereck",
+                "description": "Angrenzend an Frankreich und Luxemburg bietet die Region ein wahrhaft europäisches Erlebnis. Man kann über Grenzen wandern und an einem Tag drei Kulturen erleben."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Flächenmäßig kleinstes Bundesland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Wirtschaft im Wandel"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Hohe Pro-Kopf-Zahl"
+            },
+            "3": {
+                "label": "Internationale Studierende",
+                "context": "An der Universität des Saarlandes"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Automobilindustrie",
+                "hq": "Saarbrücken"
+            },
+            "1": {
+                "sector": "Maschinenbau",
+                "hq": "Homburg"
+            },
+            "2": {
+                "sector": "Keramik",
+                "hq": "Mettlach"
+            },
+            "3": {
+                "sector": "Stahl",
+                "hq": "Dillingen"
+            },
+            "4": {
+                "sector": "Forschung",
+                "hq": "Saarbrücken"
+            },
+            "5": {
+                "sector": "Einzelhandel",
+                "hq": "St. Wendel"
+            }
+        }
     },
-    "employers": {
-      "0": {
-        "sector": "Automobilindustrie",
-        "hq": "München"
-      },
-      "1": {
-        "sector": "Maschinenbau",
-        "hq": "München"
-      },
-      "2": {
-        "sector": "Versicherungen",
-        "hq": "München"
-      },
-      "3": {
-        "sector": "Automobilindustrie",
-        "hq": "Ingolstadt"
-      },
-      "4": {
-        "sector": "Sportbekleidung",
-        "hq": "Herzogenaurach"
-      },
-      "5": {
-        "sector": "Halbleiter",
-        "hq": "Neubiberg"
-      }
+    "rhineland-palatinate": {
+        "name": "Rheinland-Pfalz",
+        "description": "Rheinland-Pfalz ist das Land der Weinberge und Wälder. Heimat des romantischen Rheintals, der ältesten Stadt Deutschlands Trier und des globalen Chemieriesen BASF, bietet es eine perfekte Balance zwischen Hightech-Industrie und entspanntem Lebensstil.",
+        "motto": "Wir machen es einfach.",
+        "universities": {
+            "0": {
+                "description": "Eine der größten und vielseitigsten Universitäten Deutschlands",
+                "programs": [
+                    "Informatik",
+                    "Medizin",
+                    "Physik",
+                    "International Business",
+                    "Chemie",
+                    "Biologie"
+                ]
+            },
+            "1": {
+                "description": "Führend in KI und Informatik (DFKI-Hauptsitz)",
+                "programs": [
+                    "Informatik",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "Data Science",
+                    "Mathematik",
+                    "Wirtschaftsingenieurwesen"
+                ]
+            },
+            "2": {
+                "description": "Starker Schwerpunkt auf Geistes- und Sozialwissenschaften",
+                "programs": [
+                    "International Business",
+                    "Informatik",
+                    "Umweltwissenschaften",
+                    "Volkswirtschaftslehre",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "3": {
+                "description": "Junge Universität mit starker regionaler Integration",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Umweltwissenschaften",
+                    "Psychologie",
+                    "Bildungswissenschaften"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Weinland",
+                "description": "Produziert 70% des deutschen Weins. Die Deutsche Weinstraße bietet malerische Dörfer, erstklassigen Riesling und unzählige Herbstfeste."
+            },
+            "1": {
+                "title": "Römisches Erbe",
+                "description": "Trier, 16 v. Chr. von den Römern gegründet, ist die älteste Stadt Deutschlands. Die Porta Nigra und andere Monumente sind UNESCO-Welterbestätten."
+            },
+            "2": {
+                "title": "Romantischer Rhein",
+                "description": "Das Mittelrheintal mit seinen steilen Weinbergen, dem legendären Loreley-Felsen und der höchsten Burgenkonzentration der Welt."
+            },
+            "3": {
+                "title": "Mainzer Fastnacht",
+                "description": "Eine der größten Karnevalsfeiern Deutschlands. Eine 'fünfte Jahreszeit' mit Umzügen, politischer Satire und Straßenfesten ab November."
+            },
+            "4": {
+                "title": "Pfälzerwald",
+                "description": "Das größte zusammenhängende Waldgebiet Deutschlands und ein UNESCO-Biosphärenreservat. Ein Paradies für Wanderer, Kletterer und Naturliebhaber."
+            },
+            "5": {
+                "title": "Chemietal",
+                "description": "Heimat von Ludwigshafen und BASF, dem weltweit größten Chemiewerk. Die Region ist eine globale Macht für Chemie und Pharmazie."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Sechstgrößtes Bundesland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Unter Bundesdurchschnitt"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Exportstarke Wirtschaft"
+            },
+            "3": {
+                "label": "Studiengebühren",
+                "context": "Für alle Studierenden"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Chemie",
+                "hq": "Ludwigshafen"
+            },
+            "1": {
+                "sector": "Pharma",
+                "hq": "Ingelheim"
+            },
+            "2": {
+                "sector": "Versicherungen",
+                "hq": "Koblenz"
+            },
+            "3": {
+                "sector": "Biotechnologie",
+                "hq": "Mainz"
+            },
+            "4": {
+                "sector": "Glas",
+                "hq": "Mainz"
+            },
+            "5": {
+                "sector": "Automobilindustrie",
+                "hq": "Wörth"
+            }
+        }
+    },
+    "hesse": {
+        "name": "Hessen",
+        "description": "Hessen ist das Herz Deutschlands und die Finanzhauptstadt Europas. Mit Frankfurter Skyline, den dichten Wäldern des Taunus und dem historischen Charme von Städten wie Marburg bietet es eine dynamische Mischung aus globalem Business und reicher Tradition.",
+        "motto": "An Hessen führt kein Weg vorbei.",
+        "universities": {
+            "0": {
+                "description": "Stark in Finanzen, Jura und Wirtschaftswissenschaften (House of Finance)",
+                "programs": [
+                    "Finanzen",
+                    "Betriebswirtschaftslehre",
+                    "Informatik",
+                    "Medizin",
+                    "Internationale Volkswirtschaftslehre",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "1": {
+                "description": "Erste autonome Universität in Deutschland, spezialisiert auf Ingenieurwesen",
+                "programs": [
+                    "Informatik",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "Wirtschaftsingenieurwesen",
+                    "Materialwissenschaften",
+                    "Bauingenieurwesen"
+                ]
+            },
+            "2": {
+                "description": "Berühmt für Biowissenschaften und Kulturstudien",
+                "programs": [
+                    "Medizin",
+                    "Tiermedizin",
+                    "Betriebswirtschaftslehre",
+                    "Psychologie",
+                    "Agrarwissenschaften",
+                    "Ernährungswissenschaften"
+                ]
+            },
+            "3": {
+                "description": "Älteste protestantische Universität der Welt, gegründet 1527",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Psychologie",
+                    "Chemie",
+                    "International Business"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Mainhattan",
+                "description": "Frankfurt ist die einzige deutsche Stadt mit einer massiven Skyline. Es ist das finanzielle Herz der Eurozone, Heimat der EZB und der Börse."
+            },
+            "1": {
+                "title": "Apfelwein",
+                "description": "Das Nationalgetränk des Landes. 'Ebbelwoi' ist ein herber Apfelwein, der traditionell im Bembel serviert und aus dem Gerippten getrunken wird."
+            },
+            "2": {
+                "title": "Brüder Grimm",
+                "description": "Jacob und Wilhelm Grimm lebten und arbeiteten in Kassel und Hanau. Ihre weltberühmten Märchen (Aschenputtel, Hänsel und Gretel) stammen von hier."
+            },
+            "3": {
+                "title": "Rheingau",
+                "description": "Eine der renommiertesten Weinregionen Deutschlands, weltweit bekannt für ihren Riesling. Eine Landschaft aus sanften Weinbergen, Burgen und dem Rhein."
+            },
+            "4": {
+                "title": "Documenta",
+                "description": "Die weltweit wichtigste Ausstellung moderner Kunst, die alle fünf Jahre in Kassel stattfindet. Sie verwandelt die gesamte Stadt in ein lebendiges Museum."
+            },
+            "5": {
+                "title": "Kurstädte",
+                "description": "Wiesbaden und Bad Homburg sind berühmte historische Kurstädte. Ihre Thermalquellen und Casinos ziehen seit Jahrhunderten Könige und Besucher an."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Fünftgrößtes Bundesland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Starker Arbeitsmarkt"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Höchstes BIP pro Kopf"
+            },
+            "3": {
+                "label": "Internationale Studierende",
+                "context": "Globaler Knotenpunkt"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Luftfahrt",
+                "hq": "Frankfurt"
+            },
+            "1": {
+                "sector": "Finanzen",
+                "hq": "Frankfurt"
+            },
+            "2": {
+                "sector": "Pharma",
+                "hq": "Darmstadt"
+            },
+            "3": {
+                "sector": "Logistik",
+                "hq": "Frankfurt"
+            },
+            "4": {
+                "sector": "Automobilindustrie",
+                "hq": "Rüsselsheim"
+            },
+            "5": {
+                "sector": "Gesundheitswesen",
+                "hq": "Bad Homburg"
+            }
+        }
+    },
+    "thuringia": {
+        "name": "Thüringen",
+        "description": "Thüringen ist bekannt als das 'Grüne Herz Deutschlands' aufgrund seiner ausgedehnten Wälder. Es ist ein Land von immense kultureller Bedeutung, Heimat der Weimarer Klassik, der Bauhaus-Bewegung und der Wartburg Martin Luthers, das Geschichte mit modernen Optik- und Technologieindustrien verbindet.",
+        "motto": "Das ist Thüringen.",
+        "universities": {
+            "0": {
+                "description": "Historische Universität, verbunden mit Goethe, Schiller und Hegel",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Optik & Photonik",
+                    "Physik",
+                    "Molekularbiologie"
+                ]
+            },
+            "1": {
+                "description": "Starker Fokus auf Medientechnologie und Ingenieurwesen",
+                "programs": [
+                    "Informatik",
+                    "Elektrotechnik",
+                    "Maschinenbau",
+                    "Medientechnologie",
+                    "Informationssysteme",
+                    "Fahrzeugtechnik"
+                ]
+            },
+            "2": {
+                "description": "Weltbekannt für Architektur, Kunst und Design",
+                "programs": [
+                    "Architektur",
+                    "Informatik (Medien)",
+                    "Stadtplanung",
+                    "Medienkunst",
+                    "Bauingenieurwesen",
+                    "Produktdesign"
+                ]
+            },
+            "3": {
+                "description": "Spezialisiert auf Geistes- und Sozialwissenschaften",
+                "programs": [
+                    "Internationale Beziehungen",
+                    "Public Policy",
+                    "Bildungswissenschaften",
+                    "Psychologie",
+                    "Volkswirtschaftslehre"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Weimarer Klassik",
+                "description": "Heimat von Goethe und Schiller, Weimar war das intellektuelle Zentrum Europas im 18. Jahrhundert. Die Stadt beherbergt mehrere UNESCO-Welterbestätten."
+            },
+            "1": {
+                "title": "Bauhaus",
+                "description": "Die revolutionäre Bauhaus-Kunstschule wurde 1919 von Walter Gropius in Weimar gegründet und prägte die moderne Architektur und Gestaltung weltweit."
+            },
+            "2": {
+                "title": "Wartburg",
+                "description": "In Eisenach gelegen, übersetzte Martin Luther hier das Neue Testament ins Deutsche. Ein Symbol der deutschen Einheit und UNESCO-Welterbestätte."
+            },
+            "3": {
+                "title": "Thüringer Bratwurst",
+                "description": "Die Rostbratwurst ist eine geschützte regionale Spezialität mit 600-jähriger Geschichte. Das Grillen über Holzkohle ist eine geliebte lokale Tradition."
+            },
+            "4": {
+                "title": "Grünes Herz",
+                "description": "Der Thüringer Wald bietet endlose Wanderwege, darunter den berühmten Rennsteig, und verwandelt sich in schneereichen Monaten in ein Wintersportparadies."
+            },
+            "5": {
+                "title": "Erfurter Krämerbrücke",
+                "description": "Die Krämerbrücke ist die längste bewohnte Brücke Europas, gesäumt von charmanten Fachwerkhäusern, Kunsthandwerksläden und Cafés."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Zentral gelegen"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Stabile Wirtschaft"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Wachsender Technologiesektor"
+            },
+            "3": {
+                "label": "Studiengebühren",
+                "context": "Niedrige Lebenshaltungskosten"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Optik/Medizintechnik",
+                "hq": "Jena"
+            },
+            "1": {
+                "sector": "Photonik",
+                "hq": "Jena"
+            },
+            "2": {
+                "sector": "Energie",
+                "hq": "Erfurt"
+            },
+            "3": {
+                "sector": "Logistik",
+                "hq": "Erfurt"
+            },
+            "4": {
+                "sector": "Versorgung",
+                "hq": "Erfurt"
+            },
+            "5": {
+                "sector": "Medien",
+                "hq": "Erfurt"
+            }
+        }
+    },
+    "saxony": {
+        "name": "Sachsen",
+        "description": "Sachsen ist das dynamische Kultur- und Wirtschaftszentrum Ostdeutschlands. Vom 'Silicon Saxony'-Technologiezentrum in Dresden bis zur angesagten Kreativszene in Leipzig und den Naturwundern des Elbsandsteingebirges bietet es eine einzigartige Mischung aus Innovation und Geschichte.",
+        "motto": "So geht sächsisch.",
+        "universities": {
+            "0": {
+                "description": "Exzellenzuniversität, eine der größten technischen Universitäten Deutschlands",
+                "programs": [
+                    "Informatik",
+                    "Elektrotechnik",
+                    "Maschinenbau",
+                    "Internationales Management",
+                    "Physik",
+                    "Bauingenieurwesen"
+                ]
+            },
+            "1": {
+                "description": "Zweitälteste Universität Deutschlands (1409), Alma Mater von Goethe und Nietzsche",
+                "programs": [
+                    "Betriebswirtschaftslehre",
+                    "Informatik",
+                    "Medizin",
+                    "Psychologie",
+                    "Physik",
+                    "Internationale Beziehungen"
+                ]
+            },
+            "2": {
+                "description": "Starker Fokus auf Fahrzeug- und Maschinenbau",
+                "programs": [
+                    "Fahrzeugtechnik",
+                    "Informatik",
+                    "Maschinenbau",
+                    "Wirtschaftsingenieurwesen",
+                    "Elektrotechnik",
+                    "Management"
+                ]
+            },
+            "3": {
+                "description": "Älteste Montanuniversität der Welt",
+                "programs": [
+                    "Bergbau",
+                    "Materialwissenschaften",
+                    "Umwelttechnik",
+                    "Geologie",
+                    "International Business & Rohstoffe",
+                    "Maschinenbau"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Silicon Saxony",
+                "description": "Europas größtes Mikroelektronik-Cluster hat seinen Sitz in Dresden. Jeder dritte in Europa hergestellte Chip wird hier produziert und treibt globale Innovation voran."
+            },
+            "1": {
+                "title": "Sächsische Schweiz",
+                "description": "Das Elbsandsteingebirge bietet dramatische Felsformationen und die berühmte Basteibrücke. Ein Paradies für Kletterer und Wanderer südlich von Dresden."
+            },
+            "2": {
+                "title": "Barocke Pracht",
+                "description": "Dresden, bekannt als 'Elbflorenz', bietet weltklasse Architektur wie die Frauenkirche, das Zwingerpalais und die Semperoper."
+            },
+            "3": {
+                "title": "Musikstadt",
+                "description": "Leipzig ist die Stadt Bachs, Mendelssohns und Wagners. Der Thomanerchor und das Gewandhausorchester sind weltberühmt."
+            },
+            "4": {
+                "title": "Weihnachtsmärkte",
+                "description": "Der Dresdner Striezelmarkt ist der älteste Weihnachtsmarkt Deutschlands (1434). Die Region ist berühmt für erzgebirgische Holzkunst und Nussknacker."
+            },
+            "5": {
+                "title": "Meißner Porzellan",
+                "description": "Europas erstes Hartporzellan wurde hier erfunden. Das 'Weiße Gold' aus Meißen bleibt ein Symbol für höchsten Luxus und Handwerkskunst."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Bevölkerungsreichstes Ostland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Führendes Ostland"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Starke Industriebasis"
+            },
+            "3": {
+                "label": "Internationale Studierende",
+                "context": "An der TU Dresden"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Automobilindustrie",
+                "hq": "Zwickau"
+            },
+            "1": {
+                "sector": "Logistik",
+                "hq": "Leipzig"
+            },
+            "2": {
+                "sector": "Halbleiter",
+                "hq": "Dresden"
+            },
+            "3": {
+                "sector": "Automobilindustrie",
+                "hq": "Leipzig"
+            },
+            "4": {
+                "sector": "Halbleiter",
+                "hq": "Dresden"
+            },
+            "5": {
+                "sector": "Automobilindustrie",
+                "hq": "Leipzig"
+            }
+        }
+    },
+    "north-rhine-westphalia": {
+        "name": "Nordrhein-Westfalen",
+        "description": "NRW ist das bevölkerungsreichste Bundesland Deutschlands, eine einzigartige Verbindung von Industriekultur und moderner Innovation. Von den lebendigen Rheinstädten Köln und Düsseldorf bis zur verwandelten Ruhrregion bietet es ein dichtes Netz an Universitäten und Karrieremöglichkeiten.",
+        "motto": "Wir lieben das Neue.",
+        "universities": {
+            "0": {
+                "description": "Deutschlands größte technische Universität, ein weltweit führendes Zentrum für Ingenieurwesen",
+                "programs": [
+                    "Informatik",
+                    "Maschinenbau",
+                    "Fahrzeugtechnik",
+                    "Elektrotechnik",
+                    "Wirtschaftsingenieurwesen",
+                    "Software-Systemtechnik"
+                ]
+            },
+            "1": {
+                "description": "Exzellenzuniversität, hat mehrere Nobelpreisträger hervorgebracht",
+                "programs": [
+                    "Informatik",
+                    "Volkswirtschaftslehre",
+                    "Medizin",
+                    "Physik",
+                    "Agrarwissenschaften",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "2": {
+                "description": "Eine der ältesten (1388) und größten Universitäten Deutschlands",
+                "programs": [
+                    "Betriebswirtschaftslehre",
+                    "Volkswirtschaftslehre",
+                    "Informatik",
+                    "Medizin",
+                    "Psychologie",
+                    "International Business"
+                ]
+            },
+            "3": {
+                "description": "Bekannt für hohe Lebensqualität und fahrradfreundlichen Campus",
+                "programs": [
+                    "Betriebswirtschaftslehre",
+                    "Informatik",
+                    "Medizin",
+                    "Psychologie",
+                    "Rechtswissenschaften",
+                    "Volkswirtschaftslehre"
+                ]
+            },
+            "4": {
+                "description": "Erste neue Universitätsgründung in Westdeutschland nach dem Zweiten Weltkrieg",
+                "programs": [
+                    "Informatik",
+                    "Maschinenbau",
+                    "Medizin",
+                    "Psychologie",
+                    "Volkswirtschaftslehre",
+                    "Elektrotechnik"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Kölner Dom",
+                "description": "Der Kölner Dom ist ein gotisches Meisterwerk und das meistbesuchte Wahrzeichen Deutschlands. Eine UNESCO-Welterbestätte, deren Bau 632 Jahre dauerte."
+            },
+            "1": {
+                "title": "Karneval",
+                "description": "Die 'Fünfte Jahreszeit' bringt Millionen Feiernde auf die Straßen von Köln, Düsseldorf und Mainz. Eine Zeit der Umzüge, Kostüme und puren Freude."
+            },
+            "2": {
+                "title": "Industriekultur",
+                "description": "Das Ruhrgebiet verwandelte sich von Kohleminen zu Kultur. Orte wie die Zeche Zollverein in Essen zeigen, wie Industrie zu Kunst und Freizeit wurde."
+            },
+            "3": {
+                "title": "Düsseldorfer Mode",
+                "description": "Bekannt als Deutschlands Modehauptstadt, bietet Düsseldorf die elegante Königsallee ('Kö') und eine lebendige Kunstszene."
+            },
+            "4": {
+                "title": "Beethovens Stadt",
+                "description": "Bonn ist der Geburtsort Ludwig van Beethovens. Sein Vermächtnis wird in Museen, Festivals und der historischen Atmosphäre der ehemaligen Hauptstadt gefeiert."
+            },
+            "5": {
+                "title": "Fußball-Leidenschaft",
+                "description": "Fußball ist hier eine Religion. Heimat legendärer Vereine wie Borussia Dortmund und Schalke 04, hat die Region die höchste Stadiondichte Europas."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Bevölkerungsreichstes Bundesland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Diverse Wirtschaft"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Höchstes in Deutschland"
+            },
+            "3": {
+                "label": "Internationaler Hintergrund",
+                "context": "Multikulturelle Gesellschaft"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Telekommunikation",
+                "hq": "Bonn"
+            },
+            "1": {
+                "sector": "Logistik",
+                "hq": "Bonn"
+            },
+            "2": {
+                "sector": "Energie",
+                "hq": "Essen"
+            },
+            "3": {
+                "sector": "Pharma/Chemie",
+                "hq": "Leverkusen"
+            },
+            "4": {
+                "sector": "Industrie",
+                "hq": "Essen"
+            },
+            "5": {
+                "sector": "Automobilindustrie",
+                "hq": "Köln"
+            }
+        }
+    },
+    "saxony-anhalt": {
+        "name": "Sachsen-Anhalt",
+        "description": "Sachsen-Anhalt ist eine Region des kulturellen Erwachens und der modernen Innovation. Von der Wiege der Reformation in Wittenberg bis zum Geburtsort der Bauhaus-Bewegung in Dessau bietet es eine reiche Geschichte neben einem wachsenden Hightech- und Erneuerbare-Energien-Sektor.",
+        "motto": "#moderndenken",
+        "universities": {
+            "0": {
+                "description": "Eine der ältesten Universitäten Deutschlands, reich an Tradition und Forschung",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Pharmazie",
+                    "Rechtswissenschaften",
+                    "Agrarwissenschaften"
+                ]
+            },
+            "1": {
+                "description": "Starker Fokus auf Ingenieurwesen, Informatik und Medizin",
+                "programs": [
+                    "Informatik",
+                    "Wirtschaftsingenieurwesen",
+                    "Medizin",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "Betriebswirtschaftslehre"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Bauhaus Dessau",
+                "description": "Das ikonische Bauhaus-Gebäude in Dessau ist UNESCO-Welterbestätte. Es war das Zentrum modernen Designs und Architektur in den 1920er Jahren."
+            },
+            "1": {
+                "title": "Lutherstadt Wittenberg",
+                "description": "Der Geburtsort der Reformation. Martin Luther schlug hier seine 95 Thesen an die Tür der Schlosskirche und veränderte die Geschichte für immer."
+            },
+            "2": {
+                "title": "Harz",
+                "description": "Ein Mittelgebirge voller Legenden, Hexen und dem Brocken. Die Harzer Schmalspurbahnen bieten eine nostalgische Dampfzugfahrt durch die Wälder."
+            },
+            "3": {
+                "title": "Quedlinburg",
+                "description": "Eine bemerkenswert erhaltene mittelalterliche Stadt mit über 1.300 Fachwerkhäusern. Ein Spaziergang durch die Straßen fühlt sich an wie eine Zeitreise."
+            },
+            "4": {
+                "title": "Halle (Saale)",
+                "description": "Eine Kulturhauptstadt, bekannt für den Komponisten Georg Friedrich Händel und die Himmelsscheibe von Nebra, der ältesten bekannten Darstellung des Kosmos."
+            },
+            "5": {
+                "title": "Gartenreich",
+                "description": "Das Dessau-Wörlitzer Gartenreich ist eine atemberaubende Kulturlandschaft aus englischen Parks und Schlössern, anerkannt von der UNESCO."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Reiches kulturelles Erbe"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Sich verbessernde Wirtschaft"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Starke Chemieindustrie"
+            },
+            "3": {
+                "label": "Studiengebühren",
+                "context": "Niedrige Lebenshaltungskosten"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Verkehr",
+                "hq": "Regionaler Knoten"
+            },
+            "1": {
+                "sector": "Logistik",
+                "hq": "Leipzig/Halle"
+            },
+            "2": {
+                "sector": "Gesundheitswesen",
+                "hq": "Halle"
+            },
+            "3": {
+                "sector": "Gesundheitswesen",
+                "hq": "Aschersleben"
+            },
+            "4": {
+                "sector": "Versorgung",
+                "hq": "Halle"
+            },
+            "5": {
+                "sector": "Chemie",
+                "hq": "Leuna"
+            }
+        }
+    },
+    "lower-saxony": {
+        "name": "Niedersachsen",
+        "description": "Niedersachsen erstreckt sich von der Nordseeküste bis zum Harz. Es ist ein Land der weiten Horizonte, Automobilgiganten wie Volkswagen und weltklasse Forschungsuniversitäten, das eine hohe Lebensqualität und vielfältige Landschaften bietet.",
+        "motto": "Klar.",
+        "universities": {
+            "0": {
+                "description": "Hat über 40 Nobelpreisträger hervorgebracht, hoch angesehen",
+                "programs": [
+                    "Informatik",
+                    "International Business",
+                    "Medizin",
+                    "Physik",
+                    "Molekularbiologie",
+                    "Agrarwissenschaften"
+                ]
+            },
+            "1": {
+                "description": "Mitglied der TU9, führend in Ingenieurwesen und Technologie",
+                "programs": [
+                    "Informatik",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "Bauingenieurwesen",
+                    "Wirtschaftsingenieurwesen",
+                    "International Business"
+                ]
+            },
+            "2": {
+                "description": "Älteste technische Universität Deutschlands, Schwerpunkt Mobilität und Luftfahrt",
+                "programs": [
+                    "Fahrzeugtechnik",
+                    "Informatik",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "Architektur",
+                    "Luftfahrttechnik"
+                ]
+            },
+            "3": {
+                "description": "Einzigartiger Fokus auf Energie, Rohstoffe und Materialwissenschaften",
+                "programs": [
+                    "Bergbau",
+                    "Materialwissenschaften",
+                    "Erdöltechnik",
+                    "Informatik",
+                    "Umwelttechnik",
+                    "Maschinenbau"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Autostadt Wolfsburg",
+                "description": "Ein riesiger Automobil-Themenpark und Museum neben dem Volkswagenwerk. Ein Pilgerort für Autoliebhaber aus aller Welt."
+            },
+            "1": {
+                "title": "Lüneburger Heide",
+                "description": "Eine einzigartige Landschaft aus violetter Heide, die im Spätsommer blüht. Historische Städte wie Lüneburg bieten mittelalterlichen Charme und Salzbergbaugeschichte."
+            },
+            "2": {
+                "title": "Ostfriesische Inseln",
+                "description": "Die sieben Inseln im UNESCO-Weltnaturerbe Wattenmeer sind bekannt für ihre Sandstrände, Leuchttürme und traditionelle Teekultur."
+            },
+            "3": {
+                "title": "Goslarer Altstadt",
+                "description": "Eine UNESCO-Welterbestätte mit über 1.500 Fachwerkhäusern und der Kaiserpfalz, die den Reichtum des Bergbaus widerspiegelt."
+            },
+            "4": {
+                "title": "Hannover Messe",
+                "description": "Die weltweit größte Industriemesse findet hier jedes Jahr statt und präsentiert die neuesten Innovationen in Technologie und Ingenieurwesen."
+            },
+            "5": {
+                "title": "Meyer Werft",
+                "description": "In Papenburg gelegen, baut diese Werft die größten Kreuzfahrtschiffe der Welt. Die Giganten auf der schmalen Ems zu sehen, ist ein Spektakel."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Viertgrößtes Bundesland"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Stabiler Markt"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Starke Automobilbranche"
+            },
+            "3": {
+                "label": "Studiengebühren",
+                "context": "Nur Semesterbeitrag"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Automobilindustrie",
+                "hq": "Wolfsburg"
+            },
+            "1": {
+                "sector": "Automobilindustrie",
+                "hq": "Hannover"
+            },
+            "2": {
+                "sector": "Versicherungen",
+                "hq": "Hannover"
+            },
+            "3": {
+                "sector": "Stahl",
+                "hq": "Salzgitter"
+            },
+            "4": {
+                "sector": "Einzelhandel",
+                "hq": "Burgwedel"
+            },
+            "5": {
+                "sector": "Pharma/Bio",
+                "hq": "Göttingen"
+            }
+        }
+    },
+    "brandenburg": {
+        "name": "Brandenburg",
+        "description": "Brandenburg umgibt Berlin und ist ein Land der Seen, Wälder und preußischen Geschichte. Von den Schlössern in Potsdam über die Spreewaldkanäle bis zur neuen Tesla Gigafactory bietet es eine hohe Lebensqualität mit leichtem Zugang zur Hauptstadt.",
+        "motto": "Es kann so einfach sein.",
+        "universities": {
+            "0": {
+                "description": "Größte Universität des Landes, stark in Geistes- und Naturwissenschaften",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Internationale Beziehungen",
+                    "Psychologie",
+                    "Öffentliche Verwaltung",
+                    "Data Science"
+                ]
+            },
+            "1": {
+                "description": "Führend in Energie-, Umwelt- und Materialforschung",
+                "programs": [
+                    "Umwelttechnik",
+                    "Informatik",
+                    "Elektrotechnik",
+                    "Maschinenbau",
+                    "Wirtschaftsingenieurwesen",
+                    "Architektur"
+                ]
+            },
+            "2": {
+                "description": "Schwerpunkt auf internationale Beziehungen, Recht und Wirtschaft",
+                "programs": [
+                    "International Business",
+                    "Rechtswissenschaften",
+                    "Europastudien",
+                    "Internationale Beziehungen",
+                    "Volkswirtschaftslehre"
+                ]
+            },
+            "3": {
+                "description": "Älteste und größte Filmschule Deutschlands",
+                "programs": [
+                    "Filmproduktion",
+                    "Drehbuch",
+                    "Animation",
+                    "Medienwissenschaften",
+                    "Produktion",
+                    "Kameraführung"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Schloss Sanssouci",
+                "description": "Friedrichs des Großen Sommerpalast in Potsdam ist ein Rokoko-Meisterwerk. Der Park- und Schlosskomplex ist UNESCO-Welterbestätte."
+            },
+            "1": {
+                "title": "Spreewald",
+                "description": "Ein UNESCO-Biosphärenreservat, wo die Spree in hunderte kleine Kanäle verzweigt. Berühmt für Kahnfahrten und Spreewaldgurken."
+            },
+            "2": {
+                "title": "Studio Babelsberg",
+                "description": "Das älteste Großfilmstudio der Welt. Meisterwerke wie 'Metropolis' und moderne Blockbuster wie 'Inglourious Basterds' wurden hier gedreht."
+            },
+            "3": {
+                "title": "Tropical Islands",
+                "description": "Untergebracht in einer ehemaligen Luftschiffhalle, ist dies die größte überdachte Wasserwelt der Welt mit Regenwald, Strand und Lagune."
+            },
+            "4": {
+                "title": "Cecilienhof",
+                "description": "Der Ort der Potsdamer Konferenz 1945, wo Truman, Churchill und Stalin über die Zukunft Deutschlands und Europas entschieden."
+            },
+            "5": {
+                "title": "3000 Seen",
+                "description": "Brandenburg ist eines der wasserreichsten Bundesländer Deutschlands mit über 3.000 Seen, die endlose Möglichkeiten zum Schwimmen und Segeln bieten."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Umgeben Berlin"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Wachsender Technologiesektor"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Angetrieben durch neue Industrie"
+            },
+            "3": {
+                "label": "Studiengebühren",
+                "context": "Nur Semesterbeitrag"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Automobilindustrie",
+                "hq": "Grünheide"
+            },
+            "1": {
+                "sector": "Automobilindustrie",
+                "hq": "Brandenburg a.d.H."
+            },
+            "2": {
+                "sector": "Luftfahrt",
+                "hq": "Dahlewitz"
+            },
+            "3": {
+                "sector": "Chemie",
+                "hq": "Schwarzheide"
+            },
+            "4": {
+                "sector": "Versicherungen",
+                "hq": "Potsdam"
+            },
+            "5": {
+                "sector": "Einzelhandel",
+                "hq": "Schönefeld"
+            }
+        }
+    },
+    "berlin": {
+        "name": "Berlin",
+        "description": "Berlin ist die Hauptstadt Deutschlands und ein globaler Knotenpunkt für Kultur, Politik und Wissenschaft. Bekannt für seine lebendige Start-up-Szene, vielfältige internationale Gemeinschaft und reiche Geschichte, ist es eine der aufregendsten Städte Europas zum Leben und Studieren.",
+        "motto": "Arm, aber sexy.",
+        "universities": {
+            "0": {
+                "description": "Exzellenzuniversität, stark in Geistes- und Sozialwissenschaften",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Internationale Beziehungen",
+                    "Politikwissenschaften",
+                    "Psychologie",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "1": {
+                "description": "Die Mutter aller modernen Universitäten, Alma Mater von 29 Nobelpreisträgern",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Medizin",
+                    "Volkswirtschaftslehre",
+                    "Psychologie",
+                    "Materialwissenschaften"
+                ]
+            },
+            "2": {
+                "description": "Mitglied der TU9, führend in Ingenieurwesen und Informatik",
+                "programs": [
+                    "Informatik",
+                    "Maschinenbau",
+                    "Wirtschaftsingenieurwesen",
+                    "Elektrotechnik",
+                    "Bauingenieurwesen",
+                    "Innovationsmanagement"
+                ]
+            },
+            "3": {
+                "description": "Eines der größten und renommiertesten Universitätskliniken Europas",
+                "programs": [
+                    "Medizin",
+                    "Molekulare Medizin",
+                    "Epidemiologie",
+                    "International Health",
+                    "Medizinische Neurowissenschaften",
+                    "Zahnmedizin"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Brandenburger Tor",
+                "description": "Das berühmteste Wahrzeichen der Stadt und ein Symbol der deutschen Wiedervereinigung. Es steht im Herzen der Hauptstadt und ist Zeuge jahrhundertelanger Geschichte."
+            },
+            "1": {
+                "title": "Start-up-Hauptstadt",
+                "description": "Berlin ist das Silicon Valley Europas, Heimat von Einhörnern wie Zalando und N26. Die Stadt zieht Unternehmer und digitale Nomaden aus aller Welt an."
+            },
+            "2": {
+                "title": "Museumsinsel",
+                "description": "Ein UNESCO-Welterbe in der Spree, das fünf erstklassige Museen beherbergt, darunter das Pergamonmuseum und das Alte Museum."
+            },
+            "3": {
+                "title": "Clubkultur",
+                "description": "Berlins Nachtleben ist legendär. Clubs wie Berghain und die vielfältige Technoszene haben die Stadt zu einem globalen Ziel für Musikliebhaber gemacht."
+            },
+            "4": {
+                "title": "East Side Gallery",
+                "description": "Der längste erhaltene Abschnitt der Berliner Mauer, heute eine Open-Air-Galerie mit Wandmalereien von Künstlern aus aller Welt."
+            },
+            "5": {
+                "title": "Currywurst",
+                "description": "Berlins typisches Streetfood. Gedämpfte und gebratene Schweinswurst mit Curryketchup, am besten an einem lokalen Imbiss genossen."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Größte Stadt Deutschlands"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Dynamischer Arbeitsmarkt"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Dienstleistungsorientierte Wirtschaft"
+            },
+            "3": {
+                "label": "Internationale Studierende",
+                "context": "Hoch international"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Verkehr",
+                "hq": "Berlin"
+            },
+            "1": {
+                "sector": "Gesundheitswesen",
+                "hq": "Berlin"
+            },
+            "2": {
+                "sector": "Gesundheitswesen",
+                "hq": "Berlin"
+            },
+            "3": {
+                "sector": "Verkehr",
+                "hq": "Berlin"
+            },
+            "4": {
+                "sector": "Tech/Mode",
+                "hq": "Berlin"
+            },
+            "5": {
+                "sector": "Energie",
+                "hq": "Berlin"
+            }
+        }
+    },
+    "bremen": {
+        "name": "Bremen",
+        "description": "Bremen ist eine Hansestadt mit stolzer maritimer Geschichte und einer Zukunft in der Luft- und Raumfahrt. Bekannt für die Bremer Stadtmusikanten und den UNESCO-Welterbe-Marktplatz verbindet es Tradition mit modernster Forschung in Weltraumtechnologie und Polarwissenschaft.",
+        "motto": "Drei Worte: Hanseatisch, herzlich, hippen.",
+        "universities": {
+            "0": {
+                "description": "Stark in Klimaforschung, Meereswissenschaften und Ingenieurwesen",
+                "programs": [
+                    "Informatik",
+                    "International Business",
+                    "Meereswissenschaften",
+                    "Ingenieurwesen",
+                    "Physik",
+                    "Volkswirtschaftslehre"
+                ]
+            },
+            "1": {
+                "description": "Private, englischsprachige Campus-Universität mit globaler Studentenschaft",
+                "programs": [
+                    "Informatik",
+                    "Software & Data Technology",
+                    "International Business",
+                    "Data Science",
+                    "Psychologie",
+                    "Biochemie"
+                ]
+            },
+            "2": {
+                "description": "Hochschule für angewandte Wissenschaften mit starken internationalen Netzwerken",
+                "programs": [
+                    "International Business",
+                    "Globales Management",
+                    "Aviation Management",
+                    "Tourismusmanagement",
+                    "Logistik",
+                    "Informatik"
+                ]
+            },
+            "3": {
+                "description": "Schwerpunkt auf Maritime Technologien und Windenergie",
+                "programs": [
+                    "Maritime Technik",
+                    "Erneuerbare Energien",
+                    "Tourismusmanagement",
+                    "Informatik",
+                    "Logistik",
+                    "Windenergie"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Bremer Stadtmusikanten",
+                "description": "Die Bronzestatue von Esel, Hund, Katze und Hahn aus dem Märchen der Brüder Grimm. Das Berühren der Eselbeine soll Glück bringen."
+            },
+            "1": {
+                "title": "Schnoorviertel",
+                "description": "Der älteste Stadtteil Bremens. Ein Labyrinth aus engen Kopfsteinpflasterstraßen und winzigen Häusern aus dem 15. Jahrhundert, heute voller Kunsthandwerk."
+            },
+            "2": {
+                "title": "UNESCO-Rathaus",
+                "description": "Das gotische Rathaus und die Roland-Statue sind Symbole bürgerlicher Autonomie und Freiheit, anerkannt als UNESCO-Welterbestätte."
+            },
+            "3": {
+                "title": "Luft- und Raumfahrtzentrum",
+                "description": "Bremen ist die 'Stadt der Raumfahrt'. Das Europäische Servicemodul für das NASA-Raumschiff Orion wird hier bei Airbus gebaut."
+            },
+            "4": {
+                "title": "Beck's Brauerei",
+                "description": "Heimat eines der weltweit berühmtesten Biere. Die Brauerei an der Weser exportiert ihre grünen Flaschen seit 1873."
+            },
+            "5": {
+                "title": "Maritime Meile",
+                "description": "Die Schlachte an der Weser ist eine beliebte Promenade mit Biergärten, Restaurants und historischen Schiffen."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Zwei Städte (HB & BHV)"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Industrieller Wandel"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Starke Logistik/Raumfahrt"
+            },
+            "3": {
+                "label": "Internationale Studierende",
+                "context": "Vielfältige Gemeinschaft"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Automobilindustrie",
+                "hq": "Bremen"
+            },
+            "1": {
+                "sector": "Luft- und Raumfahrt",
+                "hq": "Bremen"
+            },
+            "2": {
+                "sector": "Logistik",
+                "hq": "Bremen"
+            },
+            "3": {
+                "sector": "Stahl",
+                "hq": "Bremen"
+            },
+            "4": {
+                "sector": "Getränke",
+                "hq": "Bremen"
+            },
+            "5": {
+                "sector": "Raumfahrttechnik",
+                "hq": "Bremen"
+            }
+        }
+    },
+    "mecklenburg-vorpommern": {
+        "name": "Mecklenburg-Vorpommern",
+        "description": "Mecklenburg-Vorpommern ist ein Küstenparadies mit über 2.000 Seen und Inseln wie Rügen und Usedom. Es verbindet einen entspannten Lebensstil mit historischen Hansestädten und modernster Forschung in Meeresbiologie und erneuerbaren Energien.",
+        "motto": "MV tut gut.",
+        "universities": {
+            "0": {
+                "description": "Älteste Universität im Ostseeraum (1419), stark in interdisziplinärer Forschung",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Meeresbiologie",
+                    "Maschinenbau",
+                    "Erneuerbare Energien",
+                    "Betriebswirtschaftslehre"
+                ]
+            },
+            "1": {
+                "description": "International orientierte Forschungsuniversität, stark in Biowissenschaften und Plasmaphysik",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Physik",
+                    "Biologie",
+                    "Betriebswirtschaftslehre",
+                    "Rechtswissenschaften"
+                ]
+            },
+            "2": {
+                "description": "Technik, Wirtschaft und Design mit starkem maritimem Fokus",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Maritime Technik",
+                    "Architektur",
+                    "Elektrotechnik",
+                    "Design"
+                ]
+            },
+            "3": {
+                "description": "Junge Campus-Universität mit Schwerpunkt auf erneuerbare Energien und Tourismus",
+                "programs": [
+                    "Erneuerbare Energien",
+                    "Informatik",
+                    "Internationales Management",
+                    "Tourismusmanagement",
+                    "Maritime Technik",
+                    "Elektrotechnik"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Schweriner Schloss",
+                "description": "Auf einer Insel im Schweriner See gelegen, wird dieser romantische Palast als 'Neuschwanstein des Nordens' bezeichnet und beherbergt den Landtag."
+            },
+            "1": {
+                "title": "Ostseeküste",
+                "description": "Mit Inseln wie Rügen und Usedom bietet das Land Deutschlands schönste Strände und die ikonischen Kreidefelsen, gemalt von Caspar David Friedrich."
+            },
+            "2": {
+                "title": "Hansisches Erbe",
+                "description": "Die historischen Zentren von Stralsund und Wismar sind UNESCO-Welterbestätten und spiegeln den Reichtum und die Macht der Hanse wider."
+            },
+            "3": {
+                "title": "Müritz-Nationalpark",
+                "description": "Ein Land der tausend Seen. Der größte terrestrische Nationalpark Deutschlands bietet unberührte Natur, Kanufahren und Adlerbeobachtung."
+            },
+            "4": {
+                "title": "Hanse Sail",
+                "description": "Eines der größten maritimen Festivals der Welt, das jeden Sommer hunderte Großsegler und Millionen Besucher nach Rostock bringt."
+            },
+            "5": {
+                "title": "Backsteingotik",
+                "description": "Die charakteristische Backsteingotik prägt die Region mit massiven roten Backsteinkirchen und Stadttoren, die die Skyline dominieren."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Niedrigste Dichte"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Tourismusgetrieben"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Wachsende erneuerbare Energien"
+            },
+            "3": {
+                "label": "Studiengebühren",
+                "context": "Hohe Lebensqualität"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Tourismus",
+                "hq": "Rostock"
+            },
+            "1": {
+                "sector": "Windenergie",
+                "hq": "Rostock"
+            },
+            "2": {
+                "sector": "Gesundheitswesen",
+                "hq": "Greifswald"
+            },
+            "3": {
+                "sector": "Fertigung",
+                "hq": "Rostock"
+            },
+            "4": {
+                "sector": "Schiffbau",
+                "hq": "Rostock"
+            },
+            "5": {
+                "sector": "Life Science",
+                "hq": "Greifswald"
+            }
+        }
+    },
+    "schleswig-holstein": {
+        "name": "Schleswig-Holstein",
+        "description": "Der 'Echte Norden' Deutschlands, gelegen zwischen Nord- und Ostsee. Schleswig-Holstein ist bekannt für sein maritimes Erbe, seine Führungsrolle in der Windenergie und das UNESCO-Weltnaturerbe Wattenmeer.",
+        "motto": "Der echte Norden.",
+        "universities": {
+            "0": {
+                "description": "Starker Fokus auf Meereswissenschaften, Nanowissenschaften und Biowissenschaften",
+                "programs": [
+                    "Informatik",
+                    "Medizin",
+                    "Meereswissenschaften",
+                    "International Business",
+                    "Physik",
+                    "Nachhaltigkeitsstudien"
+                ]
+            },
+            "1": {
+                "description": "Platz #1 für Medizin im CHE-Ranking, forschungsintensiv",
+                "programs": [
+                    "Medizin",
+                    "Informatik",
+                    "Biomedizin",
+                    "Medizinische Informatik",
+                    "Psychologie",
+                    "Mathematik"
+                ]
+            },
+            "2": {
+                "description": "Auf einem gemeinsamen Campus nahe der dänischen Grenze gelegen, Schwerpunkt Energie",
+                "programs": [
+                    "International Business",
+                    "Erneuerbare Energien",
+                    "Informatik",
+                    "Tourismusmanagement",
+                    "Ingenieurwesen"
+                ]
+            },
+            "3": {
+                "description": "Größte Hochschule für angewandte Wissenschaften im Land",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Maschinenbau",
+                    "Elektrotechnik",
+                    "International Business",
+                    "Erneuerbare Energien"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Wattenmeer",
+                "description": "Ein UNESCO-Weltnaturerbe und das größte zusammenhängende System von Gezeiten-Sand- und Schlickflächen der Welt. Ein einzigartiges Ökosystem voller Leben."
+            },
+            "1": {
+                "title": "Holstentor",
+                "description": "Das ikonische Backsteintor Lübecks, ein Symbol der Hanse und UNESCO-Welterbestätte."
+            },
+            "2": {
+                "title": "Kieler Woche",
+                "description": "Die größte Segelveranstaltung der Welt und ein riesiges Sommerfest, das Millionen Besucher anzieht."
+            },
+            "3": {
+                "title": "Lübecker Marzipan",
+                "description": "Eine weltberühmte Süßspeise, geschützt durch EU-Recht. Niederegger ist der bekannteste Hersteller, gegründet 1806."
+            },
+            "4": {
+                "title": "Sylt",
+                "description": "Die 'Hamptons' Deutschlands. Eine Insel in der Nordsee, bekannt für ihre charakteristische Form, lange Sandstrände und Reetdachhäuser."
+            },
+            "5": {
+                "title": "Wikinger-Erbe",
+                "description": "Haithabu war eine bedeutende Wikinger-Handelssiedlung. Heute zeigen ein Museum und ein rekonstruiertes Dorf diese faszinierende Geschichte."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Zwischen zwei Meeren"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Starker KMU-Sektor"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Führend in grüner Energie"
+            },
+            "3": {
+                "label": "Studiengebühren",
+                "context": "Hoher Lebensstandard"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Gesundheitswesen",
+                "hq": "Kiel/Lübeck"
+            },
+            "1": {
+                "sector": "Medizintechnik",
+                "hq": "Lübeck"
+            },
+            "2": {
+                "sector": "Schiffbau",
+                "hq": "Kiel"
+            },
+            "3": {
+                "sector": "Einzelhandel",
+                "hq": "Kiel"
+            },
+            "4": {
+                "sector": "Konglomerat",
+                "hq": "Lübeck"
+            },
+            "5": {
+                "sector": "Telekommunikation",
+                "hq": "Büdelsdorf"
+            }
+        }
+    },
+    "hamburg": {
+        "name": "Hamburg",
+        "description": "Hamburg ist Deutschlands 'Tor zur Welt', eine Stadt der Brücken, des Wassers und des Handels. Als bedeutender europäischer Hafen und Medienzentrum bietet es eine kosmopolitische Atmosphäre, einen hohen Lebensstandard und eine blühende Szene für Wissenschaft und Innovation.",
+        "motto": "Tor zur Welt.",
+        "universities": {
+            "0": {
+                "description": "Exzellenzuniversität, bekannt für Klimaforschung und Manuskriptkulturen",
+                "programs": [
+                    "Informatik",
+                    "International Business",
+                    "Medizin",
+                    "Physik",
+                    "Rechtswissenschaften",
+                    "Volkswirtschaftslehre"
+                ]
+            },
+            "1": {
+                "description": "Hochspezialisiert auf Ingenieurwesen, Luftfahrt und Logistik",
+                "programs": [
+                    "Informatik",
+                    "Luft- und Raumfahrttechnik",
+                    "Maschinenbau",
+                    "Materialwissenschaften",
+                    "Informationssysteme",
+                    "Logistik"
+                ]
+            },
+            "2": {
+                "description": "Zweitgrößte Universität Hamburgs, starker Fokus auf Design und Medien",
+                "programs": [
+                    "Informatik",
+                    "Betriebswirtschaftslehre",
+                    "Maschinenbau",
+                    "Fahrzeugtechnik",
+                    "Luftfahrttechnik",
+                    "Mediendesign"
+                ]
+            },
+            "3": {
+                "description": "Spezialisiert auf Architektur und Stadtentwicklung",
+                "programs": [
+                    "Architektur",
+                    "Stadtplanung",
+                    "Bauingenieurwesen",
+                    "Immobilienwirtschaft",
+                    "Metropolenkultur",
+                    "Ressourceneffizienz"
+                ]
+            }
+        },
+        "culture": {
+            "0": {
+                "title": "Elbphilharmonie",
+                "description": "Ein atemberaubendes Konzerthaus auf einem alten Lagerhaus errichtet. Seine wellenförmige Glasfassade ist zum neuen Wahrzeichen der Stadt geworden."
+            },
+            "1": {
+                "title": "Speicherstadt",
+                "description": "Der größte Lagerhauskomplex der Welt und UNESCO-Welterbe. Backsteingotische Gebäude, von engen Kanälen durchzogen."
+            },
+            "2": {
+                "title": "Hafen Hamburg",
+                "description": "Der größte Hafen Deutschlands. Bootstouren bieten Nahaufnahmen von massiven Containerschiffen, historischen Schiffen und den geschäftigen Containerterminals."
+            },
+            "3": {
+                "title": "Miniatur Wunderland",
+                "description": "Die größte Modelleisenbahnanlage der Welt. Eine magische Welt, die mehr Besucher anzieht als jede andere Touristenattraktion in Deutschland."
+            },
+            "4": {
+                "title": "Reeperbahn",
+                "description": "Die berühmte Vergnügungsmeile im St. Pauli Bezirk. Bekannt für sein Nachtleben, Theater und Musikgeschichte (die Beatles begannen hier)."
+            },
+            "5": {
+                "title": "Alster",
+                "description": "Zwei künstliche Seen im Herzen der Stadt (Binnenalster und Außenalster). Beliebt zum Segeln, Rudern und Entspannen an den Ufern."
+            }
+        },
+        "keyNumbers": {
+            "0": {
+                "label": "Bevölkerung",
+                "context": "Zweitgrößte Stadt"
+            },
+            "1": {
+                "label": "Arbeitslosigkeit",
+                "context": "Starker Handelsknotenpunkt"
+            },
+            "2": {
+                "label": "BIP",
+                "context": "Hohe Pro-Kopf-Zahl"
+            },
+            "3": {
+                "label": "Internationale Studierende",
+                "context": "Globale Verbindungen"
+            }
+        },
+        "employers": {
+            "0": {
+                "sector": "Luft- und Raumfahrt",
+                "hq": "Hamburg-Finkenwerder"
+            },
+            "1": {
+                "sector": "Luftfahrt",
+                "hq": "Hamburg"
+            },
+            "2": {
+                "sector": "Gesundheitswesen",
+                "hq": "Hamburg"
+            },
+            "3": {
+                "sector": "Logistik",
+                "hq": "Hamburg"
+            },
+            "4": {
+                "sector": "Konsumgüter",
+                "hq": "Hamburg"
+            },
+            "5": {
+                "sector": "E-Commerce",
+                "hq": "Hamburg"
+            }
+        }
     }
-  },
-  "baden-wurttemberg": {
-    "name": "Baden-Württemberg",
-    "description": "Baden-Württemberg ist das Innovationskraftwerk Deutschlands, Heimat globaler Automobilgiganten, weltbekannter Universitäten und des bezaubernden Schwarzwalds. Das Land verbindet Spitzentechnologie mit tief verwurzelten schwäbischen Traditionen.",
-    "motto": "Wir können alles. Außer Hochdeutsch.",
-    "universities": {
-      "0": {
-        "description": "Die älteste Universität Deutschlands (1386), Exzellenz in Medizin & Biowissenschaften",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Physik",
-          "Molekularbiologie",
-          "Data Science",
-          "International Business"
-        ]
-      },
-      "1": {
-        "description": "Exzellenzuniversität, führend in Ingenieur- & Naturwissenschaften",
-        "programs": [
-          "Informatik",
-          "Maschinenbau",
-          "Wirtschaftsingenieurwesen",
-          "Elektrotechnik",
-          "Materialwissenschaften",
-          "Data Science"
-        ]
-      },
-      "2": {
-        "description": "Exzellenz in Theologie, Medizin, Jura & Geisteswissenschaften",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Psychologie",
-          "Neurowissenschaften",
-          "International Business",
-          "Rechtswissenschaften"
-        ]
-      },
-      "3": {
-        "description": "Gegründet 1457, starke internationale Ausrichtung & Forschungsprofil",
-        "programs": [
-          "Informatik",
-          "Medizin",
-          "Umweltwissenschaften",
-          "Physik",
-          "Volkswirtschaftslehre",
-          "Biologie"
-        ]
-      },
-      "4": {
-        "description": "Top-Ingenieurschule mit Partnerschaften zu Mercedes-Benz & Bosch",
-        "programs": [
-          "Maschinenbau",
-          "Informatik",
-          "Informationstechnologie",
-          "Bauingenieurwesen",
-          "Fahrzeugtechnik",
-          "Elektrotechnik"
-        ]
-      },
-      "5": {
-        "description": "Die führende Wirtschaftshochschule Deutschlands",
-        "programs": [
-          "Betriebswirtschaftslehre",
-          "Volkswirtschaftslehre",
-          "International Business",
-          "Finanzen",
-          "Management",
-          "Psychologie"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Schwarzwald",
-        "description": "Der größte zusammenhängende Wald Deutschlands, bekannt für Kuckucksuhren, Schwarzwälder Kirschtorte und 17 Michelin-Sterne-Restaurants. Eine Region aus dunklen Wäldern, Heilbädern und alten Traditionen."
-      },
-      "1": {
-        "title": "Schwäbische Küche",
-        "description": "Heimat von Spätzle und Maultaschen. Die herzhaften Gerichte der Region spiegeln jahrhundertelange bäuerliche Tradition und kulinarische Kreativität wider."
-      },
-      "2": {
-        "title": "Bollenhut",
-        "description": "Der ikonische Schwarzwaldhut mit großen roten (unverheiratet) oder schwarzen (verheiratet) Pompons. Ein Symbol regionaler Identität, das noch bei Festen und besonderen Anlässen getragen wird."
-      },
-      "3": {
-        "title": "Fastnacht",
-        "description": "Die schwäbisch-alemannische Fastnachtstradition mit aufwendigen Holzmasken, bunten Kostümen und jahrhundertealten Bräuchen, die sich vom rheinischen Karneval unterscheidet."
-      },
-      "4": {
-        "title": "Dialekte",
-        "description": "Vier verschiedene Dialekte: Schwäbisch, Badisch, Alemannisch und Fränkisch. Die Einheimischen nennen ihr Land liebevoll 'Ländle'."
-      },
-      "5": {
-        "title": "Handwerkskunst",
-        "description": "Traditionelle Schwarzwälder Uhrmacherei, Präzisionsinstrumente und Schmuck. Die Region produziert die Mehrheit der deutschen Uhren, Armbanduhren und Maßschmuckstücke."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Drittgrößtes Bundesland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Zweitniedrigste in Deutschland"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Dritthöchstes in Deutschland"
-      },
-      "3": {
-        "label": "Studiengebühren/Semester",
-        "context": "Für Nicht-EU-Studierende"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Automobilindustrie",
-        "hq": "Stuttgart"
-      },
-      "1": {
-        "sector": "Automobilindustrie",
-        "hq": "Stuttgart"
-      },
-      "2": {
-        "sector": "Maschinenbau",
-        "hq": "Gerlingen"
-      },
-      "3": {
-        "sector": "Software",
-        "hq": "Walldorf"
-      },
-      "4": {
-        "sector": "Einzelhandel (Lidl)",
-        "hq": "Neckarsulm"
-      },
-      "5": {
-        "sector": "Optik",
-        "hq": "Oberkochen"
-      }
-    }
-  },
-  "saarland": {
-    "name": "Saarland",
-    "description": "Das Saarland ist ein Geheimtipp im Südwesten Deutschlands, grenzt an Frankreich und Luxemburg. Bekannt für seinen 'Savoir-vivre'-Lebensstil, verbindet es industrielles Erbe mit üppiger Natur und einem schnell wachsenden IT-Forschungssektor rund um das CISPA Helmholtz-Zentrum.",
-    "motto": "Großes entsteht immer im Kleinen.",
-    "universities": {
-      "0": {
-        "description": "Führend in Informatik (Max-Planck-Institute) & Europäischem Recht",
-        "programs": [
-          "Informatik",
-          "Cybersicherheit",
-          "Data Science & KI",
-          "International Business",
-          "Bioinformatik",
-          "Materialwissenschaften"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Saarschleife",
-        "description": "Die große Schleife der Saar bei Mettlach. Ein atemberaubendes Naturwunder und das bekannteste Wahrzeichen des Landes, am besten vom Cloef-Aussichtspunkt zu sehen."
-      },
-      "1": {
-        "title": "Savoir Vivre",
-        "description": "Ein einzigartiger, französisch geprägter Lebensstil. Saarländer genießen gutes Essen ('Hauptsach gudd gess'), Wein und ein entspanntes Lebenstempo, das in Deutschland seinesgleichen sucht."
-      },
-      "2": {
-        "title": "Völklinger Hütte",
-        "description": "Ein UNESCO-Weltkulturerbe. Dieses massive ehemalige Eisenwerk wurde als faszinierendes Kulturzentrum, Ausstellungsraum und Industriemuseum erhalten."
-      },
-      "3": {
-        "title": "Schwenken",
-        "description": "Die lokale Kunst des Grillens auf einem Schwenker. Es ist mehr als nur Kochen; es ist eine soziale Religion und der Mittelpunkt sommerlicher Zusammenkünfte."
-      },
-      "4": {
-        "title": "Silicon Saarland",
-        "description": "Heimat des CISPA Helmholtz-Zentrums und der Max-Planck-Institute, ist das Saarland ein globaler Hotspot für Cybersicherheits- und KI-Forschung und zieht Talente aus aller Welt an."
-      },
-      "5": {
-        "title": "Dreiländereck",
-        "description": "Angrenzend an Frankreich und Luxemburg bietet die Region ein wahrhaft europäisches Erlebnis. Man kann über Grenzen wandern und an einem Tag drei Kulturen erleben."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Flächenmäßig kleinstes Bundesland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Wirtschaft im Wandel"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Hohe Pro-Kopf-Zahl"
-      },
-      "3": {
-        "label": "Internationale Studierende",
-        "context": "An der Universität des Saarlandes"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Automobilindustrie",
-        "hq": "Saarbrücken"
-      },
-      "1": {
-        "sector": "Maschinenbau",
-        "hq": "Homburg"
-      },
-      "2": {
-        "sector": "Keramik",
-        "hq": "Mettlach"
-      },
-      "3": {
-        "sector": "Stahl",
-        "hq": "Dillingen"
-      },
-      "4": {
-        "sector": "Forschung",
-        "hq": "Saarbrücken"
-      },
-      "5": {
-        "sector": "Einzelhandel",
-        "hq": "St. Wendel"
-      }
-    }
-  },
-  "rhineland-palatinate": {
-    "name": "Rheinland-Pfalz",
-    "description": "Rheinland-Pfalz ist das Land der Weinberge und Wälder. Heimat des romantischen Rheintals, der ältesten Stadt Deutschlands Trier und des globalen Chemieriesen BASF, bietet es eine perfekte Balance zwischen Hightech-Industrie und entspanntem Lebensstil.",
-    "motto": "Wir machen es einfach.",
-    "universities": {
-      "0": {
-        "description": "Eine der größten und vielseitigsten Universitäten Deutschlands",
-        "programs": [
-          "Informatik",
-          "Medizin",
-          "Physik",
-          "International Business",
-          "Chemie",
-          "Biologie"
-        ]
-      },
-      "1": {
-        "description": "Führend in KI und Informatik (DFKI-Hauptsitz)",
-        "programs": [
-          "Informatik",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "Data Science",
-          "Mathematik",
-          "Wirtschaftsingenieurwesen"
-        ]
-      },
-      "2": {
-        "description": "Starker Schwerpunkt auf Geistes- und Sozialwissenschaften",
-        "programs": [
-          "International Business",
-          "Informatik",
-          "Umweltwissenschaften",
-          "Volkswirtschaftslehre",
-          "Rechtswissenschaften"
-        ]
-      },
-      "3": {
-        "description": "Junge Universität mit starker regionaler Integration",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Umweltwissenschaften",
-          "Psychologie",
-          "Bildungswissenschaften"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Weinland",
-        "description": "Produziert 70% des deutschen Weins. Die Deutsche Weinstraße bietet malerische Dörfer, erstklassigen Riesling und unzählige Herbstfeste."
-      },
-      "1": {
-        "title": "Römisches Erbe",
-        "description": "Trier, 16 v. Chr. von den Römern gegründet, ist die älteste Stadt Deutschlands. Die Porta Nigra und andere Monumente sind UNESCO-Welterbestätten."
-      },
-      "2": {
-        "title": "Romantischer Rhein",
-        "description": "Das Mittelrheintal mit seinen steilen Weinbergen, dem legendären Loreley-Felsen und der höchsten Burgenkonzentration der Welt."
-      },
-      "3": {
-        "title": "Mainzer Fastnacht",
-        "description": "Eine der größten Karnevalsfeiern Deutschlands. Eine 'fünfte Jahreszeit' mit Umzügen, politischer Satire und Straßenfesten ab November."
-      },
-      "4": {
-        "title": "Pfälzerwald",
-        "description": "Das größte zusammenhängende Waldgebiet Deutschlands und ein UNESCO-Biosphärenreservat. Ein Paradies für Wanderer, Kletterer und Naturliebhaber."
-      },
-      "5": {
-        "title": "Chemietal",
-        "description": "Heimat von Ludwigshafen und BASF, dem weltweit größten Chemiewerk. Die Region ist eine globale Macht für Chemie und Pharmazie."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Sechstgrößtes Bundesland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Unter Bundesdurchschnitt"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Exportstarke Wirtschaft"
-      },
-      "3": {
-        "label": "Studiengebühren",
-        "context": "Für alle Studierenden"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Chemie",
-        "hq": "Ludwigshafen"
-      },
-      "1": {
-        "sector": "Pharma",
-        "hq": "Ingelheim"
-      },
-      "2": {
-        "sector": "Versicherungen",
-        "hq": "Koblenz"
-      },
-      "3": {
-        "sector": "Biotechnologie",
-        "hq": "Mainz"
-      },
-      "4": {
-        "sector": "Glas",
-        "hq": "Mainz"
-      },
-      "5": {
-        "sector": "Automobilindustrie",
-        "hq": "Wörth"
-      }
-    }
-  },
-  "hesse": {
-    "name": "Hessen",
-    "description": "Hessen ist das Herz Deutschlands und die Finanzhauptstadt Europas. Mit Frankfurter Skyline, den dichten Wäldern des Taunus und dem historischen Charme von Städten wie Marburg bietet es eine dynamische Mischung aus globalem Business und reicher Tradition.",
-    "motto": "An Hessen führt kein Weg vorbei.",
-    "universities": {
-      "0": {
-        "description": "Stark in Finanzen, Jura und Wirtschaftswissenschaften (House of Finance)",
-        "programs": [
-          "Finanzen",
-          "Betriebswirtschaftslehre",
-          "Informatik",
-          "Medizin",
-          "Internationale Volkswirtschaftslehre",
-          "Rechtswissenschaften"
-        ]
-      },
-      "1": {
-        "description": "Erste autonome Universität in Deutschland, spezialisiert auf Ingenieurwesen",
-        "programs": [
-          "Informatik",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "Wirtschaftsingenieurwesen",
-          "Materialwissenschaften",
-          "Bauingenieurwesen"
-        ]
-      },
-      "2": {
-        "description": "Berühmt für Biowissenschaften und Kulturstudien",
-        "programs": [
-          "Medizin",
-          "Tiermedizin",
-          "Betriebswirtschaftslehre",
-          "Psychologie",
-          "Agrarwissenschaften",
-          "Ernährungswissenschaften"
-        ]
-      },
-      "3": {
-        "description": "Älteste protestantische Universität der Welt, gegründet 1527",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Psychologie",
-          "Chemie",
-          "International Business"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Mainhattan",
-        "description": "Frankfurt ist die einzige deutsche Stadt mit einer massiven Skyline. Es ist das finanzielle Herz der Eurozone, Heimat der EZB und der Börse."
-      },
-      "1": {
-        "title": "Apfelwein",
-        "description": "Das Nationalgetränk des Landes. 'Ebbelwoi' ist ein herber Apfelwein, der traditionell im Bembel serviert und aus dem Gerippten getrunken wird."
-      },
-      "2": {
-        "title": "Brüder Grimm",
-        "description": "Jacob und Wilhelm Grimm lebten und arbeiteten in Kassel und Hanau. Ihre weltberühmten Märchen (Aschenputtel, Hänsel und Gretel) stammen von hier."
-      },
-      "3": {
-        "title": "Rheingau",
-        "description": "Eine der renommiertesten Weinregionen Deutschlands, weltweit bekannt für ihren Riesling. Eine Landschaft aus sanften Weinbergen, Burgen und dem Rhein."
-      },
-      "4": {
-        "title": "Documenta",
-        "description": "Die weltweit wichtigste Ausstellung moderner Kunst, die alle fünf Jahre in Kassel stattfindet. Sie verwandelt die gesamte Stadt in ein lebendiges Museum."
-      },
-      "5": {
-        "title": "Kurstädte",
-        "description": "Wiesbaden und Bad Homburg sind berühmte historische Kurstädte. Ihre Thermalquellen und Casinos ziehen seit Jahrhunderten Könige und Besucher an."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Fünftgrößtes Bundesland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Starker Arbeitsmarkt"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Höchstes BIP pro Kopf"
-      },
-      "3": {
-        "label": "Internationale Studierende",
-        "context": "Globaler Knotenpunkt"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Luftfahrt",
-        "hq": "Frankfurt"
-      },
-      "1": {
-        "sector": "Finanzen",
-        "hq": "Frankfurt"
-      },
-      "2": {
-        "sector": "Pharma",
-        "hq": "Darmstadt"
-      },
-      "3": {
-        "sector": "Logistik",
-        "hq": "Frankfurt"
-      },
-      "4": {
-        "sector": "Automobilindustrie",
-        "hq": "Rüsselsheim"
-      },
-      "5": {
-        "sector": "Gesundheitswesen",
-        "hq": "Bad Homburg"
-      }
-    }
-  },
-  "thuringia": {
-    "name": "Thüringen",
-    "description": "Thüringen ist bekannt als das 'Grüne Herz Deutschlands' aufgrund seiner ausgedehnten Wälder. Es ist ein Land von immense kultureller Bedeutung, Heimat der Weimarer Klassik, der Bauhaus-Bewegung und der Wartburg Martin Luthers, das Geschichte mit modernen Optik- und Technologieindustrien verbindet.",
-    "motto": "Das ist Thüringen.",
-    "universities": {
-      "0": {
-        "description": "Historische Universität, verbunden mit Goethe, Schiller und Hegel",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Optik & Photonik",
-          "Physik",
-          "Molekularbiologie"
-        ]
-      },
-      "1": {
-        "description": "Starker Fokus auf Medientechnologie und Ingenieurwesen",
-        "programs": [
-          "Informatik",
-          "Elektrotechnik",
-          "Maschinenbau",
-          "Medientechnologie",
-          "Informationssysteme",
-          "Fahrzeugtechnik"
-        ]
-      },
-      "2": {
-        "description": "Weltbekannt für Architektur, Kunst und Design",
-        "programs": [
-          "Architektur",
-          "Informatik (Medien)",
-          "Stadtplanung",
-          "Medienkunst",
-          "Bauingenieurwesen",
-          "Produktdesign"
-        ]
-      },
-      "3": {
-        "description": "Spezialisiert auf Geistes- und Sozialwissenschaften",
-        "programs": [
-          "Internationale Beziehungen",
-          "Public Policy",
-          "Bildungswissenschaften",
-          "Psychologie",
-          "Volkswirtschaftslehre"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Weimarer Klassik",
-        "description": "Heimat von Goethe und Schiller, Weimar war das intellektuelle Zentrum Europas im 18. Jahrhundert. Die Stadt beherbergt mehrere UNESCO-Welterbestätten."
-      },
-      "1": {
-        "title": "Bauhaus",
-        "description": "Die revolutionäre Bauhaus-Kunstschule wurde 1919 von Walter Gropius in Weimar gegründet und prägte die moderne Architektur und Gestaltung weltweit."
-      },
-      "2": {
-        "title": "Wartburg",
-        "description": "In Eisenach gelegen, übersetzte Martin Luther hier das Neue Testament ins Deutsche. Ein Symbol der deutschen Einheit und UNESCO-Welterbestätte."
-      },
-      "3": {
-        "title": "Thüringer Bratwurst",
-        "description": "Die Rostbratwurst ist eine geschützte regionale Spezialität mit 600-jähriger Geschichte. Das Grillen über Holzkohle ist eine geliebte lokale Tradition."
-      },
-      "4": {
-        "title": "Grünes Herz",
-        "description": "Der Thüringer Wald bietet endlose Wanderwege, darunter den berühmten Rennsteig, und verwandelt sich in schneereichen Monaten in ein Wintersportparadies."
-      },
-      "5": {
-        "title": "Erfurter Krämerbrücke",
-        "description": "Die Krämerbrücke ist die längste bewohnte Brücke Europas, gesäumt von charmanten Fachwerkhäusern, Kunsthandwerksläden und Cafés."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Zentral gelegen"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Stabile Wirtschaft"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Wachsender Technologiesektor"
-      },
-      "3": {
-        "label": "Studiengebühren",
-        "context": "Niedrige Lebenshaltungskosten"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Optik/Medizintechnik",
-        "hq": "Jena"
-      },
-      "1": {
-        "sector": "Photonik",
-        "hq": "Jena"
-      },
-      "2": {
-        "sector": "Energie",
-        "hq": "Erfurt"
-      },
-      "3": {
-        "sector": "Logistik",
-        "hq": "Erfurt"
-      },
-      "4": {
-        "sector": "Versorgung",
-        "hq": "Erfurt"
-      },
-      "5": {
-        "sector": "Medien",
-        "hq": "Erfurt"
-      }
-    }
-  },
-  "saxony": {
-    "name": "Sachsen",
-    "description": "Sachsen ist das dynamische Kultur- und Wirtschaftszentrum Ostdeutschlands. Vom 'Silicon Saxony'-Technologiezentrum in Dresden bis zur angesagten Kreativszene in Leipzig und den Naturwundern des Elbsandsteingebirges bietet es eine einzigartige Mischung aus Innovation und Geschichte.",
-    "motto": "So geht sächsisch.",
-    "universities": {
-      "0": {
-        "description": "Exzellenzuniversität, eine der größten technischen Universitäten Deutschlands",
-        "programs": [
-          "Informatik",
-          "Elektrotechnik",
-          "Maschinenbau",
-          "Internationales Management",
-          "Physik",
-          "Bauingenieurwesen"
-        ]
-      },
-      "1": {
-        "description": "Zweitälteste Universität Deutschlands (1409), Alma Mater von Goethe und Nietzsche",
-        "programs": [
-          "Betriebswirtschaftslehre",
-          "Informatik",
-          "Medizin",
-          "Psychologie",
-          "Physik",
-          "Internationale Beziehungen"
-        ]
-      },
-      "2": {
-        "description": "Starker Fokus auf Fahrzeug- und Maschinenbau",
-        "programs": [
-          "Fahrzeugtechnik",
-          "Informatik",
-          "Maschinenbau",
-          "Wirtschaftsingenieurwesen",
-          "Elektrotechnik",
-          "Management"
-        ]
-      },
-      "3": {
-        "description": "Älteste Montanuniversität der Welt",
-        "programs": [
-          "Bergbau",
-          "Materialwissenschaften",
-          "Umwelttechnik",
-          "Geologie",
-          "International Business & Rohstoffe",
-          "Maschinenbau"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Silicon Saxony",
-        "description": "Europas größtes Mikroelektronik-Cluster hat seinen Sitz in Dresden. Jeder dritte in Europa hergestellte Chip wird hier produziert und treibt globale Innovation voran."
-      },
-      "1": {
-        "title": "Sächsische Schweiz",
-        "description": "Das Elbsandsteingebirge bietet dramatische Felsformationen und die berühmte Basteibrücke. Ein Paradies für Kletterer und Wanderer südlich von Dresden."
-      },
-      "2": {
-        "title": "Barocke Pracht",
-        "description": "Dresden, bekannt als 'Elbflorenz', bietet weltklasse Architektur wie die Frauenkirche, das Zwingerpalais und die Semperoper."
-      },
-      "3": {
-        "title": "Musikstadt",
-        "description": "Leipzig ist die Stadt Bachs, Mendelssohns und Wagners. Der Thomanerchor und das Gewandhausorchester sind weltberühmt."
-      },
-      "4": {
-        "title": "Weihnachtsmärkte",
-        "description": "Der Dresdner Striezelmarkt ist der älteste Weihnachtsmarkt Deutschlands (1434). Die Region ist berühmt für erzgebirgische Holzkunst und Nussknacker."
-      },
-      "5": {
-        "title": "Meißner Porzellan",
-        "description": "Europas erstes Hartporzellan wurde hier erfunden. Das 'Weiße Gold' aus Meißen bleibt ein Symbol für höchsten Luxus und Handwerkskunst."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Bevölkerungsreichstes Ostland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Führendes Ostland"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Starke Industriebasis"
-      },
-      "3": {
-        "label": "Internationale Studierende",
-        "context": "An der TU Dresden"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Automobilindustrie",
-        "hq": "Zwickau"
-      },
-      "1": {
-        "sector": "Logistik",
-        "hq": "Leipzig"
-      },
-      "2": {
-        "sector": "Halbleiter",
-        "hq": "Dresden"
-      },
-      "3": {
-        "sector": "Automobilindustrie",
-        "hq": "Leipzig"
-      },
-      "4": {
-        "sector": "Halbleiter",
-        "hq": "Dresden"
-      },
-      "5": {
-        "sector": "Automobilindustrie",
-        "hq": "Leipzig"
-      }
-    }
-  },
-  "north-rhine-westphalia": {
-    "name": "Nordrhein-Westfalen",
-    "description": "NRW ist das bevölkerungsreichste Bundesland Deutschlands, eine einzigartige Verbindung von Industriekultur und moderner Innovation. Von den lebendigen Rheinstädten Köln und Düsseldorf bis zur verwandelten Ruhrregion bietet es ein dichtes Netz an Universitäten und Karrieremöglichkeiten.",
-    "motto": "Wir lieben das Neue.",
-    "universities": {
-      "0": {
-        "description": "Deutschlands größte technische Universität, ein weltweit führendes Zentrum für Ingenieurwesen",
-        "programs": [
-          "Informatik",
-          "Maschinenbau",
-          "Fahrzeugtechnik",
-          "Elektrotechnik",
-          "Wirtschaftsingenieurwesen",
-          "Software-Systemtechnik"
-        ]
-      },
-      "1": {
-        "description": "Exzellenzuniversität, hat mehrere Nobelpreisträger hervorgebracht",
-        "programs": [
-          "Informatik",
-          "Volkswirtschaftslehre",
-          "Medizin",
-          "Physik",
-          "Agrarwissenschaften",
-          "Rechtswissenschaften"
-        ]
-      },
-      "2": {
-        "description": "Eine der ältesten (1388) und größten Universitäten Deutschlands",
-        "programs": [
-          "Betriebswirtschaftslehre",
-          "Volkswirtschaftslehre",
-          "Informatik",
-          "Medizin",
-          "Psychologie",
-          "International Business"
-        ]
-      },
-      "3": {
-        "description": "Bekannt für hohe Lebensqualität und fahrradfreundlichen Campus",
-        "programs": [
-          "Betriebswirtschaftslehre",
-          "Informatik",
-          "Medizin",
-          "Psychologie",
-          "Rechtswissenschaften",
-          "Volkswirtschaftslehre"
-        ]
-      },
-      "4": {
-        "description": "Erste neue Universitätsgründung in Westdeutschland nach dem Zweiten Weltkrieg",
-        "programs": [
-          "Informatik",
-          "Maschinenbau",
-          "Medizin",
-          "Psychologie",
-          "Volkswirtschaftslehre",
-          "Elektrotechnik"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Kölner Dom",
-        "description": "Der Kölner Dom ist ein gotisches Meisterwerk und das meistbesuchte Wahrzeichen Deutschlands. Eine UNESCO-Welterbestätte, deren Bau 632 Jahre dauerte."
-      },
-      "1": {
-        "title": "Karneval",
-        "description": "Die 'Fünfte Jahreszeit' bringt Millionen Feiernde auf die Straßen von Köln, Düsseldorf und Mainz. Eine Zeit der Umzüge, Kostüme und puren Freude."
-      },
-      "2": {
-        "title": "Industriekultur",
-        "description": "Das Ruhrgebiet verwandelte sich von Kohleminen zu Kultur. Orte wie die Zeche Zollverein in Essen zeigen, wie Industrie zu Kunst und Freizeit wurde."
-      },
-      "3": {
-        "title": "Düsseldorfer Mode",
-        "description": "Bekannt als Deutschlands Modehauptstadt, bietet Düsseldorf die elegante Königsallee ('Kö') und eine lebendige Kunstszene."
-      },
-      "4": {
-        "title": "Beethovens Stadt",
-        "description": "Bonn ist der Geburtsort Ludwig van Beethovens. Sein Vermächtnis wird in Museen, Festivals und der historischen Atmosphäre der ehemaligen Hauptstadt gefeiert."
-      },
-      "5": {
-        "title": "Fußball-Leidenschaft",
-        "description": "Fußball ist hier eine Religion. Heimat legendärer Vereine wie Borussia Dortmund und Schalke 04, hat die Region die höchste Stadiondichte Europas."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Bevölkerungsreichstes Bundesland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Diverse Wirtschaft"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Höchstes in Deutschland"
-      },
-      "3": {
-        "label": "Internationaler Hintergrund",
-        "context": "Multikulturelle Gesellschaft"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Telekommunikation",
-        "hq": "Bonn"
-      },
-      "1": {
-        "sector": "Logistik",
-        "hq": "Bonn"
-      },
-      "2": {
-        "sector": "Energie",
-        "hq": "Essen"
-      },
-      "3": {
-        "sector": "Pharma/Chemie",
-        "hq": "Leverkusen"
-      },
-      "4": {
-        "sector": "Industrie",
-        "hq": "Essen"
-      },
-      "5": {
-        "sector": "Automobilindustrie",
-        "hq": "Köln"
-      }
-    }
-  },
-  "saxony-anhalt": {
-    "name": "Sachsen-Anhalt",
-    "description": "Sachsen-Anhalt ist eine Region des kulturellen Erwachens und der modernen Innovation. Von der Wiege der Reformation in Wittenberg bis zum Geburtsort der Bauhaus-Bewegung in Dessau bietet es eine reiche Geschichte neben einem wachsenden Hightech- und Erneuerbare-Energien-Sektor.",
-    "motto": "#moderndenken",
-    "universities": {
-      "0": {
-        "description": "Eine der ältesten Universitäten Deutschlands, reich an Tradition und Forschung",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Pharmazie",
-          "Rechtswissenschaften",
-          "Agrarwissenschaften"
-        ]
-      },
-      "1": {
-        "description": "Starker Fokus auf Ingenieurwesen, Informatik und Medizin",
-        "programs": [
-          "Informatik",
-          "Wirtschaftsingenieurwesen",
-          "Medizin",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "Betriebswirtschaftslehre"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Bauhaus Dessau",
-        "description": "Das ikonische Bauhaus-Gebäude in Dessau ist UNESCO-Welterbestätte. Es war das Zentrum modernen Designs und Architektur in den 1920er Jahren."
-      },
-      "1": {
-        "title": "Lutherstadt Wittenberg",
-        "description": "Der Geburtsort der Reformation. Martin Luther schlug hier seine 95 Thesen an die Tür der Schlosskirche und veränderte die Geschichte für immer."
-      },
-      "2": {
-        "title": "Harz",
-        "description": "Ein Mittelgebirge voller Legenden, Hexen und dem Brocken. Die Harzer Schmalspurbahnen bieten eine nostalgische Dampfzugfahrt durch die Wälder."
-      },
-      "3": {
-        "title": "Quedlinburg",
-        "description": "Eine bemerkenswert erhaltene mittelalterliche Stadt mit über 1.300 Fachwerkhäusern. Ein Spaziergang durch die Straßen fühlt sich an wie eine Zeitreise."
-      },
-      "4": {
-        "title": "Halle (Saale)",
-        "description": "Eine Kulturhauptstadt, bekannt für den Komponisten Georg Friedrich Händel und die Himmelsscheibe von Nebra, der ältesten bekannten Darstellung des Kosmos."
-      },
-      "5": {
-        "title": "Gartenreich",
-        "description": "Das Dessau-Wörlitzer Gartenreich ist eine atemberaubende Kulturlandschaft aus englischen Parks und Schlössern, anerkannt von der UNESCO."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Reiches kulturelles Erbe"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Sich verbessernde Wirtschaft"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Starke Chemieindustrie"
-      },
-      "3": {
-        "label": "Studiengebühren",
-        "context": "Niedrige Lebenshaltungskosten"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Verkehr",
-        "hq": "Regionaler Knoten"
-      },
-      "1": {
-        "sector": "Logistik",
-        "hq": "Leipzig/Halle"
-      },
-      "2": {
-        "sector": "Gesundheitswesen",
-        "hq": "Halle"
-      },
-      "3": {
-        "sector": "Gesundheitswesen",
-        "hq": "Aschersleben"
-      },
-      "4": {
-        "sector": "Versorgung",
-        "hq": "Halle"
-      },
-      "5": {
-        "sector": "Chemie",
-        "hq": "Leuna"
-      }
-    }
-  },
-  "lower-saxony": {
-    "name": "Niedersachsen",
-    "description": "Niedersachsen erstreckt sich von der Nordseeküste bis zum Harz. Es ist ein Land der weiten Horizonte, Automobilgiganten wie Volkswagen und weltklasse Forschungsuniversitäten, das eine hohe Lebensqualität und vielfältige Landschaften bietet.",
-    "motto": "Klar.",
-    "universities": {
-      "0": {
-        "description": "Hat über 40 Nobelpreisträger hervorgebracht, hoch angesehen",
-        "programs": [
-          "Informatik",
-          "International Business",
-          "Medizin",
-          "Physik",
-          "Molekularbiologie",
-          "Agrarwissenschaften"
-        ]
-      },
-      "1": {
-        "description": "Mitglied der TU9, führend in Ingenieurwesen und Technologie",
-        "programs": [
-          "Informatik",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "Bauingenieurwesen",
-          "Wirtschaftsingenieurwesen",
-          "International Business"
-        ]
-      },
-      "2": {
-        "description": "Älteste technische Universität Deutschlands, Schwerpunkt Mobilität und Luftfahrt",
-        "programs": [
-          "Fahrzeugtechnik",
-          "Informatik",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "Architektur",
-          "Luftfahrttechnik"
-        ]
-      },
-      "3": {
-        "description": "Einzigartiger Fokus auf Energie, Rohstoffe und Materialwissenschaften",
-        "programs": [
-          "Bergbau",
-          "Materialwissenschaften",
-          "Erdöltechnik",
-          "Informatik",
-          "Umwelttechnik",
-          "Maschinenbau"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Autostadt Wolfsburg",
-        "description": "Ein riesiger Automobil-Themenpark und Museum neben dem Volkswagenwerk. Ein Pilgerort für Autoliebhaber aus aller Welt."
-      },
-      "1": {
-        "title": "Lüneburger Heide",
-        "description": "Eine einzigartige Landschaft aus violetter Heide, die im Spätsommer blüht. Historische Städte wie Lüneburg bieten mittelalterlichen Charme und Salzbergbaugeschichte."
-      },
-      "2": {
-        "title": "Ostfriesische Inseln",
-        "description": "Die sieben Inseln im UNESCO-Weltnaturerbe Wattenmeer sind bekannt für ihre Sandstrände, Leuchttürme und traditionelle Teekultur."
-      },
-      "3": {
-        "title": "Goslarer Altstadt",
-        "description": "Eine UNESCO-Welterbestätte mit über 1.500 Fachwerkhäusern und der Kaiserpfalz, die den Reichtum des Bergbaus widerspiegelt."
-      },
-      "4": {
-        "title": "Hannover Messe",
-        "description": "Die weltweit größte Industriemesse findet hier jedes Jahr statt und präsentiert die neuesten Innovationen in Technologie und Ingenieurwesen."
-      },
-      "5": {
-        "title": "Meyer Werft",
-        "description": "In Papenburg gelegen, baut diese Werft die größten Kreuzfahrtschiffe der Welt. Die Giganten auf der schmalen Ems zu sehen, ist ein Spektakel."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Viertgrößtes Bundesland"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Stabiler Markt"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Starke Automobilbranche"
-      },
-      "3": {
-        "label": "Studiengebühren",
-        "context": "Nur Semesterbeitrag"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Automobilindustrie",
-        "hq": "Wolfsburg"
-      },
-      "1": {
-        "sector": "Automobilindustrie",
-        "hq": "Hannover"
-      },
-      "2": {
-        "sector": "Versicherungen",
-        "hq": "Hannover"
-      },
-      "3": {
-        "sector": "Stahl",
-        "hq": "Salzgitter"
-      },
-      "4": {
-        "sector": "Einzelhandel",
-        "hq": "Burgwedel"
-      },
-      "5": {
-        "sector": "Pharma/Bio",
-        "hq": "Göttingen"
-      }
-    }
-  },
-  "brandenburg": {
-    "name": "Brandenburg",
-    "description": "Brandenburg umgibt Berlin und ist ein Land der Seen, Wälder und preußischen Geschichte. Von den Schlössern in Potsdam über die Spreewaldkanäle bis zur neuen Tesla Gigafactory bietet es eine hohe Lebensqualität mit leichtem Zugang zur Hauptstadt.",
-    "motto": "Es kann so einfach sein.",
-    "universities": {
-      "0": {
-        "description": "Größte Universität des Landes, stark in Geistes- und Naturwissenschaften",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Internationale Beziehungen",
-          "Psychologie",
-          "Öffentliche Verwaltung",
-          "Data Science"
-        ]
-      },
-      "1": {
-        "description": "Führend in Energie-, Umwelt- und Materialforschung",
-        "programs": [
-          "Umwelttechnik",
-          "Informatik",
-          "Elektrotechnik",
-          "Maschinenbau",
-          "Wirtschaftsingenieurwesen",
-          "Architektur"
-        ]
-      },
-      "2": {
-        "description": "Schwerpunkt auf internationale Beziehungen, Recht und Wirtschaft",
-        "programs": [
-          "International Business",
-          "Rechtswissenschaften",
-          "Europastudien",
-          "Internationale Beziehungen",
-          "Volkswirtschaftslehre"
-        ]
-      },
-      "3": {
-        "description": "Älteste und größte Filmschule Deutschlands",
-        "programs": [
-          "Filmproduktion",
-          "Drehbuch",
-          "Animation",
-          "Medienwissenschaften",
-          "Produktion",
-          "Kameraführung"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Schloss Sanssouci",
-        "description": "Friedrichs des Großen Sommerpalast in Potsdam ist ein Rokoko-Meisterwerk. Der Park- und Schlosskomplex ist UNESCO-Welterbestätte."
-      },
-      "1": {
-        "title": "Spreewald",
-        "description": "Ein UNESCO-Biosphärenreservat, wo die Spree in hunderte kleine Kanäle verzweigt. Berühmt für Kahnfahrten und Spreewaldgurken."
-      },
-      "2": {
-        "title": "Studio Babelsberg",
-        "description": "Das älteste Großfilmstudio der Welt. Meisterwerke wie 'Metropolis' und moderne Blockbuster wie 'Inglourious Basterds' wurden hier gedreht."
-      },
-      "3": {
-        "title": "Tropical Islands",
-        "description": "Untergebracht in einer ehemaligen Luftschiffhalle, ist dies die größte überdachte Wasserwelt der Welt mit Regenwald, Strand und Lagune."
-      },
-      "4": {
-        "title": "Cecilienhof",
-        "description": "Der Ort der Potsdamer Konferenz 1945, wo Truman, Churchill und Stalin über die Zukunft Deutschlands und Europas entschieden."
-      },
-      "5": {
-        "title": "3000 Seen",
-        "description": "Brandenburg ist eines der wasserreichsten Bundesländer Deutschlands mit über 3.000 Seen, die endlose Möglichkeiten zum Schwimmen und Segeln bieten."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Umgeben Berlin"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Wachsender Technologiesektor"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Angetrieben durch neue Industrie"
-      },
-      "3": {
-        "label": "Studiengebühren",
-        "context": "Nur Semesterbeitrag"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Automobilindustrie",
-        "hq": "Grünheide"
-      },
-      "1": {
-        "sector": "Automobilindustrie",
-        "hq": "Brandenburg a.d.H."
-      },
-      "2": {
-        "sector": "Luftfahrt",
-        "hq": "Dahlewitz"
-      },
-      "3": {
-        "sector": "Chemie",
-        "hq": "Schwarzheide"
-      },
-      "4": {
-        "sector": "Versicherungen",
-        "hq": "Potsdam"
-      },
-      "5": {
-        "sector": "Einzelhandel",
-        "hq": "Schönefeld"
-      }
-    }
-  },
-  "berlin": {
-    "name": "Berlin",
-    "description": "Berlin ist die Hauptstadt Deutschlands und ein globaler Knotenpunkt für Kultur, Politik und Wissenschaft. Bekannt für seine lebendige Start-up-Szene, vielfältige internationale Gemeinschaft und reiche Geschichte, ist es eine der aufregendsten Städte Europas zum Leben und Studieren.",
-    "motto": "Arm, aber sexy.",
-    "universities": {
-      "0": {
-        "description": "Exzellenzuniversität, stark in Geistes- und Sozialwissenschaften",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Internationale Beziehungen",
-          "Politikwissenschaften",
-          "Psychologie",
-          "Rechtswissenschaften"
-        ]
-      },
-      "1": {
-        "description": "Die Mutter aller modernen Universitäten, Alma Mater von 29 Nobelpreisträgern",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Medizin",
-          "Volkswirtschaftslehre",
-          "Psychologie",
-          "Materialwissenschaften"
-        ]
-      },
-      "2": {
-        "description": "Mitglied der TU9, führend in Ingenieurwesen und Informatik",
-        "programs": [
-          "Informatik",
-          "Maschinenbau",
-          "Wirtschaftsingenieurwesen",
-          "Elektrotechnik",
-          "Bauingenieurwesen",
-          "Innovationsmanagement"
-        ]
-      },
-      "3": {
-        "description": "Eines der größten und renommiertesten Universitätskliniken Europas",
-        "programs": [
-          "Medizin",
-          "Molekulare Medizin",
-          "Epidemiologie",
-          "International Health",
-          "Medizinische Neurowissenschaften",
-          "Zahnmedizin"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Brandenburger Tor",
-        "description": "Das berühmteste Wahrzeichen der Stadt und ein Symbol der deutschen Wiedervereinigung. Es steht im Herzen der Hauptstadt und ist Zeuge jahrhundertelanger Geschichte."
-      },
-      "1": {
-        "title": "Start-up-Hauptstadt",
-        "description": "Berlin ist das Silicon Valley Europas, Heimat von Einhörnern wie Zalando und N26. Die Stadt zieht Unternehmer und digitale Nomaden aus aller Welt an."
-      },
-      "2": {
-        "title": "Museumsinsel",
-        "description": "Ein UNESCO-Welterbe in der Spree, das fünf erstklassige Museen beherbergt, darunter das Pergamonmuseum und das Alte Museum."
-      },
-      "3": {
-        "title": "Clubkultur",
-        "description": "Berlins Nachtleben ist legendär. Clubs wie Berghain und die vielfältige Technoszene haben die Stadt zu einem globalen Ziel für Musikliebhaber gemacht."
-      },
-      "4": {
-        "title": "East Side Gallery",
-        "description": "Der längste erhaltene Abschnitt der Berliner Mauer, heute eine Open-Air-Galerie mit Wandmalereien von Künstlern aus aller Welt."
-      },
-      "5": {
-        "title": "Currywurst",
-        "description": "Berlins typisches Streetfood. Gedämpfte und gebratene Schweinswurst mit Curryketchup, am besten an einem lokalen Imbiss genossen."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Größte Stadt Deutschlands"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Dynamischer Arbeitsmarkt"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Dienstleistungsorientierte Wirtschaft"
-      },
-      "3": {
-        "label": "Internationale Studierende",
-        "context": "Hoch international"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Verkehr",
-        "hq": "Berlin"
-      },
-      "1": {
-        "sector": "Gesundheitswesen",
-        "hq": "Berlin"
-      },
-      "2": {
-        "sector": "Gesundheitswesen",
-        "hq": "Berlin"
-      },
-      "3": {
-        "sector": "Verkehr",
-        "hq": "Berlin"
-      },
-      "4": {
-        "sector": "Tech/Mode",
-        "hq": "Berlin"
-      },
-      "5": {
-        "sector": "Energie",
-        "hq": "Berlin"
-      }
-    }
-  },
-  "bremen": {
-    "name": "Bremen",
-    "description": "Bremen ist eine Hansestadt mit stolzer maritimer Geschichte und einer Zukunft in der Luft- und Raumfahrt. Bekannt für die Bremer Stadtmusikanten und den UNESCO-Welterbe-Marktplatz verbindet es Tradition mit modernster Forschung in Weltraumtechnologie und Polarwissenschaft.",
-    "motto": "Drei Worte: Hanseatisch, herzlich, hippen.",
-    "universities": {
-      "0": {
-        "description": "Stark in Klimaforschung, Meereswissenschaften und Ingenieurwesen",
-        "programs": [
-          "Informatik",
-          "International Business",
-          "Meereswissenschaften",
-          "Ingenieurwesen",
-          "Physik",
-          "Volkswirtschaftslehre"
-        ]
-      },
-      "1": {
-        "description": "Private, englischsprachige Campus-Universität mit globaler Studentenschaft",
-        "programs": [
-          "Informatik",
-          "Software & Data Technology",
-          "International Business",
-          "Data Science",
-          "Psychologie",
-          "Biochemie"
-        ]
-      },
-      "2": {
-        "description": "Hochschule für angewandte Wissenschaften mit starken internationalen Netzwerken",
-        "programs": [
-          "International Business",
-          "Globales Management",
-          "Aviation Management",
-          "Tourismusmanagement",
-          "Logistik",
-          "Informatik"
-        ]
-      },
-      "3": {
-        "description": "Schwerpunkt auf Maritime Technologien und Windenergie",
-        "programs": [
-          "Maritime Technik",
-          "Erneuerbare Energien",
-          "Tourismusmanagement",
-          "Informatik",
-          "Logistik",
-          "Windenergie"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Bremer Stadtmusikanten",
-        "description": "Die Bronzestatue von Esel, Hund, Katze und Hahn aus dem Märchen der Brüder Grimm. Das Berühren der Eselbeine soll Glück bringen."
-      },
-      "1": {
-        "title": "Schnoorviertel",
-        "description": "Der älteste Stadtteil Bremens. Ein Labyrinth aus engen Kopfsteinpflasterstraßen und winzigen Häusern aus dem 15. Jahrhundert, heute voller Kunsthandwerk."
-      },
-      "2": {
-        "title": "UNESCO-Rathaus",
-        "description": "Das gotische Rathaus und die Roland-Statue sind Symbole bürgerlicher Autonomie und Freiheit, anerkannt als UNESCO-Welterbestätte."
-      },
-      "3": {
-        "title": "Luft- und Raumfahrtzentrum",
-        "description": "Bremen ist die 'Stadt der Raumfahrt'. Das Europäische Servicemodul für das NASA-Raumschiff Orion wird hier bei Airbus gebaut."
-      },
-      "4": {
-        "title": "Beck's Brauerei",
-        "description": "Heimat eines der weltweit berühmtesten Biere. Die Brauerei an der Weser exportiert ihre grünen Flaschen seit 1873."
-      },
-      "5": {
-        "title": "Maritime Meile",
-        "description": "Die Schlachte an der Weser ist eine beliebte Promenade mit Biergärten, Restaurants und historischen Schiffen."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Zwei Städte (HB & BHV)"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Industrieller Wandel"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Starke Logistik/Raumfahrt"
-      },
-      "3": {
-        "label": "Internationale Studierende",
-        "context": "Vielfältige Gemeinschaft"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Automobilindustrie",
-        "hq": "Bremen"
-      },
-      "1": {
-        "sector": "Luft- und Raumfahrt",
-        "hq": "Bremen"
-      },
-      "2": {
-        "sector": "Logistik",
-        "hq": "Bremen"
-      },
-      "3": {
-        "sector": "Stahl",
-        "hq": "Bremen"
-      },
-      "4": {
-        "sector": "Getränke",
-        "hq": "Bremen"
-      },
-      "5": {
-        "sector": "Raumfahrttechnik",
-        "hq": "Bremen"
-      }
-    }
-  },
-  "mecklenburg-vorpommern": {
-    "name": "Mecklenburg-Vorpommern",
-    "description": "Mecklenburg-Vorpommern ist ein Küstenparadies mit über 2.000 Seen und Inseln wie Rügen und Usedom. Es verbindet einen entspannten Lebensstil mit historischen Hansestädten und modernster Forschung in Meeresbiologie und erneuerbaren Energien.",
-    "motto": "MV tut gut.",
-    "universities": {
-      "0": {
-        "description": "Älteste Universität im Ostseeraum (1419), stark in interdisziplinärer Forschung",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Meeresbiologie",
-          "Maschinenbau",
-          "Erneuerbare Energien",
-          "Betriebswirtschaftslehre"
-        ]
-      },
-      "1": {
-        "description": "International orientierte Forschungsuniversität, stark in Biowissenschaften und Plasmaphysik",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Physik",
-          "Biologie",
-          "Betriebswirtschaftslehre",
-          "Rechtswissenschaften"
-        ]
-      },
-      "2": {
-        "description": "Technik, Wirtschaft und Design mit starkem maritimem Fokus",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Maritime Technik",
-          "Architektur",
-          "Elektrotechnik",
-          "Design"
-        ]
-      },
-      "3": {
-        "description": "Junge Campus-Universität mit Schwerpunkt auf erneuerbare Energien und Tourismus",
-        "programs": [
-          "Erneuerbare Energien",
-          "Informatik",
-          "Internationales Management",
-          "Tourismusmanagement",
-          "Maritime Technik",
-          "Elektrotechnik"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Schweriner Schloss",
-        "description": "Auf einer Insel im Schweriner See gelegen, wird dieser romantische Palast als 'Neuschwanstein des Nordens' bezeichnet und beherbergt den Landtag."
-      },
-      "1": {
-        "title": "Ostseeküste",
-        "description": "Mit Inseln wie Rügen und Usedom bietet das Land Deutschlands schönste Strände und die ikonischen Kreidefelsen, gemalt von Caspar David Friedrich."
-      },
-      "2": {
-        "title": "Hansisches Erbe",
-        "description": "Die historischen Zentren von Stralsund und Wismar sind UNESCO-Welterbestätten und spiegeln den Reichtum und die Macht der Hanse wider."
-      },
-      "3": {
-        "title": "Müritz-Nationalpark",
-        "description": "Ein Land der tausend Seen. Der größte terrestrische Nationalpark Deutschlands bietet unberührte Natur, Kanufahren und Adlerbeobachtung."
-      },
-      "4": {
-        "title": "Hanse Sail",
-        "description": "Eines der größten maritimen Festivals der Welt, das jeden Sommer hunderte Großsegler und Millionen Besucher nach Rostock bringt."
-      },
-      "5": {
-        "title": "Backsteingotik",
-        "description": "Die charakteristische Backsteingotik prägt die Region mit massiven roten Backsteinkirchen und Stadttoren, die die Skyline dominieren."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Niedrigste Dichte"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Tourismusgetrieben"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Wachsende erneuerbare Energien"
-      },
-      "3": {
-        "label": "Studiengebühren",
-        "context": "Hohe Lebensqualität"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Tourismus",
-        "hq": "Rostock"
-      },
-      "1": {
-        "sector": "Windenergie",
-        "hq": "Rostock"
-      },
-      "2": {
-        "sector": "Gesundheitswesen",
-        "hq": "Greifswald"
-      },
-      "3": {
-        "sector": "Fertigung",
-        "hq": "Rostock"
-      },
-      "4": {
-        "sector": "Schiffbau",
-        "hq": "Rostock"
-      },
-      "5": {
-        "sector": "Life Science",
-        "hq": "Greifswald"
-      }
-    }
-  },
-  "schleswig-holstein": {
-    "name": "Schleswig-Holstein",
-    "description": "Der 'Echte Norden' Deutschlands, gelegen zwischen Nord- und Ostsee. Schleswig-Holstein ist bekannt für sein maritimes Erbe, seine Führungsrolle in der Windenergie und das UNESCO-Weltnaturerbe Wattenmeer.",
-    "motto": "Der echte Norden.",
-    "universities": {
-      "0": {
-        "description": "Starker Fokus auf Meereswissenschaften, Nanowissenschaften und Biowissenschaften",
-        "programs": [
-          "Informatik",
-          "Medizin",
-          "Meereswissenschaften",
-          "International Business",
-          "Physik",
-          "Nachhaltigkeitsstudien"
-        ]
-      },
-      "1": {
-        "description": "Platz #1 für Medizin im CHE-Ranking, forschungsintensiv",
-        "programs": [
-          "Medizin",
-          "Informatik",
-          "Biomedizin",
-          "Medizinische Informatik",
-          "Psychologie",
-          "Mathematik"
-        ]
-      },
-      "2": {
-        "description": "Auf einem gemeinsamen Campus nahe der dänischen Grenze gelegen, Schwerpunkt Energie",
-        "programs": [
-          "International Business",
-          "Erneuerbare Energien",
-          "Informatik",
-          "Tourismusmanagement",
-          "Ingenieurwesen"
-        ]
-      },
-      "3": {
-        "description": "Größte Hochschule für angewandte Wissenschaften im Land",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Maschinenbau",
-          "Elektrotechnik",
-          "International Business",
-          "Erneuerbare Energien"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Wattenmeer",
-        "description": "Ein UNESCO-Weltnaturerbe und das größte zusammenhängende System von Gezeiten-Sand- und Schlickflächen der Welt. Ein einzigartiges Ökosystem voller Leben."
-      },
-      "1": {
-        "title": "Holstentor",
-        "description": "Das ikonische Backsteintor Lübecks, ein Symbol der Hanse und UNESCO-Welterbestätte."
-      },
-      "2": {
-        "title": "Kieler Woche",
-        "description": "Die größte Segelveranstaltung der Welt und ein riesiges Sommerfest, das Millionen Besucher anzieht."
-      },
-      "3": {
-        "title": "Lübecker Marzipan",
-        "description": "Eine weltberühmte Süßspeise, geschützt durch EU-Recht. Niederegger ist der bekannteste Hersteller, gegründet 1806."
-      },
-      "4": {
-        "title": "Sylt",
-        "description": "Die 'Hamptons' Deutschlands. Eine Insel in der Nordsee, bekannt für ihre charakteristische Form, lange Sandstrände und Reetdachhäuser."
-      },
-      "5": {
-        "title": "Wikinger-Erbe",
-        "description": "Haithabu war eine bedeutende Wikinger-Handelssiedlung. Heute zeigen ein Museum und ein rekonstruiertes Dorf diese faszinierende Geschichte."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Zwischen zwei Meeren"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Starker KMU-Sektor"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Führend in grüner Energie"
-      },
-      "3": {
-        "label": "Studiengebühren",
-        "context": "Hoher Lebensstandard"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Gesundheitswesen",
-        "hq": "Kiel/Lübeck"
-      },
-      "1": {
-        "sector": "Medizintechnik",
-        "hq": "Lübeck"
-      },
-      "2": {
-        "sector": "Schiffbau",
-        "hq": "Kiel"
-      },
-      "3": {
-        "sector": "Einzelhandel",
-        "hq": "Kiel"
-      },
-      "4": {
-        "sector": "Konglomerat",
-        "hq": "Lübeck"
-      },
-      "5": {
-        "sector": "Telekommunikation",
-        "hq": "Büdelsdorf"
-      }
-    }
-  },
-  "hamburg": {
-    "name": "Hamburg",
-    "description": "Hamburg ist Deutschlands 'Tor zur Welt' — eine Stadt der Brücken, des Wassers und des Handels. Als bedeutender europäischer Hafen und Medienzentrum bietet es eine kosmopolitische Atmosphäre, einen hohen Lebensstandard und eine blühende Szene für Wissenschaft und Innovation.",
-    "motto": "Tor zur Welt.",
-    "universities": {
-      "0": {
-        "description": "Exzellenzuniversität, bekannt für Klimaforschung und Manuskriptkulturen",
-        "programs": [
-          "Informatik",
-          "International Business",
-          "Medizin",
-          "Physik",
-          "Rechtswissenschaften",
-          "Volkswirtschaftslehre"
-        ]
-      },
-      "1": {
-        "description": "Hochspezialisiert auf Ingenieurwesen, Luftfahrt und Logistik",
-        "programs": [
-          "Informatik",
-          "Luft- und Raumfahrttechnik",
-          "Maschinenbau",
-          "Materialwissenschaften",
-          "Informationssysteme",
-          "Logistik"
-        ]
-      },
-      "2": {
-        "description": "Zweitgrößte Universität Hamburgs, starker Fokus auf Design und Medien",
-        "programs": [
-          "Informatik",
-          "Betriebswirtschaftslehre",
-          "Maschinenbau",
-          "Fahrzeugtechnik",
-          "Luftfahrttechnik",
-          "Mediendesign"
-        ]
-      },
-      "3": {
-        "description": "Spezialisiert auf Architektur und Stadtentwicklung",
-        "programs": [
-          "Architektur",
-          "Stadtplanung",
-          "Bauingenieurwesen",
-          "Immobilienwirtschaft",
-          "Metropolenkultur",
-          "Ressourceneffizienz"
-        ]
-      }
-    },
-    "culture": {
-      "0": {
-        "title": "Elbphilharmonie",
-        "description": "Ein atemberaubendes Konzerthaus auf einem alten Lagerhaus errichtet. Seine wellenförmige Glasfassade ist zum neuen Wahrzeichen der Stadt geworden."
-      },
-      "1": {
-        "title": "Speicherstadt",
-        "description": "Der größte Lagerhauskomplex der Welt und UNESCO-Welterbe. Backsteingotische Gebäude, von engen Kanälen durchzogen."
-      },
-      "2": {
-        "title": "Hafen Hamburg",
-        "description": "Der größte Hafen Deutschlands. Bootstouren bieten Nahaufnahmen von massiven Containerschiffen, historischen Schiffen und den geschäftigen Containerterminals."
-      },
-      "3": {
-        "title": "Miniatur Wunderland",
-        "description": "Die größte Modelleisenbahnanlage der Welt. Eine magische Welt, die mehr Besucher anzieht als jede andere Touristenattraktion in Deutschland."
-      },
-      "4": {
-        "title": "Reeperbahn",
-        "description": "Die berühmte Vergnügungsmeile im St. Pauli Bezirk. Bekannt für sein Nachtleben, Theater und Musikgeschichte (die Beatles begannen hier)."
-      },
-      "5": {
-        "title": "Alster",
-        "description": "Zwei künstliche Seen im Herzen der Stadt (Binnenalster und Außenalster). Beliebt zum Segeln, Rudern und Entspannen an den Ufern."
-      }
-    },
-    "keyNumbers": {
-      "0": {
-        "label": "Bevölkerung",
-        "context": "Zweitgrößte Stadt"
-      },
-      "1": {
-        "label": "Arbeitslosigkeit",
-        "context": "Starker Handelsknotenpunkt"
-      },
-      "2": {
-        "label": "BIP",
-        "context": "Hohe Pro-Kopf-Zahl"
-      },
-      "3": {
-        "label": "Internationale Studierende",
-        "context": "Globale Verbindungen"
-      }
-    },
-    "employers": {
-      "0": {
-        "sector": "Luft- und Raumfahrt",
-        "hq": "Hamburg-Finkenwerder"
-      },
-      "1": {
-        "sector": "Luftfahrt",
-        "hq": "Hamburg"
-      },
-      "2": {
-        "sector": "Gesundheitswesen",
-        "hq": "Hamburg"
-      },
-      "3": {
-        "sector": "Logistik",
-        "hq": "Hamburg"
-      },
-      "4": {
-        "sector": "Konsumgüter",
-        "hq": "Hamburg"
-      },
-      "5": {
-        "sector": "E-Commerce",
-        "hq": "Hamburg"
-      }
-    }
-  }
 }
