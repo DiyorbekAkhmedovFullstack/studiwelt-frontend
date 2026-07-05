@@ -5,21 +5,21 @@
         "badge": "DIE GESCHICHTE HINTER STUDIWELT",
         "name": "Diyorbek",
         "role": "Autor von Studiwelt",
-        "intro": "Deutschland ist einer der verborgenen Schätze der Welt in der Hochschulbildung und zugleich einer der verwirrendsten Orte, wenn es darum geht, tatsächlich hineinzukommen. Ich baue Studiwelt, damit niemand diesen Irrgarten allein durchqueren muss."
+        "intro": "Deutschland öffnet die Tür zu einer großartigen Ausbildung, doch den Weg dorthin zu finden, ist oft schwer. Ich baue Studiwelt, um diesen Weg mit dir zu gehen, damit du ihn nie allein suchen musst."
     },
     "photoAlt": "Porträt von Diyorbek, Autor von Studiwelt",
     "sections": {
         "motivation": {
             "title": "Warum ich Studiwelt gebaut habe",
-            "body": "Deutschland ist ein verborgener Schatz der Hochschulbildung: auf Weltniveau und oft nahezu kostenlos. Doch der Weg hinein ist eine Blackbox: Bewerbungen, Bürokratie, Studienkollegs, Aufnahmeprüfungen und Fristen, die niemand klar erklärt. Ich habe jeden einzelnen Schritt selbst durchgemacht und verstehe daher jeden, der sich entscheidet, in diesem wunderbaren Land für fast nichts zu studieren. Deshalb geht es bei Studiwelt nicht nur um Studienkollegs. Es ist für alle, die nach Deutschland kommen möchten, um zu studieren, zu arbeiten oder neu anzufangen. Studienkollegs sind heute unser Schwerpunkt; wenn die Idee ihr Publikum findet, wachsen wir weit darüber hinaus."
+            "body": "Deutschland ist ein verborgener Schatz der Hochschulbildung. Sie ist auf Weltniveau und oft nahezu kostenlos, und doch wirkt der Weg hinein von außen wie ein Labyrinth aus Bewerbungen, Bürokratie, Studienkollegs und Aufnahmeprüfungen. Ich habe das alles selbst durchgemacht und verstehe daher jeden, der sich entscheidet, in diesem wunderbaren Land für fast nichts zu studieren. Deshalb geht es bei Studiwelt um mehr als Studienkollegs. Es ist für alle, die nach Deutschland kommen möchten, um zu studieren, zu arbeiten oder neu anzufangen. Studienkollegs sind heute unser Schwerpunkt, und von hier aus wachsen wir gemeinsam mit dir."
         },
         "goal": {
             "title": "Das Ziel",
-            "body": "Mehr als eine Plattform zu schaffen: eine ganze Community. Ein Ort, an dem Menschen, die vor demselben Schritt stehen, gemeinsam lernen, ihr Wissen teilen und sich gegenseitig bis ins Ziel tragen."
+            "body": "Ich möchte mehr als eine Plattform bauen. Ich möchte eine echte Community, einen Ort, an dem Menschen vor demselben Schritt gemeinsam lernen, ihr Wissen teilen und sich gegenseitig bis ins Ziel begleiten."
         },
         "vision": {
             "title": "Die Vision",
-            "body": "Bildung sollte für jeden erreichbar sein. Studiwelt gibt es, damit dich das Erreichen deiner Ziele weder deine Nerven noch deine Ersparnisse kostet. Unser Bootcamp kostet nur einen Bruchteil der üblichen bezahlten Kurse und Vorbereitungsprogramme, gerade genug, um die Plattform am Leben und die Server am Laufen zu halten, und niemals eine Hürde für den Einstieg."
+            "body": "Ich glaube, dass Bildung für jeden erreichbar sein sollte. Studiwelt gibt es, damit dich das Erreichen deiner Ziele weder deine Nerven noch deine Ersparnisse kostet. Unser Bootcamp kostet nur einen Bruchteil der üblichen bezahlten Kurse, und das reicht gerade, um die Plattform am Leben und die Server am Laufen zu halten. Es wird nie zwischen dir und deinem Start stehen."
         }
     },
     "cta": {
