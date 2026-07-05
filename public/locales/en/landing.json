@@ -28,6 +28,7 @@
     },
     "map": {
         "title": "Your Future in Germany",
-        "description": "From Bavaria to Berlin, your journey to a German university starts here."
+        "description": "From Bavaria to Berlin, your journey to a German university starts here.",
+        "clickToExplore": "Click to explore"
     }
 }

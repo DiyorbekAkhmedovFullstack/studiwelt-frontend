@@ -28,6 +28,7 @@
     },
     "map": {
         "title": "Deine Zukunft in Deutschland",
-        "description": "Von Bayern bis Berlin – dein Weg an eine deutsche Universität beginnt hier."
+        "description": "Von Bayern bis Berlin – dein Weg an eine deutsche Universität beginnt hier.",
+        "clickToExplore": "Zum Erkunden klicken"
     }
 }

@@ -24,5 +24,127 @@
     "technicalInstitute": "Technische Hochschule",
     "noSummerIntake": "Keine Sommeraufnahme",
     "acceptingApplications": "Nimmt Bewerbungen an",
-    "reopens": "Wiedereröffnung"
+    "reopens": "Wiedereröffnung",
+    "data": {
+        "munich": {
+            "name": "Studienkolleg München",
+            "city": "München",
+            "location": "München, Bayern",
+            "lifeIn": "Leben in München",
+            "cityDescription": "München ist die Hauptstadt Bayerns und ein wirtschaftliches Zentrum Deutschlands. Hier sind die LMU und die TUM sowie Konzerne wie BMW und Siemens ansässig. Die Stadt bietet eine außergewöhnliche Lebensqualität und zählt zu den sichersten Großstädten Europas, hat aber die höchsten Lebenshaltungskosten Deutschlands.",
+            "costOfLiving": "~1.200 € / Monat",
+            "transit": "MVV-Netz",
+            "examDescription": "Die Aufnahmeprüfung ist für alle Bewerber verpflichtend (eine Befreiung ist nicht möglich). Sie prüft in jedem Kurs Deutsch (B1+/B2), für den T-, M- und W-Kurs zusätzlich Mathematik; der S-/G-Kurs prüft nur Deutsch. Sie findet Anfang September (Wintersemester) und Anfang Februar (Sommersemester) am Studienkolleg München, Infanteriestr. 7a, statt. Sie darf insgesamt bis zu dreimal abgelegt werden."
+        },
+        "berlin": {
+            "name": "Studienkolleg der TU Berlin",
+            "city": "Berlin",
+            "location": "Berlin",
+            "lifeIn": "Leben in Berlin",
+            "cityDescription": "Berlin ist die Hauptstadt und größte Stadt Deutschlands, bekannt für ihre vielfältige Kultur, bewegte Geschichte und lebendige Start-up- und Tech-Szene. Hier befinden sich die TU Berlin, die Freie Universität und die Humboldt-Universität. Die Stadt bietet ein pulsierendes Studierendenleben und bleibt deutlich günstiger als München oder Frankfurt.",
+            "costOfLiving": "~1.000 € / Monat",
+            "transit": "BVG-Netz",
+            "examDescription": "Der Aufnahmetest ist für alle Bewerber des T- und W-Kurses verpflichtend. Er prüft Deutsch (Niveau B2, vier C-Tests) und Mathematik (je ~60 Minuten) und findet im August (Wintersemester) und Januar (Sommersemester) am Studienkolleg der TU Berlin, Straße des 17. Juni 145, statt. Er kann einmal wiederholt werden; die Ergebnisse werden wenige Tage später anonym veröffentlicht, und der Unterricht beginnt am darauffolgenden Montag."
+        },
+        "fu-berlin": {
+            "name": "Studienkolleg der FU Berlin",
+            "city": "Berlin",
+            "location": "Berlin",
+            "lifeIn": "Leben in Berlin",
+            "cityDescription": "Berlin ist die Hauptstadt und größte Stadt Deutschlands, berühmt für ihre jahrhundertelange Geschichte, vielfältige Kultur und rege Forschungslandschaft. Die Freie Universität — eine der Exzellenzuniversitäten Deutschlands — liegt im grünen Südwesten im Ortsteil Dahlem und bietet einen grünen Campus und ein lebendiges Studierendenleben.",
+            "costOfLiving": "~1.000 € / Monat",
+            "transit": "BVG-Netz",
+            "examDescription": "Der Aufnahmetest ist für jeden Bewerber verpflichtend — es gibt keine Befreiung, und sein Ergebnis bildet die Rangliste, nach der die begrenzten Plätze vergeben werden. Alle Kurse absolvieren einen deutschen C-Test (ein Ergänzungstest mit 75 Lücken, 30 Min.); der T-, M- und W-Kurs legt zusätzlich einen Mathematiktest (45 Min.) ab, während der G-Kurs stattdessen einen Test zur Diagrammauswertung schreibt. Der gesamte Test dauert etwa 90 Minuten und findet einmal jährlich Ende August an der Freien Universität Berlin (Dahlem) statt, für jeden Kurs an einem eigenen Tag. Er kann einmal wiederholt werden. Die Bewerbung läuft vom 1. Juni bis 15. Juli, nur für das Wintersemester (keine Sommeraufnahme), und ausschließlich über uni-assist."
+        },
+        "hamburg": {
+            "name": "Studienkolleg Hamburg",
+            "city": "Hamburg",
+            "location": "Hamburg",
+            "lifeIn": "Leben in Hamburg",
+            "cityDescription": "Hamburg ist die zweitgrößte Stadt Deutschlands und ein bedeutender Hafen im Norden des Landes, bekannt für sein maritimes Erbe, seine Musik- und Theaterszene und eine hohe Lebensqualität. Hier befindet sich die Universität Hamburg. Die Stadt ist teurer als Leipzig oder Halle, aber günstiger als München.",
+            "costOfLiving": "~1.000 € / Monat",
+            "transit": "HVV-Netz",
+            "examDescription": "Es ist keine Aufnahmeprüfung erforderlich. Die Zulassung erfolgt im Wettbewerb auf Grundlage deines Deutschzertifikats (B2 oder höher) und deiner Schulabschlussnoten aus dem Heimatland. Du bewirbst dich mit beglaubigten Unterlagen direkt beim Studienkolleg Hamburg; die Plätze werden von der Zulassungsstelle vergeben."
+        },
+        "karlsruhe": {
+            "name": "Studienkolleg am KIT",
+            "city": "Karlsruhe",
+            "location": "Karlsruhe",
+            "lifeIn": "Leben in Karlsruhe",
+            "cityDescription": "Karlsruhe ist ein Technologiezentrum im Südwesten Deutschlands und Sitz des renommierten Karlsruher Instituts für Technologie (KIT). Bekannt als „Fächerstadt“ wegen ihrer fächerförmig vom Schloss ausgehenden Straßen, ist sie günstiger als München oder Stuttgart und liegt in der Oberrheinebene nahe der französischen Grenze.",
+            "costOfLiving": "~850 € / Monat",
+            "transit": "KVV-Netz",
+            "examDescription": "Der Aufnahmetest ist für Bewerber des T-Kurses verpflichtend und besteht aus zwei am selben Tag abgelegten Teilen (~3 Stunden insgesamt): einem onSET-C-Test in Deutsch (8 Lückentexte, ~40 Min.; mindestens B1 erforderlich, höhere Sprachkenntnisse verbessern die Zulassungschancen) und einer ILIAS-Mathematikprüfung, die in Präsenz am KIT abgelegt wird (Lehrstoff bis zur 11. Klasse des deutschen Gymnasiums, ohne Integralrechnung). Er kann in einem späteren Semester einmal wiederholt werden."
+        },
+        "leipzig": {
+            "name": "Studienkolleg Sachsen",
+            "city": "Leipzig",
+            "location": "Leipzig",
+            "lifeIn": "Leben in Leipzig",
+            "cityDescription": "Leipzig ist eine lebendige Kultur- und Messestadt in Sachsen mit einer aktiven Studierendenszene und den niedrigsten Lebenshaltungskosten unter den größeren Städten mit Studienkolleg. Hier befindet sich die Universität Leipzig. Die Stadt ist teurer als Halle, aber deutlich günstiger als München oder Frankfurt.",
+            "costOfLiving": "~800 € / Monat",
+            "transit": "LVB-Netz",
+            "examDescription": "Der Aufnahmetest ist für alle Bewerber eines Schwerpunktkurses verpflichtend (keine Befreiung, auch nicht mit Sprachzertifikat). Er besteht aus einem deutschen C-Test (digital, ~20 Min.) für alle Kurse sowie einem Mathematiktest für Bewerber des M-, T- und W-Kurses; der G-/S-Kurs prüft nur Deutsch. Er wird in Präsenz am PC an der Universität Leipzig abgelegt (Teilnahmegebühr 50 €). Termine: Ende August (Wintersemester) und Ende Februar (Sommersemester). Du bewirbst dich über uni-assist an einer von vier sächsischen Universitäten (Leipzig, TU Dresden, TU Chemnitz, TU Freiberg), die die Einladung zum Test ausstellt."
+        },
+        "heidelberg": {
+            "name": "Studienkolleg Heidelberg",
+            "city": "Heidelberg",
+            "location": "Heidelberg",
+            "lifeIn": "Leben in Heidelberg",
+            "cityDescription": "Heidelberg ist eine malerische Universitätsstadt am Neckar, berühmt für ihr historisches Schloss, ihre charmante Altstadt und die älteste Universität Deutschlands (gegründet 1386). Eine renommierte Studierendenstadt — teurer als Leipzig oder Halle, aber günstiger als München.",
+            "costOfLiving": "~900 € / Monat",
+            "transit": "VRN-Netz",
+            "examDescription": "Die Aufnahmeprüfung ist für alle Bewerber verpflichtend (keine Befreiung möglich). Sie ist für alle fünf Kurse (G/M/S/T/W) identisch und prüft AUSSCHLIESSLICH Deutsch — kein Fachwissen und keine Mathematik. Format: Teil I Grammatik & Wortschatz (45 Min., Niveaus A1→C1, inklusive C-Tests) und Teil II Schreiben (45 Min.), jeweils zu 50 % gewichtet. Erfordert Deutsch B2/C1. Sie findet in Präsenz in der Neuen Universität Heidelberg statt. Bewerbung über heiCO (Portal der Universität Heidelberg) für eine baden-württembergische Universität, die die Einladung ausstellt."
+        },
+        "halle": {
+            "name": "Landesstudienkolleg Halle",
+            "city": "Halle",
+            "location": "Halle (Saale)",
+            "lifeIn": "Leben in Halle",
+            "cityDescription": "Halle ist eine günstige Universitätsstadt in Mitteldeutschland und Sitz der Martin-Luther-Universität Halle-Wittenberg. Mit reichem kulturellem Erbe (Geburtsstadt Händels) und einigen der niedrigsten Lebenshaltungskosten unter den deutschen Städten mit Studienkolleg ist sie spürbar günstiger als Leipzig oder Berlin.",
+            "costOfLiving": "~700 € / Monat",
+            "transit": "HAVAG-Netz",
+            "examDescription": "Der Aufnahmetest ist für alle Bewerber eines Fachkurses verpflichtend (keine Online-Teilnahme möglich). Er besteht aus einem Deutschtest (C-Test + kurze Textproduktion) für alle Kurse sowie Mathematik für den T- und W-Kurs, Naturwissenschaften (Biologie/Chemie/Physik) für den M-Kurs und Englisch für den S-/G-Kurs. Er findet in Präsenz in Halle statt (30 € Barzahlung): Ende Januar für das Sommersemester und Anfang/Mitte August für das Wintersemester. Du bewirbst dich über uni-assist an der MLU Halle-Wittenberg (eine direkte Bewerbung beim Studienkolleg ist NICHT möglich); mindestens Deutsch B2 erforderlich. Ab WS 2026/27 werden nur noch Fachkurse angeboten (der DSH-Sprachkurs wurde eingestellt)."
+        },
+        "darmstadt": {
+            "name": "Studienkolleg Darmstadt",
+            "city": "Darmstadt",
+            "location": "Darmstadt",
+            "lifeIn": "Leben in Darmstadt",
+            "cityDescription": "Darmstadt ist ein Zentrum für Wissenschaft und Technik in der Rhein-Main-Region. Hier befinden sich die TU Darmstadt, das ESA-Raumflugkontrollzentrum (ESOC) und zahlreiche Forschungsinstitute. Die Stadt bietet eine hohe Lebensqualität bei moderaten Kosten — teurer als Halle, aber günstiger als Frankfurt oder München.",
+            "costOfLiving": "~900 € / Monat",
+            "transit": "HEAG-Netz",
+            "examDescription": "Die Aufnahmeprüfung ist für alle Bewerber verpflichtend. Sie besteht aus einem deutschen C-Test (40 Min., alle Bewerber, mindestens B1) sowie einem zusätzlichen Mathematiktest (40 Min., nur T-Kurs) oder einem zusätzlichen Deutschtest (40 Min., nur G-Kurs: Aufsatz, Leseverstehen, Grammatik/Syntax). Termine: Januar (für das Sommersemester) und Juni (für das Wintersemester). Du musst dich an der TU Darmstadt (Online-Portal) oder einer Partnerhochschule (h_da, HSRM, Geisenheim, EHD über uni-assist) bewerben; die Hochschule stellt anschließend die Einladung zur Prüfung aus."
+        },
+        "frankfurt": {
+            "name": "Studienkolleg Frankfurt",
+            "city": "Frankfurt",
+            "location": "Frankfurt am Main",
+            "lifeIn": "Leben in Frankfurt",
+            "cityDescription": "Frankfurt am Main ist Deutschlands Finanzmetropole und die internationalste Stadt des Landes. Hier befinden sich die Europäische Zentralbank, die Goethe-Universität und eine weltoffene Gemeinschaft. Es ist eine der teuersten Studierendenstädte Deutschlands — teurer als Berlin oder Hamburg, wenn auch günstiger als München.",
+            "costOfLiving": "~1.050 € / Monat",
+            "transit": "RMV-Netz",
+            "examDescription": "Der Aufnahmetest ist für alle Bewerber verpflichtend und prüft AUSSCHLIESSLICH Deutschkenntnisse (keine fachspezifischen Inhalte). Da es mehr Bewerber als Plätze gibt, erfolgt die Zulassung nach der Rangliste dieser Aufnahmeprüfung — je höher deine Punktzahl, desto besser deine Chancen. Termine: Januar (für das Sommersemester) und Juni (für das Wintersemester). Du bewirbst dich über uni-assist an der Goethe-Universität Frankfurt oder der Frankfurt UAS (das Studienkolleg wird gemeinsam betrieben); die Hochschule stellt anschließend die Einladung zur Prüfung aus."
+        },
+        "hannover": {
+            "name": "Niedersächsisches Studienkolleg",
+            "city": "Hannover",
+            "location": "Hannover",
+            "lifeIn": "Leben in Hannover",
+            "cityDescription": "Hannover ist die Hauptstadt Niedersachsens und eine bedeutende Messestadt (Hannover Messe), bekannt für ihre weitläufigen Grünflächen, Seen und ausgewogenen Lebenshaltungskosten. Hier befindet sich die Leibniz Universität Hannover. Die Stadt ist günstiger als München oder Frankfurt, aber teurer als Leipzig oder Halle.",
+            "costOfLiving": "~900 € / Monat",
+            "transit": "GVH-Netz",
+            "examDescription": "Der Aufnahmetest ist für alle Bewerber eines Schwerpunktkurses verpflichtend. Er prüft Deutsch (C-Test) für alle Kurse sowie Mathematik für den T-, M- und W-Kurs und Naturwissenschaften für den M-Kurs. Mindestens Deutsch B1 erforderlich (Bewerber mit höheren Zertifikaten werden zuerst eingeladen). Er findet zweimal jährlich in Hannover statt: Februar (für das Sommersemester) und August/September (für das Wintersemester). Eine direkte Bewerbung beim Studienkolleg ist nicht möglich — bewirb dich an einer niedersächsischen Universität (teils über uni-assist), die dich zum Aufnahmetest an das Studienkolleg weiterleitet. Hinweis: Ab 2026 wird der G-/S-Kurs nur noch zum Wintersemester angeboten."
+        },
+        "koethen": {
+            "name": "Landesstudienkolleg Köthen",
+            "city": "Köthen",
+            "location": "Köthen, Sachsen-Anhalt",
+            "lifeIn": "Leben in Köthen",
+            "cityDescription": "Köthen ist eine charmante Kleinstadt in Sachsen-Anhalt, bekannt als „Welthauptstadt der Homöopathie“ dank Samuel Hahnemann sowie als Stadt, in der Johann Sebastian Bach seine Brandenburgischen Konzerte komponierte. Hier befindet sich die Hochschule Anhalt. Die Stadt bietet eine gemütliche, fahrradfreundliche Campus-Atmosphäre mit den niedrigsten Lebenshaltungskosten unter den deutschen Städten mit Studienkolleg und liegt nur 50 km von Leipzig und Halle entfernt.",
+            "costOfLiving": "~700 € / Monat",
+            "transit": "MDV / NAH.Sachsen-Anhalt",
+            "examDescription": "Der Aufnahmetest ist für alle Bewerber verpflichtend (30 € Barzahlung). Er besteht aus einem deutschen C-Test für alle Kurse sowie Mathematik für Bewerber des T- und W-Kurses. Der G-Kurs prüft nur Deutsch. Termine: Februar (Sommersemester) und August (Wintersemester), etwa eine Woche vor Unterrichtsbeginn, am Studienkolleg in Köthen. Hilfsmittel wie Wörterbücher, Taschenrechner und Handys sind nicht erlaubt. Die Zulassung erfolgt nach der Rangliste — höhere Punktzahlen sichern die begrenzten Plätze. Nach dem Bestehen erfolgt die Einschreibung am darauffolgenden Montag; die Studierenden erhalten ihren Stundenplan und können sich für einen Wohnheimplatz bewerben."
+        }
+    }
 }

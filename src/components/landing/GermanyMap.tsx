@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 // Map of state IDs to their URL slugs (only states with pages)
 const stateRoutes: Record<string, string> = {
@@ -23,6 +24,7 @@ const stateRoutes: Record<string, string> = {
 
 const GermanyMap: React.FC<{ className?: string }> = ({ className = '' }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation('landing');
   const [hoveredState, setHoveredState] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -209,9 +211,13 @@ const GermanyMap: React.FC<{ className?: string }> = ({ className = '' }) => {
             top: `${mousePosition.y - 40}px`,
           }}
         >
-          <span className="font-medium">{hoveredState}</span>
+          <span className="font-medium">
+            {stateRoutes[hoveredState]
+              ? t(`statesContent:${stateRoutes[hoveredState]}.name`, { defaultValue: hoveredState })
+              : hoveredState}
+          </span>
           {stateRoutes[hoveredState] && (
-            <span className="block text-xs text-primary mt-1">Click to explore</span>
+            <span className="block text-xs text-primary mt-1">{t('map.clickToExplore')}</span>
           )}
         </div>
       )}
