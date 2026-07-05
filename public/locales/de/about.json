@@ -1,0 +1,35 @@
+{
+    "seoTitle": "Über den Autor",
+    "seoDescription": "Die Geschichte, Ziele und Vision hinter Studiwelt.",
+    "hero": {
+        "badge": "DIE GESCHICHTE HINTER STUDIWELT",
+        "name": "Diyorbek Akhmedov",
+        "role": "Autor von Studiwelt",
+        "intro": "Deutschland ist einer der verborgenen Schätze der Welt in der Hochschulbildung — und einer der verwirrendsten Orte, wenn es darum geht, tatsächlich hineinzukommen. Ich baue Studiwelt, damit niemand diesen Irrgarten allein durchqueren muss."
+    },
+    "photoAlt": "Porträt von Diyorbek Akhmedov, Autor von Studiwelt",
+    "sections": {
+        "motivation": {
+            "title": "Warum ich Studiwelt gebaut habe",
+            "body": "Deutschland ist ein verborgener Schatz der Hochschulbildung — auf Weltniveau und oft nahezu kostenlos. Doch der Weg hinein ist eine Blackbox: Bewerbungen, Bürokratie, Studienkollegs, Aufnahmeprüfungen und Fristen, die niemand klar erklärt. Ich habe jeden einzelnen Schritt selbst durchgemacht und verstehe daher jeden, der sich entscheidet, in diesem wunderbaren Land für fast nichts zu studieren. Deshalb geht es bei Studiwelt nicht nur um Studienkollegs — es ist für alle, die nach Deutschland kommen möchten, um zu studieren, zu arbeiten oder neu anzufangen. Studienkollegs sind heute unser Schwerpunkt; wenn die Idee ihr Publikum findet, wachsen wir weit darüber hinaus."
+        },
+        "goal": {
+            "title": "Das Ziel",
+            "body": "Mehr als eine Plattform zu schaffen — eine ganze Community. Ein Ort, an dem Menschen, die vor demselben Schritt stehen, gemeinsam lernen, ihr Wissen teilen und sich gegenseitig bis ins Ziel tragen."
+        },
+        "vision": {
+            "title": "Die Vision",
+            "body": "Bildung sollte für jeden erreichbar sein. Studiwelt gibt es, damit dich das Erreichen deiner Ziele weder deine Nerven noch deine Ersparnisse kostet. Unser Bootcamp kostet einen Bruchteil der üblichen bezahlten Kurse und Vorbereitungsprogramme — gerade genug, um die Plattform am Leben und die Server am Laufen zu halten, und niemals eine Hürde für den Einstieg."
+        }
+    },
+    "cta": {
+        "title": "Bereit, deine Reise zu starten?",
+        "description": "Schließe dich den Studierenden an, die sich mit einem strukturierten Tagesplan auf die Studienkolleg-Aufnahmeprüfung vorbereiten.",
+        "button": "Deinen 30-Tage-Plan starten"
+    },
+    "teaser": {
+        "heading": "Der Mensch hinter Studiwelt",
+        "text": "Ich habe Studiwelt gebaut, nachdem ich Deutschlands Bewerbungs-Irrgarten selbst durchlaufen habe — damit ein Studium hier zu einem Weg wird, dem jeder folgen kann, und nicht zur Blackbox.",
+        "cta": "Die Geschichte lesen"
+    }
+}

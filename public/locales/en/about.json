@@ -1,0 +1,35 @@
+{
+    "seoTitle": "About the Author",
+    "seoDescription": "The story, goals, and vision behind Studiwelt.",
+    "hero": {
+        "badge": "THE STORY BEHIND STUDIWELT",
+        "name": "Diyorbek Akhmedov",
+        "role": "Author of Studiwelt",
+        "intro": "Germany is one of the world's hidden gems for higher education — and one of the most confusing places to actually get into. I'm building Studiwelt so that no one has to find their way through that maze alone."
+    },
+    "photoAlt": "Portrait of Diyorbek Akhmedov, author of Studiwelt",
+    "sections": {
+        "motivation": {
+            "title": "Why I built Studiwelt",
+            "body": "Germany is a hidden gem for higher education — world-class, and often almost free. But the way in is a black box: applications, bureaucracy, Studienkollegs, entrance exams, and deadlines that no one ever explains clearly. I went through every step of it myself, so I understand anyone who decides to study for next to nothing in this wonderful country. That is why Studiwelt is not only about Studienkollegs — it is for everyone who wants to come to Germany to study, to work, or to start something new. Studienkollegs are our focus today; if the idea finds its people, we will grow far beyond them."
+        },
+        "goal": {
+            "title": "The goal",
+            "body": "To build more than a platform — a whole community. A place where people standing before the same leap learn together, share what they have figured out, and carry one another all the way to the finish line."
+        },
+        "vision": {
+            "title": "The vision",
+            "body": "Education should be within reach for everyone. Studiwelt exists so that reaching your goals costs you neither your nerves nor your savings. Our bootcamp is priced a world apart from the usual paid courses and admission programs — just enough to keep the platform alive and the servers running, and never a barrier to getting started."
+        }
+    },
+    "cta": {
+        "title": "Ready to start your journey?",
+        "description": "Join the students preparing for their Studienkolleg entrance exam with a structured, daily plan.",
+        "button": "Start your 30-day plan"
+    },
+    "teaser": {
+        "heading": "The person behind Studiwelt",
+        "text": "I built Studiwelt after facing Germany's application maze myself — so that studying here becomes a path anyone can follow, not a black box.",
+        "cta": "Read the story"
+    }
+}

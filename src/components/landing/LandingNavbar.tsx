@@ -22,6 +22,7 @@ const LoginIcon = () => <Icon.Login className="text-text-muted w-[18px] h-[18px]
 const ApplicationIcon = () => <Icon.Application className="w-[18px] h-[18px] text-text-muted" />;
 const EntranceExamIcon = () => <Icon.EntranceExam className="w-[18px] h-[18px] text-text-muted" />;
 const FSPIcon = () => <Icon.Assessment className="w-[18px] h-[18px] text-text-muted" />;
+const AuthorIcon = () => <Icon.User className="w-[18px] h-[18px] text-text-muted" />;
 
 const AnimatedDownArrow = () => (
   <Ui.ChevronDown
@@ -283,6 +284,15 @@ function AuthenticatedMobileMenu({
         {t('nav.fsp')}
       </Link>
 
+      <Link
+        to="/about"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <AuthorIcon />
+        {t('nav.aboutAuthor')}
+      </Link>
+
       <div className="h-px bg-border-soft mx-4 my-2"></div>
 
       {/* Language Switcher */}
@@ -396,6 +406,15 @@ function GuestMobileMenu({ onClose }: GuestMobileMenuProps) {
       >
         <FSPIcon />
         {t('nav.fsp')}
+      </Link>
+
+      <Link
+        to="/about"
+        onClick={onClose}
+        className="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-text-main font-medium text-[15px] transition-colors hover:bg-[#F7F7F7]"
+      >
+        <AuthorIcon />
+        {t('nav.aboutAuthor')}
       </Link>
 
       <div className="h-px bg-border-soft mx-4 my-2"></div>

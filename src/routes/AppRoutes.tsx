@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { ScrollToTop } from '../components/common/ScrollToTop';
+import { PublicLayout } from '../components/common/PublicLayout';
 
 // Critical pages - load immediately (above the fold)
 import { LandingPage } from '../pages/LandingPage';
@@ -57,6 +58,7 @@ const PaymentCancelPage = lazy(() => import('../pages/PaymentCancelPage').then(m
 const EntranceExamPage = lazy(() => import('../pages/EntranceExamPage').then(m => ({ default: m.EntranceExamPage })));
 const FSPPage = lazy(() => import('../pages/FSPPage').then(m => ({ default: m.FSPPage })));
 const StatePage = lazy(() => import('../pages/StatePage').then(m => ({ default: m.StatePage })));
+const AboutPage = lazy(() => import('../pages/AboutPage').then(m => ({ default: m.AboutPage })));
 
 export function AppRoutes() {
   return (
@@ -240,13 +242,18 @@ export function AppRoutes() {
 
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about-studienkolleg" element={<AboutStudienkollegPage />} />
-        <Route path="/application" element={<ApplicationPage />} />
-        <Route path="/entrance-exam" element={<EntranceExamPage />} />
-        <Route path="/fsp" element={<FSPPage />} />
-        <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
-        <Route path="/state/:stateId" element={<StatePage />} />
+        {/* Public marketing pages — shared site footer via PublicLayout */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about-studienkolleg" element={<AboutStudienkollegPage />} />
+          <Route path="/application" element={<ApplicationPage />} />
+          <Route path="/entrance-exam" element={<EntranceExamPage />} />
+          <Route path="/fsp" element={<FSPPage />} />
+          <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
+          <Route path="/state/:stateId" element={<StatePage />} />
+        </Route>
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>

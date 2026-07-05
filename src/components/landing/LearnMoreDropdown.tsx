@@ -10,6 +10,7 @@ const ApplicationIcon = () => <Icon.Application className={itemIconClass} />;
 const EntranceExamIcon = () => <Icon.EntranceExam className={itemIconClass} />;
 const FSPIcon = () => <Icon.Assessment className={itemIconClass} />;
 const BookIcon = () => <Icon.Studienkolleg className={itemIconClass} />;
+const AuthorIcon = () => <Icon.User className={itemIconClass} />;
 
 const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
   <Ui.ChevronDown
@@ -113,6 +114,18 @@ export function LearnMoreDropdown() {
             >
               <FSPIcon />
               {t('nav.fsp')}
+            </Link>
+
+            <div className="my-1 border-t border-[rgba(0,0,0,0.06)]" />
+
+            <Link
+              to="/about"
+              onClick={close}
+              className="flex items-center gap-3 px-4 py-3 rounded-[10px] text-text-main font-medium text-[15px] transition-colors hover:bg-page hover:text-primary group whitespace-nowrap"
+              role="menuitem"
+            >
+              <AuthorIcon />
+              {t('nav.aboutAuthor')}
             </Link>
           </div>
         </>

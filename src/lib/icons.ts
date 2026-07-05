@@ -107,6 +107,8 @@ import {
   IconTrendingUp,
   IconTrendingDown,
   IconNews,
+  IconBrandTelegram,
+  IconBrandWhatsapp,
 } from '@tabler/icons-react';
 
 export type { Icon as TablerIcon, IconProps } from '@tabler/icons-react';
@@ -215,4 +217,8 @@ export const Icon = {
   Home: IconHome,
   Upload: IconUpload,
   Transit: IconBus,
+
+  // — Social / contact —
+  Telegram: IconBrandTelegram,
+  Whatsapp: IconBrandWhatsapp,
 } as const;
