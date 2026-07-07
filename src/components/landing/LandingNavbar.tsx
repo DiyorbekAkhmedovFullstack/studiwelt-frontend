@@ -134,7 +134,7 @@ export function LandingNavbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed top-[100px] left-0 right-0 mx-6 bg-surface/95 backdrop-blur-xl rounded-[24px] border border-[rgba(0,0,0,0.06)] shadow-[0_10px_40px_-10px_rgba(62,54,48,0.15)] p-2 overflow-hidden">
+        <div className="md:hidden fixed top-[100px] left-0 right-0 mx-6 max-h-[calc(100dvh-120px)] overflow-y-auto overscroll-contain bg-surface/95 backdrop-blur-xl rounded-[24px] border border-[rgba(0,0,0,0.06)] shadow-[0_10px_40px_-10px_rgba(62,54,48,0.15)] p-2">
           {isAuthenticated ? (
             <AuthenticatedMobileMenu
               user={user}

@@ -59,17 +59,17 @@ export function TestimonialAuthLayout({
       </div>
 
       {/* Right Panel - Form */}
-      <div className="w-full lg:w-[55%] flex flex-col items-center justify-center p-10 relative overflow-y-auto bg-surface">
+      <div className="w-full lg:w-[55%] flex flex-col items-center px-6 py-20 lg:p-10 relative overflow-y-auto bg-surface">
         {/* Back to Home Button - Top Right */}
         <Link
           to="/"
-          className="absolute top-8 right-8 flex items-center gap-2 text-text-muted text-[14px] font-medium hover:text-text-main transition-colors"
+          className="absolute top-8 right-8 z-10 flex items-center gap-2 text-text-muted text-[14px] font-medium hover:text-text-main transition-colors"
         >
           <Icon.Home size={18} />
           Home
         </Link>
 
-        <div className="w-full max-w-[420px]">
+        <div className="w-full max-w-[420px] my-auto">
           {/* Form Header */}
           <div className="mb-10 text-center">
             <h2 className="text-[26px] md:text-[32px] font-bold mb-3 text-text-main">{title}</h2>
