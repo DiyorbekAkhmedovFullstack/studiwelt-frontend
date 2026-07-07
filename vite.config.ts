@@ -12,7 +12,18 @@ export default defineConfig({
     target: "es2015",
     minify: "esbuild",
     cssCodeSplit: true,
-    // Let Vite handle code splitting automatically via lazy() imports in AppRoutes.tsx
-    // Manual chunking was causing initialization order issues between chunks
+    rollupOptions: {
+      output: {
+        // Split all third-party code into a single long-lived "vendor" chunk.
+        // It rarely changes, so returning visitors keep it cached across app
+        // deploys and only re-download the (much smaller) app chunk.
+        // Kept as ONE chunk on purpose: finer vendor groups here are circularly
+        // entangled and Rollup merges them anyway, which also avoids the
+        // cross-chunk initialization-order errors seen with earlier splits.
+        manualChunks(id) {
+          if (id.includes("node_modules")) return "vendor";
+        },
+      },
+    },
   },
 });

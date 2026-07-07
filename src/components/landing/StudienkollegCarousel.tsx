@@ -8,7 +8,7 @@ import { getAllStudienkollegs } from '../../data/studienkollegData';
 
 // Helper function to get image path with fallback
 const getImagePath = (cityName: string): string => {
-  return `/studienkollegs/${cityName}.png`;
+  return `/studienkollegs/${cityName}.jpg`;
 };
 
 export function StudienkollegCarousel() {
@@ -73,7 +73,7 @@ export function StudienkollegCarousel() {
       );
 
       [...nextCards, ...prevCards].forEach((stk) => {
-        const webpSrc = stk.imageUrl.replace(/\.png$/, '.webp');
+        const webpSrc = stk.imageUrl.replace(/\.(png|jpe?g)$/i, '.webp');
         const img = new Image();
         img.src = webpSrc;
       });

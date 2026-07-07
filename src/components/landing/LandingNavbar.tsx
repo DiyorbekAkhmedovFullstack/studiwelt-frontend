@@ -68,11 +68,16 @@ export function LandingNavbar() {
           to="/"
           className="flex items-center gap-2 font-serif font-black text-xl"
         >
-          <img
-            src="/logo-circle-512.png"
-            alt="Studiwelt"
-            className="w-7 h-7 rounded-md"
-          />
+          <picture>
+            <source srcSet="/logo-circle-512.webp" type="image/webp" />
+            <img
+              src="/logo-circle-512.png"
+              alt="Studiwelt"
+              width={28}
+              height={28}
+              className="w-7 h-7 rounded-md"
+            />
+          </picture>
           STUDIWELT
         </Link>
 

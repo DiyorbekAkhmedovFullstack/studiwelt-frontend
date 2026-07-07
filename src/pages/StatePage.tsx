@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, getStateSEO } from '../components/common/SEO';
+import { OptimizedImage } from '../components/common/OptimizedImage';
 import { Icon, Ui } from '../lib/icons';
 import { highlightIcon } from '../lib/highlightIcons';
 import { statesData, getStateStudienkollegs, type University } from '../data/statesData';
@@ -98,9 +99,10 @@ export function StatePage() {
           >
             {/* Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[16/10]">
-              <img
+              <OptimizedImage
                 src={state.image}
                 alt={state.name}
+                priority
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

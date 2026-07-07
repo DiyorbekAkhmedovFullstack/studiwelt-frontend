@@ -26,8 +26,8 @@ export function OptimizedImage({
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  // Convert .png to .webp for modern browsers
-  const webpSrc = src.replace(/\.png$/, '.webp');
+  // Convert .png/.jpg/.jpeg to .webp for modern browsers
+  const webpSrc = src.replace(/\.(png|jpe?g)$/i, '.webp');
 
   useEffect(() => {
     // Skip IntersectionObserver for priority images (isInView already initialized with priority)
