@@ -131,6 +131,15 @@
         "grammarQuestionCreated": "Вопрос по грамматике успешно создан.",
         "grammarQuestionSaveFailed": "Не удалось сохранить вопрос по грамматике. Пожалуйста, попробуйте снова.",
         "grammarQuestionDeleted": "Вопрос по грамматике удалён.",
-        "grammarQuestionDeleteFailed": "Не удалось удалить вопрос по грамматике. Пожалуйста, попробуйте снова."
+        "grammarQuestionDeleteFailed": "Не удалось удалить вопрос по грамматике. Пожалуйста, попробуйте снова.",
+        "checkFailed": "Не удалось проверить.",
+        "quizSubmitted": "Ответы отправлены.",
+        "readingSectionCompleted": "Раздел чтения завершён!",
+        "grammarQuizSubmitted": "Тест по грамматике отправлен!",
+        "grammarSectionCompleted": "Раздел грамматики завершён! Вы прошли все 3 попытки с хорошими результатами.",
+        "grammarSectionAlreadyCompleted": "Вы уже завершили этот раздел. Все 3 попытки использованы успешно!",
+        "ctestSectionCompleted": "Раздел C-теста завершён!",
+        "ctestSubmitted": "C-тест отправлен.",
+        "sectionAlreadyCompleted": "Этот раздел уже завершён."
     }
 }

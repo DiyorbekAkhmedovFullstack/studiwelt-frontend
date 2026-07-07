@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LoadingScreen, ErrorState, SectionCompletedState } from '../components/common';
 import { toastService } from '../services/toastService';
 import { useProgress } from '../contexts/ProgressContext';
@@ -12,6 +13,7 @@ type Params = {
 };
 
 export function ReadingExercisePage() {
+  const { t } = useTranslation();
   const { lessonNumber, readingId } = useParams<Params>();
   const navigate = useNavigate();
   const { isSectionLocked, refreshProgress } = useProgress();
@@ -93,15 +95,14 @@ export function ReadingExercisePage() {
           if (reading) {
             const nowCompleted = isSectionLocked(reading.lessonId, 'reading');
             if (nowCompleted) {
-              toastService.success(
-                'Leseverstehen-Bereich abgeschlossen!',
-                { duration: 6000 }
-              );
+              toastService.success(t('toast.readingSectionCompleted'), {
+                duration: 6000,
+              });
             } else {
-              toastService.success('Quiz abgesendet.');
+              toastService.success(t('toast.quizSubmitted'));
             }
           } else {
-            toastService.success('Quiz abgesendet.');
+            toastService.success(t('toast.quizSubmitted'));
           }
 
           // Navigate to results page, passing result via state
@@ -118,7 +119,7 @@ export function ReadingExercisePage() {
 
           // Check if section was completed (403 Forbidden)
           if (message.includes('locked') || message.includes('403')) {
-            toastService.info('Bereich bereits abgeschlossen.');
+            toastService.info(t('toast.sectionAlreadyCompleted'));
           } else {
             toastService.error(message);
           }

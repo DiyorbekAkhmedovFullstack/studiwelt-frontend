@@ -131,6 +131,15 @@
         "grammarQuestionCreated": "Grammar question created successfully.",
         "grammarQuestionSaveFailed": "Failed to save grammar question. Please try again.",
         "grammarQuestionDeleted": "Grammar question deleted.",
-        "grammarQuestionDeleteFailed": "Failed to delete grammar question. Please try again."
+        "grammarQuestionDeleteFailed": "Failed to delete grammar question. Please try again.",
+        "checkFailed": "Check failed.",
+        "quizSubmitted": "Quiz submitted.",
+        "readingSectionCompleted": "Reading section completed!",
+        "grammarQuizSubmitted": "Grammar quiz submitted!",
+        "grammarSectionCompleted": "Grammar section completed! You finished all 3 attempts with good results.",
+        "grammarSectionAlreadyCompleted": "You have already completed this section. All 3 attempts were used successfully!",
+        "ctestSectionCompleted": "C-Test section completed!",
+        "ctestSubmitted": "C-Test submitted.",
+        "sectionAlreadyCompleted": "This section is already completed."
     }
 }

@@ -131,6 +131,15 @@
         "grammarQuestionCreated": "Grammatikfrage erfolgreich erstellt.",
         "grammarQuestionSaveFailed": "Grammatikfrage konnte nicht gespeichert werden. Bitte versuche es erneut.",
         "grammarQuestionDeleted": "Grammatikfrage gelöscht.",
-        "grammarQuestionDeleteFailed": "Grammatikfrage konnte nicht gelöscht werden. Bitte versuche es erneut."
+        "grammarQuestionDeleteFailed": "Grammatikfrage konnte nicht gelöscht werden. Bitte versuche es erneut.",
+        "checkFailed": "Überprüfung fehlgeschlagen.",
+        "quizSubmitted": "Quiz abgesendet.",
+        "readingSectionCompleted": "Leseverstehen-Bereich abgeschlossen!",
+        "grammarQuizSubmitted": "Grammatik-Quiz erfolgreich abgesendet!",
+        "grammarSectionCompleted": "Grammatik-Bereich erfolgreich abgeschlossen! Du hast alle 3 Versuche mit guten Ergebnissen beendet.",
+        "grammarSectionAlreadyCompleted": "Dieser Bereich ist bereits abgeschlossen. Du hast alle 3 Versuche erfolgreich genutzt!",
+        "ctestSectionCompleted": "C-Test-Abschnitt abgeschlossen!",
+        "ctestSubmitted": "C-Test eingereicht.",
+        "sectionAlreadyCompleted": "Dieser Abschnitt ist bereits abgeschlossen."
     }
 }

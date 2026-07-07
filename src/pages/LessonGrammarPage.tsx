@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ErrorState,
   LoadingScreen,
@@ -23,6 +24,7 @@ type Params = {
 type AnswerMap = Record<string, "A" | "B" | "C" | "D" | null>;
 
 export function LessonGrammarPage() {
+  const { t } = useTranslation();
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
   const { isSectionLocked, refreshProgress } = useProgress();
@@ -129,15 +131,14 @@ export function LessonGrammarPage() {
           if (lesson) {
             const nowCompleted = isSectionLocked(lesson.id, "grammar");
             if (nowCompleted) {
-              toastService.success(
-                "Grammatik-Bereich erfolgreich abgeschlossen! Du hast alle 3 Versuche mit guten Ergebnissen beendet.",
-                { duration: 6000 },
-              );
+              toastService.success(t('toast.grammarSectionCompleted'), {
+                duration: 6000,
+              });
             } else {
-              toastService.success("Grammatik-Quiz erfolgreich abgesendet!");
+              toastService.success(t('toast.grammarQuizSubmitted'));
             }
           } else {
-            toastService.success("Grammatik-Quiz erfolgreich abgesendet!");
+            toastService.success(t('toast.grammarQuizSubmitted'));
           }
 
           navigate(`/course/${lessonNumber}/grammar/results`, {
@@ -153,9 +154,7 @@ export function LessonGrammarPage() {
 
           // Check if section was completed (403 Forbidden)
           if (message.includes("locked") || message.includes("403")) {
-            toastService.info(
-              "Dieser Bereich ist bereits abgeschlossen. Du hast alle 3 Versuche erfolgreich genutzt!",
-            );
+            toastService.info(t('toast.grammarSectionAlreadyCompleted'));
           } else {
             toastService.error(message);
           }

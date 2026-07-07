@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { Card, Deck } from '../../types/api';
 import { deckService } from '../../services/deckService';
 import { toastService } from '../../services/toastService';
@@ -17,6 +18,7 @@ type Params = {
 import { SectionCompletedState } from '../common/SectionCompletedState';
 
 export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { lessonNumber } = useParams<Params>();
   const { isSectionLocked, refreshProgress } = useProgress();
@@ -119,7 +121,7 @@ export function LessonDeckPractice({ deck }: LessonDeckPracticeProps) {
       }
     } catch (err) {
       console.error('Failed to record card review', err);
-      toastService.error('Überprüfung fehlgeschlagen.');
+      toastService.error(t('toast.checkFailed'));
     } finally {
       setSavingReview(false);
     }

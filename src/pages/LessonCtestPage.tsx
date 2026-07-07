@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { GermanKeyboard } from "../components/common/GermanKeyboard";
 import { LoadingSpinner } from "../components/common/LoadingSpinner";
 import { SectionCompletedState } from "../components/common/SectionCompletedState";
@@ -60,6 +61,7 @@ function parseGapText(gapText: string): ParsedGapText {
 }
 
 export function LessonCtestPage() {
+  const { t } = useTranslation();
   const { lessonNumber } = useParams<Params>();
   const navigate = useNavigate();
   const { isSectionLocked, refreshProgress } = useProgress();
@@ -270,11 +272,11 @@ export function LessonCtestPage() {
           // Check if section just became completed (finished 3 successful attempts)
           const nowCompleted = isSectionLocked(ctest.lessonId, "ctest");
           if (nowCompleted) {
-            toastService.success("C-Test-Abschnitt abgeschlossen!", {
+            toastService.success(t('toast.ctestSectionCompleted'), {
               duration: 6000,
             });
           } else {
-            toastService.success("C-Test eingereicht.");
+            toastService.success(t('toast.ctestSubmitted'));
           }
 
           navigate(`/course/${lessonNumber}/ctest/results`, {
@@ -288,7 +290,7 @@ export function LessonCtestPage() {
 
           // Check if section was completed (403 Forbidden)
           if (message.includes("locked") || message.includes("403")) {
-            toastService.info("Abschnitt bereits abgeschlossen.");
+            toastService.info(t('toast.sectionAlreadyCompleted'));
           } else {
             toastService.error(message);
           }
