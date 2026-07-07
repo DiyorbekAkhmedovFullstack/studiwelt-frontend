@@ -1,6 +1,7 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { CTestResult } from '../types/api';
 import { DashboardLayout } from '../components/dashboard';
+import { ErrorState } from '../components/common';
 import { MIN_PASSING_SCORE } from '../constants/progress';
 import { Ui } from '../lib/icons';
 
@@ -37,20 +38,13 @@ export function CtestResultsPage() {
 
   if (!result) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
-        <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
-          <p className="mb-4 text-sm text-danger" role="alert">
-            Keine C-Test-Ergebnisse gefunden. Bitte schließe zuerst den C-Test ab.
-          </p>
-          <button
-            type="button"
-            onClick={() => navigate(`/course/${lessonNumber}/ctest`)}
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
-          >
-            Zum C-Test
-          </button>
-        </div>
-      </div>
+      <ErrorState
+        variant="info"
+        title="Noch keine Ergebnisse"
+        message="Schließe zuerst den C-Test ab, um deine Ergebnisse zu sehen."
+        backLabel="Zum C-Test"
+        backPath={`/course/${lessonNumber}/ctest`}
+      />
     );
   }
 

@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
+import { ErrorState } from '../components/common';
 import { LessonDeckPractice } from '../components/lesson/LessonDeckPractice';
 import { useLessonByNumber } from '../hooks/queries/useLessons';
 import { useDecksByLesson } from '../hooks/queries/useDecks';
@@ -47,39 +48,27 @@ export function LessonDeckPage() {
 
   if (error || !lesson) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
-        <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
-          <p className="mb-4 text-sm text-danger" role="alert">
-            {error ?? 'Lektion nicht gefunden.'}
-          </p>
-          <button
-            type="button"
-            onClick={() => navigate('/course')}
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
-          >
-            Zurück zum Kurs
-          </button>
-        </div>
-      </div>
+      <ErrorState
+        error={error ?? undefined}
+        title={error ? undefined : 'Lektion nicht gefunden'}
+        message={
+          error ? undefined : 'Diese Lektion existiert nicht oder ist noch nicht verfügbar.'
+        }
+        backLabel="Zurück zum Kurs"
+        backPath="/course"
+      />
     );
   }
 
   if (!deck) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
-        <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
-          <p className="mb-2 text-sm text-text-main">
-            Diese Lektion hat noch kein Karteikarten-Deck.
-          </p>
-          <button
-            type="button"
-            onClick={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
-          >
-            Zurück zur Lektion
-          </button>
-        </div>
-      </div>
+      <ErrorState
+        variant="info"
+        title="Noch keine Karteikarten"
+        message="Diese Lektion hat noch kein Karteikarten-Deck."
+        backLabel="Zurück zur Lektion"
+        onBack={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
+      />
     );
   }
 

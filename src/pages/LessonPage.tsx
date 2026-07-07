@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { LoadingSpinner } from "../components/common/LoadingSpinner";
+import { ErrorState } from "../components/common";
 import { DashboardLayout } from "../components/dashboard";
 import { useProgress } from "../contexts/ProgressContext";
 import { useDecksByLesson } from "../hooks/queries/useDecks";
@@ -99,20 +100,15 @@ export function LessonPage() {
 
   if (error || !lesson) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
-        <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
-          <p className="mb-4 text-sm text-danger" role="alert">
-            {error ?? "Lektion nicht gefunden."}
-          </p>
-          <button
-            type="button"
-            onClick={() => navigate("/course")}
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
-          >
-            Zurück zum Kurs
-          </button>
-        </div>
-      </div>
+      <ErrorState
+        error={error ?? undefined}
+        title={error ? undefined : "Lektion nicht gefunden"}
+        message={
+          error ? undefined : "Diese Lektion existiert nicht oder ist noch nicht verfügbar."
+        }
+        backLabel="Zurück zum Kurs"
+        backPath="/course"
+      />
     );
   }
 

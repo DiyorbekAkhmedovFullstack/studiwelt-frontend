@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useLessons } from '../hooks/queries/useLessons';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
+import { ErrorState } from '../components/common';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { toastService } from '../services/toastService';
@@ -35,13 +36,11 @@ export function CoursePage() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
-        <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
-          <p className="text-sm text-danger" role="alert">
-            {error}
-          </p>
-        </div>
-      </div>
+      <ErrorState
+        error={error}
+        backLabel="Seite neu laden"
+        onBack={() => window.location.reload()}
+      />
     );
   }
 

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { GermanKeyboard } from "../components/common/GermanKeyboard";
 import { LoadingSpinner } from "../components/common/LoadingSpinner";
 import { SectionCompletedState } from "../components/common/SectionCompletedState";
+import { ErrorState } from "../components/common";
 import { useProgress } from "../contexts/ProgressContext";
 import {
   useCTestsByLesson,
@@ -318,41 +319,27 @@ export function LessonCtestPage() {
 
   if (error || !lesson) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
-        <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
-          <p className="mb-4 text-sm text-danger" role="alert">
-            {error ?? "Lektion nicht gefunden."}
-          </p>
-          <button
-            type="button"
-            onClick={() => navigate("/course")}
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
-          >
-            Zurück zum Kurs
-          </button>
-        </div>
-      </div>
+      <ErrorState
+        error={error ?? undefined}
+        title={error ? undefined : "Lektion nicht gefunden"}
+        message={
+          error ? undefined : "Diese Lektion existiert nicht oder ist noch nicht verfügbar."
+        }
+        backLabel="Zurück zum Kurs"
+        backPath="/course"
+      />
     );
   }
 
   if (!ctest || parsed.totalGaps === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-page p-4">
-        <div className="w-full max-w-md rounded-xl bg-surface p-6 shadow-lg border border-border-soft">
-          <p className="mb-4 text-sm text-text-main">
-            Diese Lektion hat noch keinen konfigurierten C-Test.
-          </p>
-          <button
-            type="button"
-            onClick={() =>
-              navigate(`/course/${lesson.lessonNumber}`, { replace: true })
-            }
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-hover"
-          >
-            Zurück zur Lektion
-          </button>
-        </div>
-      </div>
+      <ErrorState
+        variant="info"
+        title="Noch kein C-Test"
+        message="Diese Lektion hat noch keinen konfigurierten C-Test."
+        backLabel="Zurück zur Lektion"
+        onBack={() => navigate(`/course/${lesson.lessonNumber}`, { replace: true })}
+      />
     );
   }
 
