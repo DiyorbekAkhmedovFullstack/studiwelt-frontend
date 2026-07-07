@@ -22,9 +22,10 @@
             "body": "Ich glaube, dass Bildung für jeden erreichbar sein sollte. Studiwelt gibt es, damit dich das Erreichen deiner Ziele weder deine Nerven noch deine Ersparnisse kostet. Unser Bootcamp kostet nur einen Bruchteil der üblichen bezahlten Kurse, und das reicht gerade, um die Plattform am Leben und die Server am Laufen zu halten. Es wird nie zwischen dir und deinem Start stehen."
         }
     },
-    "cta": {
-        "title": "Bereit, deine Reise zu starten?",
-        "description": "Schließe dich den Studierenden an, die sich mit einem strukturierten Tagesplan auf die Studienkolleg-Aufnahmeprüfung vorbereiten.",
-        "button": "Deinen 30-Tage-Plan starten"
+    "contact": {
+        "title": "Willst du diesen Schritt sicher gehen?",
+        "description": "Vielleicht willst du mehr als einen Kurs. Du willst an einer deutschen Hochschule ankommen, ohne bei jedem Schritt zu zweifeln, echte Arbeit in deinem Fach finden und das Ganze von jemandem hören, der dieses Land in- und auswendig kennt. Wenn das auf dich zutrifft, schreib mir direkt. Ich lese und beantworte jede Nachricht selbst.",
+        "telegram": "Telegram",
+        "whatsapp": "WhatsApp"
     }
 }

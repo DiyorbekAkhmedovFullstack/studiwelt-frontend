@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
-import { Button } from '../components/landing/Button';
 import { SEO } from '../components/common/SEO';
-import { useAuth } from '../contexts/AuthContext';
+import { Icon } from '../lib/icons';
+
+const TELEGRAM_URL = 'https://t.me/diorbekakhmedov';
+const WHATSAPP_URL = 'https://wa.me/4917676389253';
 
 export function AboutPage() {
   const { t } = useTranslation('about');
-  const { user } = useAuth();
-  const isAuthenticated = !!user;
 
   const sections = ['motivation', 'goal', 'vision'] as const;
 
@@ -71,20 +70,35 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Contact */}
       <section className="pb-24">
         <div className="max-w-[860px] mx-auto px-4 sm:px-6">
           <div className="bg-surface rounded-[28px] shadow-card border border-[rgba(0,0,0,0.03)] p-10 md:p-14 text-center">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-text-main mb-3">
-              {t('cta.title')}
+              {t('contact.title')}
             </h2>
-            <p className="text-text-muted mb-8 max-w-[520px] mx-auto">
-              {t('cta.description')}
+            <p className="text-text-muted mb-8 max-w-[560px] mx-auto leading-relaxed">
+              {t('contact.description')}
             </p>
-            <div className="flex justify-center">
-              <Link to={isAuthenticated ? '/course' : '/register'}>
-                <Button variant="primary">{t('cta.button')}</Button>
-              </Link>
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 min-h-[44px] rounded-full font-semibold text-sm sm:text-base transition-all duration-300 bg-text-main text-white hover:bg-primary hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(166,123,91,0.2)]"
+              >
+                <Icon.Telegram className="w-5 h-5" />
+                {t('contact.telegram')}
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 min-h-[44px] rounded-full font-semibold text-sm sm:text-base transition-all duration-300 border-2 border-text-main/30 text-text-main bg-surface/50 hover:border-text-main hover:bg-surface"
+              >
+                <Icon.Whatsapp className="w-5 h-5" />
+                {t('contact.whatsapp')}
+              </a>
             </div>
           </div>
         </div>

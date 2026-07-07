@@ -22,9 +22,10 @@
             "body": "I believe education should be within reach for everyone. Studiwelt exists so that reaching your goals costs you neither your nerves nor your savings. Our bootcamp costs a fraction of the usual paid courses, and that is just enough to keep the platform alive and the servers running. It will never stand between you and your start."
         }
     },
-    "cta": {
-        "title": "Ready to start your journey?",
-        "description": "Join the students preparing for their Studienkolleg entrance exam with a structured, daily plan.",
-        "button": "Start your 30-day plan"
+    "contact": {
+        "title": "Want to make the move with confidence?",
+        "description": "Maybe you want more than a course. You want to get into a German university without second-guessing every step, to find real work in your field, and to hear it straight from someone who has studied this country inside and out. If that sounds like you, write to me directly. I read and answer every message myself.",
+        "telegram": "Telegram",
+        "whatsapp": "WhatsApp"
     }
 }

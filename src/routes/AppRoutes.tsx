@@ -242,7 +242,7 @@ export function AppRoutes() {
 
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
-        {/* Public marketing pages — shared site footer via PublicLayout */}
+        {/* Public marketing pages */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
