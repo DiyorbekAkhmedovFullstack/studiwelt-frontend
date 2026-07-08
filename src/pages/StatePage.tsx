@@ -218,8 +218,8 @@ export function StatePage() {
                       >
                         <div className="p-6 md:p-8">
                           {/* Header */}
-                          <div className="flex items-start justify-between gap-4 mb-4">
-                            <h4 className="text-xl font-bold text-text leading-tight flex-1">
+                          <div className="flex flex-col sm:flex-row items-start sm:justify-between gap-2 sm:gap-4 mb-4">
+                            <h4 className="text-xl font-bold text-text leading-tight sm:flex-1">
                               {uni.name}
                             </h4>
                             <span
