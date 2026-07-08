@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, seoConfig } from '../components/common/SEO';
@@ -109,6 +110,8 @@ const requirementBlocks = [
 
 export function AboutStudienkollegPage() {
   const { t } = useTranslation('aboutStudienkolleg');
+  const { user } = useAuth();
+  const startTo = user ? '/course' : '/register';
 
   const heroStats = t('hero.stats', { returnObjects: true }) as Array<{
     value: string;
@@ -150,7 +153,7 @@ export function AboutStudienkollegPage() {
 
             <div className="flex flex-wrap justify-center gap-3 mb-12">
               <Link
-                to="/register"
+                to={startTo}
                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-7 py-3.5 rounded-full text-[15px] transition-all hover:bg-primary-hover hover:-translate-y-0.5 shadow-[0_8px_20px_rgba(166,123,91,0.28)] active:scale-[0.98]"
               >
                 {t('hero.ctaPrimary')}
@@ -496,7 +499,7 @@ export function AboutStudienkollegPage() {
               </Link>
 
               <Link
-                to="/register"
+                to={startTo}
                 className="inline-flex items-center gap-2 bg-transparent text-text-main font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-page border border-border"
               >
                 {t('cta.startButton')}

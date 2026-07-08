@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
+import { GuestRoute } from './GuestRoute';
 import { ScrollToTop } from '../components/common/ScrollToTop';
 import { PublicLayout } from '../components/common/PublicLayout';
 
@@ -65,8 +66,8 @@ export function AppRoutes() {
     <Suspense fallback={<PageLoader />}>
       <ScrollToTop />
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<GuestRoute element={<LoginPage />} />} />
+        <Route path="/register" element={<GuestRoute element={<RegisterPage />} />} />
         <Route path="/registration-success" element={<RegistrationSuccessPage />} />
         {/* Email verification links: support both /verify/account (email) and /verify-account (internal) */}
         <Route path="/verify/account" element={<VerifyAccountPage />} />
@@ -75,7 +76,7 @@ export function AppRoutes() {
         <Route path="/verification-success" element={<VerificationSuccessPage />} />
         <Route path="/already-verified" element={<AlreadyVerifiedPage />} />
         <Route path="/mfa" element={<MfaVerifyPage />} />
-        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/forgot-password" element={<GuestRoute element={<ForgotPasswordPage />} />} />
         {/* Password reset links: support both /verify/password (email) and /reset-password (internal) */}
         <Route path="/verify/password" element={<ResetPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />

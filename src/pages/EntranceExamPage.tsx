@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, seoConfig } from '../components/common/SEO';
@@ -37,6 +38,8 @@ const courseBorderColors: Record<CourseType, string> = {
 
 export function EntranceExamPage() {
     const { t } = useTranslation('entranceExam');
+    const { user } = useAuth();
+    const startTo = user ? '/course' : '/register';
     const [selectedCourse, setSelectedCourse] = useState<CourseType>('T');
     const [heroRef, heroVisible] = useScrollAnimation();
     const [overviewRef, overviewVisible] = useScrollAnimation();
@@ -464,7 +467,7 @@ export function EntranceExamPage() {
 
                         <div className="flex flex-wrap justify-center gap-4">
                             <Link
-                                to="/register"
+                                to={startTo}
                                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-4 rounded-full text-base transition-all hover:bg-primary-hover shadow-[0_4px_12px_rgba(166,123,91,0.3)] active:scale-[0.98]"
                             >
                                 {t('cta.startButton')}

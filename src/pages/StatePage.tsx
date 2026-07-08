@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { SEO, getStateSEO } from '../components/common/SEO';
@@ -42,6 +43,8 @@ export function StatePage() {
   const { stateId } = useParams<{ stateId: string }>();
   const { t } = useTranslation('statePage');
   const { t: tc } = useTranslation('statesContent');
+  const { user } = useAuth();
+  const startTo = user ? '/course' : '/register';
   const [heroRef, heroVisible] = useScrollAnimation();
   const [statsRef, statsVisible] = useScrollAnimation();
   const [uniRef, uniVisible] = useScrollAnimation();
@@ -473,7 +476,7 @@ export function StatePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/register"
+              to={startTo}
               className="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-hover transition-colors shadow-soft"
             >
               {t('startLearning')}

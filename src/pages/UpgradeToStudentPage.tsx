@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import { LoadingSpinner } from "../components/common/LoadingSpinner";
 import { DashboardLayout } from "../components/dashboard";
 import {
@@ -18,6 +19,7 @@ const CURRENCY_SYMBOLS: Record<string, string> = {
 
 export function UpgradeToStudentPage() {
   const { t } = useTranslation("upgrade");
+  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState<StudentUpgradePrice | null>(null);
 
@@ -42,6 +44,13 @@ export function UpgradeToStudentPage() {
       setLoading(false);
     }
   };
+
+  // The upgrade only makes sense for a plain USER. A STUDENT already upgraded
+  // and an ADMIN has no use for it — send them back to the course instead of
+  // showing the pay-again card (reachable via direct URL despite the hidden link).
+  if (user && user.role !== "USER") {
+    return <Navigate to="/course" replace />;
+  }
 
   if (loading) {
     return (
