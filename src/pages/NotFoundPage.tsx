@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/common/SEO';
 
 export function NotFoundPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-page p-4">
+    <main id="main-content" className="min-h-screen flex items-center justify-center bg-page p-4">
+      <SEO
+        title="Page not found"
+        description="The requested page does not exist."
+        noIndex
+      />
       <div className="max-w-md rounded-xl bg-surface p-8 text-center shadow-lg border border-border-soft">
         <h1 className="mb-2 text-2xl font-semibold text-text-main">
           Page not found
@@ -17,6 +23,6 @@ export function NotFoundPage() {
           Go home
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

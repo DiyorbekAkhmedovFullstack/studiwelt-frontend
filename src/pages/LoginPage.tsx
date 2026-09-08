@@ -8,7 +8,7 @@ import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { toastService } from '../services/toastService';
 import { TestimonialAuthLayout, FormInput, PasswordInput } from '../components/auth';
 import { loginSchema, type LoginFormData } from '../lib/validations';
-import { SEO, seoConfig } from '../components/common/SEO';
+import { SEO, useSEOConfig } from '../components/common/SEO';
 import { useRandomTestimonial } from '../hooks';
 
 export function LoginPage() {
@@ -17,6 +17,7 @@ export function LoginPage() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const testimonial = useRandomTestimonial();
+  const seo = useSEOConfig('login');
 
   const {
     register,
@@ -63,7 +64,7 @@ export function LoginPage() {
 
   return (
     <>
-      <SEO {...seoConfig.login} />
+      <SEO {...seo} />
       <TestimonialAuthLayout
         title={t('login.title')}
         subtitle={t('login.subtitle')}

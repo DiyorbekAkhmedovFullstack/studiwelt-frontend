@@ -3,11 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { SEO, getStateSEO } from '../components/common/SEO';
+import { SEO, SITE_URL, createBreadcrumbSchema, getStateSEO } from '../components/common/SEO';
 import { OptimizedImage } from '../components/common/OptimizedImage';
 import { Icon, Ui } from '../lib/icons';
 import { highlightIcon } from '../lib/highlightIcons';
 import { statesData, getStateStudienkollegs, type University } from '../data/statesData';
+import { localizePublicPath, normalizeLocale } from '../lib/publicRoutes';
 
 // === Icons ===
 const LocationIcon = () => <Icon.Location size={18} />;
@@ -41,7 +42,7 @@ const UNIVERSITY_GROUP_CONFIG = [
 
 export function StatePage() {
   const { stateId } = useParams<{ stateId: string }>();
-  const { t } = useTranslation('statePage');
+  const { t, i18n } = useTranslation('statePage');
   const { t: tc } = useTranslation('statesContent');
   const { user } = useAuth();
   const startTo = user ? '/course' : '/register';
@@ -57,7 +58,11 @@ export function StatePage() {
   if (!state) {
     return (
       <div className="min-h-screen bg-page">
-        <SEO title={t('stateNotFound')} noIndex />
+        <SEO
+          title={t('stateNotFound')}
+          description={t('stateNotFoundDescription')}
+          noIndex
+        />
         <LandingNavbar />
         <div className="pt-32 text-center">
           <h1 className="text-3xl font-bold mb-4">{t('stateNotFound')}</h1>
@@ -70,10 +75,32 @@ export function StatePage() {
     );
   }
 
-  const seoProps = getStateSEO(state.name, state.germanName);
+  const locale = normalizeLocale(i18n.resolvedLanguage ?? i18n.language);
   const stateStudienkollegs = getStateStudienkollegs(state.id);
 
   const localizedName = tc(`${state.id}.name`) || state.name;
+  const seoProps = getStateSEO(localizedName, state.germanName, locale);
+  const canonicalPath = localizePublicPath(`/state/${state.id}`, locale);
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const structuredData = [
+    createBreadcrumbSchema([
+      { name: 'STUDIWELT', url: SITE_URL },
+      { name: localizedName, url: canonicalUrl },
+    ]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: seoProps.title,
+      description: seoProps.description,
+      url: canonicalUrl,
+      inLanguage: locale,
+      about: {
+        '@type': 'AdministrativeArea',
+        name: localizedName,
+        containedInPlace: { '@type': 'Country', name: 'Germany' },
+      },
+    },
+  ];
 
   const translatedPrograms = (uniIndex: number): string[] => {
     const result = tc(`${state.id}.universities.${uniIndex}.programs`, { returnObjects: true });
@@ -82,11 +109,11 @@ export function StatePage() {
 
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
-      <SEO {...seoProps} />
+      <SEO {...seoProps} ogType="article" structuredData={structuredData} />
       <LandingNavbar />
 
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16">
+      <section id="main-content" className="pt-24 md:pt-32 pb-12 md:pb-16">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <Link
             to="/"
@@ -491,12 +518,6 @@ export function StatePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-border">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 text-center text-sm text-text-muted">
-          <p>&copy; {new Date().getFullYear()} Studiwelt. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }

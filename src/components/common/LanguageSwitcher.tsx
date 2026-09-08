@@ -1,6 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { Icon, Ui } from '../../lib/icons';
 import { Dropdown, type DropdownItem } from './Dropdown';
+import {
+    isIndexablePublicPath,
+    localizePublicPath,
+    normalizeLocale,
+} from '../../lib/publicRoutes';
 
 const languages = [
     { code: 'de', label: 'DE', name: 'Deutsch' },
@@ -18,7 +23,19 @@ export function LanguageSwitcher({ variant = 'dropdown' }: LanguageSwitcherProps
     const currentLang = i18n.language?.substring(0, 2) || 'de';
     const currentLanguage = languages.find(l => l.code === currentLang) || languages[0];
 
-    const handleChange = (code: string) => i18n.changeLanguage(code);
+    const handleChange = (code: string) => {
+        const locale = normalizeLocale(code);
+        localStorage.setItem('i18nextLng', locale);
+
+        if (isIndexablePublicPath(window.location.pathname)) {
+            const targetPath = localizePublicPath(window.location.pathname, locale);
+            window.location.assign(`${targetPath}${window.location.hash}`);
+            return;
+        }
+
+        void i18n.changeLanguage(locale);
+        document.documentElement.setAttribute('lang', locale);
+    };
 
     if (variant === 'inline') {
         return (

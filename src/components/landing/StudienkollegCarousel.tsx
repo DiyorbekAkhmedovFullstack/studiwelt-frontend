@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { OptimizedImage } from '../common/OptimizedImage';
@@ -15,25 +15,20 @@ export function StudienkollegCarousel() {
   const { t } = useTranslation('landing');
   const { t: tk } = useTranslation('studienkolleg');
   const [sectionRef, sectionVisible] = useScrollAnimation();
-  const navigate = useNavigate();
 
-  const td = (slug: string, key: string, fallback: string) =>
-    tk(`data.${slug}.${key}`, { defaultValue: fallback });
-
-  const studienkollegs = getAllStudienkollegs().map((stk) => ({
-    slug: stk.slug,
-    name: td(stk.slug, 'name', stk.name),
-    location: td(stk.slug, 'location', stk.location),
-    badge: stk.badge,
-    courses: stk.courses,
-    applicationMethod: stk.application.method,
-    imageUrl: getImagePath(stk.slug),
-  }));
-
-  // Handle card click navigation
-  const handleCardClick = (slug: string) => {
-    navigate(`/studienkolleg/${slug}`);
-  };
+  const studienkollegs = useMemo(
+    () =>
+      getAllStudienkollegs().map((stk) => ({
+        slug: stk.slug,
+        name: tk(`data.${stk.slug}.name`, { defaultValue: stk.name }),
+        location: tk(`data.${stk.slug}.location`, { defaultValue: stk.location }),
+        badge: stk.badge,
+        courses: stk.courses,
+        applicationMethod: stk.application.method,
+        imageUrl: getImagePath(stk.slug),
+      })),
+    [tk],
+  );
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -80,7 +75,7 @@ export function StudienkollegCarousel() {
     };
 
     preloadImages();
-  }, [currentIndex, cardsToShow]);
+  }, [currentIndex, cardsToShow, studienkollegs]);
 
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < studienkollegs.length - cardsToShow;
@@ -108,7 +103,7 @@ export function StudienkollegCarousel() {
   const visibleCards = studienkollegs.slice(currentIndex, currentIndex + cardsToShow);
 
   return (
-    <section className="py-24 bg-page">
+    <section id="studienkolleg-carousel" className="py-24 bg-page">
       <div className="max-w-[1100px] mx-auto px-6">
         {/* Header */}
         <div
@@ -157,8 +152,8 @@ export function StudienkollegCarousel() {
                   }`}
                 style={{ transitionDelay: isAnimating ? '0ms' : `${index * 50}ms` }}
               >
-                <div
-                  onClick={() => handleCardClick(stk.slug)}
+                <Link
+                  to={`/studienkolleg/${stk.slug}`}
                   className="bg-surface rounded-[20px] md:rounded-[24px] shadow-[0_12px_40px_-8px_rgba(166,123,91,0.15)] transition-all duration-300 hover:shadow-[0_20px_50px_-10px_rgba(166,123,91,0.25)] hover:-translate-y-3 cursor-pointer h-[420px] md:h-[480px] flex flex-col relative border border-[rgba(0,0,0,0.02)] overflow-hidden w-full"
                 >
                   {/* Image */}
@@ -215,12 +210,27 @@ export function StudienkollegCarousel() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      <nav aria-label="All Studienkollegs" className="mx-auto mt-10 max-w-[1100px] px-6">
+        <h3 className="mb-5 text-center text-xl font-bold">{t('carousel.title')}</h3>
+        <div className="flex flex-wrap justify-center gap-2.5">
+          {studienkollegs.map((studienkolleg) => (
+            <Link
+              key={studienkolleg.slug}
+              to={`/studienkolleg/${studienkolleg.slug}`}
+              className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-text-main transition-colors hover:border-primary hover:text-primary"
+            >
+              {studienkolleg.name}
+            </Link>
+          ))}
+        </div>
+      </nav>
 
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {

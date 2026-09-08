@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import GermanyMap from './GermanyMap';
+import { STATE_SLUGS } from '../../lib/publicRoutes';
 
 export function GermanyMapSection() {
     const { t } = useTranslation('landing');
@@ -15,6 +17,20 @@ export function GermanyMapSection() {
                 <div className="relative w-full max-w-[500px] mx-auto">
                     <GermanyMap className="w-full h-auto" />
                 </div>
+
+                <nav aria-label="German states" className="mt-10">
+                    <div className="flex flex-wrap justify-center gap-2.5">
+                        {STATE_SLUGS.map((slug) => (
+                            <Link
+                                key={slug}
+                                to={`/state/${slug}`}
+                                className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-text-main transition-colors hover:border-primary hover:text-primary"
+                            >
+                                {t(`statesContent:${slug}.name`, { defaultValue: slug })}
+                            </Link>
+                        ))}
+                    </div>
+                </nav>
             </div>
         </section>
     );

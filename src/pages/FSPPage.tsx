@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { SEO, seoConfig } from '../components/common/SEO';
+import { SEO, useSEOConfig } from '../components/common/SEO';
 import { Icon, Ui } from '../lib/icons';
 
 // Icons
@@ -56,6 +56,7 @@ export function FSPPage() {
     const [tipsRef, tipsVisible] = useScrollAnimation();
     const [afterRef, afterVisible] = useScrollAnimation();
     const [ctaRef, ctaVisible] = useScrollAnimation();
+    const seo = useSEOConfig('fsp');
 
     const currentCourse = t(`courseDetails.courses.${selectedCourse}`, { returnObjects: true }) as {
         name: string;
@@ -68,11 +69,11 @@ export function FSPPage() {
 
     return (
         <div className="min-h-screen bg-page overflow-x-hidden">
-            <SEO {...seoConfig.fsp} />
+            <SEO {...seo} />
             <LandingNavbar />
 
             {/* Hero Section */}
-            <section className="pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-24 text-center">
+            <section id="main-content" className="pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-24 text-center">
                 <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
                     <div
                         ref={heroRef}

@@ -18,7 +18,7 @@ export function AboutPage() {
       <LandingNavbar />
 
       {/* Hero */}
-      <section className="pt-32 md:pt-40 pb-16 md:pb-20 relative overflow-hidden">
+      <section id="main-content" className="pt-32 md:pt-40 pb-16 md:pb-20 relative overflow-hidden">
         <div className="absolute top-24 -left-24 w-72 h-72 bg-primary/10 blur-[90px] rounded-full pointer-events-none" />
         <div className="absolute top-10 -right-20 w-64 h-64 bg-[#6B8C6E]/10 blur-[90px] rounded-full pointer-events-none" />
 

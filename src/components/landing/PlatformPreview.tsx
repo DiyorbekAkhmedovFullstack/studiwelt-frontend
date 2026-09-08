@@ -38,7 +38,7 @@ export function PlatformPreview() {
           <div className="max-w-[800px] mx-auto">
             {/* Header */}
             <header className="mb-6 sm:mb-10">
-              <h1 className="text-xl sm:text-2xl md:text-[32px] font-bold mb-1 sm:mb-2 text-text-main">Dein Lernweg</h1>
+              <div className="text-xl sm:text-2xl md:text-[32px] font-bold mb-1 sm:mb-2 text-text-main">Dein Lernweg</div>
               <p className="text-text-muted text-xs sm:text-sm">
                 Du bist gerade bei <strong>Tag 15</strong> von 30. Bleib am Ball!
               </p>

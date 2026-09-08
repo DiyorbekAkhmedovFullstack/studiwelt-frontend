@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon, Ui } from '../../lib/icons';
+import {
+  isIndexablePublicPath,
+  localizePublicPath,
+  normalizeLocale,
+} from '../../lib/publicRoutes';
 
 const SUPPORTED_LANGUAGES = ['de', 'en', 'ru'];
 const STORAGE_KEY = 'i18nextLng';
@@ -44,7 +49,14 @@ export function LanguagePromptBanner() {
   const handleSelectLanguage = (langCode: string) => {
     setIsClosing(true);
     setTimeout(() => {
-      i18n.changeLanguage(langCode);
+      const locale = normalizeLocale(langCode);
+      localStorage.setItem(STORAGE_KEY, locale);
+      if (isIndexablePublicPath(window.location.pathname)) {
+        window.location.assign(localizePublicPath(window.location.pathname, locale));
+        return;
+      }
+      void i18n.changeLanguage(locale);
+      document.documentElement.lang = locale;
       setIsVisible(false);
     }, 300);
   };

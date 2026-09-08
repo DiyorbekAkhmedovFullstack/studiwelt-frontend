@@ -1,5 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getStudienkollegBySlug } from '../data/studienkollegData';
 import { StudienkollegHeader } from '../components/studienkolleg/StudienkollegHeader';
@@ -8,24 +7,34 @@ import { CoursesCard } from '../components/studienkolleg/CoursesCard';
 import { ApplicationCard } from '../components/studienkolleg/ApplicationCard';
 import { ExamCard } from '../components/studienkolleg/ExamCard';
 import { Ui } from '../lib/icons';
-import { SEO, getStudienkollegSEO } from '../components/common/SEO';
+import {
+  SEO,
+  SITE_URL,
+  createBreadcrumbSchema,
+  getStudienkollegSEO,
+} from '../components/common/SEO';
+import { localizePublicPath, normalizeLocale } from '../lib/publicRoutes';
 
 export function StudienkollegDetailPage() {
-  const { t } = useTranslation('studienkolleg');
+  const { t, i18n } = useTranslation('studienkolleg');
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
 
   const studienkolleg = id ? getStudienkollegBySlug(id) : undefined;
 
-  useEffect(() => {
-    if (!studienkolleg) {
-      // If invalid studienkolleg ID, redirect to home
-      navigate('/');
-    }
-  }, [studienkolleg, navigate]);
-
   if (!studienkolleg) {
-    return null;
+    return (
+      <main className="min-h-screen bg-page px-6 py-24 text-center">
+        <SEO
+          title="Studienkolleg not found"
+          description="The requested Studienkolleg page does not exist."
+          noIndex
+        />
+        <h1 className="mb-4 text-3xl font-bold">Studienkolleg not found</h1>
+        <Link to="/" className="font-semibold text-primary hover:underline">
+          {t('backToDirectory')}
+        </Link>
+      </main>
+    );
   }
 
   const skId = studienkolleg.slug;
@@ -40,34 +49,65 @@ export function StudienkollegDetailPage() {
   };
   const translatedType = typeLabels[studienkolleg.institutionType] ?? studienkolleg.institutionType;
 
+  const locale = normalizeLocale(i18n.resolvedLanguage ?? i18n.language);
+  const localizedName = td('name', studienkolleg.name);
+  const localizedCity = td('city', studienkolleg.city);
+  const localizedLocation = td('location', studienkolleg.location);
+  const canonicalPath = localizePublicPath(`/studienkolleg/${studienkolleg.slug}`, locale);
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   const seoProps = getStudienkollegSEO(
-    studienkolleg.name,
-    studienkolleg.city,
-    studienkolleg.location
+    localizedName,
+    localizedCity,
+    localizedLocation,
+    locale,
   );
+  const structuredData = [
+    createBreadcrumbSchema([
+      { name: 'STUDIWELT', url: SITE_URL },
+      { name: localizedName, url: canonicalUrl },
+    ]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: seoProps.title,
+      description: seoProps.description,
+      url: canonicalUrl,
+      inLanguage: locale,
+      mainEntity: {
+        '@type': 'CollegeOrUniversity',
+        name: localizedName,
+        url: studienkolleg.application.websiteUrl,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: localizedCity,
+          addressCountry: 'DE',
+        },
+      },
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-page">
-      <SEO {...seoProps} />
+      <SEO {...seoProps} ogType="article" structuredData={structuredData} />
 
       {/* Navigation Bar */}
       <nav className="h-[72px] flex items-center px-10 max-w-[1200px] mx-auto w-full">
-        <button
-          onClick={() => navigate('/')}
+        <Link
+          to="/"
           className="flex items-center gap-2 text-text-muted hover:text-text-main font-semibold text-sm transition-all duration-200 hover:-translate-x-1"
         >
           <Ui.ArrowLeft size={20} />
           {t('backToDirectory')}
-        </button>
+        </Link>
       </nav>
 
       {/* Main Content */}
-      <div className="max-w-[1200px] mx-auto px-6 pb-20 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <main id="main-content" className="max-w-[1200px] mx-auto px-6 pb-20 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {/* Header - Full Width */}
         <div className="lg:col-span-3">
           <StudienkollegHeader
-            name={td('name', studienkolleg.name)}
-            location={td('location', studienkolleg.location)}
+            name={localizedName}
+            location={localizedLocation}
             institutionType={translatedType}
             badge={studienkolleg.badge}
           />
@@ -76,7 +116,7 @@ export function StudienkollegDetailPage() {
         {/* Left Column - Main Content */}
         <div className="lg:col-span-2">
           <CityInfoCard
-            cityName={td('city', studienkolleg.city)}
+            cityName={localizedCity}
             description={td('cityDescription', studienkolleg.cityInfo.description)}
             costOfLiving={td('costOfLiving', studienkolleg.cityInfo.costOfLiving)}
             transit={td('transit', studienkolleg.cityInfo.transit)}
@@ -98,7 +138,7 @@ export function StudienkollegDetailPage() {
             />
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-i18n
+export const i18nReady = i18n
     .use(HttpBackend)
     .use(LanguageDetector)
     .use(initReactI18next)
@@ -17,8 +17,9 @@ i18n
         // Default namespace
         defaultNS: 'common',
 
-        // Namespaces to load
-        ns: ['common', 'landing', 'aboutStudienkolleg', 'application', 'entranceExam', 'fsp', 'auth', 'upgrade', 'statePage', 'statesContent', 'studienkolleg', 'about'],
+        // Load only the shared navigation up front. Route-specific namespaces
+        // are fetched by main.tsx before hydration.
+        ns: ['common'],
 
         // Backend configuration for loading translations
         backend: {

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { SEO, seoConfig } from '../components/common/SEO';
+import { SEO, useSEOConfig } from '../components/common/SEO';
 import { Icon, Ui } from '../lib/icons';
 
 /* -------------------------------------------------------------------------- */
@@ -112,6 +112,7 @@ export function AboutStudienkollegPage() {
   const { t } = useTranslation('aboutStudienkolleg');
   const { user } = useAuth();
   const startTo = user ? '/course' : '/register';
+  const seo = useSEOConfig('aboutStudienkolleg');
 
   const heroStats = t('hero.stats', { returnObjects: true }) as Array<{
     value: string;
@@ -125,11 +126,11 @@ export function AboutStudienkollegPage() {
 
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
-      <SEO {...seoConfig.aboutStudienkolleg} />
+      <SEO {...seo} />
       <LandingNavbar />
 
       {/* ============================ HERO ============================ */}
-      <section className="relative pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-20 text-center overflow-hidden">
+      <section id="main-content" className="relative pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-20 text-center overflow-hidden">
         {/* Ambient gradient blobs */}
         <div className="absolute top-24 -left-24 w-72 h-72 bg-primary/10 blur-[90px] rounded-full pointer-events-none" />
         <div className="absolute top-10 -right-20 w-64 h-64 bg-[#6B8C6E]/10 blur-[90px] rounded-full pointer-events-none" />

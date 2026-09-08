@@ -8,7 +8,7 @@ import { authService } from '../services/authService';
 import { toastService } from '../services/toastService';
 import { TestimonialAuthLayout, FormInput, PasswordInput } from '../components/auth';
 import { registerSchema, type RegisterFormData } from '../lib/validations';
-import { SEO, seoConfig } from '../components/common/SEO';
+import { SEO, useSEOConfig } from '../components/common/SEO';
 import { useRandomTestimonial } from '../hooks';
 
 export function RegisterPage() {
@@ -16,6 +16,7 @@ export function RegisterPage() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const testimonial = useRandomTestimonial();
+  const seo = useSEOConfig('register');
 
   const {
     register,
@@ -56,7 +57,7 @@ export function RegisterPage() {
 
   return (
     <>
-      <SEO {...seoConfig.register} />
+      <SEO {...seo} />
       <TestimonialAuthLayout
         title={t('register.title')}
         subtitle={t('register.subtitle')}

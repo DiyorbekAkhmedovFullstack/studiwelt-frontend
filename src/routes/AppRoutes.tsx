@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { GuestRoute } from './GuestRoute';
 import { ScrollToTop } from '../components/common/ScrollToTop';
@@ -60,6 +60,8 @@ const EntranceExamPage = lazy(() => import('../pages/EntranceExamPage').then(m =
 const FSPPage = lazy(() => import('../pages/FSPPage').then(m => ({ default: m.FSPPage })));
 const StatePage = lazy(() => import('../pages/StatePage').then(m => ({ default: m.StatePage })));
 const AboutPage = lazy(() => import('../pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const CtestGuidePage = lazy(() => import('../pages/CtestGuidePage').then(m => ({ default: m.CtestGuidePage })));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 export function AppRoutes() {
   return (
@@ -251,11 +253,12 @@ export function AppRoutes() {
           <Route path="/application" element={<ApplicationPage />} />
           <Route path="/entrance-exam" element={<EntranceExamPage />} />
           <Route path="/fsp" element={<FSPPage />} />
+          <Route path="/c-test-studienkolleg" element={<CtestGuidePage />} />
           <Route path="/studienkolleg/:id" element={<StudienkollegDetailPage />} />
           <Route path="/state/:stateId" element={<StatePage />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

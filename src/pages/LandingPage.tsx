@@ -8,25 +8,26 @@ import { GermanyMapSection } from '../components/landing/GermanyMapSection';
 import { StudienkollegCarousel } from '../components/landing/StudienkollegCarousel';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useAuth } from '../contexts/AuthContext';
-import { SEO, seoConfig } from '../components/common/SEO';
+import { SEO, useSEOConfig } from '../components/common/SEO';
 import { Icon } from '../lib/icons';
 
 export function LandingPage() {
   const { t } = useTranslation(['landing', 'common']);
   const { user } = useAuth();
+  const seo = useSEOConfig('landing');
   const isAuthenticated = !!user;
   const [heroRef, heroVisible] = useScrollAnimation();
   const [featuresRef, featuresVisible] = useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-page overflow-x-hidden">
-      <SEO {...seoConfig.landing} />
+      <SEO {...seo} />
 
       {/* Navigation */}
       <LandingNavbar />
 
       {/* Hero Section */}
-      <section className="pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-24 text-center relative overflow-hidden">
+      <section id="main-content" className="pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-24 text-center relative overflow-hidden">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
           <div
             ref={heroRef}
@@ -108,4 +109,3 @@ export function LandingPage() {
     </div>
   );
 }
-
